@@ -286,6 +286,13 @@ def html_to_telegram_text(html: str) -> str:
     
     Telegram supports only: <b>, <i>, <u>, <s>, <code>, <pre>, <a href>
     """
+    # Strip markdown code fences (model sometimes wraps HTML in ```html ... ```)
+    html = re.sub(r'```(?:html)?\s*', '', html)
+    html = re.sub(r'~~~(?:html)?\s*', '', html)
+    # Strip excessive whitespace (spaces, tabs) while preserving newlines
+    html = re.sub(r'[ \t]+', ' ', html)
+    html = re.sub(r'^\s+', '', html, flags=re.MULTILINE)
+
     # First, decode HTML entities BEFORE tag processing
     import html as html_module
     html = html_module.unescape(html)

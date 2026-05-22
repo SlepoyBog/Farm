@@ -34,7 +34,7 @@ jobs:
         env:
           PIP_DISABLE_PIP_VERSION_CHECK: 1
 
-      - run: python src/main.py --full
+      - run: python src/main.py
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
