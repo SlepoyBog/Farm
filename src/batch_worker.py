@@ -19,6 +19,7 @@ from src.main import process_topic, client
 from src.trend_analyzer import detect_trending_niche
 
 # Setup logging
+os.makedirs("logs", exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",

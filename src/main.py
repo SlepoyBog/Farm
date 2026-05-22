@@ -22,6 +22,7 @@ from src.trend_analyzer import detect_trending_niche
 from src.site_generator import generate_site
 
 # Setup logging
+os.makedirs("logs", exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",

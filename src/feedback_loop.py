@@ -327,6 +327,7 @@ if __name__ == "__main__":
     import argparse
     import asyncio
     import os
+    import os
     import sys
 
     from dotenv import load_dotenv
@@ -340,6 +341,7 @@ if __name__ == "__main__":
     parser.add_argument("--status", action="store_true", help="Show current recommendations")
     args = parser.parse_args()
 
+    os.makedirs("logs", exist_ok=True)
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s | %(levelname)s | %(message)s",

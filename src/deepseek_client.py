@@ -46,6 +46,7 @@ class DeepSeekClient:
         self.timeout = timeout
 
         # Setup logging
+        os.makedirs("logs", exist_ok=True)
         self.api_logger = logging.getLogger("api_calls")
         self.api_logger.setLevel(logging.INFO)
         fh = logging.FileHandler("logs/api_calls.log", encoding="utf-8")

@@ -16,6 +16,7 @@ from src.main import generate_topics, process_topic, client
 from src.trend_analyzer import detect_trending_niche
 from src.vk_publisher import publish_to_vk
 
+os.makedirs("logs", exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
