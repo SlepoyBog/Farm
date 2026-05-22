@@ -327,7 +327,6 @@ if __name__ == "__main__":
     import argparse
     import asyncio
     import os
-    import os
     import sys
 
     from dotenv import load_dotenv
