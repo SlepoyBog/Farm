@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение с подкреплением: Как ИИ учится на своих ошибках</title>
+    <meta name="description" content="Обучение с подкреплением: Как ИИ учится на своих ошибках 🤖 Основные принципы обучения с подкреплением Обучение с подкреплением (Reinforcement Learning, RL) — это метод машинного обучения, в котором...">
+    <meta name="keywords" content="обучение, подкреплением, учится, своих, ошибках, агент">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Обучение с подкреплением: Как ИИ учится на своих ошибках">
+    <meta property="og:description" content="Обучение с подкреплением: Как ИИ учится на своих ошибках 🤖 Основные принципы обучения с подкреплением Обучение с подкреплением (Reinforcement Learning, RL) — это метод машинного обучения, в котором...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-niche-blog.pages.dev/обучение-ии-с-подкреплением.html">
+    <meta property="og:site_name" content="AI Блог — технологии, тренды, инсайты">
+    <link rel="canonical" href="https://your-niche-blog.pages.dev/обучение-ии-с-подкреплением.html">
+    <link rel="alternate" type="application/rss+xml" title="AI Блог — технологии, тренды, инсайты" href="/rss.xml">
+    <style>
+        *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }}
+        .container {{ max-width: 720px; margin: 0 auto; padding: 20px; }}
+        nav {{ background: #1a1a2e; padding: 12px 20px; }}
+        nav a {{ color: #fff; text-decoration: none; font-size: 0.9em; opacity: 0.9; }}
+        nav a:hover {{ opacity: 1; }}
+        article {{ background: #fff; border-radius: 12px; padding: 30px; margin-top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }}
+        article h1 {{ font-size: 1.6em; margin-bottom: 16px; color: #1a1a2e; }}
+        article h2 {{ font-size: 1.3em; margin: 24px 0 12px; color: #1a1a2e; }}
+        article p {{ margin-bottom: 14px; color: #212529; }}
+        article ul, article ol {{ margin: 0 0 14px 20px; color: #212529; }}
+        article li {{ margin-bottom: 6px; }}
+        article strong {{ color: #1a1a2e; }}
+        .meta {{ font-size: 0.85em; color: #6c757d; margin-bottom: 20px; }}
+        footer {{ text-align: center; padding: 30px 20px; color: #6c757d; font-size: 0.85em; }}
+        footer a {{ color: #4361ee; text-decoration: none; }}
+        @media (max-width: 600px) {{ article {{ padding: 20px; }} }}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container"><a href="/">&larr; На главную</a></div>
+    </nav>
+    <main class="container">
+        <article>
+            <h1>Обучение с подкреплением: Как ИИ учится на своих ошибках</h1>
+            <div class="meta">22 мая 2026</div>
+            <h1>Обучение с подкреплением: Как ИИ учится на своих ошибках 🤖</h1>
+
+<h2>Основные принципы обучения с подкреплением</h2>
+<p>Обучение с подкреплением (Reinforcement Learning, RL) — это метод машинного обучения, в котором агент принимает решения методом проб и ошибок. 🎯 Агент не получает готовых ответов, а учится через взаимодействие со средой: за каждое удачное действие он получает "награду", за неудачное — "штраф". Цель — максимизировать суммарную награду за всю последовательность шагов.</p>
+<p><strong>Пример:</strong> Представьте, что вы учите собаку команде "сидеть". Каждый раз, когда она садится, вы даёте лакомство (награда). Если не садится — ничего не получает. Со временем собака понимает, что выгоднее садиться. RL работает так же, только агент — нейросеть, а лакомство — числовой сигнал.</p>
+
+<h2>Агент, среда и функция вознаграждения 🧠</h2>
+<p>В RL три ключевых компонента:</p>
+<ul>
+  <li><strong>Агент</strong> — программа, которая принимает решения (например, игровой бот).</li>
+  <li><strong>Среда</strong> — мир, в котором действует агент (например, поле игры, дорога для беспилотника).</li>
+  <li><strong>Функция вознаграждения</strong> — правило, которое в каждый момент говорит, хорошо или плохо поступил агент (например, +1 за шаг к цели, −10 за столкновение).</li>
+</ul>
+<p><strong>Пример:</strong> Робот-пылесос. Агент — алгоритм, управляющий движениями. Среда — комната с мебелью. Награда: +5 за каждый собранный мусор, −1 за удар о стену. Со временем робот учится объезжать препятствия и эффективно убирать.</p>
+
+<h2>Популярные алгоритмы: Q-обучение и Deep Q-Networks 🎮</h2>
+<p>Два базовых подхода к RL:</p>
+<ul>
+  <li><strong>Q-обучение (Q-learning):</strong> классический метод, где агент строит таблицу Q — ожидаемую будущую награду для каждого действия в каждом состоянии. Агент выбирает действие с максимальным Q. Отлично работает для простых сред (например, игра "Лабиринт" 4×4), но не масштабируется для сложных задач.</li>
+  <li><strong>Deep Q-Networks (DQN):</strong> вместо таблицы используется глубокая нейронная сеть, которая приближает Q-функцию. Это позволило RL работать с огромными пространствами состояний — например, обучать ИИ играть в классические игры Atari, глядя на пиксели экрана. 🕹️ DQN стал прорывом, показав, что один алгоритм может освоить десятки разных игр с нуля.</li>
+</ul>
+
+<h2>Современные области применения RL 🚀</h2>
+<p>Сегодня RL выходит за рамники игрушек. Вот главные направления:</p>
+<ul>
+  <li><strong>Робототехника:</strong> обучение роботов ловить предметы, ходить, манипулировать объектами без жёсткого программирования.</li>
+  <li><strong>Игры и симуляторы:</strong> AlphaGo, OpenAI Five (Dota 2), StarCraft II — RL обыгрывает чемпионов мира.</li>
+  <li><strong>Автономные автомобили:</strong> обучение принимать быстрые решения на дороге (например, когда тормозить, как объезжать препятствия).</li>
+  <li><strong>Рекомендательные системы:</strong> адаптивные ленты новостей и товаров — RL подбирает контент, чтобы удержать пользователя (максимизировать его время на сайте).</li>
+  <li><strong>Финансы:</strong> управление портфелем акций, где награда — прибыль, а штраф — просадка капитала.</li>
+</ul>
+<p>RL всё ещё сложен в настройке, но уже меняет промышленность — от логистики до медицины. 💡</p>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2026 AI Блог — технологии, тренды, инсайты &mdash; <a href="/rss.xml">RSS</a></p>
+    </footer>
+</body>
+</html>
