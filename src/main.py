@@ -517,6 +517,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             # Step 4: Save article + outline to files
             slug = slugify(topic)
+            os.makedirs("output", exist_ok=True)
             output_path = Path("output") / f"{slug}.html"
             output_path.write_text(article, encoding="utf-8")
             logger.info(f"Article saved to: {output_path}")
