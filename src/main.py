@@ -20,6 +20,7 @@ from src.deepseek_client import DeepSeekClient
 from src.feedback_loop import inject_recommendations, record_publication
 from src.trend_analyzer import detect_trending_niche
 from src.site_generator import generate_site
+from src.image_provider import get_image_url
 
 # Setup logging
 os.makedirs("logs", exist_ok=True)
@@ -350,28 +351,56 @@ def html_to_telegram_text(html: str) -> str:
     return html.strip()
 
 
-def publish_to_telegram(title: str, html_content: str) -> tuple[bool, int | None]:
-    """Publish article to Telegram channel.
-    Returns (success, message_id_or_None).
-    """
+def publish_to_telegram(title: str, html_content: str, image_url: str | None = None) -> tuple[bool, int | None]:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
         return False, None
 
     logger.info(f"Publishing article to Telegram: {title}")
 
-    # Strip h1 from article (title is prepended below, avoid duplication)
     content_no_h1 = re.sub(r'<h1[^>]*>.*?</h1>\s*', '', html_content, flags=re.DOTALL)
-
     clean_title = re.sub(r'^-\s*', '', title).strip()
     body_text = html_to_telegram_text(content_no_h1)
+    max_length = 4096
+    base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
+
+    first_msg_id = None
+
+    # Step 1: send photo with title as caption (if image_url provided)
+    if image_url:
+        caption = clean_title
+        if len(caption) > 1024:
+            caption = caption[:1021] + "..."
+        try:
+            resp = requests.post(
+                f"{base_url}/sendPhoto",
+                json={
+                    "chat_id": TELEGRAM_CHAT_ID,
+                    "photo": image_url,
+                    "caption": caption,
+                    "parse_mode": "HTML",
+                },
+                timeout=30,
+            )
+            if resp.status_code == 400:
+                resp = requests.post(
+                    f"{base_url}/sendPhoto",
+                    json={
+                        "chat_id": TELEGRAM_CHAT_ID,
+                        "photo": image_url,
+                        "caption": caption,
+                    },
+                    timeout=30,
+                )
+            resp.raise_for_status()
+            first_msg_id = resp.json()["result"]["message_id"]
+            logger.info(f"Telegram photo sent (msg_id: {first_msg_id})")
+        except Exception as e:
+            logger.warning(f"Failed to send photo to Telegram: {e}")
+
+    # Step 2: send text content
     message = f"<b>{clean_title}</b>\n\n{body_text}"
 
-    # Telegram has a 4096 character limit per message
-    max_length = 4096
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-
-    # Split message into chunks if too long
     if len(message) <= max_length:
         chunks = [message]
     else:
@@ -386,12 +415,11 @@ def publish_to_telegram(title: str, html_content: str) -> tuple[bool, int | None
         if current_chunk:
             chunks.append(current_chunk)
 
-    first_msg_id = None
     success = True
     for i, chunk in enumerate(chunks):
         try:
             response = requests.post(
-                url,
+                f"{base_url}/sendMessage",
                 json={
                     "chat_id": TELEGRAM_CHAT_ID,
                     "text": chunk,
@@ -406,7 +434,7 @@ def publish_to_telegram(title: str, html_content: str) -> tuple[bool, int | None
                 plain_text = re.sub(r'<[^>]+>', '', chunk)
                 plain_text = html_module.unescape(plain_text)
                 response = requests.post(
-                    url,
+                    f"{base_url}/sendMessage",
                     json={
                         "chat_id": TELEGRAM_CHAT_ID,
                         "text": plain_text,
@@ -417,7 +445,7 @@ def publish_to_telegram(title: str, html_content: str) -> tuple[bool, int | None
             response.raise_for_status()
             resp_data = response.json()
             msg_id = resp_data.get("result", {}).get("message_id")
-            if i == 0:
+            if i == 0 and first_msg_id is None:
                 first_msg_id = msg_id
             logger.info(f"Telegram message {i+1}/{len(chunks)} sent successfully (id: {msg_id})")
         except Exception as e:
@@ -531,12 +559,19 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             outline_path = Path("output") / f"{slug}.outline.json"
             outline_path.write_text(json.dumps(outline, ensure_ascii=False), encoding="utf-8")
+
+            # Get image for this niche/topic
+            image_url = get_image_url(niche, topic)
+
+            meta = {"topic": topic, "niche": niche}
+            if image_url:
+                meta["image_url"] = image_url
             meta_path = Path("output") / f"{slug}.meta.json"
-            json.dump({"topic": topic, "niche": niche}, meta_path.open("w", encoding="utf-8"), ensure_ascii=False)
+            json.dump(meta, meta_path.open("w", encoding="utf-8"), ensure_ascii=False)
 
             # Step 5: Publish to Telegram (with enhanced content)
             tg_title = _extract_title(article)
-            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article)
+            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url)
 
             # Step 6: Publish to VK (base article, VK publisher converts HTML)
             vk_ok = False
@@ -549,6 +584,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                     title=tg_title,
                     html_content=article,
                     niche=niche,
+                    image_url=image_url,
                 )
             except Exception as e:
                 logger.warning(f"VK publish failed for '{topic}': {e}")

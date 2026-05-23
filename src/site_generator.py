@@ -77,6 +77,7 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
     <meta property="og:description" content="{description}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{url}">
+    <meta property="og:image" content="{og_image}">
     <meta property="og:site_name" content="{site_name}">
     <link rel="canonical" href="{url}">
     <link rel="alternate" type="application/rss+xml" title="{site_name}" href="/rss.xml">
@@ -108,6 +109,7 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
         <article>
             <h1>{title}</h1>
             <div class="meta">{date}</div>
+            {og_image_html}
             {content}
         </article>
     </main>
@@ -216,6 +218,12 @@ def generate_site():
         }
         date_str = f"{mtime.day} {months_ru[mtime.month]} {mtime.year}"
 
+        og_image = meta.get("image_url", "")
+        og_image_html = (
+            f'<div style="margin-bottom: 20px;"><img src="{og_image}" '
+            f'alt="{clean_title or title}" style="width:100%; max-width:720px; border-radius:8px;"></div>'
+        ) if og_image else ""
+
         articles.append({
             "slug": slug,
             "title": clean_title or title,
@@ -226,6 +234,8 @@ def generate_site():
             "iso_date": mtime.strftime("%Y-%m-%d"),
             "year": str(mtime.year),
             "mtime": mtime,
+            "og_image": og_image,
+            "og_image_html": og_image_html,
         })
 
     for art in articles:
@@ -236,8 +246,10 @@ def generate_site():
             description=art["description"],
             keywords=art["keywords"],
             url=url,
+            og_image=art["og_image"],
             site_name=SITE_NAME,
             date=art["date"],
+            og_image_html=art["og_image_html"],
             content=art["content"],
             year=art["year"],
         )

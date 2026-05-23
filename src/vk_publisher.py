@@ -151,6 +151,66 @@ def combine_for_vk(articles: list[tuple[str, str]], niche: str) -> str:
     return '\n'.join(parts)
 
 
+def _upload_wall_photo(access_token: str, group_id: str, image_url: str) -> str | None:
+    try:
+        numeric_id = group_id
+        if numeric_id.startswith("club"):
+            numeric_id = numeric_id[4:]
+        if numeric_id.startswith("public"):
+            numeric_id = numeric_id[6:]
+
+        resp = requests.get(
+            "https://api.vk.com/method/photos.getWallUploadServer",
+            params={"access_token": access_token, "v": "5.199", "group_id": numeric_id},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if "error" in data or "response" not in data:
+            logger.error(f"VK upload server error: {data.get('error', 'no response')}")
+            return None
+        upload_url = data["response"]["upload_url"]
+
+        img_resp = requests.get(image_url, timeout=15)
+        img_resp.raise_for_status()
+        content_type = img_resp.headers.get("content-type", "image/jpeg")
+        ext = ".png" if "png" in content_type else ".webp" if "webp" in content_type else ".jpg"
+
+        up_resp = requests.post(
+            upload_url,
+            files={"photo": (f"image{ext}", img_resp.content, content_type)},
+            timeout=30,
+        )
+        up_resp.raise_for_status()
+        upload_data = up_resp.json()
+
+        save_resp = requests.post(
+            "https://api.vk.com/method/photos.saveWallPhoto",
+            data={
+                "access_token": access_token,
+                "v": "5.199",
+                "group_id": numeric_id,
+                "photo": upload_data["photo"],
+                "server": upload_data["server"],
+                "hash": upload_data["hash"],
+            },
+            timeout=15,
+        )
+        save_resp.raise_for_status()
+        save_data = save_resp.json()
+        if "error" in save_data:
+            logger.error(f"VK save photo error: {save_data['error']}")
+            return None
+
+        photo = save_data["response"][0]
+        attachment = f"photo{photo['owner_id']}_{photo['id']}"
+        logger.info(f"VK photo uploaded: {attachment}")
+        return attachment
+    except Exception as e:
+        logger.error(f"Failed to upload image to VK: {e}", exc_info=True)
+        return None
+
+
 def publish_to_vk(
     access_token: str,
     group_id: str,
@@ -159,38 +219,28 @@ def publish_to_vk(
     niche: str,
     from_group: int = 1,
     raw_text: str | None = None,
+    image_url: str | None = None,
 ) -> tuple[bool, int | None]:
-    """
-    Publish adapted article to VK group wall.
-    
-    Args:
-        access_token: VK API access token (with wall posting permissions)
-        group_id: VK group ID (numeric, without minus sign, e.g. "186888784")
-        title: Article title
-        html_content: Article HTML content
-        niche: Content niche for hashtag generation
-        from_group: 1 to post on behalf of group, 0 for user
-    
-    Returns:
-        tuple[bool, int | None] — (success, post_id or None)
-    """
     if not access_token or not group_id:
         logger.warning("VK not configured. Skipping publication.")
         return False, None
-    
+
     logger.info(f"Publishing article to VK: {title}")
-    
-    # Adapt content for VK style (use raw_text if pre-formatted)
+
     post_text = raw_text if raw_text else adapt_for_vk(title, html_content, niche)
-    
-    # Extract numeric ID from group_id (remove "club" prefix if present)
+
     numeric_id = group_id
     if numeric_id.startswith("club"):
         numeric_id = numeric_id[4:]
     if numeric_id.startswith("public"):
         numeric_id = numeric_id[6:]
-    
-    # VK API wall.post - use data instead of params for POST
+
+    attachments = []
+    if image_url:
+        photo_attachment = _upload_wall_photo(access_token, group_id, image_url)
+        if photo_attachment:
+            attachments.append(photo_attachment)
+
     url = "https://api.vk.com/method/wall.post"
     data = {
         "access_token": access_token,
@@ -199,28 +249,30 @@ def publish_to_vk(
         "from_group": from_group,
         "message": post_text,
     }
-    
+    if attachments:
+        data["attachments"] = ",".join(attachments)
+
     try:
         response = requests.post(url, data=data, timeout=30)
         logger.info(f"VK API response status: {response.status_code}")
         logger.info(f"VK API response text: {response.text[:500]}")
-        
+
         if not response.text.strip():
             logger.error("VK API returned empty response. Check access token and group ID.")
             return False, None
-        
+
         data = response.json()
-        
+
         if "error" in data:
             error_msg = data["error"].get("error_msg", "Unknown error")
             error_code = data["error"].get("error_code", 0)
             logger.error(f"VK API error {error_code}: {error_msg}")
             return False, None
-        
+
         post_id = data.get("response", {}).get("post_id", None)
         logger.info(f"VK post published successfully! Post ID: {post_id}")
         return True, post_id
-        
+
     except Exception as e:
         logger.error(f"Failed to publish to VK: {e}", exc_info=True)
         return False, None
