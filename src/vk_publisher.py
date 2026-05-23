@@ -159,6 +159,7 @@ def _upload_wall_photo(access_token: str, group_id: str, image_url: str) -> str 
         if numeric_id.startswith("public"):
             numeric_id = numeric_id[6:]
 
+        logger.info(f"VK photo: getting upload server for group_id={numeric_id}")
         resp = requests.get(
             "https://api.vk.com/method/photos.getWallUploadServer",
             params={"access_token": access_token, "v": "5.199", "group_id": numeric_id},
@@ -170,11 +171,14 @@ def _upload_wall_photo(access_token: str, group_id: str, image_url: str) -> str 
             logger.error(f"VK upload server error: {data.get('error', 'no response')}")
             return None
         upload_url = data["response"]["upload_url"]
+        logger.info("VK photo: upload server obtained")
 
+        logger.info(f"VK photo: downloading from Unsplash: {image_url[:60]}...")
         img_resp = requests.get(image_url, timeout=15)
         img_resp.raise_for_status()
         content_type = img_resp.headers.get("content-type", "image/jpeg")
         ext = ".png" if "png" in content_type else ".webp" if "webp" in content_type else ".jpg"
+        logger.info(f"VK photo: downloaded {len(img_resp.content)} bytes, type={content_type}")
 
         up_resp = requests.post(
             upload_url,
@@ -183,6 +187,7 @@ def _upload_wall_photo(access_token: str, group_id: str, image_url: str) -> str 
         )
         up_resp.raise_for_status()
         upload_data = up_resp.json()
+        logger.info("VK photo: uploaded to VK server")
 
         save_resp = requests.post(
             "https://api.vk.com/method/photos.saveWallPhoto",
@@ -206,6 +211,21 @@ def _upload_wall_photo(access_token: str, group_id: str, image_url: str) -> str 
         attachment = f"photo{photo['owner_id']}_{photo['id']}"
         logger.info(f"VK photo uploaded: {attachment}")
         return attachment
+    except requests.exceptions.HTTPError as e:
+        logger.error(f"VK photo HTTP error: {e}", exc_info=True)
+        return None
+    except requests.exceptions.ConnectionError as e:
+        logger.error(f"VK photo connection error: {e}", exc_info=True)
+        return None
+    except requests.exceptions.Timeout as e:
+        logger.error(f"VK photo timeout error: {e}", exc_info=True)
+        return None
+    except requests.exceptions.RequestException as e:
+        logger.error(f"VK photo request error: {e}", exc_info=True)
+        return None
+    except KeyError as e:
+        logger.error(f"VK photo unexpected response format (missing key {e}): {upload_data}", exc_info=True)
+        return None
     except Exception as e:
         logger.error(f"Failed to upload image to VK: {e}", exc_info=True)
         return None

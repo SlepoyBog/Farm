@@ -366,40 +366,11 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
 
     first_msg_id = None
 
-    # Step 1: send photo with title as caption (if image_url provided)
+    # Build message: invisible link triggers Telegram image preview
     if image_url:
-        caption = clean_title
-        if len(caption) > 1024:
-            caption = caption[:1021] + "..."
-        try:
-            resp = requests.post(
-                f"{base_url}/sendPhoto",
-                json={
-                    "chat_id": TELEGRAM_CHAT_ID,
-                    "photo": image_url,
-                    "caption": caption,
-                    "parse_mode": "HTML",
-                },
-                timeout=30,
-            )
-            if resp.status_code == 400:
-                resp = requests.post(
-                    f"{base_url}/sendPhoto",
-                    json={
-                        "chat_id": TELEGRAM_CHAT_ID,
-                        "photo": image_url,
-                        "caption": caption,
-                    },
-                    timeout=30,
-                )
-            resp.raise_for_status()
-            first_msg_id = resp.json()["result"]["message_id"]
-            logger.info(f"Telegram photo sent (msg_id: {first_msg_id})")
-        except Exception as e:
-            logger.warning(f"Failed to send photo to Telegram: {e}")
-
-    # Step 2: send text content
-    message = f"<b>{clean_title}</b>\n\n{body_text}"
+        message = f'<a href="{image_url}">&#8205;</a><b>{clean_title}</b>\n\n{body_text}'
+    else:
+        message = f"<b>{clean_title}</b>\n\n{body_text}"
 
     if len(message) <= max_length:
         chunks = [message]

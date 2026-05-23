@@ -23,9 +23,6 @@ NICHE_QUERIES = {
 
 DEFAULT_QUERIES = ["technology", "abstract", "digital"]
 
-_cache: dict[str, str] = {}
-
-
 def _pick_query(niche: str, topic: str) -> str:
     queries = NICHE_QUERIES.get(niche, DEFAULT_QUERIES)
     idx = hash(topic) % len(queries)
@@ -33,8 +30,6 @@ def _pick_query(niche: str, topic: str) -> str:
 
 
 def get_image_url(niche: str, topic: str, orientation: str = "landscape") -> Optional[str]:
-    if niche in _cache:
-        return _cache[niche]
 
     access_key = os.getenv("UNSPLASH_ACCESS_KEY")
     if not access_key:
@@ -56,7 +51,6 @@ def get_image_url(niche: str, topic: str, orientation: str = "landscape") -> Opt
             data = data[0]
         url = data.get("urls", {}).get("regular")
         if url:
-            _cache[niche] = url
             logger.info(f"Fetched Unsplash image | query='{query}' | niche='{niche}'")
             return url
     except Exception as e:
