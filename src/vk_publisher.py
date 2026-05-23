@@ -256,18 +256,23 @@ def publish_to_vk(
         numeric_id = numeric_id[6:]
 
     attachments = []
+    image_attached = False
     if image_url:
         photo_attachment = _upload_wall_photo(access_token, group_id, image_url)
         if photo_attachment:
             attachments.append(photo_attachment)
+            image_attached = True
 
     url = "https://api.vk.com/method/wall.post"
+    message = post_text
+    if image_url and not image_attached:
+        message = post_text + f"\n\n🔗 {image_url}"
     data = {
         "access_token": access_token,
         "v": "5.199",
         "owner_id": f"-{numeric_id}",
         "from_group": from_group,
-        "message": post_text,
+        "message": message,
     }
     if attachments:
         data["attachments"] = ",".join(attachments)
