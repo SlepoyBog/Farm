@@ -366,9 +366,9 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
 
     first_msg_id = None
 
-    # Build message: invisible link triggers Telegram image preview
+    # URL as plain text at the top — Telegram generates link preview
     if image_url:
-        message = f'<a href="{image_url}">&#8205;</a><b>{clean_title}</b>\n\n{body_text}'
+        message = f'{image_url}\n\n<b>{clean_title}</b>\n\n{body_text}'
     else:
         message = f"<b>{clean_title}</b>\n\n{body_text}"
 
