@@ -396,76 +396,52 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    title_part = f"<b>{clean_title}</b>\n\n"
-    max_body = 1024 - len(title_part)
-    if len(body_text) > max_body:
-        body_text = _truncate_html(body_text, max_body)
-    caption = title_part + body_text
+    message = f"<b>{clean_title}</b>\n\n{body_text}"
+    max_length = 4096
+    if len(message) > max_length:
+        message = message[:max_length]
     first_msg_id = None
     success = True
 
     if image_url:
-        try:
-            resp = requests.post(
-                f"{base_url}/sendPhoto",
-                json={
-                    "chat_id": TELEGRAM_CHAT_ID,
-                    "photo": image_url,
-                    "caption": caption,
-                    "parse_mode": "HTML",
-                },
-                timeout=30,
-            )
-            if resp.status_code == 400:
-                import html as html_module
-                plain = re.sub(r'<[^>]+>', '', caption)
-                plain = html_module.unescape(plain)
-                resp = requests.post(
-                    f"{base_url}/sendPhoto",
-                    json={
-                        "chat_id": TELEGRAM_CHAT_ID,
-                        "photo": image_url,
-                        "caption": plain,
-                    },
-                    timeout=30,
-                )
-            resp.raise_for_status()
-            first_msg_id = resp.json()["result"]["message_id"]
-            logger.info(f"Telegram photo sent (id: {first_msg_id})")
-        except Exception as e:
-            logger.error(f"Failed to send photo: {e}")
-            success = False
+        link_preview = {
+            "is_disabled": False,
+            "url": image_url,
+            "prefer_large_media": True,
+        }
     else:
-        try:
+        link_preview = {"is_disabled": True}
+
+    try:
+        payload = {
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": message,
+            "link_preview_options": link_preview,
+        }
+        if "<" in message and ">" in message:
+            payload["parse_mode"] = "HTML"
+        resp = requests.post(
+            f"{base_url}/sendMessage",
+            json=payload,
+            timeout=30,
+        )
+        if resp.status_code == 400:
+            import html as html_module
+            plain = re.sub(r'<[^>]+>', '', message)
+            plain = html_module.unescape(plain)
+            payload.pop("parse_mode", None)
+            payload["text"] = plain
             resp = requests.post(
                 f"{base_url}/sendMessage",
-                json={
-                    "chat_id": TELEGRAM_CHAT_ID,
-                    "text": caption,
-                    "parse_mode": "HTML",
-                    "link_preview_options": {"is_disabled": True},
-                },
+                json=payload,
                 timeout=30,
             )
-            if resp.status_code == 400:
-                import html as html_module
-                plain = re.sub(r'<[^>]+>', '', caption)
-                plain = html_module.unescape(plain)
-                resp = requests.post(
-                    f"{base_url}/sendMessage",
-                    json={
-                        "chat_id": TELEGRAM_CHAT_ID,
-                        "text": plain,
-                        "link_preview_options": {"is_disabled": True},
-                    },
-                    timeout=30,
-                )
-            resp.raise_for_status()
-            first_msg_id = resp.json()["result"]["message_id"]
-            logger.info(f"Telegram message sent (id: {first_msg_id})")
-        except Exception as e:
-            logger.error(f"Failed to send message: {e}")
-            success = False
+        resp.raise_for_status()
+        first_msg_id = resp.json()["result"]["message_id"]
+        logger.info(f"Telegram message sent (id: {first_msg_id})")
+    except Exception as e:
+        logger.error(f"Failed to send message: {e}")
+        success = False
 
     return success, first_msg_id
 
@@ -482,7 +458,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=600,
+            max_tokens=1500,
         )
         result = result.strip()
         if len(result) < 50:
