@@ -364,68 +364,161 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     max_length = 4096
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    message = f"<b>{clean_title}</b>\n\n{body_text}"
-
-    if len(message) <= max_length:
-        chunks = [message]
-    else:
-        chunks = []
-        current = ""
-        for line in message.split("\n"):
-            if len(current) + len(line) + 1 > max_length:
-                chunks.append(current)
-                current = line
-            else:
-                current += "\n" + line if current else line
-        if current:
-            chunks.append(current)
-
-    if image_url:
-        link_preview = {
-            "is_disabled": False,
-            "url": image_url,
-            "prefer_large_media": True,
-        }
-    else:
-        link_preview = {"is_disabled": True}
-
     first_msg_id = None
     success = True
-    for i, chunk in enumerate(chunks):
+
+    if image_url:
+        text_message = f"<b>{clean_title}</b>\n\n{body_text}"
+        if len(text_message) <= max_length:
+            text_chunks = [text_message]
+        else:
+            text_chunks = []
+            current = ""
+            for line in text_message.split("\n"):
+                if len(current) + len(line) + 1 > max_length:
+                    text_chunks.append(current)
+                    current = line
+                else:
+                    current += "\n" + line if current else line
+            if current:
+                text_chunks.append(current)
+
+        photo_caption = f"<b>{clean_title}</b>"[:1024]
         try:
-            payload = {
-                "chat_id": TELEGRAM_CHAT_ID,
-                "text": chunk,
-                "link_preview_options": link_preview,
-            }
-            # Only set parse_mode if there are HTML tags
-            if "<" in chunk and ">" in chunk:
-                payload["parse_mode"] = "HTML"
             resp = requests.post(
-                f"{base_url}/sendMessage",
-                json=payload,
+                f"{base_url}/sendPhoto",
+                json={
+                    "chat_id": TELEGRAM_CHAT_ID,
+                    "photo": image_url,
+                    "caption": photo_caption,
+                    "parse_mode": "HTML",
+                },
                 timeout=30,
             )
-            if resp.status_code == 400:
-                logger.warning(f"HTML parse mode failed for chunk {i+1}, retrying as plain text...")
-                import html as html_module
-                plain = re.sub(r'<[^>]+>', '', chunk)
-                plain = html_module.unescape(plain)
-                payload.pop("parse_mode", None)
-                payload["text"] = plain
+            resp.raise_for_status()
+            first_msg_id = resp.json()["result"]["message_id"]
+            logger.info(f"Telegram photo sent (id: {first_msg_id})")
+
+            for i, chunk in enumerate(text_chunks):
+                try:
+                    payload = {
+                        "chat_id": TELEGRAM_CHAT_ID,
+                        "text": chunk,
+                        "reply_to_message_id": first_msg_id,
+                    }
+                    if "<" in chunk and ">" in chunk:
+                        payload["parse_mode"] = "HTML"
+                    resp = requests.post(
+                        f"{base_url}/sendMessage",
+                        json=payload,
+                        timeout=30,
+                    )
+                    if resp.status_code == 400:
+                        import html as html_module
+                        plain = re.sub(r'<[^>]+>', '', chunk)
+                        plain = html_module.unescape(plain)
+                        payload.pop("parse_mode", None)
+                        payload["text"] = plain
+                        resp = requests.post(
+                            f"{base_url}/sendMessage",
+                            json=payload,
+                            timeout=30,
+                        )
+                    resp.raise_for_status()
+                    logger.info(f"Telegram text {i+1}/{len(text_chunks)} sent")
+                except Exception as e:
+                    logger.error(f"Failed to send text {i+1}: {e}")
+                    success = False
+        except Exception as e:
+            logger.error(f"Failed to send photo, falling back to sendMessage: {e}")
+            text_chunks.insert(0, f"<b>{clean_title}</b>\n\n{body_text}")
+            first_msg_id = None
+            for i, chunk in enumerate(text_chunks):
+                try:
+                    payload = {
+                        "chat_id": TELEGRAM_CHAT_ID,
+                        "text": chunk,
+                        "link_preview_options": {
+                            "is_disabled": False,
+                            "url": image_url,
+                            "prefer_large_media": True,
+                        },
+                    }
+                    if "<" in chunk and ">" in chunk:
+                        payload["parse_mode"] = "HTML"
+                    resp = requests.post(
+                        f"{base_url}/sendMessage",
+                        json=payload,
+                        timeout=30,
+                    )
+                    if resp.status_code == 400:
+                        import html as html_module
+                        plain = re.sub(r'<[^>]+>', '', chunk)
+                        plain = html_module.unescape(plain)
+                        payload.pop("parse_mode", None)
+                        payload["text"] = plain
+                        resp = requests.post(
+                            f"{base_url}/sendMessage",
+                            json=payload,
+                            timeout=30,
+                        )
+                    resp.raise_for_status()
+                    msg_id = resp.json()["result"]["message_id"]
+                    if i == 0:
+                        first_msg_id = msg_id
+                    logger.info(f"Telegram message {i+1}/{len(text_chunks)} sent (id: {msg_id})")
+                except Exception as e:
+                    logger.error(f"Failed to send message {i+1}: {e}")
+                    success = False
+    else:
+        message = f"<b>{clean_title}</b>\n\n{body_text}"
+        if len(message) <= max_length:
+            chunks = [message]
+        else:
+            chunks = []
+            current = ""
+            for line in message.split("\n"):
+                if len(current) + len(line) + 1 > max_length:
+                    chunks.append(current)
+                    current = line
+                else:
+                    current += "\n" + line if current else line
+            if current:
+                chunks.append(current)
+
+        for i, chunk in enumerate(chunks):
+            try:
+                payload = {
+                    "chat_id": TELEGRAM_CHAT_ID,
+                    "text": chunk,
+                    "link_preview_options": {"is_disabled": True},
+                }
+                if "<" in chunk and ">" in chunk:
+                    payload["parse_mode"] = "HTML"
                 resp = requests.post(
                     f"{base_url}/sendMessage",
                     json=payload,
                     timeout=30,
                 )
-            resp.raise_for_status()
-            msg_id = resp.json()["result"]["message_id"]
-            if i == 0:
-                first_msg_id = msg_id
-            logger.info(f"Telegram message {i+1}/{len(chunks)} sent (id: {msg_id})")
-        except Exception as e:
-            logger.error(f"Failed to send message {i+1}: {e}")
-            success = False
+                if resp.status_code == 400:
+                    import html as html_module
+                    plain = re.sub(r'<[^>]+>', '', chunk)
+                    plain = html_module.unescape(plain)
+                    payload.pop("parse_mode", None)
+                    payload["text"] = plain
+                    resp = requests.post(
+                        f"{base_url}/sendMessage",
+                        json=payload,
+                        timeout=30,
+                    )
+                resp.raise_for_status()
+                msg_id = resp.json()["result"]["message_id"]
+                if i == 0:
+                    first_msg_id = msg_id
+                logger.info(f"Telegram message {i+1}/{len(chunks)} sent (id: {msg_id})")
+            except Exception as e:
+                logger.error(f"Failed to send message {i+1}: {e}")
+                success = False
 
     return success, first_msg_id
 
