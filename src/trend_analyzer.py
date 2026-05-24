@@ -1,7 +1,5 @@
-import asyncio
 import json
 import logging
-import random
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -9,6 +7,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.deepseek_client import DeepSeekClient
+from src.trend_reader import fetch_recent_headlines
 
 logger = logging.getLogger(__name__)
 
@@ -168,7 +167,7 @@ async def detect_trending_niche(
 ) -> str:
     logger.info("Analyzing trending niches...")
 
-    # 1. Google Trends (free)
+    # 1. Google Trends (free, unreliable)
     niche = await _from_google_trends()
     if niche:
         mapped = _map_to_predefined_niche(niche)
@@ -182,8 +181,8 @@ async def detect_trending_niche(
     if niche:
         return niche
 
-    # 3. DeepSeek trend analysis (constrained to predefined niches)
-    niche = await _from_deepseek(client, base_niche)
+    # 3. RSS + DeepSeek trend analysis (real-time headlines as context)
+    niche = await _from_rss_with_deepseek(client, base_niche)
     if niche:
         return niche
 
@@ -191,31 +190,38 @@ async def detect_trending_niche(
     return _rotate_fallback()
 
 
-async def _from_deepseek(client: DeepSeekClient, base_niche: str = "") -> str | None:
-    """Ask DeepSeek for the hottest niche right now, constrained to predefined list."""
-    current_month = datetime.now().strftime("%B")
+async def _from_rss_with_deepseek(client: DeepSeekClient, base_niche: str = "") -> str | None:
+    """Fetch fresh RSS headlines and ask DeepSeek to pick the hottest niche."""
+    headlines = fetch_recent_headlines(hours=6, max_total=50)
+    if not headlines:
+        logger.info("No RSS headlines fetched, skipping RSS+DeepSeek path")
+        return None
+
+    headlines_text = "\n".join(f"- {h}" for h in headlines[:30])
     predefined_list = "\n".join(f"- {n}" for n in PREDEFINED_NICHES)
     prompt = (
-        f"Какая ниша из списка ниже сейчас САМАЯ ГОРЯЧАЯ и трендовая именно сейчас "
-        f"({current_month} {datetime.now().year}, Россия/СНГ)?\n\n"
+        f"Сегодня {datetime.now().strftime('%d %B %Y')}. "
+        f"Вот свежие заголовки новостей (за последние часы):\n\n"
+        f"{headlines_text}\n\n"
+        f"Проанализируй их. Какая ниша из списка ниже сейчас САМАЯ ГОРЯЧАЯ "
+        f"судя по этим заголовкам?\n\n"
         f"{predefined_list}\n\n"
-        f"Учитывай: сезонность, мировые тренды, хайп, коммерческую привлекательность.\n\n"
         f"Верни ТОЛЬКО название ниши из списка, ровно одну строку. Ничего другого."
     )
     try:
         result = await client.call(
             prompt=prompt,
-            system_prompt="Ты — аналитик трендов. Отвечай только названием ниши из предложенного списка.",
-            temperature=0.4,
+            system_prompt="Ты — аналитик трендов. Анализируй заголовки и выбирай нишу только из предложенного списка.",
+            temperature=0.3,
             max_tokens=50,
         )
         mapped = _map_to_predefined_niche(result.strip())
         if mapped:
-            logger.info(f"DeepSeek trend: '{mapped}'")
+            logger.info(f"RSS+DeepSeek trend: '{mapped}'")
             return mapped
-        logger.warning(f"DeepSeek returned unmappable niche: '{result.strip()}'")
+        logger.warning(f"RSS+DeepSeek returned unmappable niche: '{result.strip()}'")
     except Exception as e:
-        logger.warning(f"DeepSeek trend analysis failed: {e}")
+        logger.warning(f"RSS+DeepSeek analysis failed: {e}")
     return None
 
 
