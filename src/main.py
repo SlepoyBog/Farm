@@ -364,10 +364,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     max_length = 4096
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    if image_url:
-        message = f"<b>{clean_title}</b>\n\n{body_text}\n\n{image_url}"
-    else:
-        message = f"<b>{clean_title}</b>\n\n{body_text}"
+    message = f"<b>{clean_title}</b>\n\n{body_text}"
 
     if len(message) <= max_length:
         chunks = [message]
@@ -383,18 +380,30 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
         if current:
             chunks.append(current)
 
+    if image_url:
+        link_preview = {
+            "is_disabled": False,
+            "url": image_url,
+            "prefer_large_media": True,
+        }
+    else:
+        link_preview = {"is_disabled": True}
+
     first_msg_id = None
     success = True
     for i, chunk in enumerate(chunks):
         try:
+            payload = {
+                "chat_id": TELEGRAM_CHAT_ID,
+                "text": chunk,
+                "link_preview_options": link_preview,
+            }
+            # Only set parse_mode if there are HTML tags
+            if "<" in chunk and ">" in chunk:
+                payload["parse_mode"] = "HTML"
             resp = requests.post(
                 f"{base_url}/sendMessage",
-                json={
-                    "chat_id": TELEGRAM_CHAT_ID,
-                    "text": chunk,
-                    "parse_mode": "HTML",
-                    "disable_web_page_preview": False,
-                },
+                json=payload,
                 timeout=30,
             )
             if resp.status_code == 400:
@@ -402,13 +411,11 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
                 import html as html_module
                 plain = re.sub(r'<[^>]+>', '', chunk)
                 plain = html_module.unescape(plain)
+                payload.pop("parse_mode", None)
+                payload["text"] = plain
                 resp = requests.post(
                     f"{base_url}/sendMessage",
-                    json={
-                        "chat_id": TELEGRAM_CHAT_ID,
-                        "text": plain,
-                        "disable_web_page_preview": False,
-                    },
+                    json=payload,
                     timeout=30,
                 )
             resp.raise_for_status()
