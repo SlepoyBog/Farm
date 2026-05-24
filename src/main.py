@@ -351,6 +351,36 @@ def html_to_telegram_text(html: str) -> str:
     return html.strip()
 
 
+def _truncate_html(text: str, max_chars: int) -> str:
+    """Truncate HTML text safely without breaking tags."""
+    if len(text) <= max_chars:
+        return text
+    truncated = text[:max_chars]
+    last_open = truncated.rfind("<")
+    last_close = truncated.rfind(">")
+    if last_open > last_close:
+        truncated = truncated[:last_open]
+    open_tags = []
+    i = 0
+    while i < len(truncated):
+        if truncated[i] == "<":
+            end = truncated.find(">", i)
+            if end != -1:
+                tag = truncated[i + 1 : end].split()[0]
+                if not tag.startswith("/"):
+                    open_tags.append(tag)
+                elif open_tags and open_tags[-1] == tag[1:]:
+                    open_tags.pop()
+                i = end + 1
+            else:
+                i += 1
+        else:
+            i += 1
+    for tag in reversed(open_tags):
+        truncated += f"</{tag}>"
+    return truncated
+
+
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None) -> tuple[bool, int | None]:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
@@ -363,8 +393,11 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    max_caption = 1024
-    caption = f"<b>{clean_title}</b>\n\n{body_text}"[:max_caption]
+    title_part = f"<b>{clean_title}</b>\n\n"
+    max_body = 1024 - len(title_part) - 20
+    if len(body_text) > max_body:
+        body_text = _truncate_html(body_text, max_body)
+    caption = title_part + body_text
     first_msg_id = None
     success = True
 
