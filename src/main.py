@@ -352,10 +352,13 @@ def html_to_telegram_text(html: str) -> str:
 
 
 def _truncate_html(text: str, max_chars: int) -> str:
-    """Truncate HTML text safely without breaking tags."""
+    """Truncate HTML text at word boundary without breaking tags."""
     if len(text) <= max_chars:
         return text
     truncated = text[:max_chars]
+    last_space = max(truncated.rfind(" "), truncated.rfind("\n"))
+    if last_space > 0:
+        truncated = truncated[:last_space]
     last_open = truncated.rfind("<")
     last_close = truncated.rfind(">")
     if last_open > last_close:
@@ -394,7 +397,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     title_part = f"<b>{clean_title}</b>\n\n"
-    max_body = 1024 - len(title_part) - 20
+    max_body = 1024 - len(title_part)
     if len(body_text) > max_body:
         body_text = _truncate_html(body_text, max_body)
     caption = title_part + body_text
