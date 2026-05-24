@@ -364,44 +364,25 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     max_length = 4096
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    message = f"<b>{clean_title}</b>\n\n{body_text}"
-
-    if len(message) <= max_length:
-        chunks = [message]
-    else:
-        chunks = []
-        current_chunk = ""
-        for line in message.split("\n"):
-            if len(current_chunk) + len(line) + 1 > max_length:
-                chunks.append(current_chunk)
-                current_chunk = line
-            else:
-                current_chunk += "\n" + line if current_chunk else line
-        if current_chunk:
-            chunks.append(current_chunk)
-
     first_msg_id = None
     success = True
 
     if image_url:
-        caption = chunks[0][:1024]
-        tail = chunks[0][1024:]
-        remaining = ([tail] + chunks[1:]) if tail else chunks[1:]
-
+        photo_caption = f"<b>{clean_title}</b>"[:1024]
         try:
             resp = requests.post(
                 f"{base_url}/sendPhoto",
                 json={
                     "chat_id": TELEGRAM_CHAT_ID,
                     "photo": image_url,
-                    "caption": caption,
+                    "caption": photo_caption,
                     "parse_mode": "HTML",
                 },
                 timeout=30,
             )
             if resp.status_code == 400:
                 import html as html_module
-                plain = re.sub(r'<[^>]+>', '', caption)
+                plain = re.sub(r'<[^>]+>', '', photo_caption)
                 plain = html_module.unescape(plain)
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
@@ -419,9 +400,22 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             logger.error(f"Failed to send photo: {e}")
             success = False
 
-        for i, chunk in enumerate(remaining):
-            if not chunk:
-                continue
+        text_message = f"<b>{clean_title}</b>\n\n{body_text}"
+        if len(text_message) <= max_length:
+            text_chunks = [text_message]
+        else:
+            text_chunks = []
+            current = ""
+            for line in text_message.split("\n"):
+                if len(current) + len(line) + 1 > max_length:
+                    text_chunks.append(current)
+                    current = line
+                else:
+                    current += "\n" + line if current else line
+            if current:
+                text_chunks.append(current)
+
+        for i, chunk in enumerate(text_chunks):
             try:
                 resp = requests.post(
                     f"{base_url}/sendMessage",
@@ -447,11 +441,26 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
                         timeout=30,
                     )
                 resp.raise_for_status()
-                logger.info(f"Telegram text {i+1}/{len(remaining)} sent")
+                logger.info(f"Telegram text {i+1}/{len(text_chunks)} sent")
             except Exception as e:
                 logger.error(f"Failed to send text {i+1}: {e}")
                 success = False
     else:
+        message = f"<b>{clean_title}</b>\n\n{body_text}"
+        if len(message) <= max_length:
+            chunks = [message]
+        else:
+            chunks = []
+            current = ""
+            for line in message.split("\n"):
+                if len(current) + len(line) + 1 > max_length:
+                    chunks.append(current)
+                    current = line
+                else:
+                    current += "\n" + line if current else line
+            if current:
+                chunks.append(current)
+
         for i, chunk in enumerate(chunks):
             try:
                 resp = requests.post(
@@ -500,7 +509,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=500,
+            max_tokens=1500,
         )
         result = result.strip()
         if len(result) < 50:
