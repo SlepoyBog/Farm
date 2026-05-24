@@ -43,6 +43,7 @@ jobs:
           VK_GROUP_ID: ${{ secrets.VK_GROUP_ID }}
           SITE_URL: ${{ secrets.SITE_URL }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
 
       - run: python src/feedback_loop.py
         env:

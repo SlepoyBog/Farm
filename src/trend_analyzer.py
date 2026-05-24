@@ -85,48 +85,6 @@ def _map_to_predefined_niche(raw: str) -> str | None:
     return mapping.get(raw_lower)
 
 
-async def _from_google_trends() -> str | None:
-    try:
-        from pytrends.request import TrendReq
-
-        pytrends = TrendReq(hl="ru-RU", tz=180, timeout=10)
-
-        trending = pytrends.trending_searches(pn="russia")
-        if not trending.empty:
-            niche = str(trending.iloc[0, 0]).strip().lower()
-            if niche and len(niche) > 3:
-                logger.info(f"Google Trends (top trending): {niche}")
-                return niche
-
-        categories = [
-            "искусственный интеллект",
-            "нейросети",
-            "авто",
-            "криптовалюта",
-            "здоровье",
-            "финансы",
-            "спорт",
-            "кино",
-            "бизнес",
-            "образование",
-        ]
-        pytrends.build_payload(
-            kw_list=categories, timeframe="now 7-d", geo="RU", gprop=""
-        )
-        df = pytrends.interest_over_time()
-        if df is not None and not df.empty:
-            df = df.drop(columns=["isPartial"], errors="ignore")
-            means = df[categories].mean()
-            top = means.idxmax()
-            logger.info(f"Google Trends (category peak): {top}")
-            return top
-
-    except Exception as e:
-        logger.warning(f"Google Trends failed: {e}")
-
-    return None
-
-
 async def _from_post_history() -> str | None:
     """Pick best niche from post engagement history (0 API calls).
 
@@ -167,26 +125,17 @@ async def detect_trending_niche(
 ) -> str:
     logger.info("Analyzing trending niches...")
 
-    # 1. Google Trends (free, unreliable)
-    niche = await _from_google_trends()
-    if niche:
-        mapped = _map_to_predefined_niche(niche)
-        if mapped:
-            logger.info(f"Google Trends → {niche} → mapped to '{mapped}'")
-            return mapped
-        logger.info(f"Google Trends returned '{niche}' — no mapping, skipping")
-
-    # 2. Post history analysis (only if scored posts exist)
+    # 1. Post history analysis (only if scored posts exist)
     niche = await _from_post_history()
     if niche:
         return niche
 
-    # 3. RSS + DeepSeek trend analysis (real-time headlines as context)
+    # 2. NewsAPI/Reddit + DeepSeek trend analysis (real-time headlines as context)
     niche = await _from_rss_with_deepseek(client, base_niche)
     if niche:
         return niche
 
-    # 4. Fallback rotation (cycles through all predefined niches)
+    # 3. Fallback rotation (cycles through all predefined niches)
     return _rotate_fallback()
 
 
