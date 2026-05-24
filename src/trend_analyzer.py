@@ -12,16 +12,16 @@ from src.deepseek_client import DeepSeekClient
 
 logger = logging.getLogger(__name__)
 
-FALLBACK_NICHES = [
+PREDEFINED_NICHES = [
     "искусственный интеллект",
     "авто",
+    "технологии",
     "здоровье",
     "финансы",
-    "технологии",
-    "спорт",
-    "кино",
     "бизнес",
     "образование",
+    "спорт",
+    "кино",
     "путешествия",
 ]
 
@@ -42,27 +42,48 @@ def _save_rotation_index(idx: int):
 
 
 def _rotate_fallback() -> str:
-    month = datetime.now().month
-    # Boost seasonally-relevant niches
-    seasonal_map = {
-        (12, 1, 2): ["здоровье", "финансы", "технологии", "кино"],
-        (3, 4, 5): ["технологии", "путешествия", "образование", "авто"],
-        (6, 7, 8): ["путешествия", "спорт", "авто", "технологии"],
-        (9, 10, 11): ["образование", "бизнес", "здоровье", "искусственный интеллект"],
-    }
-    for months, niches in seasonal_map.items():
-        if month in months:
-            seasonal_pool = niches
-            break
-    else:
-        seasonal_pool = FALLBACK_NICHES
-
-    # Weighted pick: prefer niches that haven't been used recently
     idx = _read_rotation_index()
-    niche = seasonal_pool[idx % len(seasonal_pool)]
-    _save_rotation_index((idx + 1) % len(seasonal_pool))
-    logger.info(f"Fallback rotation (seasonal): {niche}")
+    niche = PREDEFINED_NICHES[idx % len(PREDEFINED_NICHES)]
+    _save_rotation_index((idx + 1) % len(PREDEFINED_NICHES))
+    logger.info(f"Fallback rotation: {niche}")
     return niche
+
+
+def _map_to_predefined_niche(raw: str) -> str | None:
+    """Map any niche string to the closest predefined niche."""
+    raw_lower = raw.strip().lower().rstrip(".!")
+    if raw_lower in PREDEFINED_NICHES:
+        return raw_lower
+    mapping = {
+        "ии": "искусственный интеллект",
+        "ai": "искусственный интеллект",
+        "нейросети": "искусственный интеллект",
+        "гпт": "искусственный интеллект",
+        "электромобили": "авто",
+        "автомобили": "авто",
+        "криптовалюта": "финансы",
+        "крипто": "финансы",
+        "инвестиции": "финансы",
+        "медицина": "здоровье",
+        "фитнес": "спорт",
+        "спортзал": "спорт",
+        "киберспорт": "спорт",
+        "путешествие": "путешествия",
+        "туризм": "путешествия",
+        "образование": "образование",
+        "кино": "кино",
+        "фильмы": "кино",
+        "сериалы": "кино",
+        "здоровое питание": "здоровье",
+        "диета": "здоровье",
+        "бизнес": "бизнес",
+        "стартап": "бизнес",
+        "маркетинг": "бизнес",
+        "цифровые технологии": "технологии",
+        "гаджеты": "технологии",
+        "инновации": "технологии",
+    }
+    return mapping.get(raw_lower)
 
 
 async def _from_google_trends() -> str | None:
@@ -108,7 +129,10 @@ async def _from_google_trends() -> str | None:
 
 
 async def _from_post_history() -> str | None:
-    """Pick best niche from post engagement history (0 API calls)."""
+    """Pick best niche from post engagement history (0 API calls).
+
+    Only returns a niche if there are records with actual engagement scores.
+    """
     history_path = Path("data") / "post_history.json"
     if not history_path.exists():
         return None
@@ -123,10 +147,13 @@ async def _from_post_history() -> str | None:
         niche = record.get("niche", "")
         if not niche:
             continue
-        score = record.get("score") or 0
-        niche_scores.setdefault(niche, []).append(score)
+        score = record.get("score")
+        if score is None:
+            continue
+        niche_scores.setdefault(niche, []).append(float(score))
 
     if not niche_scores:
+        logger.info("Post history: no scored posts yet, skipping")
         return None
 
     best_niche = max(niche_scores, key=lambda n: sum(niche_scores[n]) / len(niche_scores[n]))
@@ -144,49 +171,52 @@ async def detect_trending_niche(
     # 1. Google Trends (free)
     niche = await _from_google_trends()
     if niche:
-        return niche
+        mapped = _map_to_predefined_niche(niche)
+        if mapped:
+            logger.info(f"Google Trends → {niche} → mapped to '{mapped}'")
+            return mapped
+        logger.info(f"Google Trends returned '{niche}' — no mapping, skipping")
 
-    # 2. Post history analysis (0 API calls)
+    # 2. Post history analysis (only if scored posts exist)
     niche = await _from_post_history()
     if niche:
         return niche
 
-    try:
-        system_prompt, user_template = _load_trend_prompt()
-        today = datetime.now().strftime("%Y-%m-%d")
-        user_prompt = (
-            user_template.replace("{{base_niche}}", base_niche or "не указана")
-            .replace("{{date}}", today)
-        )
-        result = await client.call(
-            prompt=user_prompt,
-            system_prompt=system_prompt,
-            temperature=0.9,
-            max_tokens=100,
-        )
-        niche = result.strip().lower().rstrip(".!")
-        if niche and len(niche) > 2:
-            logger.info(f"DeepSeek niche: {niche}")
-            return niche
-    except Exception as e:
-        logger.warning(f"DeepSeek trend analysis failed: {e}")
+    # 3. DeepSeek trend analysis (constrained to predefined niches)
+    niche = await _from_deepseek(client, base_niche)
+    if niche:
+        return niche
 
+    # 4. Fallback rotation (cycles through all predefined niches)
     return _rotate_fallback()
 
 
-def _load_trend_prompt() -> tuple[str, str]:
-    prompt_path = Path("prompts") / "trend_analysis.prompter"
-    if not prompt_path.exists():
-        raise FileNotFoundError(f"Prompt file not found: {prompt_path}")
+async def _from_deepseek(client: DeepSeekClient, base_niche: str = "") -> str | None:
+    """Ask DeepSeek for the hottest niche right now, constrained to predefined list."""
+    current_month = datetime.now().strftime("%B")
+    predefined_list = "\n".join(f"- {n}" for n in PREDEFINED_NICHES)
+    prompt = (
+        f"Какая ниша из списка ниже сейчас САМАЯ ГОРЯЧАЯ и трендовая именно сейчас "
+        f"({current_month} {datetime.now().year}, Россия/СНГ)?\n\n"
+        f"{predefined_list}\n\n"
+        f"Учитывай: сезонность, мировые тренды, хайп, коммерческую привлекательность.\n\n"
+        f"Верни ТОЛЬКО название ниши из списка, ровно одну строку. Ничего другого."
+    )
+    try:
+        result = await client.call(
+            prompt=prompt,
+            system_prompt="Ты — аналитик трендов. Отвечай только названием ниши из предложенного списка.",
+            temperature=0.4,
+            max_tokens=50,
+        )
+        mapped = _map_to_predefined_niche(result.strip())
+        if mapped:
+            logger.info(f"DeepSeek trend: '{mapped}'")
+            return mapped
+        logger.warning(f"DeepSeek returned unmappable niche: '{result.strip()}'")
+    except Exception as e:
+        logger.warning(f"DeepSeek trend analysis failed: {e}")
+    return None
 
-    content = prompt_path.read_text(encoding="utf-8")
 
-    parts = content.split("---", 1)
-    if len(parts) == 2:
-        system_prompt = parts[0].strip()
-        user_prompt = parts[1].strip()
-    else:
-        system_prompt = ""
-        user_prompt = parts[0].strip()
 
-    return system_prompt, user_prompt
