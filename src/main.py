@@ -365,7 +365,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     if image_url:
-        message = f'<a href="{image_url}">\u200B</a>\n<b>{clean_title}</b>\n\n{body_text}'
+        message = f"<b>{clean_title}</b>\n\n{body_text}\n\n{image_url}"
     else:
         message = f"<b>{clean_title}</b>\n\n{body_text}"
 
