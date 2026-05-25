@@ -385,6 +385,10 @@ def _truncate_html(text: str, max_chars: int) -> str:
 
 
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None) -> tuple[bool, int | None]:
+    """
+    OLD APPROACH (sendMessage + link_preview, без фото в Дзен):
+    Раскомментировать блок ниже и удалить новый код для отката.
+    """
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
         return False, None
@@ -397,50 +401,70 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     message = f"<b>{clean_title}</b>\n\n{body_text}"
-    max_length = 4096
-    if len(message) > max_length:
-        message = message[:max_length]
+    if len(message) > 4096:
+        message = message[:4096]
+
     first_msg_id = None
     success = True
-
-    if image_url:
-        link_preview = {
-            "is_disabled": False,
-            "url": image_url,
-            "prefer_large_media": True,
-        }
-    else:
-        link_preview = {"is_disabled": True}
+    photo_msg_id = None
 
     try:
+        # Step 1: sendPhoto (image + caption) — Dzen picks this up
+        if image_url:
+            caption = clean_title
+            if len(caption) > 900:
+                caption = caption[:900]
+
+            photo_resp = requests.post(f"{base_url}/sendPhoto", json={
+                "chat_id": TELEGRAM_CHAT_ID,
+                "photo": image_url,
+                "caption": caption,
+                "parse_mode": "HTML",
+            }, timeout=30)
+
+            if photo_resp.status_code == 200:
+                photo_msg_id = photo_resp.json()["result"]["message_id"]
+                first_msg_id = photo_msg_id
+                logger.info(f"Telegram photo sent (id: {photo_msg_id})")
+            else:
+                logger.warning(f"sendPhoto failed ({photo_resp.status_code}), fallback to link_preview")
+
+        # Step 2: sendMessage with full text (reply to photo if sent)
         payload = {
             "chat_id": TELEGRAM_CHAT_ID,
             "text": message,
-            "link_preview_options": link_preview,
         }
+        if photo_msg_id:
+            payload["reply_to_message_id"] = photo_msg_id
+            payload["link_preview_options"] = {"is_disabled": True}
+        elif image_url:
+            payload["link_preview_options"] = {
+                "is_disabled": False, "url": image_url, "prefer_large_media": True,
+            }
+        else:
+            payload["link_preview_options"] = {"is_disabled": True}
+
         if "<" in message and ">" in message:
             payload["parse_mode"] = "HTML"
-        resp = requests.post(
-            f"{base_url}/sendMessage",
-            json=payload,
-            timeout=30,
-        )
+
+        resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
+
         if resp.status_code == 400:
             import html as html_module
             plain = re.sub(r'<[^>]+>', '', message)
             plain = html_module.unescape(plain)
             payload.pop("parse_mode", None)
             payload["text"] = plain
-            resp = requests.post(
-                f"{base_url}/sendMessage",
-                json=payload,
-                timeout=30,
-            )
+            resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
+
         resp.raise_for_status()
-        first_msg_id = resp.json()["result"]["message_id"]
-        logger.info(f"Telegram message sent (id: {first_msg_id})")
+        msg_id = resp.json()["result"]["message_id"]
+        if not first_msg_id:
+            first_msg_id = msg_id
+        logger.info(f"Telegram message sent (id: {msg_id})")
+
     except Exception as e:
-        logger.error(f"Failed to send message: {e}")
+        logger.error(f"Failed to send to Telegram: {e}", exc_info=True)
         success = False
 
     return success, first_msg_id
