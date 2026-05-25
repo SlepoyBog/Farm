@@ -307,19 +307,31 @@ def _generate_sitemap(articles: list[dict]):
 def _generate_rss(articles: list[dict]):
     items = []
     for art in articles:
-        snippet = xml_escape(re.sub(r"<[^>]+>", "", art["content"])[:300])
+        description = xml_escape(re.sub(r"<[^>]+>", "", art["content"])[:500])
+        full_content = _rss_full_content(art)
+        enclosure = ""
+        if art.get("og_image"):
+            enclosure = (
+                f'<enclosure url="{xml_escape(art["og_image"])}" '
+                f'type="image/jpeg" length="0"/>\n'
+            )
         items.append(
             f"<item>\n"
             f"<title>{xml_escape(art['title'])}</title>\n"
             f"<link>{SITE_URL}/{art['slug']}.html</link>\n"
             f"<guid>{SITE_URL}/{art['slug']}.html</guid>\n"
             f"<pubDate>{art['mtime'].strftime('%a, %d %b %Y 00:00:00 +0000')}</pubDate>\n"
-            f"<description>{snippet}</description>\n"
+            f"<description>{description}</description>\n"
+            f"{enclosure}"
+            f"<content:encoded><![CDATA[{full_content}]]></content:encoded>\n"
             f"</item>"
         )
     rss = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        '<rss version="2.0" '
+        'xmlns:atom="http://www.w3.org/2005/Atom" '
+        'xmlns:content="http://purl.org/rss/1.0/modules/content/" '
+        'xmlns:media="http://search.yahoo.com/mrss/">\n'
         "<channel>\n"
         f"<title>{xml_escape(SITE_NAME)}</title>\n"
         f"<link>{SITE_URL}</link>\n"
@@ -330,7 +342,19 @@ def _generate_rss(articles: list[dict]):
         + "\n</channel>\n</rss>"
     )
     (SITE_DIR / "rss.xml").write_text(rss, encoding="utf-8")
-    logger.info("  Generated: rss.xml")
+    logger.info("  Generated: rss.xml (with images + full content)")
+
+
+def _rss_full_content(art: dict) -> str:
+    title_esc = xml_escape(art["title"])
+    parts = [f"<h1>{title_esc}</h1>"]
+    if art.get("og_image"):
+        img_esc = xml_escape(art["og_image"])
+        parts.append(f'<img src="{img_esc}" alt="{title_esc}" style="max-width:100%"/>')
+    content = art["content"]
+    content = re.sub(r"<h1[^>]*>.*?</h1>", "", content, flags=re.DOTALL)
+    parts.append(content)
+    return "\n".join(parts)
 
 
 def _generate_robots():

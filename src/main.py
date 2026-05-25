@@ -385,10 +385,6 @@ def _truncate_html(text: str, max_chars: int) -> str:
 
 
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None) -> tuple[bool, int | None]:
-    """
-    OLD APPROACH (sendMessage + link_preview, без URL в тексте):
-    Раскомментировать блок ниже и удалить новый код для отката.
-    """
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
         return False, None
@@ -400,17 +396,21 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    # Reserve space for URL at the end
-    url_suffix = f'\n\n{image_url}' if image_url else ''
     message = f"<b>{clean_title}</b>\n\n{body_text}"
-    if len(message) > 4096 - len(url_suffix):
-        message = message[:4096 - len(url_suffix)]
-    message += url_suffix
-
+    max_length = 4096
+    if len(message) > max_length:
+        message = message[:max_length]
     first_msg_id = None
     success = True
 
-    link_preview = {"is_disabled": True} if not image_url else {"is_disabled": False}
+    if image_url:
+        link_preview = {
+            "is_disabled": False,
+            "url": image_url,
+            "prefer_large_media": True,
+        }
+    else:
+        link_preview = {"is_disabled": True}
 
     try:
         payload = {
