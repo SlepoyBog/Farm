@@ -385,6 +385,10 @@ def _truncate_html(text: str, max_chars: int) -> str:
 
 
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None) -> tuple[bool, int | None]:
+    """
+    OLD APPROACH (sendMessage + link_preview, без URL в тексте):
+    Раскомментировать блок ниже и удалить новый код для отката.
+    """
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
         return False, None
@@ -397,20 +401,21 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     message = f"<b>{clean_title}</b>\n\n{body_text}"
-    max_length = 4096
-    if len(message) > max_length:
-        message = message[:max_length]
+    if len(message) > 4096:
+        message = message[:4096]
+
+    if image_url:
+        # Append invisible link for Dzen bot to parse (zero-width space anchor)
+        message += f'\n<a href="{image_url}">\u200B</a>'
+
     first_msg_id = None
     success = True
 
-    if image_url:
-        link_preview = {
-            "is_disabled": False,
-            "url": image_url,
-            "prefer_large_media": True,
-        }
-    else:
-        link_preview = {"is_disabled": True}
+    link_preview = (
+        {"is_disabled": False, "url": image_url, "prefer_large_media": True}
+        if image_url
+        else {"is_disabled": True}
+    )
 
     try:
         payload = {
