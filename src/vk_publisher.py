@@ -25,7 +25,11 @@ def adapt_for_vk(title: str, html_content: str, niche: str) -> str:
 
     # Strip HTML tags for plain text
     import html as html_module
-    text = re.sub(r'<[^>]+>', '\n', content_no_h1)
+    # Block-level tags → newline (preserve paragraph structure)
+    block_tags = r'</?(?:p|h[1-6]|li|div|ul|ol|br|hr|blockquote|table|tr|td|th|section|article|header|footer|nav|aside|figure|figcaption|details|summary|dl|dt|dd|address|fieldset|legend|main|menu)[^>]*>'
+    text = re.sub(block_tags, '\n', content_no_h1)
+    # Inline tags → empty (keep text flow unbroken)
+    text = re.sub(r'<[^>]+>', '', text)
     text = html_module.unescape(text)
     
     # Clean up excessive newlines
