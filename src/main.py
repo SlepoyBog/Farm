@@ -386,7 +386,7 @@ def _truncate_html(text: str, max_chars: int) -> str:
 
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None) -> tuple[bool, int | None]:
     """
-    OLD APPROACH (sendMessage + bare URL, без sendPhoto):
+    OLD APPROACH (sendMessage + link_preview, без URL в тексте):
     Раскомментировать блок ниже и удалить новый код для отката.
     """
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
@@ -397,53 +397,22 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
 
     content_no_h1 = re.sub(r'<h1[^>]*>.*?</h1>\s*', '', html_content, flags=re.DOTALL)
     clean_title = re.sub(r'^-\s*', '', title).strip()
+    body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
+
+    # Reserve space for URL at the end
+    url_suffix = f'\n\n{image_url}' if image_url else ''
+    message = f"<b>{clean_title}</b>\n\n{body_text}"
+    if len(message) > 4096 - len(url_suffix):
+        message = message[:4096 - len(url_suffix)]
+    message += url_suffix
+
     first_msg_id = None
     success = True
 
+    link_preview = {"is_disabled": True} if not image_url else {"is_disabled": False}
+
     try:
-        if image_url:
-            # Step 1: render text on image → sendPhoto
-            from src.image_text_renderer import render_article_image
-            image_path = render_article_image(image_url, clean_title, article_html=html_content)
-
-            if image_path:
-                caption = clean_title
-                if len(caption) > 900:
-                    caption = caption[:900]
-
-                with open(image_path, "rb") as f:
-                    photo_resp = requests.post(
-                        f"{base_url}/sendPhoto",
-                        data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption, "parse_mode": "HTML"},
-                        files={"photo": f},
-                        timeout=60,
-                    )
-
-                try:
-                    os.unlink(image_path)
-                except Exception:
-                    pass
-
-                if photo_resp.status_code == 200:
-                    first_msg_id = photo_resp.json()["result"]["message_id"]
-                    logger.info(f"Telegram photo sent (id: {first_msg_id})")
-                    return success, first_msg_id
-                else:
-                    logger.warning(f"sendPhoto failed ({photo_resp.status_code}), falling back to sendMessage")
-            else:
-                logger.warning("Image rendering failed, falling back to sendMessage")
-
-        # Fallback: sendMessage with bare image URL
-        body_text = html_to_telegram_text(content_no_h1)
-        url_suffix = f'\n\n{image_url}' if image_url else ''
-        message = f"<b>{clean_title}</b>\n\n{body_text}"
-        if len(message) > 4096 - len(url_suffix):
-            message = message[:4096 - len(url_suffix)]
-        message += url_suffix
-
-        link_preview = {"is_disabled": True} if not image_url else {"is_disabled": False}
-
         payload = {
             "chat_id": TELEGRAM_CHAT_ID,
             "text": message,
@@ -451,22 +420,27 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
         }
         if "<" in message and ">" in message:
             payload["parse_mode"] = "HTML"
-        resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
-
+        resp = requests.post(
+            f"{base_url}/sendMessage",
+            json=payload,
+            timeout=30,
+        )
         if resp.status_code == 400:
             import html as html_module
             plain = re.sub(r'<[^>]+>', '', message)
             plain = html_module.unescape(plain)
             payload.pop("parse_mode", None)
             payload["text"] = plain
-            resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
-
+            resp = requests.post(
+                f"{base_url}/sendMessage",
+                json=payload,
+                timeout=30,
+            )
         resp.raise_for_status()
         first_msg_id = resp.json()["result"]["message_id"]
-        logger.info(f"Telegram message sent (fallback, id: {first_msg_id})")
-
+        logger.info(f"Telegram message sent (id: {first_msg_id})")
     except Exception as e:
-        logger.error(f"Failed to send to Telegram: {e}", exc_info=True)
+        logger.error(f"Failed to send message: {e}")
         success = False
 
     return success, first_msg_id
