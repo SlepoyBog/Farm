@@ -400,22 +400,17 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
+    # Reserve space for URL at the end
+    url_suffix = f'\n\n{image_url}' if image_url else ''
     message = f"<b>{clean_title}</b>\n\n{body_text}"
-    if len(message) > 4096:
-        message = message[:4096]
-
-    if image_url:
-        # Append invisible link for Dzen bot to parse (zero-width space anchor)
-        message += f'\n<a href="{image_url}">\u200B</a>'
+    if len(message) > 4096 - len(url_suffix):
+        message = message[:4096 - len(url_suffix)]
+    message += url_suffix
 
     first_msg_id = None
     success = True
 
-    link_preview = (
-        {"is_disabled": False, "url": image_url, "prefer_large_media": True}
-        if image_url
-        else {"is_disabled": True}
-    )
+    link_preview = {"is_disabled": True} if not image_url else {"is_disabled": False}
 
     try:
         payload = {
