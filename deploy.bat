@@ -14,15 +14,11 @@ git status
 
 echo.
 echo [2/4] Добавление файлов сайта...
-git add site/ -A
+git add -A
 
 echo.
-echo [3/4] Коммит...
-git commit -m "Auto-update site (%date%)"
-
-echo.
-echo [4/4] Пуш в GitHub...
-git push origin main
+echo [3/4] Регистрация версии...
+call scripts\commit_version.bat "deploy site"
 
 echo.
 echo Готово! Будет доступно через 1-2 минуты.

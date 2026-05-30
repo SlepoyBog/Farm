@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -57,3 +57,14 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Commit version bump back to repo
+        run: |
+          git config user.name "Farm Bot"
+          git config user.email "farm-bot@users.noreply.github.com"
+          VERSION=$(cat VERSION)
+          NEXT=$((VERSION + 1))
+          echo "$NEXT" > VERSION
+          git add -A
+          git commit -m "v$NEXT: auto-deploy via CI [skip ci]" || echo "Nothing to commit"
+          git push origin main
