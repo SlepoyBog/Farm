@@ -1666,5 +1666,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Лучшие направления эко-туризма",
+    "title": "🌍 Лучшие направления эко-туризма: где отдых становится развитием",
+    "niche": "путешествия",
+    "published_at": "2026-05-30T22:06:55.453653",
+    "platforms": {
+      "telegram": {
+        "message_id": 383,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 436,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
