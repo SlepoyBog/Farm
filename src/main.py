@@ -397,74 +397,41 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     message = f"<b>{clean_title}</b>\n\n{body_text}"
+    if len(message) > 4096:
+        message = message[:4096]
     first_msg_id = None
     success = True
 
+    link_preview = {"is_disabled": True}
     if image_url:
-        caption = _truncate_html(message, 1024)
+        link_preview = {
+            "is_disabled": False,
+            "url": image_url,
+            "prefer_large_media": True,
+        }
 
-        try:
-            payload = {
-                "chat_id": TELEGRAM_CHAT_ID,
-                "photo": image_url,
-                "caption": caption,
-            }
-            if "<" in caption and ">" in caption:
-                payload["parse_mode"] = "HTML"
-            resp = requests.post(
-                f"{base_url}/sendPhoto",
-                json=payload,
-                timeout=30,
-            )
-            if resp.status_code == 400:
-                import html as html_module
-                plain = re.sub(r'<[^>]+>', '', caption)
-                plain = html_module.unescape(plain)
-                payload.pop("parse_mode", None)
-                payload["caption"] = plain
-                resp = requests.post(
-                    f"{base_url}/sendPhoto",
-                    json=payload,
-                    timeout=30,
-                )
-            resp.raise_for_status()
-            first_msg_id = resp.json()["result"]["message_id"]
-            logger.info(f"Telegram sendPhoto sent (id: {first_msg_id})")
-        except Exception as e:
-            logger.warning(f"sendPhoto failed ({e}), fallback to sendMessage")
-            image_url = None
-
-    if not image_url:
-        try:
-            payload = {
-                "chat_id": TELEGRAM_CHAT_ID,
-                "text": message,
-                "link_preview_options": {"is_disabled": True},
-            }
-            if "<" in message and ">" in message:
-                payload["parse_mode"] = "HTML"
-            resp = requests.post(
-                f"{base_url}/sendMessage",
-                json=payload,
-                timeout=30,
-            )
-            if resp.status_code == 400:
-                import html as html_module
-                plain = re.sub(r'<[^>]+>', '', message)
-                plain = html_module.unescape(plain)
-                payload.pop("parse_mode", None)
-                payload["text"] = plain
-                resp = requests.post(
-                    f"{base_url}/sendMessage",
-                    json=payload,
-                    timeout=30,
-                )
-            resp.raise_for_status()
-            first_msg_id = resp.json()["result"]["message_id"]
-            logger.info(f"Telegram sendMessage sent (id: {first_msg_id})")
-        except Exception as e:
-            logger.error(f"Failed to send message: {e}")
-            success = False
+    try:
+        payload = {
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": message,
+            "link_preview_options": link_preview,
+        }
+        if "<" in message and ">" in message:
+            payload["parse_mode"] = "HTML"
+        resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
+        if resp.status_code == 400:
+            import html as html_module
+            plain = re.sub(r'<[^>]+>', '', message)
+            plain = html_module.unescape(plain)
+            payload.pop("parse_mode", None)
+            payload["text"] = plain
+            resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
+        resp.raise_for_status()
+        first_msg_id = resp.json()["result"]["message_id"]
+        logger.info(f"Telegram message sent (id: {first_msg_id})")
+    except Exception as e:
+        logger.error(f"Failed to send message: {e}")
+        success = False
 
     return success, first_msg_id
 
