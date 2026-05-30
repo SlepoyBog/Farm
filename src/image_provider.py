@@ -32,28 +32,26 @@ def _pick_query(niche: str, topic: str) -> str:
 def get_image_url(niche: str, topic: str, orientation: str = "landscape") -> Optional[str]:
 
     access_key = os.getenv("UNSPLASH_ACCESS_KEY")
-    if not access_key:
-        logger.warning("UNSPLASH_ACCESS_KEY not set — images disabled")
-        return None
+    if access_key:
+        query = _pick_query(niche, topic)
+        try:
+            resp = requests.get(
+                f"{UNSPLASH_API_BASE}/photos/random",
+                headers={"Authorization": f"Client-ID {access_key}"},
+                params={"query": query, "orientation": orientation, "count": 1},
+                timeout=15,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            if isinstance(data, list):
+                data = data[0]
+            url = data.get("urls", {}).get("regular")
+            if url:
+                logger.info(f"Fetched Unsplash image | query='{query}' | niche='{niche}'")
+                return url
+        except Exception as e:
+            logger.warning(f"Unsplash API error: {e}")
 
-    query = _pick_query(niche, topic)
-
-    try:
-        resp = requests.get(
-            f"{UNSPLASH_API_BASE}/photos/random",
-            headers={"Authorization": f"Client-ID {access_key}"},
-            params={"query": query, "orientation": orientation, "count": 1},
-            timeout=15,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        if isinstance(data, list):
-            data = data[0]
-        url = data.get("urls", {}).get("regular")
-        if url:
-            logger.info(f"Fetched Unsplash image | query='{query}' | niche='{niche}'")
-            return url
-    except Exception as e:
-        logger.warning(f"Unsplash API error: {e}")
-
-    return None
+    fallback_url = f"https://picsum.photos/seed/{hash(topic) % 1000000}/800/600"
+    logger.info(f"Fallback image: picsum.photos (niche={niche})")
+    return fallback_url
