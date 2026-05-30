@@ -76,6 +76,12 @@ async def optimize_article(
 
 def save_metadata(slug: str, topic: str, seo: SEOData):
     meta_path = Path("output") / f"{slug}.meta.json"
+    existing = {}
+    if meta_path.exists():
+        try:
+            existing = json.loads(meta_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
     data = {
         "topic": topic,
         "slug": slug,
@@ -83,6 +89,10 @@ def save_metadata(slug: str, topic: str, seo: SEOData):
         "seo_description": seo.description,
         "seo_keywords": seo.keywords,
     }
+    if existing.get("image_url"):
+        data["image_url"] = existing["image_url"]
+    if existing.get("niche"):
+        data["niche"] = existing["niche"]
     meta_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     logger.info(f"SEO metadata saved to: {meta_path}")
 

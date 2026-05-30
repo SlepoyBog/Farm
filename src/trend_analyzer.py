@@ -1,5 +1,6 @@
 import json
 import logging
+import random
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -25,6 +26,7 @@ PREDEFINED_NICHES = [
 ]
 
 ROTATION_FILE = Path("data") / "niche_rotation_index.txt"
+LAST_NICHES_FILE = Path("data") / "last_niches.json"
 
 
 def _read_rotation_index() -> int:
@@ -119,24 +121,68 @@ async def _from_post_history() -> str | None:
     return best_niche
 
 
+def _load_last_niches() -> list[str]:
+    if LAST_NICHES_FILE.exists():
+        try:
+            return json.loads(LAST_NICHES_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return []
+    return []
+
+def _save_last_niches(niches: list[str]):
+    LAST_NICHES_FILE.write_text(json.dumps(niches), encoding="utf-8")
+
+def _ensure_diversity(candidate: str, last_niches: list[str]) -> str:
+    if not last_niches:
+        return candidate
+    if len(last_niches) >= 3 and len(set(last_niches)) == 1:
+        logger.info(f"Forced rotation: same niche {last_niches[0]} for 3+ runs")
+        idx = PREDEFINED_NICHES.index(last_niches[0])
+        return PREDEFINED_NICHES[(idx + 1) % len(PREDEFINED_NICHES)]
+    if candidate == last_niches[-1]:
+        idx = PREDEFINED_NICHES.index(candidate)
+        next_niche = PREDEFINED_NICHES[(idx + 1) % len(PREDEFINED_NICHES)]
+        logger.info(f"Diversity shift: {candidate} → {next_niche} (same as last)")
+        return next_niche
+    return candidate
+
+def _append_niche(niche: str, last_niches: list[str]):
+    last_niches.append(niche)
+    if len(last_niches) > 5:
+        last_niches.pop(0)
+    _save_last_niches(last_niches)
+
+
 async def detect_trending_niche(
     client: DeepSeekClient,
     base_niche: str = "",
 ) -> str:
     logger.info("Analyzing trending niches...")
 
-    # 1. Post history analysis (only if scored posts exist)
-    niche = await _from_post_history()
-    if niche:
+    last_niches = _load_last_niches()
+
+    # Strategy: 50% rotation (for diversity), 40% RSS+DeepSeek, 10% post history
+    roll = random.random()
+
+    if roll < 0.5:
+        niche = _rotate_fallback()
+        niche = _ensure_diversity(niche, last_niches)
+        _append_niche(niche, last_niches)
+        logger.info(f"Rotation pick: {niche} (roll={roll:.2f})")
         return niche
 
-    # 2. NewsAPI/Reddit + DeepSeek trend analysis (real-time headlines as context)
-    niche = await _from_rss_with_deepseek(client, base_niche)
-    if niche:
-        return niche
+    if roll < 0.9:
+        niche = await _from_rss_with_deepseek(client, base_niche)
+        if niche:
+            niche = _ensure_diversity(niche, last_niches)
+            _append_niche(niche, last_niches)
+            logger.info(f"RSS+DeepSeek pick: {niche} (roll={roll:.2f})")
+            return niche
 
-    # 3. Fallback rotation (cycles through all predefined niches)
-    return _rotate_fallback()
+    niche = _rotate_fallback()
+    _append_niche(niche, last_niches)
+    logger.info(f"Fallback pick: {niche}")
+    return niche
 
 
 async def _from_rss_with_deepseek(client: DeepSeekClient, base_niche: str = "") -> str | None:
