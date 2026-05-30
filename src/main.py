@@ -352,13 +352,16 @@ def html_to_telegram_text(html: str) -> str:
 
 
 def _truncate_html(text: str, max_chars: int) -> str:
-    """Truncate HTML text at word boundary without breaking tags."""
     if len(text) <= max_chars:
         return text
     truncated = text[:max_chars]
-    last_space = max(truncated.rfind(" "), truncated.rfind("\n"))
-    if last_space > 0:
-        truncated = truncated[:last_space]
+    for sep in ("\n", ". ", "! ", "? ", " ", "."):
+        pos = truncated.rfind(sep)
+        if pos > max_chars // 2:
+            truncated = truncated[:pos + (1 if sep in (". ", "! ", "? ") else 0)]
+            break
+    else:
+        truncated = truncated[:max_chars]
     last_open = truncated.rfind("<")
     last_close = truncated.rfind(">")
     if last_open > last_close:
@@ -468,7 +471,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=500,
+            max_tokens=300,
         )
         result = result.strip()
         if len(result) < 50:
