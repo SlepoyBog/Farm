@@ -1689,5 +1689,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Будущее нейросетей и человека",
+    "title": "🤖 Будущее нейросетей и человека: от инструмента к партнёру",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-05-30T22:11:24.009147",
+    "platforms": {
+      "telegram": {
+        "message_id": 384,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 437,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
