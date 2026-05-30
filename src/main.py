@@ -472,7 +472,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=250,
+            max_tokens=400,
         )
         result = result.strip()
         if len(result) < 50:
