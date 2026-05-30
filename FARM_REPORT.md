@@ -57,7 +57,7 @@ Farm/
 │   ├── vk_publisher.py           # Публикация VK
 │   ├── feedback_loop.py          # Сбор метрик + анализ топ-постов
 │   ├── seo_optimizer.py          # SEO-оптимизация статьи
-│   ├── image_text_renderer.py    # Рендеринг текста на изображении (Pillow)
+│   # image_text_renderer.py (удалён — не используется)
 │   └── batch_worker.py           # Пакетная обработка очереди
 │
 ├── prompts/

@@ -401,38 +401,34 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     success = True
 
     if image_url:
+        caption = _truncate_html(message, 1024)
+
         try:
-            from src.image_text_renderer import render_article_image
-            image_path = render_article_image(image_url, clean_title, html_content)
-
-            if image_path:
-                caption = clean_title
-                if len(caption) > 900:
-                    caption = caption[:900]
-
-                with open(image_path, "rb") as f:
-                    resp = requests.post(
-                        f"{base_url}/sendPhoto",
-                        data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption},
-                        files={"photo": f},
-                        timeout=60,
-                    )
-
-                try:
-                    os.unlink(image_path)
-                except Exception:
-                    pass
-
-                if resp.status_code == 200:
-                    first_msg_id = resp.json()["result"]["message_id"]
-                    logger.info(f"Telegram rendered sendPhoto sent (id: {first_msg_id})")
-                    return True, first_msg_id
-
-                logger.warning(f"sendPhoto failed ({resp.status_code}), fallback to sendMessage")
-            else:
-                logger.warning("Image rendering failed, fallback to sendMessage")
+            resp = requests.post(
+                f"{base_url}/sendPhoto",
+                json={
+                    "chat_id": TELEGRAM_CHAT_ID,
+                    "photo": image_url,
+                    "caption": caption,
+                    "parse_mode": "HTML" if "<" in caption and ">" in caption else None,
+                },
+                timeout=30,
+            )
+            if resp.status_code == 400:
+                import html as html_module
+                plain = re.sub(r'<[^>]+>', '', caption)
+                plain = html_module.unescape(plain)
+                resp = requests.post(
+                    f"{base_url}/sendPhoto",
+                    json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": plain},
+                    timeout=30,
+                )
+            resp.raise_for_status()
+            first_msg_id = resp.json()["result"]["message_id"]
+            logger.info(f"Telegram sendPhoto sent (id: {first_msg_id})")
+            return True, first_msg_id
         except Exception as e:
-            logger.warning(f"Rendered sendPhoto error: {e}, fallback to sendMessage")
+            logger.warning(f"sendPhoto failed ({e}), fallback to sendMessage")
 
     try:
         payload = {
@@ -472,7 +468,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=1500,
+            max_tokens=500,
         )
         result = result.strip()
         if len(result) < 50:
