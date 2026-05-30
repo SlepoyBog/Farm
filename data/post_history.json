@@ -1597,5 +1597,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Образование будущего уже сегодня",
+    "title": "Образование будущего уже сегодня 🚀",
+    "niche": "образование",
+    "published_at": "2026-05-30T21:32:38.353579",
+    "platforms": {
+      "telegram": {
+        "message_id": 380,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 433,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
