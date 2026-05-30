@@ -397,24 +397,40 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     message = f"<b>{clean_title}</b>\n\n{body_text}"
-    if len(message) > 4096:
-        message = message[:4096]
     first_msg_id = None
     success = True
 
-    link_preview = {"is_disabled": True}
     if image_url:
-        link_preview = {
-            "is_disabled": False,
-            "url": image_url,
-            "prefer_large_media": True,
-        }
+        caption = _truncate_html(message, 1024)
+
+        try:
+            payload = {
+                "chat_id": TELEGRAM_CHAT_ID,
+                "photo": image_url,
+                "caption": caption,
+            }
+            if "<" in caption and ">" in caption:
+                payload["parse_mode"] = "HTML"
+            resp = requests.post(f"{base_url}/sendPhoto", json=payload, timeout=30)
+            if resp.status_code == 400:
+                import html as html_module
+                plain = re.sub(r'<[^>]+>', '', caption)
+                plain = html_module.unescape(plain)
+                payload.pop("parse_mode", None)
+                payload["caption"] = plain
+                resp = requests.post(f"{base_url}/sendPhoto", json=payload, timeout=30)
+            resp.raise_for_status()
+            first_msg_id = resp.json()["result"]["message_id"]
+            logger.info(f"Telegram sendPhoto sent (id: {first_msg_id})")
+            return True, first_msg_id
+        except Exception as e:
+            logger.warning(f"sendPhoto failed ({e}), fallback to sendMessage")
 
     try:
         payload = {
             "chat_id": TELEGRAM_CHAT_ID,
             "text": message,
-            "link_preview_options": link_preview,
+            "link_preview_options": {"is_disabled": True},
         }
         if "<" in message and ">" in message:
             payload["parse_mode"] = "HTML"
@@ -428,7 +444,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         resp.raise_for_status()
         first_msg_id = resp.json()["result"]["message_id"]
-        logger.info(f"Telegram message sent (id: {first_msg_id})")
+        logger.info(f"Telegram sendMessage sent (id: {first_msg_id})")
     except Exception as e:
         logger.error(f"Failed to send message: {e}")
         success = False
@@ -448,7 +464,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=1500,
+            max_tokens=500,
         )
         result = result.strip()
         if len(result) < 50:
