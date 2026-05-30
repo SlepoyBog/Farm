@@ -1528,5 +1528,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как укрепить ментальное здоровье",
+    "title": "🧠 Как укрепить ментальное здоровье: простые шаги к спокойствию",
+    "niche": "здоровье",
+    "published_at": "2026-05-30T20:58:08.905538",
+    "platforms": {
+      "telegram": {
+        "message_id": 377,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 430,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
