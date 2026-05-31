@@ -1758,5 +1758,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Циркадные ритмы и продуктивность",
+    "title": "🌙 Циркадные ритмы: как настроить день на максимальную продуктивность",
+    "niche": "здоровье",
+    "published_at": "2026-05-31T15:17:54.256350",
+    "platforms": {
+      "telegram": {
+        "message_id": 387,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 440,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
