@@ -1781,5 +1781,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Мобильные банки: плюсы и минусы",
+    "title": "Мобильные банки: плюсы и минусы",
+    "niche": "финансы",
+    "published_at": "2026-05-31T19:15:19.089747",
+    "platforms": {
+      "telegram": {
+        "message_id": 388,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 441,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
