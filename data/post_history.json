@@ -1735,5 +1735,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Складные смартфоны врываются на рынок",
+    "title": "Складные смартфоны врываются на рынок: новая эра мобильности 📱",
+    "niche": "технологии",
+    "published_at": "2026-05-31T11:26:17.220793",
+    "platforms": {
+      "telegram": {
+        "message_id": 386,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 439,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
