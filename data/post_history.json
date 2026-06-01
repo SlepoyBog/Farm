@@ -1804,5 +1804,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Создание личного бренда",
+    "title": "Личный бренд: ваш главный нематериальный актив 🚀",
+    "niche": "бизнес",
+    "published_at": "2026-06-01T11:44:18.531157",
+    "platforms": {
+      "telegram": {
+        "message_id": 389,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 442,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
