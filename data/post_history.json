@@ -1873,5 +1873,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Вампиры снова в моде",
+    "title": "🧛 Вампиры снова в моде: от мифов к мейнстриму",
+    "niche": "кино",
+    "published_at": "2026-06-01T21:31:42.931710",
+    "platforms": {
+      "telegram": {
+        "message_id": 392,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 445,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
