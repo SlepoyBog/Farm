@@ -1850,5 +1850,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "️ Функциональные тренировки для спортсменов",
+    "title": "🏋️ Функциональные тренировки для спортсменов: наука и практика",
+    "niche": "спорт",
+    "published_at": "2026-06-01T19:21:09.832942",
+    "platforms": {
+      "telegram": {
+        "message_id": 391,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 444,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
