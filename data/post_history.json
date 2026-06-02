@@ -1942,5 +1942,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Светодиоды вместо галогенок",
+    "title": "Светодиоды вместо галогенок: стоит ли игра свеч?",
+    "niche": "авто",
+    "published_at": "2026-06-02T18:05:25.468876",
+    "platforms": {
+      "telegram": {
+        "message_id": 395,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 448,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
