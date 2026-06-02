@@ -1965,5 +1965,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Частные космические миссии на Марс",
+    "title": "🚀 Частные миссии на Марс: ИИ решает ключевые проблемы",
+    "niche": "технологии",
+    "published_at": "2026-06-02T20:46:44.144052",
+    "platforms": {
+      "telegram": {
+        "message_id": 396,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 449,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
