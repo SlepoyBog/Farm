@@ -1896,5 +1896,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "️ Безопасность в незнакомых городах",
+    "title": "Безопасность в незнакомых городах: как не попасть в ловушку 🧭",
+    "niche": "путешествия",
+    "published_at": "2026-06-02T10:44:07.696128",
+    "platforms": {
+      "telegram": {
+        "message_id": 393,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 446,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
