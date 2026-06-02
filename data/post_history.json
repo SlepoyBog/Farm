@@ -1919,5 +1919,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Музыка, созданная нейросетями",
+    "title": "Нейросети пишут музыку: алгоритмическая революция в индустрии",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-02T13:47:31.685525",
+    "platforms": {
+      "telegram": {
+        "message_id": 394,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 447,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
