@@ -2011,5 +2011,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Кредитные карты: ловушки",
+    "title": "💳 Кредитные карты: главные ловушки, которые разоряют",
+    "niche": "финансы",
+    "published_at": "2026-06-03T14:20:55.055533",
+    "platforms": {
+      "telegram": {
+        "message_id": 398,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 451,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
