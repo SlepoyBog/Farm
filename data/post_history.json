@@ -2034,5 +2034,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Страхование бизнес-рисков",
+    "title": "🛡 Страхование бизнес-рисков: ваш щит от непредвиденных потерь",
+    "niche": "бизнес",
+    "published_at": "2026-06-03T18:24:01.649417",
+    "platforms": {
+      "telegram": {
+        "message_id": 399,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 452,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
