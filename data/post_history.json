@@ -2057,5 +2057,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Мозг и обучение нейронауки",
+    "title": "🧠 Нейронаука меняет образование: как мозг учится эффективнее",
+    "niche": "образование",
+    "published_at": "2026-06-03T20:54:47.492892",
+    "platforms": {
+      "telegram": {
+        "message_id": 400,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 453,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
