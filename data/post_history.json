@@ -2126,5 +2126,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Обмен жильем с иностранцами",
+    "title": "🏠 Обмен жильем с иностранцами: экономия, доверие и новые миры",
+    "niche": "путешествия",
+    "published_at": "2026-06-04T16:54:46.330789",
+    "platforms": {
+      "telegram": {
+        "message_id": 403,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 456,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
