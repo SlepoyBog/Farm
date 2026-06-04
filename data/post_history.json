@@ -2149,5 +2149,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Персонализация с помощью нейросетей",
+    "title": "🎯 Персонализация с помощью нейросетей: как AI подстраивает мир под вас",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-04T20:04:15.305499",
+    "platforms": {
+      "telegram": {
+        "message_id": 404,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 457,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
