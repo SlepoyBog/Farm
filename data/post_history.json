@@ -2103,5 +2103,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Разбитые сердца на большом экране",
+    "title": "💔 Разбитые сердца на большом экране: как кино стало лекарством от любви",
+    "niche": "кино",
+    "published_at": "2026-06-04T12:37:32.682179",
+    "platforms": {
+      "telegram": {
+        "message_id": 402,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 455,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
