@@ -2080,5 +2080,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "️‍♀️ Тренировки дома с гантелями",
+    "title": "🏋️‍♀️ Тренировки дома с гантелями: главный тренд недели",
+    "niche": "спорт",
+    "published_at": "2026-06-04T10:02:48.946163",
+    "platforms": {
+      "telegram": {
+        "message_id": 401,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 454,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
