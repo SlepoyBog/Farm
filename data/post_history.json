@@ -2195,5 +2195,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Квантовый интернет без потерь",
+    "title": "🔗 Квантовый интернет стал реальностью без потерь",
+    "niche": "технологии",
+    "published_at": "2026-06-05T12:30:55.238785",
+    "platforms": {
+      "telegram": {
+        "message_id": 406,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 459,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
