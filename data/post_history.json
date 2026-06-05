@@ -2172,5 +2172,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Гибридные технологии будущего",
+    "title": "🚗 Гибридные технологии будущего: мейнстрим или временный компромисс?",
+    "niche": "авто",
+    "published_at": "2026-06-05T10:00:03.476149",
+    "platforms": {
+      "telegram": {
+        "message_id": 405,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 458,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
