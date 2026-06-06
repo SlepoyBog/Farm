@@ -404,6 +404,37 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     success = True
 
     if image_url:
+        try:
+            from src.image_text_renderer import render_article_image
+            image_path = render_article_image(image_url, clean_title, html_content)
+            if image_path:
+                caption = clean_title
+                with open(image_path, "rb") as f:
+                    resp = requests.post(
+                        f"{base_url}/sendPhoto",
+                        data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption},
+                        files={"photo": f},
+                        timeout=60,
+                    )
+                if resp.status_code == 400:
+                    with open(image_path, "rb") as f2:
+                        resp = requests.post(
+                            f"{base_url}/sendPhoto",
+                            data={"chat_id": TELEGRAM_CHAT_ID, "caption": clean_title},
+                            files={"photo": f2},
+                            timeout=60,
+                        )
+                if resp.ok:
+                    first_msg_id = resp.json()["result"]["message_id"]
+                    logger.info(f"Telegram rendered sendPhoto sent (id: {first_msg_id})")
+                    return True, first_msg_id
+                else:
+                    logger.warning(f"Rendered sendPhoto failed ({resp.status_code}), fallback to URL sendPhoto")
+            else:
+                logger.warning("Image rendering failed, fallback to URL sendPhoto")
+        except Exception as e:
+            logger.warning(f"Rendered sendPhoto error: {e}, fallback to URL sendPhoto")
+
         caption = message
         if len(caption) > 1024:
             truncated = caption[:1024]
@@ -439,10 +470,10 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
                 )
             resp.raise_for_status()
             first_msg_id = resp.json()["result"]["message_id"]
-            logger.info(f"Telegram sendPhoto sent (id: {first_msg_id})")
+            logger.info(f"Telegram URL sendPhoto sent (id: {first_msg_id})")
             return True, first_msg_id
         except Exception as e:
-            logger.warning(f"sendPhoto failed ({e}), fallback to sendMessage")
+            logger.warning(f"URL sendPhoto failed ({e}), fallback to sendMessage")
 
     try:
         payload = {
