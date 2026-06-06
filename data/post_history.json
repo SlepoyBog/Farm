@@ -2333,5 +2333,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Новые тренды независимого кино",
+    "title": "Независимое кино захватывает мир: новые тренды, которые стоит знать 🎬",
+    "niche": "кино",
+    "published_at": "2026-06-06T19:21:02.111255",
+    "platforms": {
+      "telegram": {
+        "message_id": 412,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 465,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
