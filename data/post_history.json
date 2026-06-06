@@ -2264,5 +2264,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Подарки клиентам и партнерам",
+    "title": "🎁 Подарки клиентам и партнёрам: как укрепить отношения и не прогореть",
+    "niche": "бизнес",
+    "published_at": "2026-06-06T08:39:44.333380",
+    "platforms": {
+      "telegram": {
+        "message_id": 409,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 462,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
