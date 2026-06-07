@@ -2379,5 +2379,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Исследование космоса с ИИ",
+    "title": "ИИ в космосе: от обработки сигналов до открытия экзопланет",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-07T08:16:47.764831",
+    "platforms": {
+      "telegram": {
+        "message_id": 414,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 467,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
