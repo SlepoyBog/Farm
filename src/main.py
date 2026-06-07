@@ -387,6 +387,24 @@ def _truncate_html(text: str, max_chars: int) -> str:
     return truncated
 
 
+def _clean_caption(text: str, max_len: int = 1024) -> str:
+    """Clean and truncate text to fit Telegram caption limit."""
+    import html as html_module
+    text = html_module.unescape(text)
+    text = re.sub(r'<[^>]+>', '', text)
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    text = text.strip()
+    if len(text) <= max_len:
+        return text
+    truncated = text[:max_len]
+    for sep in (". ", "! ", "? ", "\n", " "):
+        pos = truncated.rfind(sep)
+        if pos > max_len // 2:
+            truncated = truncated[:pos + (1 if sep != " " else 0)]
+            break
+    return truncated.strip()
+
+
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None) -> tuple[bool, int | None]:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
@@ -399,106 +417,65 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    message = f"<b>{clean_title}</b>\n\n{body_text}"
-    first_msg_id = None
-    success = True
+    full_message = f"<b>{clean_title}</b>\n\n{body_text}"
+    photo_msg_id = None
 
+    # Step 1: sendPhoto with compact caption — title + short summary, guaranteed ≤ 950 chars
     if image_url:
-        try:
-            from src.image_text_renderer import render_article_image
-            image_path = render_article_image(image_url, clean_title, html_content)
-            if image_path:
-                caption = clean_title
-                with open(image_path, "rb") as f:
-                    resp = requests.post(
-                        f"{base_url}/sendPhoto",
-                        data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption},
-                        files={"photo": f},
-                        timeout=60,
-                    )
-                if resp.status_code == 400:
-                    with open(image_path, "rb") as f2:
-                        resp = requests.post(
-                            f"{base_url}/sendPhoto",
-                            data={"chat_id": TELEGRAM_CHAT_ID, "caption": clean_title},
-                            files={"photo": f2},
-                            timeout=60,
-                        )
-                if resp.ok:
-                    first_msg_id = resp.json()["result"]["message_id"]
-                    logger.info(f"Telegram rendered sendPhoto sent (id: {first_msg_id})")
-                    return True, first_msg_id
-                else:
-                    logger.warning(f"Rendered sendPhoto failed ({resp.status_code}), fallback to URL sendPhoto")
-            else:
-                logger.warning("Image rendering failed, fallback to URL sendPhoto")
-        except Exception as e:
-            logger.warning(f"Rendered sendPhoto error: {e}, fallback to URL sendPhoto")
-
-        caption = message
-        if len(caption) > 1024:
-            truncated = caption[:1024]
-            for sep in (". ", "! ", "? ", "\n"):
-                pos = truncated.rfind(sep)
-                if pos > 0:
-                    truncated = truncated[:pos + len(sep.rstrip())]
-                    break
-            for tag in ("</b>", "</i>", "</u>", "</s>", "</code>", "</pre>", "</a>"):
-                if tag in truncated and tag not in truncated[truncated.rfind(tag) + len(tag):]:
-                    truncated += tag
-            caption = truncated
-
-        try:
-            resp = requests.post(
-                f"{base_url}/sendPhoto",
-                json={
-                    "chat_id": TELEGRAM_CHAT_ID,
-                    "photo": image_url,
-                    "caption": caption,
-                    "parse_mode": "HTML" if "<" in caption and ">" in caption else None,
-                },
-                timeout=30,
-            )
-            if resp.status_code == 400:
-                import html as html_module
-                plain = re.sub(r'<[^>]+>', '', caption)
-                plain = html_module.unescape(plain)
+        caption = f"<b>{clean_title}</b>\n\n{body_text}"
+        caption = _clean_caption(caption, 950)
+        if caption:
+            try:
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
-                    json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": plain},
+                    json={
+                        "chat_id": TELEGRAM_CHAT_ID,
+                        "photo": image_url,
+                        "caption": caption,
+                        "parse_mode": None,
+                    },
                     timeout=30,
                 )
-            resp.raise_for_status()
-            first_msg_id = resp.json()["result"]["message_id"]
-            logger.info(f"Telegram URL sendPhoto sent (id: {first_msg_id})")
-            return True, first_msg_id
-        except Exception as e:
-            logger.warning(f"URL sendPhoto failed ({e}), fallback to sendMessage")
+                if resp.status_code == 400:
+                    resp = requests.post(
+                        f"{base_url}/sendPhoto",
+                        json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": _clean_caption(caption, 950)},
+                        timeout=30,
+                    )
+                if resp.ok:
+                    photo_msg_id = resp.json()["result"]["message_id"]
+                    logger.info(f"Telegram sendPhoto sent (id: {photo_msg_id})")
+                else:
+                    logger.warning(f"sendPhoto failed ({resp.status_code})")
+            except Exception as e:
+                logger.warning(f"sendPhoto error: {e}")
 
+    # Step 2: always send full text as a separate message (replied to photo if available)
     try:
         payload = {
             "chat_id": TELEGRAM_CHAT_ID,
-            "text": message,
+            "text": full_message,
             "link_preview_options": {"is_disabled": True},
         }
-        if "<" in message and ">" in message:
+        if photo_msg_id:
+            payload["reply_parameters"] = {"message_id": photo_msg_id, "allow_sending_without_reply": True}
+        if "<" in full_message and ">" in full_message:
             payload["parse_mode"] = "HTML"
         resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         if resp.status_code == 400:
             import html as html_module
-            plain = re.sub(r'<[^>]+>', '', message)
+            plain = re.sub(r'<[^>]+>', '', full_message)
             plain = html_module.unescape(plain)
             payload.pop("parse_mode", None)
             payload["text"] = plain
             resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         resp.raise_for_status()
-        first_msg_id = resp.json()["result"]["message_id"]
-        logger.info(f"Telegram sendMessage sent (id: {first_msg_id})")
+        msg_id = resp.json()["result"]["message_id"]
+        logger.info(f"Telegram sendMessage sent (id: {msg_id})")
+        return True, photo_msg_id or msg_id
     except Exception as e:
-        logger.error(f"Failed to send message: {e}")
-        success = False
-
-    return success, first_msg_id
+        logger.error(f"Telegram sendMessage failed: {e}")
+        return photo_msg_id is not None, photo_msg_id
 
 
 async def enhance_for_tg(html_article: str, niche: str) -> str:
@@ -513,7 +490,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=2000,
+            max_tokens=800,
         )
         result = result.strip()
         if len(result) < 50:
