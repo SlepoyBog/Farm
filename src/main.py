@@ -612,20 +612,18 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             except Exception as e:
                 logger.warning(f"VK publish failed for '{topic}': {e}")
 
-            # Step 7: Publish to Dzen (via VK cross-posting)
+            # Step 7: Publish to Dzen (direct via API)
             try:
-                from src.dzen_publisher import publish_to_dzen
-                dzen_ok, dzen_msg = publish_to_dzen(
-                    access_token=VK_ACCESS_TOKEN,
-                    group_id=VK_GROUP_ID,
+                from src.dzen_direct_publisher import publish_to_dzen_direct
+                dzen_ok, dzen_msg = publish_to_dzen_direct(
                     title=tg_title,
                     html_content=article,
-                    niche=niche,
                     image_url=image_url,
+                    niche=niche,
                     topic=topic,
                 )
             except Exception as e:
-                logger.warning(f"Dzen publish failed: {e}")
+                logger.warning(f"Dzen direct publish failed: {e}")
 
             # Step 8: Record publication for feedback loop
             vk_numeric = VK_GROUP_ID

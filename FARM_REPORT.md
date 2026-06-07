@@ -375,3 +375,4 @@ git push origin main
 | v33 | 2026-06-07 | **sendMessage + link_preview**: отказ от sendPhoto. Пост отправляется как sendMessage (полный текст до 4096 символов) с link_preview_options.url = ссылка на статью сайта. Картинка — в preview-ссылке. TG prompt: 1200-1500 символов. |
 | v34 | 2026-06-07 | **link_preview fix**: URL preview = Unsplash image (а не страница статьи — та ещё не задеплоена). Добавлен `prefer_large_media`. |
 | v35 | 2026-06-07 | **sendPhoto + sendMessage + Dzen via VK**: Telegram — `sendPhoto` (фото + caption ≤ 950) + `sendMessage` (полный текст, reply). Дзен — публикация через VK API (полный текст, без лимита 1024). Для автопереноса в Дзен: подключить VK группу в настройках Дзена. |
+| v36 | 2026-06-07 | **Dzen Direct Publisher**: модуль `dzen_direct_publisher.py` — публикация напрямую в API Дзена через Yandex Passport cookie. Без лимитов, без Telegram. Для работы: добавить `DZEN_SESSION_COOKIE` в GitHub Secrets. |
