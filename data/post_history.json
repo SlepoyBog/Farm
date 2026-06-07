@@ -2448,5 +2448,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Иммунитет и сезонные простуды",
+    "title": "💊 Иммунитет и сезонные простуды: стратегия защиты без паники",
+    "niche": "здоровье",
+    "published_at": "2026-06-07T09:53:06.456566",
+    "platforms": {
+      "telegram": {
+        "message_id": 419,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 471,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
