@@ -8,126 +8,8 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
-DZEN_HOST = "https://dzen.ru"
-
-
-def _init_session() -> requests.Session:
-    session = requests.Session()
-    session.headers.update({
-        "User-Agent": USER_AGENT,
-        "Accept": "application/json, text/plain, */*",
-        "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "Origin": DZEN_HOST,
-    })
-
-    raw_cookie = os.getenv("DZEN_SESSION_COOKIE", "")
-    if not raw_cookie:
-        return session
-
-    for part in raw_cookie.split(";"):
-        part = part.strip()
-        if "=" in part:
-            key, val = part.split("=", 1)
-            session.cookies.set(key.strip(), val.strip(), domain=".dzen.ru")
-            session.cookies.set(key.strip(), val.strip(), domain=".yandex.ru")
-    return session
-
-
-def _establish_session(session: requests.Session) -> bool:
-    """Visit Dzen editor page to establish SSO session."""
-    try:
-        resp = session.get(
-            f"{DZEN_HOST}/media/settings/publications/new",
-            timeout=15,
-        )
-        logger.info(f"Dzen editor page: {resp.status_code} ({len(resp.content)} bytes)")
-
-        if "is_autologin" in resp.text:
-            import re as _re
-            m = _re.search(r'host":"([^"]+)"', resp.text)
-            if m:
-                sso_url = m.group(1).replace("\\u002F", "/").replace("\\u0026", "&")
-                logger.info(f"Following SSO: {sso_url[:80]}...")
-                sso_resp = session.get(sso_url, timeout=15)
-                logger.info(f"SSO response: {sso_resp.status_code}")
-
-        resp2 = session.get(
-            f"{DZEN_HOST}/media/settings/publications/new",
-            timeout=15,
-        )
-        logger.info(f"After SSO: {resp2.status_code} ({len(resp2.content)} bytes)")
-
-        if "publications" in resp2.text or "publication" in resp2.text:
-            logger.info("SSO session established!")
-            return True
-
-        logger.warning("SSO session could not be established")
-        return False
-
-    except Exception as e:
-        logger.error(f"Session establishment error: {e}")
-        return False
-
-
-def _try_api_endpoints(session: requests.Session, title: str, body_html: str, image_url: Optional[str]) -> tuple[bool, str]:
-    endpoints = [
-        "/api/v1/publication/create",
-        "/api/v1/publication",
-        "/api/v1/media/publication/create",
-        "/api/v1/user/publication/create",
-        "/media/api/publication",
-    ]
-
-    csrf = ""
-    for c in session.cookies:
-        if "csrf" in c.name.lower() or "xsrf" in c.name.lower() or "token" in c.name.lower():
-            csrf = c.value
-            break
-
-    for ep in endpoints:
-        url = f"{DZEN_HOST}{ep}"
-        headers = {}
-        if csrf:
-            headers["X-CSRF-Token"] = csrf
-            headers["X-XSRF-Token"] = csrf
-        headers["X-Requested-With"] = "XMLHttpRequest"
-
-        for fmt in ["json", "form"]:
-            try:
-                if fmt == "json":
-                    resp = session.post(url, json={
-                        "title": title,
-                        "content": body_html,
-                        "is_public": True,
-                    }, headers=headers, timeout=30)
-                else:
-                    resp = session.post(url, data={
-                        "title": title,
-                        "content": body_html,
-                        "is_public": "1",
-                    }, headers=headers, timeout=30)
-                logger.info(f"{ep} [{fmt}]: {resp.status_code} {resp.text[:200]}")
-                if resp.ok and resp.text.strip():
-                    try:
-                        data = resp.json()
-                        if data.get("error") == 0 or data.get("publication_id") or data.get("id"):
-                            pub_id = data.get("publication_id") or data.get("id") or "ok"
-                            return True, f"Dzen published: {pub_id}"
-                    except (json.JSONDecodeError, Exception):
-                        if resp.ok:
-                            return True, "Dzen published (unknown format)"
-            except Exception as e:
-                logger.debug(f"{ep} [{fmt}]: {e}")
-
-    return False, "All API endpoints failed"
-
-
-def _build_body_html(html_content: str, image_url: Optional[str]) -> str:
-    if image_url:
-        img = f'<figure><img src="{image_url}" alt="" /></figure>'
-        return img + "\n\n" + html_content
-    return html_content
+VK_API_URL = "https://api.vk.com/method"
+API_VERSION = "5.199"
 
 
 def publish_to_dzen_direct(
@@ -137,15 +19,96 @@ def publish_to_dzen_direct(
     niche: str = "",
     topic: str = "",
 ) -> tuple[bool, str]:
-    if not os.getenv("DZEN_SESSION_COOKIE"):
-        logger.warning("DZEN_SESSION_COOKIE not set — skipping direct Dzen publish.")
-        return False, "DZEN_SESSION_COOKIE not configured"
+    vk_token = os.getenv("VK_ACCESS_TOKEN")
+    if not vk_token:
+        logger.warning("VK_ACCESS_TOKEN not set — Dzen publishing unavailable.")
+        return False, "VK_ACCESS_TOKEN not configured"
 
-    logger.info(f"Publishing directly to Dzen: {title}")
-    session = _init_session()
+    logger.info(f"Publishing to Dzen via VK content API: {title}")
 
-    if not _establish_session(session):
-        logger.warning("Could not establish Dzen session — trying API anyway")
+    text = re.sub(r"<[^>]+>", "", html_content)
+    text = re.sub(r"\s+", " ", text).strip()
 
-    body_html = _build_body_html(html_content, image_url)
-    return _try_api_endpoints(session, title, body_html, image_url)
+    attachments = []
+    if image_url:
+        try:
+            img_resp = requests.get(image_url, timeout=15)
+            if img_resp.ok:
+                upload = requests.get(
+                    f"{VK_API_URL}/content.getUploadServer",
+                    params={
+                        "access_token": vk_token,
+                        "v": API_VERSION,
+                        "type": "image",
+                    },
+                    timeout=15,
+                ).json()
+                upload_url = upload.get("response", {}).get("upload_url")
+                if upload_url:
+                    up = requests.post(upload_url, files={
+                        "file": ("image.jpg", img_resp.content, "image/jpeg"),
+                    }, timeout=30).json()
+                    attachments.append(json.dumps(up))
+        except Exception as e:
+            logger.warning(f"Image upload failed: {e}")
+
+    try:
+        payload = {
+            "access_token": vk_token,
+            "v": API_VERSION,
+            "title": title,
+            "text": text,
+            "is_published": 1,
+            "is_dzen": 1,
+        }
+        if attachments:
+            payload["attachments"] = ",".join(attachments)
+
+        resp = requests.post(
+            f"{VK_API_URL}/content.create",
+            data=payload,
+            timeout=30,
+        )
+        data = resp.json()
+        logger.info(f"VK content.create: {resp.status_code} — {resp.text[:300]}")
+
+        if "error" not in data:
+            content_id = data.get("response", {}).get("id", "ok")
+            logger.info(f"Dzen published via VK content API! ID: {content_id}")
+            return True, f"Published to Dzen: {content_id}"
+
+        logger.warning(f"VK content.create error: {data.get('error', {}).get('error_msg', 'unknown')}")
+
+    except Exception as e:
+        logger.warning(f"VK content.create failed: {e}")
+
+    try:
+        group_id = os.getenv("VK_GROUP_ID", "")
+        numeric_id = re.sub(r"[^\d]", "", group_id)
+
+        resp = requests.post(
+            f"{VK_API_URL}/wall.post",
+            data={
+                "access_token": vk_token,
+                "v": API_VERSION,
+                "owner_id": f"-{numeric_id}",
+                "from_group": 1,
+                "message": f"📰 {title}\n\n{text}",
+                "dzen": 1,
+            },
+            timeout=30,
+        )
+        data = resp.json()
+        logger.info(f"VK wall.post (dzen=1): {resp.status_code} — {resp.text[:300]}")
+
+        if "error" not in data:
+            post_id = data.get("response", {}).get("post_id", "ok")
+            logger.info(f"Published to VK+Dzen! Post ID: {post_id}")
+            return True, f"Published to VK+Dzen: {post_id}"
+
+        logger.warning(f"VK wall.post error: {data.get('error', {}).get('error_msg', 'unknown')}")
+        return False, f"VK API error: {data.get('error', {}).get('error_msg', 'unknown')}"
+
+    except Exception as e:
+        logger.error(f"Dzen publish failed: {e}")
+        return False, str(e)

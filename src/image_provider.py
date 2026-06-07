@@ -29,6 +29,11 @@ def _pick_query(niche: str, topic: str) -> str:
     return queries[idx]
 
 
+FALLBACK_URLS = [
+    "https://picsum.photos/seed/{seed}/800/600",
+    "https://via.placeholder.com/800x600/1a1a2e/ffffff?text=Article",
+]
+
 def get_image_url(niche: str, topic: str, orientation: str = "landscape") -> Optional[str]:
 
     access_key = os.getenv("UNSPLASH_ACCESS_KEY")
@@ -52,6 +57,16 @@ def get_image_url(niche: str, topic: str, orientation: str = "landscape") -> Opt
         except Exception as e:
             logger.warning(f"Unsplash API error: {e}")
 
-    fallback_url = f"https://picsum.photos/seed/{hash(topic) % 1000000}/800/600"
-    logger.info(f"Fallback image: picsum.photos (niche={niche})")
-    return fallback_url
+    seed = hash(topic) % 1000000
+    for template in FALLBACK_URLS:
+        url = template.replace("{seed}", str(seed))
+        try:
+            resp = requests.head(url, timeout=10, allow_redirects=True)
+            if resp.ok:
+                logger.info(f"Fallback image: {url.split('?')[0]}")
+                return resp.url or url
+        except Exception:
+            continue
+
+    logger.warning("All image sources failed")
+    return None
