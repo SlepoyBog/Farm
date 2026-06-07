@@ -2471,5 +2471,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Личный бюджет и сбережения",
+    "title": "💰 Личный бюджет и сбережения: контроль над финансами начинается здесь",
+    "niche": "финансы",
+    "published_at": "2026-06-07T10:30:49.523476",
+    "platforms": {
+      "telegram": {
+        "message_id": 421,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 473,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
