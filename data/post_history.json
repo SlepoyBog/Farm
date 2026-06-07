@@ -2494,5 +2494,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как запустить успешный стартап",
+    "title": "🚀 Стартапы: тренд, который меняет правила игры",
+    "niche": "бизнес",
+    "published_at": "2026-06-07T10:52:05.368659",
+    "platforms": {
+      "telegram": {
+        "message_id": 423,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 474,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
