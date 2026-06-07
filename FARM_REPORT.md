@@ -373,3 +373,4 @@ git push origin main
 | v12 | 2026-06-07 | **TG**: max_tokens=2000 (без обрезки посередине предложения) + чистая обрезка по точке. |
 | v32 | 2026-06-07 | **RSS для Дзена**: сайт перегенерирован с правильным SITE_URL. RSS-фид (145 статей) содержит `<enclosure>` (картинки) и `<content:encoded>` (полный HTML). |
 | v33 | 2026-06-07 | **sendMessage + link_preview**: отказ от sendPhoto. Пост отправляется как sendMessage (полный текст до 4096 символов) с link_preview_options.url = ссылка на статью сайта. Картинка — в preview-ссылке. TG prompt: 1200-1500 символов. |
+| v34 | 2026-06-07 | **link_preview fix**: URL preview = Unsplash image (а не страница статьи — та ещё не задеплоена). Добавлен `prefer_large_media`. |

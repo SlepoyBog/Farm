@@ -420,7 +420,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
 
     full_message = f"<b>{clean_title}</b>\n\n{body_text}"
 
-    link_preview = {"is_disabled": False}
+    link_preview = {"is_disabled": False, "prefer_large_media": True}
     if article_url:
         link_preview["url"] = article_url
 
@@ -565,8 +565,8 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             # Step 5: Publish to Telegram (with enhanced content)
             tg_title = _extract_title(article)
-            article_url = f"{SITE_URL}/{slug}.html" if SITE_URL else None
-            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url, article_url)
+            preview_url = image_url or (f"{SITE_URL}/{slug}.html" if SITE_URL else None)
+            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url, preview_url)
 
             # Step 6: Publish to VK (base article, VK publisher converts HTML)
             vk_ok = False
