@@ -2425,5 +2425,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Будущее искусственного интеллекта",
+    "title": "🤖 Будущее искусственного интеллекта: революция уже началась",
+    "niche": "технологии",
+    "published_at": "2026-06-07T09:34:03.571348",
+    "platforms": {
+      "telegram": {
+        "message_id": 418,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 470,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
