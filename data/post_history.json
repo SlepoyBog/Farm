@@ -2356,5 +2356,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "️ Локальные сувениры без туристических ловушек",
+    "title": "Локальные сувениры без туристических ловушек: гид для умных путешественников",
+    "niche": "путешествия",
+    "published_at": "2026-06-07T08:09:57.124782",
+    "platforms": {
+      "telegram": {
+        "message_id": 413,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 466,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
