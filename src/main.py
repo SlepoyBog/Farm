@@ -404,31 +404,57 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     has_html = "<" in caption and ">" in caption
 
     if image_url:
+        img_data = None
         try:
-            resp = requests.post(
-                f"{base_url}/sendPhoto",
-                json={
-                    "chat_id": TELEGRAM_CHAT_ID,
-                    "photo": image_url,
-                    "caption": caption,
-                    "parse_mode": "HTML" if has_html else None,
-                },
-                timeout=30,
-            )
-            if resp.status_code == 400:
+            img_resp = requests.get(image_url, timeout=15)
+            if img_resp.ok:
+                img_data = img_resp.content
+                ext = ".jpg"
+                ct = img_resp.headers.get("content-type", "")
+                if "png" in ct: ext = ".png"
+                elif "webp" in ct: ext = ".webp"
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
-                    json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": caption},
+                    data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption, "parse_mode": "HTML" if has_html else None},
+                    files={"photo": (f"img{ext}", img_data, ct or "image/jpeg")},
+                    timeout=60,
+                )
+                if resp.status_code == 400:
+                    resp = requests.post(
+                        f"{base_url}/sendPhoto",
+                        data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption},
+                        files={"photo": (f"img{ext}", img_data, "image/jpeg")},
+                        timeout=60,
+                    )
+                if resp.ok:
+                    msg_id = resp.json()["result"]["message_id"]
+                    logger.info(f"TG sendPhoto (upload) sent (id: {msg_id})")
+                    return True, msg_id
+                else:
+                    logger.warning(f"sendPhoto upload failed ({resp.status_code})")
+            else:
+                logger.warning(f"Failed to fetch image: {image_url[:60]}... ({img_resp.status_code})")
+        except Exception as e:
+            logger.warning(f"sendPhoto upload error: {e}")
+
+        if img_data is None:
+            try:
+                resp = requests.post(
+                    f"{base_url}/sendPhoto",
+                    json={
+                        "chat_id": TELEGRAM_CHAT_ID,
+                        "photo": image_url,
+                        "caption": caption,
+                        "parse_mode": None,
+                    },
                     timeout=30,
                 )
-            if resp.ok:
-                msg_id = resp.json()["result"]["message_id"]
-                logger.info(f"Telegram sendPhoto sent (id: {msg_id})")
-                return True, msg_id
-            else:
-                logger.warning(f"sendPhoto failed ({resp.status_code})")
-        except Exception as e:
-            logger.warning(f"sendPhoto error: {e}")
+                if resp.ok:
+                    msg_id = resp.json()["result"]["message_id"]
+                    logger.info(f"TG sendPhoto (URL fallback) sent (id: {msg_id})")
+                    return True, msg_id
+            except Exception as e:
+                logger.warning(f"sendPhoto URL fallback error: {e}")
 
     try:
         payload = {
@@ -589,18 +615,13 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             except Exception as e:
                 logger.warning(f"VK publish failed for '{topic}': {e}")
 
-            # Step 7: Publish to Dzen (direct via API)
-            try:
-                from src.dzen_direct_publisher import publish_to_dzen_direct
-                dzen_ok, dzen_msg = publish_to_dzen_direct(
-                    title=tg_title,
-                    html_content=article,
-                    image_url=image_url,
-                    niche=niche,
-                    topic=topic,
-                )
-            except Exception as e:
-                logger.warning(f"Dzen direct publish failed: {e}")
+            # Step 7: Dzen — через VK (если группа подключена к Дзену)
+            if vk_ok:
+                logger.info("Article published to VK. For Dzen: connect your VK group at")
+                logger.info("dzen.ru → profile → channels → connect VK, or")
+                logger.info("vk.com → group → manage → Dzen section")
+            else:
+                logger.info("VK publish failed — Dzen cross-post unavailable")
 
             # Step 8: Record publication for feedback loop
             vk_numeric = VK_GROUP_ID

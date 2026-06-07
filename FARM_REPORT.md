@@ -380,3 +380,4 @@ git push origin main
 | v38 | 2026-06-07 | **TG без лимита 950**: caption без обрезки, промпт 800-1000 символов. `_clean_caption` удалён. Старый `dzen_publisher.py` (VK) удалён — только прямой API. |
 | v39 | 2026-06-07 | **TG parse_mode=HTML**: HTML-теги работают. **Dzen API**: SSO-сессия, CSRF-токен, форматы json/form. |
 | v40 | 2026-06-07 | **Image provider**: fallback на placeholder CDN. **Dzen**: VK API `content.create` + `wall.post` с `dzen=1`. |
+| v41 | 2026-06-07 | **TG photo fix**: multipart-upload вместо URL (обходит блокировки CDN). **Dzen**: dzen_direct_publisher удалён. VK публикуется — Dzen забирает через связку VK→Дзен (если подключено). |
