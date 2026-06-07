@@ -388,24 +388,6 @@ def _truncate_html(text: str, max_chars: int) -> str:
     return truncated
 
 
-def _clean_caption(text: str, max_len: int = 1024) -> str:
-    """Clean and truncate text to fit Telegram caption limit."""
-    import html as html_module
-    text = html_module.unescape(text)
-    text = re.sub(r'<[^>]+>', '', text)
-    text = re.sub(r'\n{3,}', '\n\n', text)
-    text = text.strip()
-    if len(text) <= max_len:
-        return text
-    truncated = text[:max_len]
-    for sep in (". ", "! ", "? ", "\n", " "):
-        pos = truncated.rfind(sep)
-        if pos > max_len // 2:
-            truncated = truncated[:pos + (1 if sep != " " else 0)]
-            break
-    return truncated.strip()
-
-
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None, article_url: str | None = None) -> tuple[bool, int | None]:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
@@ -418,10 +400,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    caption = _clean_caption(f"{clean_title}\n\n{body_text}", 950)
-    if not caption:
-        logger.warning("Empty caption after cleaning, using title only")
-        caption = clean_title
+    caption = f"{clean_title}\n\n{body_text}"
 
     if image_url:
         try:
@@ -438,7 +417,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             if resp.status_code == 400:
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
-                    json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": _clean_caption(caption, 900)},
+                    json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": caption},
                     timeout=30,
                 )
             if resp.ok:
