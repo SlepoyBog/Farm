@@ -418,64 +418,58 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    full_message = f"<b>{clean_title}</b>\n\n{body_text}"
-    photo_msg_id = None
+    caption = _clean_caption(f"{clean_title}\n\n{body_text}", 950)
+    if not caption:
+        logger.warning("Empty caption after cleaning, using title only")
+        caption = clean_title
 
-    # Step 1: sendPhoto with image + compact plain-text caption (never truncated)
     if image_url:
-        caption = _clean_caption(f"{clean_title}\n\n{body_text}", 950)
-        if caption:
-            try:
+        try:
+            resp = requests.post(
+                f"{base_url}/sendPhoto",
+                json={
+                    "chat_id": TELEGRAM_CHAT_ID,
+                    "photo": image_url,
+                    "caption": caption,
+                    "parse_mode": None,
+                },
+                timeout=30,
+            )
+            if resp.status_code == 400:
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
-                    json={
-                        "chat_id": TELEGRAM_CHAT_ID,
-                        "photo": image_url,
-                        "caption": caption,
-                        "parse_mode": None,
-                    },
+                    json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": _clean_caption(caption, 900)},
                     timeout=30,
                 )
-                if resp.status_code == 400:
-                    resp = requests.post(
-                        f"{base_url}/sendPhoto",
-                        json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": _clean_caption(caption, 900)},
-                        timeout=30,
-                    )
-                if resp.ok:
-                    photo_msg_id = resp.json()["result"]["message_id"]
-                    logger.info(f"Telegram sendPhoto sent (id: {photo_msg_id})")
-                else:
-                    logger.warning(f"sendPhoto failed ({resp.status_code})")
-            except Exception as e:
-                logger.warning(f"sendPhoto error: {e}")
+            if resp.ok:
+                msg_id = resp.json()["result"]["message_id"]
+                logger.info(f"Telegram sendPhoto sent (id: {msg_id})")
+                return True, msg_id
+            else:
+                logger.warning(f"sendPhoto failed ({resp.status_code})")
+        except Exception as e:
+            logger.warning(f"sendPhoto error: {e}")
 
-    # Step 2: sendMessage with full text (replied to photo if available)
     try:
-        payload = {
-            "chat_id": TELEGRAM_CHAT_ID,
-            "text": full_message,
-            "link_preview_options": {"is_disabled": True},
-        }
-        if photo_msg_id:
-            payload["reply_parameters"] = {"message_id": photo_msg_id, "allow_sending_without_reply": True}
-        if "<" in full_message and ">" in full_message:
-            payload["parse_mode"] = "HTML"
-        resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
-        if resp.status_code == 400:
-            import html as html_module
-            plain = re.sub(r'<[^>]+>', '', full_message)
-            plain = html_module.unescape(plain)
-            payload.pop("parse_mode", None)
-            payload["text"] = plain
-            resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
-        resp.raise_for_status()
-        msg_id = resp.json()["result"]["message_id"]
-        logger.info(f"Telegram sendMessage sent (id: {msg_id})")
-        return True, photo_msg_id or msg_id
+        resp = requests.post(
+            f"{base_url}/sendMessage",
+            json={
+                "chat_id": TELEGRAM_CHAT_ID,
+                "text": caption,
+                "link_preview_options": {"is_disabled": True},
+            },
+            timeout=30,
+        )
+        if resp.ok:
+            msg_id = resp.json()["result"]["message_id"]
+            logger.info(f"Telegram sendMessage sent (id: {msg_id})")
+            return True, msg_id
+        else:
+            logger.warning(f"sendMessage failed ({resp.status_code})")
     except Exception as e:
-        logger.error(f"Telegram sendMessage failed: {e}")
-        return photo_msg_id is not None, photo_msg_id
+        logger.error(f"Telegram fallback failed: {e}")
+
+    return False, None
 
 
 async def enhance_for_tg(html_article: str, niche: str) -> str:

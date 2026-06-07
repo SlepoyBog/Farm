@@ -376,3 +376,4 @@ git push origin main
 | v34 | 2026-06-07 | **link_preview fix**: URL preview = Unsplash image (а не страница статьи — та ещё не задеплоена). Добавлен `prefer_large_media`. |
 | v35 | 2026-06-07 | **sendPhoto + sendMessage + Dzen via VK**: Telegram — `sendPhoto` (фото + caption ≤ 950) + `sendMessage` (полный текст, reply). Дзен — публикация через VK API (полный текст, без лимита 1024). Для автопереноса в Дзен: подключить VK группу в настройках Дзена. |
 | v36 | 2026-06-07 | **Dzen Direct Publisher**: модуль `dzen_direct_publisher.py` — публикация напрямую в API Дзена через Yandex Passport cookie. Без лимитов, без Telegram. Для работы: добавить `DZEN_SESSION_COOKIE` в GitHub Secrets. |
+| v37 | 2026-06-07 | **Один пост в TG + Dzen без дублей**: `publish_to_telegram` — только `sendPhoto` (один пост, caption ≤ 950). `sendMessage` удалён. Для Dzen — отключить импорт из Telegram в настройках Дзена, останется только прямой API. |
