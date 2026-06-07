@@ -2540,5 +2540,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как улучшить технику бега",
+    "title": "🏃 Прокачка техники бега: ключевые принципы",
+    "niche": "спорт",
+    "published_at": "2026-06-07T11:42:30.161772",
+    "platforms": {
+      "telegram": {
+        "message_id": 425,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 476,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
