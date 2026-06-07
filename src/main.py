@@ -419,17 +419,46 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     full_message = f"<b>{clean_title}</b>\n\n{body_text}"
+    photo_msg_id = None
 
-    link_preview = {"is_disabled": False, "prefer_large_media": True}
-    if article_url:
-        link_preview["url"] = article_url
+    # Step 1: sendPhoto with image + compact plain-text caption (never truncated)
+    if image_url:
+        caption = _clean_caption(f"{clean_title}\n\n{body_text}", 950)
+        if caption:
+            try:
+                resp = requests.post(
+                    f"{base_url}/sendPhoto",
+                    json={
+                        "chat_id": TELEGRAM_CHAT_ID,
+                        "photo": image_url,
+                        "caption": caption,
+                        "parse_mode": None,
+                    },
+                    timeout=30,
+                )
+                if resp.status_code == 400:
+                    resp = requests.post(
+                        f"{base_url}/sendPhoto",
+                        json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": _clean_caption(caption, 900)},
+                        timeout=30,
+                    )
+                if resp.ok:
+                    photo_msg_id = resp.json()["result"]["message_id"]
+                    logger.info(f"Telegram sendPhoto sent (id: {photo_msg_id})")
+                else:
+                    logger.warning(f"sendPhoto failed ({resp.status_code})")
+            except Exception as e:
+                logger.warning(f"sendPhoto error: {e}")
 
+    # Step 2: sendMessage with full text (replied to photo if available)
     try:
         payload = {
             "chat_id": TELEGRAM_CHAT_ID,
             "text": full_message,
-            "link_preview_options": link_preview,
+            "link_preview_options": {"is_disabled": True},
         }
+        if photo_msg_id:
+            payload["reply_parameters"] = {"message_id": photo_msg_id, "allow_sending_without_reply": True}
         if "<" in full_message and ">" in full_message:
             payload["parse_mode"] = "HTML"
         resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
@@ -442,11 +471,11 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         resp.raise_for_status()
         msg_id = resp.json()["result"]["message_id"]
-        logger.info(f"Telegram sendMessage sent (id: {msg_id}) with link_preview={article_url}")
-        return True, msg_id
+        logger.info(f"Telegram sendMessage sent (id: {msg_id})")
+        return True, photo_msg_id or msg_id
     except Exception as e:
         logger.error(f"Telegram sendMessage failed: {e}")
-        return False, None
+        return photo_msg_id is not None, photo_msg_id
 
 
 async def enhance_for_tg(html_article: str, niche: str) -> str:
@@ -565,8 +594,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             # Step 5: Publish to Telegram (with enhanced content)
             tg_title = _extract_title(article)
-            preview_url = image_url or (f"{SITE_URL}/{slug}.html" if SITE_URL else None)
-            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url, preview_url)
+            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url)
 
             # Step 6: Publish to VK (base article, VK publisher converts HTML)
             vk_ok = False
@@ -584,7 +612,22 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             except Exception as e:
                 logger.warning(f"VK publish failed for '{topic}': {e}")
 
-            # Step 7: Record publication for feedback loop
+            # Step 7: Publish to Dzen (via VK cross-posting)
+            try:
+                from src.dzen_publisher import publish_to_dzen
+                dzen_ok, dzen_msg = publish_to_dzen(
+                    access_token=VK_ACCESS_TOKEN,
+                    group_id=VK_GROUP_ID,
+                    title=tg_title,
+                    html_content=article,
+                    niche=niche,
+                    image_url=image_url,
+                    topic=topic,
+                )
+            except Exception as e:
+                logger.warning(f"Dzen publish failed: {e}")
+
+            # Step 8: Record publication for feedback loop
             vk_numeric = VK_GROUP_ID
             if vk_numeric:
                 if vk_numeric.startswith("club"):

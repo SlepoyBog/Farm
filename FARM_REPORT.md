@@ -374,3 +374,4 @@ git push origin main
 | v32 | 2026-06-07 | **RSS для Дзена**: сайт перегенерирован с правильным SITE_URL. RSS-фид (145 статей) содержит `<enclosure>` (картинки) и `<content:encoded>` (полный HTML). |
 | v33 | 2026-06-07 | **sendMessage + link_preview**: отказ от sendPhoto. Пост отправляется как sendMessage (полный текст до 4096 символов) с link_preview_options.url = ссылка на статью сайта. Картинка — в preview-ссылке. TG prompt: 1200-1500 символов. |
 | v34 | 2026-06-07 | **link_preview fix**: URL preview = Unsplash image (а не страница статьи — та ещё не задеплоена). Добавлен `prefer_large_media`. |
+| v35 | 2026-06-07 | **sendPhoto + sendMessage + Dzen via VK**: Telegram — `sendPhoto` (фото + caption ≤ 950) + `sendMessage` (полный текст, reply). Дзен — публикация через VK API (полный текст, без лимита 1024). Для автопереноса в Дзен: подключить VK группу в настройках Дзена. |
