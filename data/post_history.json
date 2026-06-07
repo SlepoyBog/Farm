@@ -2563,5 +2563,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Визуальные спецэффекты без перебора",
+    "title": "Визуальные спецэффекты без перебора: как скромность рождает величие",
+    "niche": "кино",
+    "published_at": "2026-06-07T15:24:30.823177",
+    "platforms": {
+      "telegram": {
+        "message_id": 426,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 479,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
