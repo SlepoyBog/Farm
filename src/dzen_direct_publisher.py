@@ -2,44 +2,132 @@ import json
 import logging
 import os
 import re
-import time
 from typing import Optional
 
 import requests
 
 logger = logging.getLogger(__name__)
 
-DZEN_API_BASE = "https://dzen.ru/api/v1"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+DZEN_HOST = "https://dzen.ru"
 
 
-def _build_headers() -> dict:
-    headers = {
+def _init_session() -> requests.Session:
+    session = requests.Session()
+    session.headers.update({
         "User-Agent": USER_AGENT,
         "Accept": "application/json, text/plain, */*",
         "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-        "Content-Type": "application/json;charset=UTF-8",
-        "Origin": "https://dzen.ru",
-        "Referer": "https://dzen.ru/media/settings/publications/new",
-        "X-Requested-With": "XMLHttpRequest",
-    }
-    session_cookie = os.getenv("DZEN_SESSION_COOKIE", "")
-    if session_cookie:
-        headers["Cookie"] = session_cookie
-    return headers
+        "Origin": DZEN_HOST,
+    })
 
+    raw_cookie = os.getenv("DZEN_SESSION_COOKIE", "")
+    if not raw_cookie:
+        return session
 
-def _get_session() -> requests.Session:
-    session = requests.Session()
-    session.headers.update(_build_headers())
-    session_cookie = os.getenv("DZEN_SESSION_COOKIE", "")
-    if session_cookie:
-        for part in session_cookie.split(";"):
-            part = part.strip()
-            if "=" in part:
-                key, val = part.split("=", 1)
-                session.cookies.set(key.strip(), val.strip(), domain=".dzen.ru")
+    for part in raw_cookie.split(";"):
+        part = part.strip()
+        if "=" in part:
+            key, val = part.split("=", 1)
+            session.cookies.set(key.strip(), val.strip(), domain=".dzen.ru")
+            session.cookies.set(key.strip(), val.strip(), domain=".yandex.ru")
     return session
+
+
+def _establish_session(session: requests.Session) -> bool:
+    """Visit Dzen editor page to establish SSO session."""
+    try:
+        resp = session.get(
+            f"{DZEN_HOST}/media/settings/publications/new",
+            timeout=15,
+        )
+        logger.info(f"Dzen editor page: {resp.status_code} ({len(resp.content)} bytes)")
+
+        if "is_autologin" in resp.text:
+            import re as _re
+            m = _re.search(r'host":"([^"]+)"', resp.text)
+            if m:
+                sso_url = m.group(1).replace("\\u002F", "/").replace("\\u0026", "&")
+                logger.info(f"Following SSO: {sso_url[:80]}...")
+                sso_resp = session.get(sso_url, timeout=15)
+                logger.info(f"SSO response: {sso_resp.status_code}")
+
+        resp2 = session.get(
+            f"{DZEN_HOST}/media/settings/publications/new",
+            timeout=15,
+        )
+        logger.info(f"After SSO: {resp2.status_code} ({len(resp2.content)} bytes)")
+
+        if "publications" in resp2.text or "publication" in resp2.text:
+            logger.info("SSO session established!")
+            return True
+
+        logger.warning("SSO session could not be established")
+        return False
+
+    except Exception as e:
+        logger.error(f"Session establishment error: {e}")
+        return False
+
+
+def _try_api_endpoints(session: requests.Session, title: str, body_html: str, image_url: Optional[str]) -> tuple[bool, str]:
+    endpoints = [
+        "/api/v1/publication/create",
+        "/api/v1/publication",
+        "/api/v1/media/publication/create",
+        "/api/v1/user/publication/create",
+        "/media/api/publication",
+    ]
+
+    csrf = ""
+    for c in session.cookies:
+        if "csrf" in c.name.lower() or "xsrf" in c.name.lower() or "token" in c.name.lower():
+            csrf = c.value
+            break
+
+    for ep in endpoints:
+        url = f"{DZEN_HOST}{ep}"
+        headers = {}
+        if csrf:
+            headers["X-CSRF-Token"] = csrf
+            headers["X-XSRF-Token"] = csrf
+        headers["X-Requested-With"] = "XMLHttpRequest"
+
+        for fmt in ["json", "form"]:
+            try:
+                if fmt == "json":
+                    resp = session.post(url, json={
+                        "title": title,
+                        "content": body_html,
+                        "is_public": True,
+                    }, headers=headers, timeout=30)
+                else:
+                    resp = session.post(url, data={
+                        "title": title,
+                        "content": body_html,
+                        "is_public": "1",
+                    }, headers=headers, timeout=30)
+                logger.info(f"{ep} [{fmt}]: {resp.status_code} {resp.text[:200]}")
+                if resp.ok and resp.text.strip():
+                    try:
+                        data = resp.json()
+                        if data.get("error") == 0 or data.get("publication_id") or data.get("id"):
+                            pub_id = data.get("publication_id") or data.get("id") or "ok"
+                            return True, f"Dzen published: {pub_id}"
+                    except (json.JSONDecodeError, Exception):
+                        if resp.ok:
+                            return True, "Dzen published (unknown format)"
+            except Exception as e:
+                logger.debug(f"{ep} [{fmt}]: {e}")
+
+    return False, "All API endpoints failed"
+
+
+def _build_body_html(html_content: str, image_url: Optional[str]) -> str:
+    if image_url:
+        img = f'<figure><img src="{image_url}" alt="" /></figure>'
+        return img + "\n\n" + html_content
+    return html_content
 
 
 def publish_to_dzen_direct(
@@ -54,114 +142,10 @@ def publish_to_dzen_direct(
         return False, "DZEN_SESSION_COOKIE not configured"
 
     logger.info(f"Publishing directly to Dzen: {title}")
+    session = _init_session()
 
-    session = _get_session()
+    if not _establish_session(session):
+        logger.warning("Could not establish Dzen session — trying API anyway")
 
-    # Strip HTML for plain-text excerpt
-    text_only = re.sub(r"<[^>]+>", "", html_content)
-    text_only = re.sub(r"\s+", " ", text_only).strip()
-    excerpt = text_only[:500]
-
-    # Build article content in Dzen-compatible format
-    body_html = _clean_html_for_dzen(html_content, image_url)
-
-    payload = {
-        "title": title,
-        "subtitle": "",
-        "content": body_html,
-        "tags": [niche] if niche else [],
-        "is_article": True,
-        "is_public": True,
-        "is_rss": True,
-        "image_url": image_url or "",
-        "excerpt": excerpt,
-    }
-
-    endpoints = [
-        f"{DZEN_API_BASE}/publication/create",
-        f"{DZEN_API_BASE}/publication",
-        f"{DZEN_API_BASE}/media/publication/create",
-        f"{DZEN_API_BASE}/content/create",
-        "https://dzen.ru/api/v1/user/publication/create",
-        "https://dzen.ru/api/v1/media/publication/create",
-        "https://dzen.ru/api/v1/publish",
-    ]
-
-    for endpoint in endpoints:
-        try:
-            resp = session.post(
-                endpoint,
-                json=payload,
-                timeout=30,
-            )
-            data = resp.json()
-            logger.info(f"Dzen API {endpoint}: {resp.status_code} — {resp.text[:300]}")
-
-            if resp.ok and data.get("error") == 0:
-                pub_id = data.get("publication_id", data.get("id", ""))
-                logger.info(f"Dzen publish success! ID: {pub_id}")
-                return True, f"Published to Dzen: {pub_id}"
-
-            if data.get("error") != 1:
-                continue
-
-        except Exception as e:
-            logger.debug(f"Dzen API error at {endpoint}: {e}")
-            continue
-
-    logger.warning("Direct API failed, trying form-based publish...")
-    return _publish_via_form(session, title, html_content, image_url)
-
-
-def _clean_html_for_dzen(html: str, image_url: Optional[str] = None) -> str:
-    if image_url:
-        img_tag = f'<img src="{image_url}" alt="" style="max-width:100%" />'
-        html = img_tag + "\n\n" + html
-    return html
-
-
-def _publish_via_form(
-    session: requests.Session,
-    title: str,
-    html_content: str,
-    image_url: Optional[str] = None,
-) -> tuple[bool, str]:
-    try:
-        text_only = re.sub(r"<[^>]+>", "", html_content)
-        text_only = re.sub(r"\s+", " ", text_only).strip()
-
-        data = {
-            "title": title,
-            "text": text_only,
-            "format": "text",
-            "is_public": "1",
-        }
-
-        resp = session.post(
-            "https://dzen.ru/media/api/publication",
-            data=data,
-            timeout=30,
-        )
-        logger.info(f"Dzen form publish: {resp.status_code} — {resp.text[:300]}")
-
-        if resp.ok:
-            return True, "Published via Dzen form"
-
-        resp = session.post(
-            "https://dzen.ru/api/v1/user/publication/create",
-            json={
-                "title": title,
-                "content": _clean_html_for_dzen(html_content, image_url),
-                "is_public": True,
-            },
-            timeout=30,
-        )
-        logger.info(f"Dzen fallback API: {resp.status_code} — {resp.text[:300]}")
-        if resp.ok:
-            return True, "Published via Dzen fallback API"
-
-        return False, f"Dzen API failed: {resp.text[:200]}"
-
-    except Exception as e:
-        logger.error(f"Dzen form publish error: {e}")
-        return False, str(e)
+    body_html = _build_body_html(html_content, image_url)
+    return _try_api_endpoints(session, title, body_html, image_url)

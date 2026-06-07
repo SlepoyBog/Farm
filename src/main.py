@@ -401,6 +401,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     caption = f"{clean_title}\n\n{body_text}"
+    has_html = "<" in caption and ">" in caption
 
     if image_url:
         try:
@@ -410,7 +411,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
                     "chat_id": TELEGRAM_CHAT_ID,
                     "photo": image_url,
                     "caption": caption,
-                    "parse_mode": None,
+                    "parse_mode": "HTML" if has_html else None,
                 },
                 timeout=30,
             )
@@ -430,21 +431,24 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             logger.warning(f"sendPhoto error: {e}")
 
     try:
-        resp = requests.post(
-            f"{base_url}/sendMessage",
-            json={
-                "chat_id": TELEGRAM_CHAT_ID,
-                "text": caption,
-                "link_preview_options": {"is_disabled": True},
-            },
-            timeout=30,
-        )
+        payload = {
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": caption,
+            "link_preview_options": {"is_disabled": True},
+        }
+        if has_html:
+            payload["parse_mode"] = "HTML"
+        resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
+        if resp.status_code == 400:
+            resp = requests.post(
+                f"{base_url}/sendMessage",
+                json={"chat_id": TELEGRAM_CHAT_ID, "text": caption},
+                timeout=30,
+            )
         if resp.ok:
             msg_id = resp.json()["result"]["message_id"]
             logger.info(f"Telegram sendMessage sent (id: {msg_id})")
             return True, msg_id
-        else:
-            logger.warning(f"sendMessage failed ({resp.status_code})")
     except Exception as e:
         logger.error(f"Telegram fallback failed: {e}")
 

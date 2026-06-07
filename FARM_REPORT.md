@@ -378,3 +378,4 @@ git push origin main
 | v36 | 2026-06-07 | **Dzen Direct Publisher**: модуль `dzen_direct_publisher.py` — публикация напрямую в API Дзена через Yandex Passport cookie. Без лимитов, без Telegram. Для работы: добавить `DZEN_SESSION_COOKIE` в GitHub Secrets. |
 | v37 | 2026-06-07 | **Один пост в TG + Dzen без дублей**: `publish_to_telegram` — только `sendPhoto` (один пост, caption ≤ 950). `sendMessage` удалён. Для Dzen — отключить импорт из Telegram в настройках Дзена, останется только прямой API. |
 | v38 | 2026-06-07 | **TG без лимита 950**: caption без обрезки, промпт 800-1000 символов. `_clean_caption` удалён. Старый `dzen_publisher.py` (VK) удалён — только прямой API. |
+| v39 | 2026-06-07 | **TG parse_mode=HTML**: HTML-теги в caption теперь работают. **Dzen API**: переписан — SSO-сессия, CSRF-токен, форматы json/form. |
