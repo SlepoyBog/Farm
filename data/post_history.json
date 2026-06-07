@@ -2402,5 +2402,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Чистка форсунок без снятия",
+    "title": "🔧 Чистка форсунок без снятия: экономия времени и ресурсов",
+    "niche": "авто",
+    "published_at": "2026-06-07T09:18:51.850358",
+    "platforms": {
+      "telegram": {
+        "message_id": 416,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 468,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
