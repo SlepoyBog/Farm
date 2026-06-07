@@ -43,6 +43,7 @@ TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 VK_ACCESS_TOKEN = os.getenv("VK_ACCESS_TOKEN")
 VK_GROUP_ID = os.getenv("VK_GROUP_ID")
+SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
 if not DEEPSEEK_API_KEY:
     logger.error("DEEPSEEK_API_KEY not found in .env file!")
     sys.exit(1)
@@ -405,7 +406,7 @@ def _clean_caption(text: str, max_len: int = 1024) -> str:
     return truncated.strip()
 
 
-def publish_to_telegram(title: str, html_content: str, image_url: str | None = None) -> tuple[bool, int | None]:
+def publish_to_telegram(title: str, html_content: str, image_url: str | None = None, article_url: str | None = None) -> tuple[bool, int | None]:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
         return False, None
@@ -418,47 +419,17 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     full_message = f"<b>{clean_title}</b>\n\n{body_text}"
-    photo_msg_id = None
 
-    # Step 1: sendPhoto with compact caption — title + short summary, guaranteed ≤ 950 chars
-    if image_url:
-        caption = f"<b>{clean_title}</b>\n\n{body_text}"
-        caption = _clean_caption(caption, 950)
-        if caption:
-            try:
-                resp = requests.post(
-                    f"{base_url}/sendPhoto",
-                    json={
-                        "chat_id": TELEGRAM_CHAT_ID,
-                        "photo": image_url,
-                        "caption": caption,
-                        "parse_mode": None,
-                    },
-                    timeout=30,
-                )
-                if resp.status_code == 400:
-                    resp = requests.post(
-                        f"{base_url}/sendPhoto",
-                        json={"chat_id": TELEGRAM_CHAT_ID, "photo": image_url, "caption": _clean_caption(caption, 950)},
-                        timeout=30,
-                    )
-                if resp.ok:
-                    photo_msg_id = resp.json()["result"]["message_id"]
-                    logger.info(f"Telegram sendPhoto sent (id: {photo_msg_id})")
-                else:
-                    logger.warning(f"sendPhoto failed ({resp.status_code})")
-            except Exception as e:
-                logger.warning(f"sendPhoto error: {e}")
+    link_preview = {"is_disabled": False}
+    if article_url:
+        link_preview["url"] = article_url
 
-    # Step 2: always send full text as a separate message (replied to photo if available)
     try:
         payload = {
             "chat_id": TELEGRAM_CHAT_ID,
             "text": full_message,
-            "link_preview_options": {"is_disabled": True},
+            "link_preview_options": link_preview,
         }
-        if photo_msg_id:
-            payload["reply_parameters"] = {"message_id": photo_msg_id, "allow_sending_without_reply": True}
         if "<" in full_message and ">" in full_message:
             payload["parse_mode"] = "HTML"
         resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
@@ -471,11 +442,11 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         resp.raise_for_status()
         msg_id = resp.json()["result"]["message_id"]
-        logger.info(f"Telegram sendMessage sent (id: {msg_id})")
-        return True, photo_msg_id or msg_id
+        logger.info(f"Telegram sendMessage sent (id: {msg_id}) with link_preview={article_url}")
+        return True, msg_id
     except Exception as e:
         logger.error(f"Telegram sendMessage failed: {e}")
-        return photo_msg_id is not None, photo_msg_id
+        return False, None
 
 
 async def enhance_for_tg(html_article: str, niche: str) -> str:
@@ -490,7 +461,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=800,
+            max_tokens=1500,
         )
         result = result.strip()
         if len(result) < 50:
@@ -594,7 +565,8 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             # Step 5: Publish to Telegram (with enhanced content)
             tg_title = _extract_title(article)
-            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url)
+            article_url = f"{SITE_URL}/{slug}.html" if SITE_URL else None
+            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url, article_url)
 
             # Step 6: Publish to VK (base article, VK publisher converts HTML)
             vk_ok = False
