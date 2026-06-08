@@ -2632,5 +2632,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как выбрать подержанный автомобиль",
+    "title": "🚗 Как выбрать подержанный автомобиль: 5 шагов к удачной покупке",
+    "niche": "авто",
+    "published_at": "2026-06-08T02:34:58.134050",
+    "platforms": {
+      "telegram": {
+        "message_id": 429,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 482,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
