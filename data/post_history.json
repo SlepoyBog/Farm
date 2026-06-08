@@ -2770,5 +2770,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Верховая езда для осанки",
+    "title": "🏇 Верховая езда: прокачка осанки без скуки",
+    "niche": "спорт",
+    "published_at": "2026-06-08T17:23:36.990273",
+    "platforms": {
+      "telegram": {
+        "message_id": 435,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 488,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
