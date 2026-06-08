@@ -2678,5 +2678,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Травы и природные антибиотики",
+    "title": "🌿 Травы vs Антибиотики: природа дала нам мощное оружие 🛡️",
+    "niche": "здоровье",
+    "published_at": "2026-06-08T03:51:44.972937",
+    "platforms": {
+      "telegram": {
+        "message_id": 431,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 484,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
