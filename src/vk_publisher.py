@@ -23,6 +23,10 @@ def adapt_for_vk(title: str, html_content: str, niche: str) -> str:
     # Strip h1 from content (title is added separately below, avoid duplication)
     content_no_h1 = re.sub(r'<h1[^>]*>.*?</h1>\s*', '', html_content, flags=re.DOTALL)
 
+    # Strip markdown fences (AI sometimes wraps HTML in ```html ... ```)
+    content_no_h1 = re.sub(r'```(?:html)?\s*', '', content_no_h1)
+    content_no_h1 = re.sub(r'~~~(?:html)?\s*', '', content_no_h1)
+
     # Strip HTML tags for plain text
     import html as html_module
     # Block-level tags → newline (preserve paragraph structure)

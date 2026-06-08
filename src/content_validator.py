@@ -144,6 +144,24 @@ def fix_truncated_html(html: str) -> str:
     return html
 
 
+def fix_bold_stacking(html: str) -> str:
+    """Исправляет паттерн </b><b>\\n — AI пытается перенести строку внутри bold.
+
+    Было:   <b>текст</b><b>\\nЕщё текст</b>
+    Стало:  <b>текст</b>\\n<b>Ещё текст</b>
+    """
+    html = re.sub(r'</b>\s*<b>\s*\n\s*', '\n<b>', html)
+    html = re.sub(r'</b>\s*<b>\s*', '', html)
+    return html
+
+
+def strip_markdown_fences(text: str) -> str:
+    """Удаляет markdown-ограждения (```html, ~~~ и т.д.)."""
+    text = re.sub(r'```(?:html)?\s*', '', text)
+    text = re.sub(r'~~~(?:html)?\s*', '', text)
+    return text
+
+
 def extract_clean_text(html: str) -> str:
     """Извлекает чистый текст из HTML."""
     text = re.sub(r"<[^>]+>", "", html)
@@ -160,11 +178,16 @@ def validate_and_fix(
     issues = []
     original = html
 
+    html = strip_markdown_fences(html)
+    html = fix_bold_stacking(html)
+
     html_ok, html_issues = check_html_integrity(html)
     if not html_ok:
         for iss in html_issues:
             logger.warning("[%s] HTML issue: %s", context, iss)
             issues.append(iss)
+        html = fix_truncated_html(html)
+        issues.append("Fixed HTML structure")
 
     text = extract_clean_text(html)
     complete_ok, complete_issue = check_completeness(text)
