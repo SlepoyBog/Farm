@@ -2701,5 +2701,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Рефинансирование кредитов: плюсы",
+    "title": "🔄 Рефинансирование кредитов: плюсы и подводные камни",
+    "niche": "финансы",
+    "published_at": "2026-06-08T04:10:39.525490",
+    "platforms": {
+      "telegram": {
+        "message_id": 432,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 485,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
