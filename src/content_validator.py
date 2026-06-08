@@ -157,8 +157,8 @@ def fix_bold_stacking(html: str) -> str:
 
 
 def strip_markdown_fences(text: str) -> str:
-    text = re.sub(r'```(?:html)?\s*', '', text)
-    text = re.sub(r'~~~(?:html)?\s*', '', text)
+    text = re.sub(r'`{3,}(?:html)?\s*|\s*`{3,}', '', text)
+    text = re.sub(r'~{3,}(?:html)?\s*|\s*~{3,}', '', text)
     return text
 
 
