@@ -17,7 +17,7 @@ load_dotenv()
 
 SITE_NAME = "AI Блог — технологии, тренды, инсайты"
 SITE_DESCRIPTION = "Ежедневные статьи об искусственном интеллекте, технологиях и трендах."
-SITE_URL = (os.getenv("SITE_URL") or "").rstrip("/") or "https://farm.olegtt1337.workers.dev"
+SITE_URL = (os.getenv("SITE_URL") or "").rstrip("/") or "https://ubiquitous-peony-80d9cb.netlify.app"
 
 INDEX_TEMPLATE = """<!DOCTYPE html>
 <html lang="ru">

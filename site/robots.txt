@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://farm.olegtt1337.workers.dev/sitemap.xml
+Sitemap: https://ubiquitous-peony-80d9cb.netlify.app/sitemap.xml
