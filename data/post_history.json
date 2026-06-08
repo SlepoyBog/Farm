@@ -2793,5 +2793,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Фестивальное кино: громкие премьеры",
+    "title": "Фестивальное кино: громкие премьеры — «Анора» как главный хит Канн 2024",
+    "niche": "кино",
+    "published_at": "2026-06-08T20:13:14.151903",
+    "platforms": {
+      "telegram": {
+        "message_id": 436,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 489,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
