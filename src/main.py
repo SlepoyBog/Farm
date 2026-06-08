@@ -22,6 +22,7 @@ from src.trend_analyzer import detect_trending_niche
 from src.site_generator import generate_site
 from src.image_provider import get_image_url
 from src.dzen_direct_publisher import publish_to_dzen_direct
+from src.content_validator import validate_and_fix
 
 # Setup logging
 os.makedirs("logs", exist_ok=True)
@@ -574,10 +575,23 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             # Step 2: Write article draft
             article = await generate_article(topic, outline)
+            article, _ = validate_and_fix(article, max_chars=3000, context="article")
+
+            # Step 2b: Critique + rewrite if below threshold
+            score, feedback = await critique_article(article, outline)
+            if score < 7.0 and feedback:
+                logger.info(f"Article score {score}/10 — rewriting...")
+                article = await rewrite_article(article, feedback)
+                article, _ = validate_and_fix(article, max_chars=3000, context="article-rewrite")
 
             # Step 3: TG trend rewrite
             logger.info(f"Enhancing article for Telegram trends...")
             tg_article = await enhance_for_tg(article, niche)
+            tg_article, tg_issues = validate_and_fix(tg_article, max_chars=950, context="tg")
+            if tg_issues:
+                logger.info("TG content had %d issues — re-enhancing...", len(tg_issues))
+                tg_article = await enhance_for_tg(article, niche)
+                tg_article, _ = validate_and_fix(tg_article, max_chars=950, context="tg-retry")
 
             # Step 4: Save article + outline to files
             slug = slugify(topic)
