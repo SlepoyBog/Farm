@@ -1,2 +1,7 @@
 [build]
   publish = "site"
+
+[[redirects]]
+  from = "/zen_YNrRQW9LqrNYgsd6WfXUv1WYrKylOgN4i9FFZh67AJ2kDakx7sNHscWC9ACw6mkS.html"
+  to = "/zen-verify.html"
+  status = 200
