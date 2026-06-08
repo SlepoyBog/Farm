@@ -2655,5 +2655,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Геймификация в образовании",
+    "title": "🎮 Геймификация в образовании: как ИИ превращает учёбу в игру",
+    "niche": "технологии",
+    "published_at": "2026-06-08T03:01:55.204452",
+    "platforms": {
+      "telegram": {
+        "message_id": 430,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 483,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
