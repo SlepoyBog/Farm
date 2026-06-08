@@ -52,6 +52,7 @@ Farm/
 ├── src/
 │   ├── main.py                   # Оркестратор: генерация, публикация
 │   ├── deepseek_client.py        # Клиент DeepSeek Flash API
+│   ├── dzen_direct_publisher.py  # Прямой API Яндекс.Дзен (через сессионную cookie)
 │   ├── trend_analyzer.py         # Анализ трендов (Google Trends + post_history + сезон)
 │   ├── site_generator.py         # Генерация SEO-сайта (HTML, sitemap, RSS)
 │   ├── scheduler.py              # Планировщик (--once для Task Scheduler)
@@ -384,4 +385,5 @@ git push origin main
 | v41 | 2026-06-07 | **TG photo fix**: multipart-upload вместо URL (обходит блокировки CDN). **Dzen**: dzen_direct_publisher удалён. VK публикуется — Dzen забирает через связку VK→Дзен (если подключено). |
 | v42 | 2026-06-07 | **CI auto-deploy** (remote) |
 | v43 | 2026-06-07 | **CI auto-deploy** (remote) |
-| **v44** | **2026-06-08** | **AGENTS.md**: создана команда AI-агентов — Tech Lead, Developer, Reviewer, DevOps, QA, Analyst, Content Manager. Определены процессы code review, тестирования и деплоя. |
+| v44 | 2026-06-08 | **AGENTS.md**: создана команда AI-агентов — Tech Lead, Developer, Reviewer, DevOps, QA, Analyst, Content Manager. Определены процессы code review, тестирования и деплоя. |
+| **v45** | **2026-06-08** | **TG фикс**: caption обрезается до 950 символов через `_truncate_html` — больше никаких обрывов на 1024. **Dzen фикс**: восстановлен `dzen_direct_publisher.py` (прямой API через `DZEN_SESSION_COOKIE`), встроен в main.py Step 7 вместо заглушки. |

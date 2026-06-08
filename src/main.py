@@ -21,6 +21,7 @@ from src.feedback_loop import inject_recommendations, record_publication
 from src.trend_analyzer import detect_trending_niche
 from src.site_generator import generate_site
 from src.image_provider import get_image_url
+from src.dzen_direct_publisher import publish_to_dzen_direct
 
 # Setup logging
 os.makedirs("logs", exist_ok=True)
@@ -403,6 +404,8 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     caption = f"{clean_title}\n\n{body_text}"
     has_html = "<" in caption and ">" in caption
 
+    caption = _truncate_html(caption, 950)
+
     if image_url:
         img_data = None
         try:
@@ -615,13 +618,21 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             except Exception as e:
                 logger.warning(f"VK publish failed for '{topic}': {e}")
 
-            # Step 7: Dzen — через VK (если группа подключена к Дзену)
-            if vk_ok:
-                logger.info("Article published to VK. For Dzen: connect your VK group at")
-                logger.info("dzen.ru → profile → channels → connect VK, or")
-                logger.info("vk.com → group → manage → Dzen section")
-            else:
-                logger.info("VK publish failed — Dzen cross-post unavailable")
+            # Step 7: Dzen — прямой API через сессионную cookie
+            try:
+                dzen_ok, dzen_msg = publish_to_dzen_direct(
+                    title=tg_title,
+                    html_content=article,
+                    image_url=image_url,
+                    niche=niche,
+                    topic=topic,
+                )
+                if dzen_ok:
+                    logger.info(f"Dzen publish: {dzen_msg}")
+                else:
+                    logger.warning(f"Dzen: {dzen_msg}")
+            except Exception as e:
+                logger.warning(f"Dzen publish failed: {e}")
 
             # Step 8: Record publication for feedback loop
             vk_numeric = VK_GROUP_ID
