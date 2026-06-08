@@ -358,17 +358,24 @@ def _truncate_html(text: str, max_chars: int) -> str:
     if len(text) <= max_chars:
         return text
     truncated = text[:max_chars]
-    for sep in ("\n", ". ", "! ", "? ", " ", "."):
+    for sep in ("\n", ". ", "! ", "? ", "\u2026 ", "\u00bb ", ") ", " ", "."):
         pos = truncated.rfind(sep)
         if pos > max_chars // 2:
-            truncated = truncated[:pos + (1 if sep in (". ", "! ", "? ") else 0)]
+            trunc_len = pos + (1 if sep in (". ", "! ", "? ", "\u2026 ", "\u00bb ", ") ") else 0)
+            truncated = truncated[:trunc_len]
             break
     else:
-        truncated = truncated[:max_chars]
+        pos = truncated.rfind(" ")
+        if pos > max_chars // 2:
+            truncated = truncated[:pos]
+        else:
+            truncated = truncated[:max_chars]
     last_open = truncated.rfind("<")
     last_close = truncated.rfind(">")
     if last_open > last_close:
-        truncated = truncated[:last_open]
+        next_chars = truncated[last_open + 1:last_open + 4]
+        if next_chars and next_chars[0].isalpha():
+            truncated = truncated[:last_open]
     open_tags = []
     i = 0
     while i < len(truncated):
@@ -405,7 +412,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     caption = f"{clean_title}\n\n{body_text}"
     has_html = "<" in caption and ">" in caption
 
-    caption = _truncate_html(caption, 950)
+    caption = _truncate_html(caption, 980)
 
     if image_url:
         img_data = None
@@ -588,10 +595,12 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             logger.info(f"Enhancing article for Telegram trends...")
             tg_article = await enhance_for_tg(article, niche)
             tg_article, tg_issues = validate_and_fix(tg_article, max_chars=950, context="tg")
-            if tg_issues:
-                logger.info("TG content had %d issues — re-enhancing...", len(tg_issues))
+            retry_count = 0
+            while tg_issues and retry_count < 2:
+                logger.info("TG content had %d issues — re-enhancing (attempt %d)...", len(tg_issues), retry_count + 1)
                 tg_article = await enhance_for_tg(article, niche)
-                tg_article, _ = validate_and_fix(tg_article, max_chars=950, context="tg-retry")
+                tg_article, tg_issues = validate_and_fix(tg_article, max_chars=950, context="tg-retry-%d" % retry_count)
+                retry_count += 1
 
             # Step 4: Save article + outline to files
             slug = slugify(topic)
