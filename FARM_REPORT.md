@@ -1,6 +1,6 @@
 # 🏭 AI Content Farm — Полный отчёт
 
-**Дата:** 2026-05-26  
+**Дата:** 2026-06-08  
 **Статус:** Активна, оптимизирована  
 **Платформы:** Telegram, VK, Яндекс.Дзен (RSS), SEO-сайт (GitHub Pages)
 
@@ -47,6 +47,7 @@ Farm/
 ├── .gitignore
 ├── requirements.txt              # Зависимости
 ├── FARM_REPORT.md                ← этот файл
+├── AGENTS.md                     # Команда AI-агентов
 │
 ├── src/
 │   ├── main.py                   # Оркестратор: генерация, публикация
@@ -381,3 +382,6 @@ git push origin main
 | v39 | 2026-06-07 | **TG parse_mode=HTML**: HTML-теги работают. **Dzen API**: SSO-сессия, CSRF-токен, форматы json/form. |
 | v40 | 2026-06-07 | **Image provider**: fallback на placeholder CDN. **Dzen**: VK API `content.create` + `wall.post` с `dzen=1`. |
 | v41 | 2026-06-07 | **TG photo fix**: multipart-upload вместо URL (обходит блокировки CDN). **Dzen**: dzen_direct_publisher удалён. VK публикуется — Dzen забирает через связку VK→Дзен (если подключено). |
+| v42 | 2026-06-07 | **CI auto-deploy** (remote) |
+| v43 | 2026-06-07 | **CI auto-deploy** (remote) |
+| **v44** | **2026-06-08** | **AGENTS.md**: создана команда AI-агентов — Tech Lead, Developer, Reviewer, DevOps, QA, Analyst, Content Manager. Определены процессы code review, тестирования и деплоя. |
