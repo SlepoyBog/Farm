@@ -2862,5 +2862,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Необходимый набор инструментов в багажнике",
+    "title": "🧰 Багажник-мастерская: 5 инструментов, которые спасут в дороге",
+    "niche": "авто",
+    "published_at": "2026-06-09T16:32:24.849617",
+    "platforms": {
+      "telegram": {
+        "message_id": 439,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 492,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
