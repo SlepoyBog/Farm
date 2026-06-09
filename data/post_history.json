@@ -2816,5 +2816,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Отели с астро-обсерваториями",
+    "title": "🔭 Отели с астро-обсерваториями: тренд, захвативший мир",
+    "niche": "путешествия",
+    "published_at": "2026-06-09T09:54:46.428214",
+    "platforms": {
+      "telegram": {
+        "message_id": 437,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 490,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
