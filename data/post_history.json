@@ -2931,5 +2931,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Долги: стратегии погашения",
+    "title": "💸 Долги: стратегии погашения",
+    "niche": "финансы",
+    "published_at": "2026-06-10T12:49:43.945484",
+    "platforms": {
+      "telegram": {
+        "message_id": 442,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 495,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
