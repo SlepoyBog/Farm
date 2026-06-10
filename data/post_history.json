@@ -2977,5 +2977,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Самообразование после 30 лет",
+    "title": "🌟 Самообразование после 30: время перезагрузки мозга",
+    "niche": "образование",
+    "published_at": "2026-06-10T20:29:18.986520",
+    "platforms": {
+      "telegram": {
+        "message_id": 444,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 497,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
