@@ -2954,5 +2954,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Дизайн-мышление в решении проблем",
+    "title": "🧠 Дизайн-мышление стало главным навыком XXI века",
+    "niche": "бизнес",
+    "published_at": "2026-06-10T16:59:16.259739",
+    "platforms": {
+      "telegram": {
+        "message_id": 443,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 496,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
