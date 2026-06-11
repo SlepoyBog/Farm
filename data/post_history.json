@@ -3000,5 +3000,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Психология спортивных побед",
+    "title": "Психология спортивных побед: ментальные механизмы, определяющие чемпионов",
+    "niche": "спорт",
+    "published_at": "2026-06-11T10:45:12.118469",
+    "platforms": {
+      "telegram": {
+        "message_id": 445,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 498,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
