@@ -3046,5 +3046,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Вертуальные туры из дрона",
+    "title": "🚁 Виртуальные туры из дрона: новый стандарт реальности",
+    "niche": "путешествия",
+    "published_at": "2026-06-11T17:37:18.608476",
+    "platforms": {
+      "telegram": {
+        "message_id": 447,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 500,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
