@@ -3138,5 +3138,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Жиры в питании и здоровье",
+    "title": "🥑 Жиры в питании: что изменилось и почему это важно",
+    "niche": "здоровье",
+    "published_at": "2026-06-12T16:45:17.006957",
+    "platforms": {
+      "telegram": {
+        "message_id": 451,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 504,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
