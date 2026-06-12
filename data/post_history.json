@@ -3161,5 +3161,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Микроинвестиции для старта",
+    "title": "💰 Микроинвестиции для старта: с чего начать?",
+    "niche": "финансы",
+    "published_at": "2026-06-12T20:09:18.056469",
+    "platforms": {
+      "telegram": {
+        "message_id": 452,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 505,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
