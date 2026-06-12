@@ -3115,5 +3115,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "‍💻 Low-code и no-code платформы",
+    "title": "🧑‍💻 Low-code и no-code: как создавать софт без программистов",
+    "niche": "технологии",
+    "published_at": "2026-06-12T12:49:16.769855",
+    "platforms": {
+      "telegram": {
+        "message_id": 450,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 503,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
