@@ -3230,5 +3230,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Крупные спортивные события года",
+    "title": "🏆 Крупные спортивные события года: тренд, который объединяет миллионы",
+    "niche": "спорт",
+    "published_at": "2026-06-13T15:43:33.662964",
+    "platforms": {
+      "telegram": {
+        "message_id": 455,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 508,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
