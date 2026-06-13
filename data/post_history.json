@@ -3207,5 +3207,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Соцсети как учебный инструмент",
+    "title": "📱 Соцсети как учебный инструмент: знания в каждом скролле",
+    "niche": "образование",
+    "published_at": "2026-06-13T11:46:48.556923",
+    "platforms": {
+      "telegram": {
+        "message_id": 454,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 507,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
