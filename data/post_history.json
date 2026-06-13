@@ -3253,5 +3253,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Главные премьеры этого месяца",
+    "title": "Главные премьеры этого месяца 🎬",
+    "niche": "кино",
+    "published_at": "2026-06-13T19:24:05.483323",
+    "platforms": {
+      "telegram": {
+        "message_id": 456,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 509,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
