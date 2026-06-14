@@ -3299,5 +3299,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Борьба с предвзятостью в AI",
+    "title": "🤖 Борьба с предвзятостью в AI: новый стандарт честности",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-14T11:49:20.839257",
+    "platforms": {
+      "telegram": {
+        "message_id": 458,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 511,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
