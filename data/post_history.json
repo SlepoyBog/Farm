@@ -3322,5 +3322,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Водородные автомобили: перспективы",
+    "title": "🚗 Водородные автомобили: перспективы",
+    "niche": "авто",
+    "published_at": "2026-06-14T15:49:46.290021",
+    "platforms": {
+      "telegram": {
+        "message_id": 459,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 512,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
