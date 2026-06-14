@@ -3345,5 +3345,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Будущее нейросетей в медицине",
+    "title": "🤖 Будущее нейросетей в медицине: от диагностики до персонализированного лечения",
+    "niche": "технологии",
+    "published_at": "2026-06-14T19:25:12.035307",
+    "platforms": {
+      "telegram": {
+        "message_id": 460,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 513,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
