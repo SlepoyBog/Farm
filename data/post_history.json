@@ -3368,5 +3368,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Ментальное здоровье на первом месте",
+    "title": "Ментальное здоровье на первом месте 🧠",
+    "niche": "здоровье",
+    "published_at": "2026-06-15T12:26:13.459329",
+    "platforms": {
+      "telegram": {
+        "message_id": 461,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 514,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
