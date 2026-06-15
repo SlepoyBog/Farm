@@ -3391,5 +3391,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Инвестиции для начинающих",
+    "title": "Инвестиции для начинающих: ваш первый шаг к финансовой свободе 💰",
+    "niche": "финансы",
+    "published_at": "2026-06-15T15:37:33.529627",
+    "platforms": {
+      "telegram": {
+        "message_id": 462,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 515,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
