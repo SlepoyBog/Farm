@@ -3414,5 +3414,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как запустить стартап с нуля",
+    "title": "💼 Стартап с нуля: тренд или ваш билет в будущее?",
+    "niche": "бизнес",
+    "published_at": "2026-06-15T18:26:15.434493",
+    "platforms": {
+      "telegram": {
+        "message_id": 463,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 516,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
