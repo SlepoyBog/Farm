@@ -3506,5 +3506,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "️ Лучшие безвизовые направления осени",
+    "title": "✈️ Лучшие безвизовые направления осени",
+    "niche": "путешествия",
+    "published_at": "2026-06-16T18:28:40.911540",
+    "platforms": {
+      "telegram": {
+        "message_id": 467,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 520,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
