@@ -3483,5 +3483,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Кино про путешествия во времени",
+    "title": "⏳ Кино про путешествия во времени: что смотрим и стоит ли?",
+    "niche": "кино",
+    "published_at": "2026-06-16T14:52:46.504358",
+    "platforms": {
+      "telegram": {
+        "message_id": 466,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 519,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
