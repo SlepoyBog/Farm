@@ -3529,5 +3529,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "ИИ в повседневной жизни",
+    "title": "🤖 ИИ в повседневной жизни: как технологии меняют наш день",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-16T20:49:21.096677",
+    "platforms": {
+      "telegram": {
+        "message_id": 468,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 521,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
