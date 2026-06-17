@@ -3598,5 +3598,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Постковидный синдром: восстановление легких",
+    "title": "🫁 Постковидный синдром: восстановление легких",
+    "niche": "здоровье",
+    "published_at": "2026-06-17T13:36:06.504528",
+    "platforms": {
+      "telegram": {
+        "message_id": 473,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 524,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
