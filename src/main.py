@@ -23,6 +23,7 @@ from src.site_generator import generate_site
 from src.image_provider import get_image_url
 from src.dzen_direct_publisher import publish_to_dzen_direct
 from src.content_validator import validate_and_fix
+from growth.engagement_hooks import enhance_post_text
 
 # Setup logging
 os.makedirs("logs", exist_ok=True)
@@ -401,7 +402,7 @@ def _truncate_html(text: str, max_chars: int) -> str:
     return truncated
 
 
-def publish_to_telegram(title: str, html_content: str, image_url: str | None = None, article_url: str | None = None) -> tuple[bool, int | None]:
+def publish_to_telegram(title: str, html_content: str, image_url: str | None = None, article_url: str | None = None, niche: str = "") -> tuple[bool, int | None]:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
         return False, None
@@ -414,6 +415,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
     full_text = f"{clean_title}\n\n{body_text}"
+    full_text = enhance_post_text(full_text, niche=niche, title=clean_title)
     has_html = "<" in full_text and ">" in full_text
 
     # Step 1: sendPhoto with image only (no caption — text follows as reply)
@@ -639,7 +641,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             # Step 5: Publish to Telegram (with enhanced content)
             tg_title = _extract_title(article)
-            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url)
+            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url, niche=niche)
 
             # Step 6: Publish to VK (base article, VK publisher converts HTML)
             vk_ok = False
@@ -745,6 +747,15 @@ async def main():
 
     await run_batch_seo(client, niche)
     generate_site()
+
+    from growth.cross_poster import run_cross_post
+    from growth.tracker import run_tracker
+
+    if topics:
+        announcement = topics[0][:200] + "..." if len(topics[0]) > 200 else topics[0]
+        run_cross_post(announcement, title=topics[0], site_url=SITE_URL)
+
+    run_tracker()
 
 
 if __name__ == "__main__":

@@ -97,6 +97,10 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
         article li {{ margin-bottom: 6px; }}
         article strong {{ color: #1a1a2e; }}
         .meta {{ font-size: 0.85em; color: #6c757d; margin-bottom: 20px; }}
+        .related {{ margin-top: 30px; padding-top: 20px; border-top: 1px solid #e9ecef; }}
+        .related h3 {{ font-size: 1.1em; margin-bottom: 12px; color: #1a1a2e; }}
+        .related a {{ display: block; padding: 8px 0; color: #4361ee; text-decoration: none; font-size: 0.95em; }}
+        .related a:hover {{ text-decoration: underline; }}
         footer {{ text-align: center; padding: 30px 20px; color: #6c757d; font-size: 0.85em; }}
         footer a {{ color: #4361ee; text-decoration: none; }}
         @media (max-width: 600px) {{ article {{ padding: 20px; }} }}
@@ -112,10 +116,11 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
             <div class="meta">{{date}}</div>
             {{og_image_html}}
             {{content}}
+            {{related_html}}
         </article>
     </main>
     <footer>
-        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a></p>
+        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a> | <a href="/sitemap.xml">Sitemap</a></p>
     </footer>
 </body>
 </html>"""
@@ -184,6 +189,29 @@ def _render(template: str, **kwargs) -> str:
     return result
 
 
+def _find_related(articles: list[dict], current_idx: int, count: int = 3) -> list[dict]:
+    current = articles[current_idx]
+    current_keywords = set(current.get("keywords", "").lower().split(", "))
+    current_title = current.get("title", "").lower()
+
+    scored = []
+    for i, art in enumerate(articles):
+        if i == current_idx:
+            continue
+        score = 0
+        art_keywords = set(art.get("keywords", "").lower().split(", "))
+        overlap = current_keywords & art_keywords
+        score += len(overlap) * 3
+        art_title = art.get("title", "").lower()
+        common = set(current_title.split()) & set(art_title.split())
+        score += len(common)
+        if score > 0:
+            scored.append((score, art))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [item[1] for item in scored[:count]]
+
+
 def generate_site():
     logger.info("=" * 60)
     logger.info("Generating SEO static site...")
@@ -242,7 +270,21 @@ def generate_site():
             "og_image_html": og_image_html,
         })
 
-    for art in articles:
+    for i, art in enumerate(articles):
+        related = _find_related(articles, i, count=3)
+        related_html = ""
+        if related:
+            links = "\n".join(
+                f'<a href="{r["slug"]}.html">{r["title"]}</a>'
+                for r in related
+            )
+            related_html = (
+                '<div class="related">\n'
+                "<h3>📖 Читайте также</h3>\n"
+                f"{links}\n"
+                "</div>"
+            )
+
         url = f"{SITE_URL}/{art['slug']}.html"
         page = _render(
             ARTICLE_TEMPLATE,
@@ -255,6 +297,7 @@ def generate_site():
             date=art["date"],
             og_image_html=art["og_image_html"],
             content=art["content"],
+            related_html=related_html,
             year=art["year"],
         )
         (SITE_DIR / f"{art['slug']}.html").write_text(page, encoding="utf-8")

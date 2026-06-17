@@ -407,4 +407,5 @@ git push origin main
 | | | 9️⃣ `get_image_url` — HEAD → GET для проверки fallback |
 | **v92** | **2026-06-17** | **TG фикс обрезки**: sendPhoto (пустой caption) + sendMessage (полный текст до 4000 chars, reply на фото). Устранено дублирование заголовка между фото и текстом. max_chars TG: 950→3500. max_tokens enhance_for_tg: 1500→2500. |
 | **v93-v94** | **2026-06-17** | CI auto-deploy |
-| **v95** | **2026-06-17** | **Growth-команда**: добавлены роли `@growth`, `@smm`, `@sea` в AGENTS.md. Создан GROWTH_PLAN.md — стратегия набора подписчиков (TG 1000, VK 500 за 90 дней). В план включены: cross-poster, engagement-крючки, tracker, взаимопиар, SEO-улучшения. |
+| **v95** | **2026-06-17** | **Growth-команда**: добавлены роли `@growth`, `@smm`, `@sea` в AGENTS.md. Создан GROWTH_PLAN.md. |
+| **v96** | **2026-06-17** | **Growth-инструменты**: `growth/tracker.py` — замер подписчиков TG/VK, `growth/cross_poster.py` — кросспостинг по целям, `growth/engagement_hooks.py` — вопросы/опросы. **SEO-сайт**: межстатейные ссылки (блок «Читайте также»). **Pipeline**: engagement-крючки в TG-посты, запуск tracker/cross-poster в конце цикла. |
