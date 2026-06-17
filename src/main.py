@@ -416,10 +416,9 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     full_text = f"{clean_title}\n\n{body_text}"
     has_html = "<" in full_text and ">" in full_text
 
-    # Step 1: sendPhoto with image + short caption (just title, fits in 1024)
+    # Step 1: sendPhoto with image only (no caption — text follows as reply)
     photo_msg_id = None
     if image_url:
-        photo_caption = clean_title[:150]
         try:
             img_resp = requests.get(image_url, timeout=15)
             if img_resp.ok:
@@ -430,7 +429,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
                 elif "webp" in ct: ext = ".webp"
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
-                    data={"chat_id": TELEGRAM_CHAT_ID, "caption": photo_caption, "parse_mode": "HTML"},
+                    data={"chat_id": TELEGRAM_CHAT_ID, "caption": ""},
                     files={"photo": (f"img{ext}", img_data, ct or "image/jpeg")},
                     timeout=60,
                 )

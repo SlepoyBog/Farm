@@ -405,4 +405,4 @@ git push origin main
 | | | 7️⃣ `html_to_telegram_text` — двойное экранирование `&` (цикл пропускает валидные entity) |
 | | | 8️⃣ `_rss_full_content` — двойной `<h1>` в RSS |
 | | | 9️⃣ `get_image_url` — HEAD → GET для проверки fallback |
-| **v92** | **2026-06-17** | **TG фикс обрезки**: sendPhoto (короткий caption ~150 chars) + sendMessage (полный текст до 4000 chars, reply на фото). max_chars TG: 950→3500. max_tokens enhance_for_tg: 1500→2500. |
+| **v92** | **2026-06-17** | **TG фикс обрезки**: sendPhoto (пустой caption) + sendMessage (полный текст до 4000 chars, reply на фото). Устранено дублирование заголовка между фото и текстом. max_chars TG: 950→3500. max_tokens enhance_for_tg: 1500→2500. |
