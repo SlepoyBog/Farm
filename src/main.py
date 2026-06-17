@@ -457,7 +457,11 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             payload["reply_to_message_id"] = photo_msg_id
         resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         if resp.status_code == 400:
+            logger.warning("HTML parse_mode failed (400) — stripping tags and retrying as plain text")
+            plain = re.sub(r'<[^>]+>', '', full_text)
+            plain = re.sub(r'\n{3,}', '\n\n', plain).strip()
             payload.pop("parse_mode", None)
+            payload["text"] = plain
             resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         if resp.ok:
             msg_id = resp.json()["result"]["message_id"]

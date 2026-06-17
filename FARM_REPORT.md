@@ -406,3 +406,4 @@ git push origin main
 | | | 8️⃣ `_rss_full_content` — двойной `<h1>` в RSS |
 | | | 9️⃣ `get_image_url` — HEAD → GET для проверки fallback |
 | **v92** | **2026-06-17** | **TG фикс обрезки**: sendPhoto (пустой caption) + sendMessage (полный текст до 4000 chars, reply на фото). Устранено дублирование заголовка между фото и текстом. max_chars TG: 950→3500. max_tokens enhance_for_tg: 1500→2500. |
+| **v93** | **2026-06-17** | **TG фикс `<b>`**: при ошибке HTML-парсинга (400) теперь теги вырезаются, а не отправляются как plain text с сырыми `<b>`. |
