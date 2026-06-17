@@ -3621,5 +3621,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Налоги для фрилансеров",
+    "title": "💼 Налоги для фрилансеров: почему это стало главным трендом",
+    "niche": "финансы",
+    "published_at": "2026-06-17T14:28:36.052482",
+    "platforms": {
+      "telegram": {
+        "message_id": 477,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 526,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
