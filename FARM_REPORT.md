@@ -408,4 +408,5 @@ git push origin main
 | **v92** | **2026-06-17** | **TG фикс обрезки**: sendPhoto (пустой caption) + sendMessage (полный текст до 4000 chars, reply на фото). Устранено дублирование заголовка между фото и текстом. max_chars TG: 950→3500. max_tokens enhance_for_tg: 1500→2500. |
 | **v93-v94** | **2026-06-17** | CI auto-deploy |
 | **v95** | **2026-06-17** | **Growth-команда**: добавлены роли `@growth`, `@smm`, `@sea` в AGENTS.md. Создан GROWTH_PLAN.md. |
-| **v96** | **2026-06-17** | **Growth-инструменты**: `growth/tracker.py` — замер подписчиков TG/VK, `growth/cross_poster.py` — кросспостинг по целям, `growth/engagement_hooks.py` — вопросы/опросы. **SEO-сайт**: межстатейные ссылки (блок «Читайте также»). **Pipeline**: engagement-крючки в TG-посты, запуск tracker/cross-poster в конце цикла. |
+| **v96** | **2026-06-17** | **Growth-инструменты**: `growth/tracker.py`, `growth/cross_poster.py`, `growth/engagement_hooks.py`. **SEO-сайт**: межстатейные ссылки. |
+| **v97** | **2026-06-17** | **Полный редизайн сайта**: современный минималистичный дизайн, адаптивная вёрстка (mobile/desktop), поиск по статьям (client-side JS), навигация по нишам (10 категорий + `niche-*.html`), страница всех статей (`all.html`), хлебные крошки, тег ниши на карточках статей, Open Graph + favicon, CNAME для кастомного домена (`--cname` флаг). |
