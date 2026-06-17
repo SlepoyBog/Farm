@@ -329,9 +329,6 @@ def html_to_telegram_text(html: str) -> str:
     html = re.sub(r'<(?!/?(?:b|i|code|pre|a)(?:\s[^>]*)?>)[^>]+>', '', html)
     # Clean up excessive newlines
     html = re.sub(r'\n{3,}', '\n\n', html)
-    # Escape special Telegram characters in plain text (outside tags)
-    # Telegram HTML mode only needs < > & escaped, but we handle
-    # plain-text special chars for safety
     result_parts = []
     i = 0
     while i < len(html):
@@ -344,6 +341,13 @@ def html_to_telegram_text(html: str) -> str:
                 result_parts.append('&lt;')
                 i += 1
         elif html[i] == '&':
+            end = html.find(';', i)
+            if end != -1 and end - i <= 8:
+                entity = html[i:end+1]
+                if re.match(r'^&(#\d+|#x[0-9a-fA-F]+|[a-zA-Z]+);$', entity):
+                    result_parts.append(entity)
+                    i = end + 1
+                    continue
             result_parts.append('&amp;')
             i += 1
         else:
@@ -659,12 +663,14 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             # Step 8: Record publication for feedback loop
             vk_numeric = VK_GROUP_ID
+            vk_owner_id = None
             if vk_numeric:
                 if vk_numeric.startswith("club"):
                     vk_numeric = vk_numeric[4:]
                 if vk_numeric.startswith("public"):
                     vk_numeric = vk_numeric[6:]
-            vk_owner_id = f"-{vk_numeric}" if vk_numeric else None
+                if vk_numeric:
+                    vk_owner_id = f"-{vk_numeric}"
 
             clean_topic = re.sub(r"^-\s*\S?\s*", "", topic).strip()
             record_publication(

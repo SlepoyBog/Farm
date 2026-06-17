@@ -61,7 +61,7 @@ def get_image_url(niche: str, topic: str, orientation: str = "landscape") -> Opt
     for template in FALLBACK_URLS:
         url = template.replace("{seed}", str(seed))
         try:
-            resp = requests.head(url, timeout=10, allow_redirects=True)
+            resp = requests.get(url, timeout=10, stream=True)
             if resp.ok:
                 logger.info(f"Fallback image: {url.split('?')[0]}")
                 return resp.url or url

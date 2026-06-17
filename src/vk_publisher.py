@@ -160,6 +160,7 @@ def combine_for_vk(articles: list[tuple[str, str]], niche: str) -> str:
 
 
 def _upload_wall_photo(access_token: str, group_id: str, image_url: str) -> str | None:
+    upload_data = {}
     try:
         numeric_id = group_id
         if numeric_id.startswith("club"):

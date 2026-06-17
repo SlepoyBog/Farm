@@ -17,7 +17,7 @@ load_dotenv()
 
 SITE_NAME = "AI Блог — технологии, тренды, инсайты"
 SITE_DESCRIPTION = "Ежедневные статьи об искусственном интеллекте, технологиях и трендах."
-SITE_URL = (os.getenv("SITE_URL") or "").rstrip("/") or "https://ubiquitous-peony-80d9cb.netlify.app"
+SITE_URL = (os.getenv("SITE_URL") or "").rstrip("/")
 
 
 INDEX_TEMPLATE = """<!DOCTYPE html>
@@ -25,10 +25,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <meta name="description" content="{description}">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
     <meta name="robots" content="index, follow">
-    <link rel="alternate" type="application/rss+xml" title="{site_name}" href="/rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="{{site_name}}" href="/rss.xml">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <style>
         *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -52,15 +52,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <body>
     <header>
         <div class="container">
-            <h1>{site_name}</h1>
-            <p>{site_description}</p>
+            <h1>{{site_name}}</h1>
+            <p>{{site_description}}</p>
         </div>
     </header>
     <main class="container">
-        <div class="article-list">{articles}</div>
+        <div class="article-list">{{articles}}</div>
     </main>
     <footer>
-        <p>&copy; {year} {site_name} &mdash; <a href="/rss.xml">RSS</a> | <a href="/sitemap.xml">Sitemap</a></p>
+        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a> | <a href="/sitemap.xml">Sitemap</a></p>
     </footer>
 </body>
 </html>"""
@@ -70,18 +70,18 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <meta name="description" content="{description}">
-    <meta name="keywords" content="{keywords}">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="{{keywords}}">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="{title}">
-    <meta property="og:description" content="{description}">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{description}}">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="{url}">
-    <meta property="og:image" content="{og_image}">
-    <meta property="og:site_name" content="{site_name}">
-    <link rel="canonical" href="{url}">
-    <link rel="alternate" type="application/rss+xml" title="{site_name}" href="/rss.xml">
+    <meta property="og:url" content="{{url}}">
+    <meta property="og:image" content="{{og_image}}">
+    <meta property="og:site_name" content="{{site_name}}">
+    <link rel="canonical" href="{{url}}">
+    <link rel="alternate" type="application/rss+xml" title="{{site_name}}" href="/rss.xml">
     <style>
         *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
         body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }}
@@ -108,14 +108,14 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
     </nav>
     <main class="container">
         <article>
-            <h1>{title}</h1>
-            <div class="meta">{date}</div>
-            {og_image_html}
-            {content}
+            <h1>{{title}}</h1>
+            <div class="meta">{{date}}</div>
+            {{og_image_html}}
+            {{content}}
         </article>
     </main>
     <footer>
-        <p>&copy; {year} {site_name} &mdash; <a href="/rss.xml">RSS</a></p>
+        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a></p>
     </footer>
 </body>
 </html>"""
@@ -176,8 +176,11 @@ def _read_metadata(slug: str) -> dict:
 
 def _render(template: str, **kwargs) -> str:
     result = template
+    content = kwargs.pop("content", None)
     for k, v in kwargs.items():
-        result = result.replace(f"{{{k}}}", v)
+        result = result.replace("{{%s}}" % k, v)
+    if content is not None:
+        result = result.replace("{{content}}", content)
     return result
 
 
@@ -353,7 +356,7 @@ def _rss_full_content(art: dict) -> str:
         img_esc = xml_escape(art["og_image"])
         parts.append(f'<img src="{img_esc}" alt="{title_esc}" style="max-width:100%"/>')
     content = art["content"]
-    content = re.sub(r"<h1[^>]*>.*?</h1>", "", content, flags=re.DOTALL)
+    content = re.sub(r"<h1[^>]*>.*?</h1>\s*", "", content, flags=re.DOTALL)
     parts.append(content)
     return "\n".join(parts)
 

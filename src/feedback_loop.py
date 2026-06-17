@@ -203,12 +203,13 @@ def inject_recommendations(system_prompt: str) -> str:
     recs = get_recommendations()
     if not recs:
         return system_prompt
+    base = system_prompt.strip() or "Ты — автор контент-фермы. Пиши интересные и полезные статьи."
     rec_block = "\n".join(f"- {r}" for r in recs)
     extra = (
         "\n\nУчти следующие рекомендации на основе анализа успешных постов:\n"
         f"{rec_block}"
     )
-    return system_prompt + extra
+    return base + extra
 
 
 async def analyze_top_posts(client, top_posts: list[tuple[dict, float]]) -> dict | None:

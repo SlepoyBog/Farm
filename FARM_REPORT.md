@@ -394,3 +394,14 @@ git push origin main
 | v49 | 2026-06-08 | **Markdown fences**: закрывающие `` ``` `` тоже чистятся (были только открывающие). Исправлено в `adapt_for_vk`, `strip_markdown_fences`, `html_to_telegram_text`. |
 | v50 | 2026-06-08 | **RSS фикс**: `site_generator.py` — убран хардкод старого `your-niche-blog.pages.dev`, сайт перегенерирован с актуальным `slepoybog.github.io/Farm`. |
 | **v51** | **2026-06-08** | **Хостинг**: GitHub Pages → Cloudflare Workers (`farm.olegtt1337.workers.dev`). SITE_URL обновлён. RSS перегенерирован. |
+| **v52** | **2026-06-08** | Auto-deploy via CI |
+| **v53** | **2026-06-17** | **Аудит + багфикс**: найдено 9 багов, исправлено 9. |
+| | | 1️⃣ `vk_numeric` — защита от пустого owner_id после обрезки префикса |
+| | | 2️⃣ `_ensure_diversity` — ValueError при нише вне PREDEFINED_NICHES |
+| | | 3️⃣ `_render()` — str.replace заменял плейсхолдеры в контенте статей, переведён на `{{var}}`-синтаксис |
+| | | 4️⃣ `_upload_wall_photo` — `upload_data` могла быть undefined в except KeyError |
+| | | 5️⃣ `SITE_URL` — удалён хардкод устаревшего Netlify URL |
+| | | 6️⃣ `inject_recommendations` — фоллбэк для пустого system_prompt |
+| | | 7️⃣ `html_to_telegram_text` — двойное экранирование `&` (цикл пропускает валидные entity) |
+| | | 8️⃣ `_rss_full_content` — двойной `<h1>` в RSS |
+| | | 9️⃣ `get_image_url` — HEAD → GET для проверки fallback |

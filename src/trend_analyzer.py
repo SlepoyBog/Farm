@@ -137,13 +137,17 @@ def _ensure_diversity(candidate: str, last_niches: list[str]) -> str:
         return candidate
     if len(last_niches) >= 3 and len(set(last_niches)) == 1:
         logger.info(f"Forced rotation: same niche {last_niches[0]} for 3+ runs")
-        idx = PREDEFINED_NICHES.index(last_niches[0])
-        return PREDEFINED_NICHES[(idx + 1) % len(PREDEFINED_NICHES)]
+        if last_niches[0] in PREDEFINED_NICHES:
+            idx = PREDEFINED_NICHES.index(last_niches[0])
+            return PREDEFINED_NICHES[(idx + 1) % len(PREDEFINED_NICHES)]
+        return _rotate_fallback()
     if candidate == last_niches[-1]:
-        idx = PREDEFINED_NICHES.index(candidate)
-        next_niche = PREDEFINED_NICHES[(idx + 1) % len(PREDEFINED_NICHES)]
-        logger.info(f"Diversity shift: {candidate} → {next_niche} (same as last)")
-        return next_niche
+        if candidate in PREDEFINED_NICHES:
+            idx = PREDEFINED_NICHES.index(candidate)
+            next_niche = PREDEFINED_NICHES[(idx + 1) % len(PREDEFINED_NICHES)]
+            logger.info(f"Diversity shift: {candidate} → {next_niche} (same as last)")
+            return next_niche
+        return _rotate_fallback()
     return candidate
 
 def _append_niche(niche: str, last_niches: list[str]):
