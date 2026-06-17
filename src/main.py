@@ -421,14 +421,11 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     # Step 1: sendPhoto with image only (no caption — text follows as reply)
     photo_msg_id = None
     if image_url:
-        try:
-            img_resp = requests.get(image_url, timeout=15)
-            if img_resp.ok:
-                img_data = img_resp.content
-                ext = ".jpg"
-                ct = img_resp.headers.get("content-type", "")
-                if "png" in ct: ext = ".png"
-                elif "webp" in ct: ext = ".webp"
+        from src.image_provider import download_watermarked
+        img_result = download_watermarked(image_url)
+        if img_result:
+            img_data, ct, ext = img_result
+            try:
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
                     data={"chat_id": TELEGRAM_CHAT_ID, "caption": ""},
@@ -440,10 +437,8 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
                     logger.info(f"TG sendPhoto sent (id: {photo_msg_id})")
                 else:
                     logger.warning(f"sendPhoto failed ({resp.status_code})")
-            else:
-                logger.warning(f"Failed to fetch image: {image_url[:60]}... ({resp.status_code})")
-        except Exception as e:
-            logger.warning(f"sendPhoto error: {e}")
+            except Exception as e:
+                logger.warning(f"sendPhoto error: {e}")
 
     # Step 2: sendMessage with full text (reply to photo if available)
     full_text = _truncate_html(full_text, 4000)
@@ -510,6 +505,31 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     return False, None
 
 
+def send_tg_poll(niche: str, topic: str = ""):
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return
+    from growth.engagement_hooks import get_poll
+    poll = get_poll(niche, topic)
+    if not poll:
+        return
+    question, options = poll
+    try:
+        resp = requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPoll",
+            json={
+                "chat_id": TELEGRAM_CHAT_ID,
+                "question": question,
+                "options": json.dumps([{"text": o} for o in options]),
+                "is_anonymous": False,
+            },
+            timeout=15,
+        )
+        if resp.ok:
+            logger.info("TG poll sent: %s", question)
+    except Exception as e:
+        logger.warning("TG poll error: %s", e)
+
+
 async def enhance_for_tg(html_article: str, niche: str) -> str:
     """Rewrite article HTML for Telegram with trends and engagement."""
     system_prompt, user_template = load_prompt("tg_trend_editor")
@@ -522,7 +542,7 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
             prompt=user_prompt,
             system_prompt=system_prompt,
             temperature=0.4,
-            max_tokens=2500,
+            max_tokens=1800,
         )
         result = result.strip()
         if len(result) < 50:
@@ -642,6 +662,8 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             # Step 5: Publish to Telegram (with enhanced content)
             tg_title = _extract_title(article)
             tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url, niche=niche)
+            if tg_ok and random.random() < 0.3:
+                send_tg_poll(niche, tg_title)
 
             # Step 6: Publish to VK (base article, VK publisher converts HTML)
             vk_ok = False
