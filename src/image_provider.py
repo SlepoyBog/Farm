@@ -4,7 +4,11 @@ import os
 from typing import Optional
 
 import requests
-from PIL import Image, ImageDraw, ImageFont
+try:
+    from PIL import Image, ImageDraw, ImageFont
+    HAS_PILLOW = True
+except ImportError:
+    HAS_PILLOW = False
 
 logger = logging.getLogger(__name__)
 
@@ -40,6 +44,8 @@ WATERMARK_TEXT = "@farm_blog"
 
 
 def _add_watermark(image_data: bytes) -> bytes:
+    if not HAS_PILLOW:
+        return image_data
     try:
         img = Image.open(io.BytesIO(image_data)).convert("RGBA")
         overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
