@@ -3782,5 +3782,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Приложения для водителей: рейтинг",
+    "title": "📱 Приложения для водителей: рейтинг лучших помощников",
+    "niche": "авто",
+    "published_at": "2026-06-18T16:56:47.707774",
+    "platforms": {
+      "telegram": {
+        "message_id": 491,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 533,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
