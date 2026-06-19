@@ -3874,5 +3874,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как избежать выгорания в бизнесе",
+    "title": "🤔 Как избежать выгорания в бизнесе",
+    "niche": "бизнес",
+    "published_at": "2026-06-19T12:47:58.529468",
+    "platforms": {
+      "telegram": {
+        "message_id": 499,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 537,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
