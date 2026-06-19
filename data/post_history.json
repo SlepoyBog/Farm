@@ -3966,5 +3966,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Религиозные маршруты мира",
+    "title": "🕍 Религиозные маршруты мира: путешествие к вере и истории",
+    "niche": "путешествия",
+    "published_at": "2026-06-19T19:48:47.716144",
+    "platforms": {
+      "telegram": {
+        "message_id": 507,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 541,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
