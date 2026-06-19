@@ -3897,5 +3897,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Видеоуроки: как создавать качественно",
+    "title": "🎬 Как создавать качественные видеоуроки: формула успеха",
+    "niche": "образование",
+    "published_at": "2026-06-19T13:27:14.171708",
+    "platforms": {
+      "telegram": {
+        "message_id": 501,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 538,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
