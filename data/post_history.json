@@ -4058,5 +4058,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Гемоглобин: продукты для повышения",
+    "title": "🩸 Гемоглобин: продукты для повышения",
+    "niche": "здоровье",
+    "published_at": "2026-06-20T15:46:16.742294",
+    "platforms": {
+      "telegram": {
+        "message_id": 515,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 545,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
