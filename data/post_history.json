@@ -3989,5 +3989,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Анализ документов искусственным интеллектом",
+    "title": "📄 Анализ документов ИИ: как машины побеждают бумажный хаос",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-20T09:24:47.525682",
+    "platforms": {
+      "telegram": {
+        "message_id": 509,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 542,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
