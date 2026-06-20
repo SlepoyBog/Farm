@@ -4035,5 +4035,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Космические технологии для Земли",
+    "title": "🛰️ Космический ИИ: как спутники спасают планету",
+    "niche": "технологии",
+    "published_at": "2026-06-20T11:50:35.226802",
+    "platforms": {
+      "telegram": {
+        "message_id": 513,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 544,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
