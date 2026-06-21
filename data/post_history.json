@@ -4196,5 +4196,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Ангкор-Ват: как посетить",
+    "title": "Ангкор-Ват: как посетить",
+    "niche": "путешествия",
+    "published_at": "2026-06-21T15:51:33.001864",
+    "platforms": {
+      "telegram": {
+        "message_id": 527,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 551,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
