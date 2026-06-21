@@ -4127,5 +4127,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Спорт и учеба: совмещение",
+    "title": "🏃 Спорт и учеба: два крыла одного успеха",
+    "niche": "образование",
+    "published_at": "2026-06-21T09:56:57.855807",
+    "platforms": {
+      "telegram": {
+        "message_id": 521,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 548,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
