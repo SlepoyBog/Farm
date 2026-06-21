@@ -4173,5 +4173,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Тренды современного кино",
+    "title": "🎬 Тренды современного кино: ностальгия правит прокатом",
+    "niche": "кино",
+    "published_at": "2026-06-21T12:05:29.908238",
+    "platforms": {
+      "telegram": {
+        "message_id": 525,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 550,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
