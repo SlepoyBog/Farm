@@ -4242,5 +4242,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Автокредит: как снизить переплату",
+    "title": "💰 Автокредит: как снизить переплату",
+    "niche": "авто",
+    "published_at": "2026-06-21T19:28:00.342648",
+    "platforms": {
+      "telegram": {
+        "message_id": 531,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 553,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
