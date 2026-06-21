@@ -4219,5 +4219,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "ИИ в правоохранительных органах",
+    "title": "🤖👮 ИИ на страже порядка: будущее или угроза?",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-21T17:25:30.334247",
+    "platforms": {
+      "telegram": {
+        "message_id": 529,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 552,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
