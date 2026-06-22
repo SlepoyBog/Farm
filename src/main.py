@@ -698,6 +698,10 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             vk_article = await enhance_for_vk(article, niche)
             if len(vk_article) < 50:
                 vk_article = article
+            from src.vk_publisher import _generate_hashtags as vk_hashtags
+            vk_hash_str = vk_hashtags(niche, tg_title)
+            if vk_hash_str:
+                vk_article = vk_article.rstrip() + "\n\n" + vk_hash_str
 
             # Step 6: Publish to VK (with VK-enhanced content)
             vk_ok = False
