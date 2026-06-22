@@ -46,6 +46,10 @@ TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 VK_ACCESS_TOKEN = os.getenv("VK_ACCESS_TOKEN")
 VK_GROUP_ID = os.getenv("VK_GROUP_ID")
+OK_ACCESS_TOKEN = os.getenv("OK_ACCESS_TOKEN", "")
+OK_PUBLIC_KEY = os.getenv("OK_PUBLIC_KEY", "")
+OK_APP_SECRET = os.getenv("OK_APP_SECRET", "")
+OK_GROUP_ID = os.getenv("OK_GROUP_ID", "")
 SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
 if not DEEPSEEK_API_KEY:
     logger.error("DEEPSEEK_API_KEY not found in .env file!")
@@ -712,6 +716,22 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             except Exception as e:
                 logger.warning(f"VK publish failed for '{topic}': {e}")
 
+            # Step 6.5: Publish to OK.ru
+            ok_post_id = None
+            try:
+                from src.ok_publisher import publish_to_ok as publish_ok
+                ok_ok, ok_post_id = publish_ok(
+                    access_token=OK_ACCESS_TOKEN,
+                    public_key=OK_PUBLIC_KEY,
+                    app_secret=OK_APP_SECRET,
+                    group_id=OK_GROUP_ID,
+                    title=tg_title,
+                    html_content=article,
+                    image_url=image_url,
+                )
+            except Exception as e:
+                logger.warning("OK publish failed: %s", e)
+
             # Step 7: Dzen — прямой API через сессионную cookie
             try:
                 dzen_ok, dzen_msg = publish_to_dzen_direct(
@@ -747,6 +767,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                 tg_message_id=tg_msg_id,
                 vk_post_id=vk_post_id_local,
                 vk_owner_id=vk_owner_id,
+                ok_post_id=ok_post_id,
             )
 
             elapsed = time.time() - start_time

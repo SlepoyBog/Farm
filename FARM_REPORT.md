@@ -1,9 +1,9 @@
 ﻿# 🏭 AI Content Farm — Полный отчёт
 
 **Дата:** 2026-06-22  
-**Версия:** v132  
+**Версия:** v134  
 **Статус:** Активна, аудит пройден, Growth запущен, сайт переработан, Runet проанализирован  
-**Платформы:** Telegram, VK, Яндекс.Дзен (RSS), SEO-сайт (GitHub Pages)
+**Платформы:** Telegram, VK, Одноклассники, Яндекс.Дзен (RSS), SEO-сайт (GitHub Pages)
 
 ---
 
@@ -59,6 +59,7 @@ Farm/
 │   ├── site_generator.py         # Генерация SEO-сайта (HTML, sitemap, RSS)
 │   ├── scheduler.py              # Планировщик (--once для Task Scheduler)
 │   ├── vk_publisher.py           # Публикация VK
+│   ├── ok_publisher.py           # Публикация Одноклассники (OK API)
 │   ├── feedback_loop.py          # Сбор метрик + анализ топ-постов
 │   ├── seo_optimizer.py          # SEO-оптимизация статьи
 │   # image_text_renderer.py (удалён — не используется)
@@ -181,6 +182,10 @@ VK_GROUP_ID=club...
 SITE_URL=https://ваш-сайт.pages.dev
 UNSPLASH_ACCESS_KEY=...
 NEWSAPI_KEY=...              # опционально, для русских новостей (регистрация newsapi.org)
+OK_ACCESS_TOKEN=...          # Одноклассники API (регистрация: https://apiok.ru/dev/)
+OK_PUBLIC_KEY=...            # Public key приложения OK
+OK_APP_SECRET=...            # Secret key приложения OK
+OK_GROUP_ID=...              # ID группы OK (числовой)
 ```
 
 ### `data/outline_templates.json`
@@ -417,12 +422,14 @@ git push origin main
 | **v130** | **2026-06-22** | **Импорт VK-статистики**: написан `scripts/import_vk_xls.py` — ручной импорт XLS в `data/vk_daily_metrics.json`. Загружено 54 дня (май-июнь 2026): 20 622 просмотра, 34 лайка, 6 комментариев. |
 | **v131** | **2026-06-22** | **VK-контент улучшен**: Добавлена `enhance_for_vk()` — AI-адаптация через существующий `vk_trend_editor.prompter` (раньше не использовался). VK-посты теперь проходят через DeepSeek: заголовки-крючки, эмодзи, CTA, вместо сырого HTML→text. |
 | **v132** | **2026-06-22** | **Полный редизайн SEO-сайта**: новые шаблоны, CSS, добавлен reading time, JSON-LD (Schema.org Article), breadcrumbs, Twitter Cards, `loading="lazy"` для изображений, sticky-шапка, progress bar для статей, адаптивная мобильная навигация, кастомный favicon. |
+| **v133** | **2026-06-22** | (CI auto-deploy — удалённый коммит) |
+| **v134** | **2026-06-22** | **OK.ru (Одноклассники)**: создан `src/ok_publisher.py` — модуль публикации через OK API (`wall.post` с подписью запросов). Интегрирован в `main.py` (шаг 6.5, после VK). OK-пост записывается в `post_history`. Добавлены переменные `OK_ACCESS_TOKEN`, `OK_PUBLIC_KEY`, `OK_APP_SECRET`, `OK_GROUP_ID` в `.env` и secrets CI. Для работы: зарегистрировать приложение на `apiok.ru/dev`, получить OAuth-токен с правами `GROUP_CONTENT`, `PHOTO_CONTENT`. |
 
-### Итого сессии (v52 → v132)
+### Итого сессии (v52 → v134)
 
 | Метрика | Значение |
 |---------|----------|
-| Версий за сессию | v52 → v132 (81 версия) |
+| Версий за сессию | v52 → v134 (83 версии) |
 | Багов найдено/исправлено | 9 + 1 инфраструктурный |
 | Новых инструментов | 8 (+ import_vk_xls.py, enhance_for_vk, site redesign) |
 | CI частота | 4 → 6 запусков/день |
