@@ -4265,5 +4265,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Будущее нейросетей и ИИ",
+    "title": "Будущее нейросетей и ИИ 🤖",
+    "niche": "технологии",
+    "published_at": "2026-06-22T12:13:07.200680",
+    "platforms": {
+      "telegram": {
+        "message_id": 533,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 554,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
