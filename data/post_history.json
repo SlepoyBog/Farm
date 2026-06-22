@@ -4380,5 +4380,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Бег по утрам для здоровья",
+    "title": "🏃 Бег по утрам: исследования и советы для здоровья",
+    "niche": "спорт",
+    "published_at": "2026-06-22T19:23:33.132410",
+    "platforms": {
+      "telegram": {
+        "message_id": 545,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 560,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
