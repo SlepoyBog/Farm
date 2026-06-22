@@ -4403,5 +4403,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Супергероика в современном кино",
+    "title": "Супергероика в современном кино: что смотреть и стоит ли? 🦸🎬",
+    "niche": "кино",
+    "published_at": "2026-06-22T20:46:01.443908",
+    "platforms": {
+      "telegram": {
+        "message_id": 547,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 561,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
