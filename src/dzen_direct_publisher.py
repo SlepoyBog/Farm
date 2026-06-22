@@ -1,4 +1,4 @@
-﻿import json
+import json
 import logging
 import os
 import re
@@ -96,7 +96,7 @@ def publish_to_dzen_direct(
         "is_article": True,
         "is_public": True,
         "is_rss": True,
-        "image_url": image_url or "",
+        "image_url": "",
         "excerpt": excerpt,
     }
 
@@ -136,9 +136,6 @@ def publish_to_dzen_direct(
 
 
 def _clean_html_for_dzen(html: str, image_url: Optional[str] = None) -> str:
-    if image_url:
-        img_tag = '<img src="%s" alt="" style="max-width:100%%" />' % image_url
-        html = img_tag + "\n\n" + html
     return html
 
 
