@@ -5,3 +5,8 @@ __pycache__/
 logs/
 output/
 data/schedule_state.json
+data/*.csv
+data/*.txt
+data/vk_stats_common.json
+*.xls
+*.xlsx

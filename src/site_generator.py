@@ -32,6 +32,81 @@ NICHE_NAMES = {
     "путешествия": "Путешествия",
 }
 
+CSS = """
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fafafa;--surface:#fff;--text:#1a1a2e;--text-secondary:#6b7280;--accent:#2563eb;--accent-hover:#1d4ed8;--border:#e5e7eb;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04)}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+.container{max-width:840px;margin:0 auto;padding:0 24px}
+header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.header-inner{max-width:840px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
+header h1{font-size:1.1em;font-weight:700;letter-spacing:-.3px}
+header h1 a{color:var(--text);text-decoration:none}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.85em;padding:6px 12px;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--text);background:#f3f4f6}
+.nav-toggle{display:none;background:none;border:none;font-size:1.4em;cursor:pointer;padding:4px 8px;border-radius:8px;color:var(--text)}
+.search-wrap{padding:20px 0 0;max-width:840px;margin:0 auto}
+.search-wrap input{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:10px;font-size:.93em;background:var(--surface);outline:none;transition:border .2s}
+.search-wrap input:focus{border-color:var(--accent)}
+.article-list{display:flex;flex-direction:column;gap:12px;padding:16px 0}
+.article-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all .15s;display:flex;gap:16px}
+.article-card:hover{border-color:#d1d5db;box-shadow:var(--shadow)}
+.article-card .card-img{width:140px;min-height:100px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#f3f4f6}
+.article-card .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.article-card:hover .card-img img{transform:scale(1.03)}
+.article-card .card-body{flex:1;min-width:0}
+.article-card h2{font-size:1.05em;margin-bottom:4px;line-height:1.4}
+.article-card h2 a{color:var(--text);text-decoration:none}
+.article-card h2 a:hover{color:var(--accent)}
+.article-card .meta{font-size:.8em;color:var(--text-secondary);display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.article-card .niche-tag{display:inline-block;background:#eef2ff;color:var(--accent);padding:1px 8px;border-radius:6px;font-size:.85em;font-weight:500;text-decoration:none}
+.article-card p{color:#4b5563;font-size:.88em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.page-header{text-align:center;padding:32px 0 8px}
+.page-header h2{font-size:1.3em;font-weight:700}
+.page-header p{color:var(--text-secondary);font-size:.9em;margin-top:4px}
+.pagination{text-align:center;padding:20px 0}
+.pagination a{display:inline-block;padding:10px 24px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-size:.9em;font-weight:500}
+.pagination a:hover{background:var(--accent-hover)}
+footer{text-align:center;padding:40px 24px;color:var(--text-secondary);font-size:.82em;border-top:1px solid var(--border);margin-top:40px}
+footer a{color:var(--accent);text-decoration:none}
+.reading-progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:200;width:0%;transition:width .1s}
+article{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:48px;margin:24px 0}
+article h1{font-size:2em;font-weight:800;margin-bottom:12px;line-height:1.3;letter-spacing:-.5px}
+article .article-meta{font-size:.88em;color:var(--text-secondary);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+article .article-meta .niche-tag{background:#eef2ff;color:var(--accent);padding:2px 10px;border-radius:6px;font-size:.9em;font-weight:500;text-decoration:none}
+article h2{font-size:1.35em;font-weight:700;margin:32px 0 12px;line-height:1.35}
+article h3{font-size:1.12em;font-weight:600;margin:24px 0 10px}
+article p{margin-bottom:16px;color:#374151;line-height:1.8;font-size:.98em}
+article ul,article ol{margin:0 0 16px 24px;color:#374151}
+article li{margin-bottom:6px;line-height:1.7}
+article blockquote{border-left:3px solid var(--accent);padding:12px 20px;margin:0 0 16px;background:#f8faff;color:#374151;border-radius:0 8px 8px 0;font-style:italic}
+article img{max-width:100%;height:auto;border-radius:8px;margin:16px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+article a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+article a:hover{color:var(--accent-hover)}
+article code{background:#f3f4f6;padding:2px 6px;border-radius:4px;font-size:.9em;font-family:'JetBrains Mono','Fira Code',monospace}
+article pre{background:#1a1a2e;color:#e5e7eb;padding:16px 20px;border-radius:8px;overflow-x:auto;margin:0 0 16px;font-size:.9em;line-height:1.5}
+.breadcrumbs{font-size:.85em;color:var(--text-secondary);margin-bottom:16px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.breadcrumbs a{color:var(--text-secondary);text-decoration:none}
+.breadcrumbs a:hover{color:var(--accent)}
+.related{margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:1.1em;font-weight:600;margin-bottom:12px}
+.related a{display:block;padding:10px 0;color:var(--accent);text-decoration:none;font-size:.95em;border-bottom:1px solid var(--border)}
+.related a:last-child{border:none}
+.related a:hover{color:var(--accent-hover)}
+.no-results{text-align:center;padding:60px 20px;color:var(--text-secondary)}
+@media(max-width:680px){
+.header-inner{padding:0 16px}
+.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px}
+.nav-links.open{display:flex}
+.nav-toggle{display:block}
+.article-card{flex-direction:column}
+.article-card .card-img{width:100%;height:180px}
+article{padding:24px 16px}
+article h1{font-size:1.5em}
+.container{padding:0 16px}
+}"""
+
 HEAD = """<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -40,86 +115,41 @@ HEAD = """<!DOCTYPE html>
     <title>{{title}}</title>
     <meta name="description" content="{{description}}">
     <meta name="robots" content="index, follow">
+    <meta property="og:title" content="{{og_title}}">
+    <meta property="og:description" content="{{og_description}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{og_url}}">
+    <meta property="og:image" content="{{og_image}}">
+    <meta property="og:site_name" content="{{site_name}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{og_title}}">
+    <meta name="twitter:description" content="{{og_description}}">
+    <meta name="twitter:image" content="{{og_image}}">
     <link rel="alternate" type="application/rss+xml" title="{{site_name}}" href="/rss.xml">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
-    <style>
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f6f8;color:#1a1a2e;line-height:1.6}
-        .container{max-width:860px;margin:0 auto;padding:0 20px}
-        header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:#fff;padding:0}
-        .header-inner{max-width:860px;margin:0 auto;padding:30px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px}
-        header h1{font-size:1.5em}
-        header h1 a{color:#fff;text-decoration:none}
-        header p{opacity:.75;font-size:.9em;margin-top:4px}
-        .nav-links{display:flex;gap:8px;flex-wrap:wrap}
-        .nav-links a{color:#fff;text-decoration:none;font-size:.82em;opacity:.7;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.08);transition:all .15s}
-        .nav-links a:hover{opacity:1;background:rgba(255,255,255,.15)}
-        .search-box{width:100%;max-width:860px;margin:0 auto;padding:16px 20px 0}
-        .search-box input{width:100%;padding:12px 16px;border:1px solid #dde1e6;border-radius:10px;font-size:.95em;background:#fff;outline:none;transition:border .15s}
-        .search-box input:focus{border-color:#4361ee}
-        .article-list{margin-top:10px}
-        .article-card{background:#fff;border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:transform .15s,box-shadow .15s;display:flex;gap:16px}
-        .article-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-        .article-card .card-img{width:120px;min-height:90px;border-radius:8px;background:#e9ecef;flex-shrink:0;overflow:hidden}
-        .article-card .card-img img{width:100%;height:100%;object-fit:cover}
-        .article-card .card-body{flex:1;min-width:0}
-        .article-card h2{font-size:1.05em;margin-bottom:6px}
-        .article-card h2 a{color:#1a1a2e;text-decoration:none}
-        .article-card h2 a:hover{color:#4361ee}
-        .article-card .meta{font-size:.82em;color:#6c757d;margin-bottom:4px}
-        .article-card .meta .niche-tag{display:inline-block;background:#eef2ff;color:#4361ee;padding:1px 8px;border-radius:10px;font-size:.85em;margin-right:6px}
-        .article-card p{color:#495057;font-size:.9em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-        .page-header{text-align:center;padding:30px 20px 10px}
-        .page-header h2{font-size:1.3em;color:#1a1a2e}
-        .page-header p{color:#6c757d;font-size:.9em;margin-top:4px}
-        .pagination{text-align:center;padding:20px}
-        .pagination a{display:inline-block;padding:8px 20px;background:#4361ee;color:#fff;border-radius:8px;text-decoration:none;font-size:.9em}
-        .pagination a:hover{opacity:.85}
-        footer{text-align:center;padding:30px 20px;color:#6c757d;font-size:.82em}
-        footer a{color:#4361ee;text-decoration:none}
-        article{background:#fff;border-radius:12px;padding:40px;margin-top:20px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-        article h1{font-size:1.6em;margin-bottom:16px;color:#1a1a2e}
-        article h2{font-size:1.25em;margin:28px 0 12px;color:#1a1a2e}
-        article p{margin-bottom:16px;color:#212529}
-        article ul,article ol{margin:0 0 16px 20px;color:#212529}
-        article li{margin-bottom:6px}
-        .meta{font-size:.85em;color:#6c757d;margin-bottom:20px}
-        .related{margin-top:30px;padding-top:20px;border-top:1px solid #e9ecef}
-        .related h3{font-size:1.1em;margin-bottom:12px;color:#1a1a2e}
-        .related a{display:block;padding:8px 0;color:#4361ee;text-decoration:none;font-size:.95em}
-        .related a:hover{text-decoration:underline}
-        @media(max-width:640px){
-            .header-inner{flex-direction:column;text-align:center;padding:20px}
-            .nav-links{justify-content:center}
-            .article-card{flex-direction:column}
-            .article-card .card-img{width:100%;height:160px}
-            article{padding:20px}
-        }
-        .no-results{text-align:center;padding:40px;color:#6c757d}
-    </style>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white'>A</text></svg>">
+    <style>{{css}}</style>
 </head>
 <body>
+    {{jsonld}}
     <header>
         <div class="header-inner">
-            <div>
-                <h1><a href="/">{{site_name}}</a></h1>
-                <p>{{site_description}}</p>
-            </div>
-            <div class="nav-links">
-                {{nav_links}}
-            </div>
+            <h1><a href="/">{{site_name}}</a></h1>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+            <div class="nav-links">{{nav_links}}</div>
         </div>
     </header>
-    <div class="search-box">
+    <div class="search-wrap">
         <input type="text" id="search" placeholder="Поиск статей..." oninput="filterArticles(this.value)">
     </div>
     {{content}}
     <footer>
-        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/all.html">Все статьи</a></p>
+        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/all.html">Все статьи</a></p>
     </footer>
     <script>
-    function filterArticles(q){q=q.toLowerCase();document.querySelectorAll('.article-card').forEach(c=>{const t=c.textContent.toLowerCase();c.style.display=t.includes(q)?'':'none'});const n=document.querySelector('.no-results');if(n){const v=[...document.querySelectorAll('.article-card')].some(c=>c.style.display!='none');n.style.display=v?'none':'block'}}
+    function filterArticles(q){q=q.toLowerCase();const cards=document.querySelectorAll('.article-card');let visible=0;cards.forEach(c=>{const t=c.textContent.toLowerCase();const match=t.includes(q);c.style.display=match?'':'none';if(match)visible++});const nr=document.querySelector('.no-results');if(nr)nr.style.display=visible?'none':'block'}
+    function updateProgress(){const s=document.documentElement.scrollTop;const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;const p=h>0?(s/h)*100:0;const bar=document.querySelector('.reading-progress');if(bar)bar.style.width=p+'%'}
+    window.addEventListener('scroll',updateProgress)
     </script>
 </body>
 </html>"""
@@ -139,50 +169,39 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
     <meta property="og:url" content="{{url}}">
     <meta property="og:image" content="{{og_image}}">
     <meta property="og:site_name" content="{{site_name}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:image" content="{{og_image}}">
     <link rel="canonical" href="{{url}}">
     <link rel="alternate" type="application/rss+xml" title="{{site_name}}" href="/rss.xml">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
-    <style>
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f6f8;color:#1a1a2e;line-height:1.8}
-        .container{max-width:740px;margin:0 auto;padding:0 20px}
-        .topnav{background:#1a1a2e;padding:10px 0}
-        .topnav .container{display:flex;align-items:center;justify-content:space-between}
-        .topnav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.88em}
-        .topnav a:hover{color:#fff}
-        article{background:#fff;border-radius:12px;padding:40px;margin:20px 0;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-        article h1{font-size:1.6em;margin-bottom:16px;color:#1a1a2e}
-        article h2{font-size:1.25em;margin:28px 0 12px;color:#1a1a2e}
-        article h3{font-size:1.1em;margin:20px 0 10px;color:#1a1a2e}
-        article p{margin-bottom:16px;color:#212529;line-height:1.8}
-        article ul,article ol{margin:0 0 16px 24px;color:#212529}
-        article li{margin-bottom:6px}
-        article blockquote{border-left:3px solid #4361ee;padding:10px 16px;margin:0 0 16px;background:#f8f9ff;color:#495057;border-radius:0 8px 8px 0}
-        article img{max-width:100%;height:auto;border-radius:8px;margin:10px 0}
-        article a{color:#4361ee}
-        .meta{font-size:.85em;color:#6c757d;margin-bottom:20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-        .meta .niche-tag{display:inline-block;background:#eef2ff;color:#4361ee;padding:2px 10px;border-radius:12px;font-size:.88em;text-decoration:none}
-        .related{margin-top:30px;padding-top:20px;border-top:1px solid #e9ecef}
-        .related h3{font-size:1.1em;margin-bottom:12px;color:#1a1a2e}
-        .related a{display:block;padding:8px 0;color:#4361ee;text-decoration:none;font-size:.95em}
-        .related a:hover{text-decoration:underline}
-        footer{text-align:center;padding:30px 20px;color:#6c757d;font-size:.82em}
-        footer a{color:#4361ee;text-decoration:none}
-        @media(max-width:640px){article{padding:20px}}
-    </style>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white'>A</text></svg>">
+    <style>{{css}}</style>
+    {{jsonld}}
 </head>
 <body>
-    <div class="topnav">
-        <div class="container">
-            <a href="/">&larr; На главную</a>
-            <a href="/all.html">Все статьи</a>
+    <div class="reading-progress"></div>
+    <header>
+        <div class="header-inner">
+            <h1><a href="/">{{site_name}}</a></h1>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+            <div class="nav-links">{{nav_links}}</div>
         </div>
-    </div>
+    </header>
     <main class="container">
         <article>
+            <div class="breadcrumbs">
+                <a href="/">Главная</a>
+                <span>/</span>
+                <a href="{{niche_url}}">{{niche_name}}</a>
+                <span>/</span>
+                <span>{{title}}</span>
+            </div>
             <h1>{{title}}</h1>
-            <div class="meta">
+            <div class="article-meta">
                 <span>{{date}}</span>
+                <span>·</span>
+                <span>{{reading_time}}</span>
                 {{niche_tag}}
             </div>
             {{og_image_html}}
@@ -191,10 +210,20 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
         </article>
     </main>
     <footer>
-        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a> | <a href="/sitemap.xml">Sitemap</a></p>
+        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/all.html">Все статьи</a></p>
     </footer>
 </body>
 </html>"""
+
+
+def _reading_time(html: str) -> str:
+    text = re.sub(r"<[^>]+>", "", html)
+    text = re.sub(r"\s+", " ", text).strip()
+    words = len(text.split())
+    minutes = max(1, round(words / 200))
+    endings = {1: "минуту", 2: "минуты", 3: "минуты", 4: "минуты"}
+    ending = endings.get(minutes % 10, "минут") if minutes % 100 not in (11, 12, 13, 14) else "минут"
+    return f"{minutes} {ending} чтения"
 
 
 def _extract_first_sentence(html: str, max_len: int = 200) -> str:
@@ -254,7 +283,7 @@ def _render(template: str, **kwargs) -> str:
     result = template
     content = kwargs.pop("content", None)
     for k, v in kwargs.items():
-        result = result.replace("{{%s}}" % k, v)
+        result = result.replace("{{%s}}" % k, str(v))
     if content is not None:
         result = result.replace("{{content}}", content)
     return result
@@ -281,29 +310,44 @@ def _find_related(articles: list[dict], current_idx: int, count: int = 3) -> lis
     return [item[1] for item in scored[:count]]
 
 
-def _build_card(img_html: str, slug: str, title: str, date: str, niche: str, snippet: str) -> str:
-    niche_tag = '<span class="niche-tag">%s</span>' % NICHE_NAMES.get(niche, niche) if niche else ""
+def _build_card(img_html: str, slug: str, title: str, date: str, niche: str, snippet: str, reading_time: str) -> str:
+    niche_tag = '<a href="/niche-%s.html" class="niche-tag">%s</a>' % (niche, NICHE_NAMES.get(niche, niche)) if niche else ""
     return (
         '<div class="article-card" data-niche="%s">'
         '%s'
         '<div class="card-body">'
+        '<div class="meta">%s %s · %s</div>'
         '<h2><a href="%s.html">%s</a></h2>'
-        '<div class="meta">%s %s</div>'
         "<p>%s...</p></div></div>"
-    ) % (niche, img_html, slug, title, niche_tag, date, snippet)
+    ) % (niche, img_html, niche_tag, date, reading_time, slug, title, snippet)
 
 
 def _niche_page_html(niche_key: str, articles: list[dict]) -> str:
     niche_name = NICHE_NAMES.get(niche_key, niche_key)
     cards = []
     for art in articles:
-        img = '<div class="card-img"><img src="%s" alt=""/></div>' % art["og_image"] if art.get("og_image") else ""
+        img = '<div class="card-img"><img src="%s" alt="" loading="lazy"/></div>' % art["og_image"] if art.get("og_image") else ""
         snippet = re.sub(r"<[^>]+>", "", art["content"])
         snippet = re.sub(r"\s+", " ", snippet).strip()[:150]
-        cards.append(_build_card(img, art["slug"], art["title"], art["date"], art.get("niche", ""), snippet))
-    return '<div class="page-header"><h2>📂 %s</h2><p>%d статей</p></div><div class="article-list">%s</div>' % (
+        cards.append(_build_card(img, art["slug"], art["title"], art["date"], art.get("niche", ""), snippet, art["reading_time"]))
+    return '<div class="page-header"><h2>%s</h2><p>%d статей</p></div><div class="article-list">%s</div>' % (
         niche_name, len(cards), "\n".join(cards)
     )
+
+
+def _make_jsonld(title: str, description: str, url: str, image: str, date: str, site_name: str) -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "description": description,
+        "image": image,
+        "datePublished": date,
+        "author": {"@type": "Organization", "name": site_name},
+        "publisher": {"@type": "Organization", "name": site_name, "logo": {"@type": "ImageObject", "url": ""}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+    }
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
 
 
 def generate_site():
@@ -345,12 +389,14 @@ def generate_site():
 
         og_image = meta.get("image_url", "")
         og_image_html = (
-            '<div style="margin-bottom:20px"><img src="%s" alt="%s" style="width:100%%;max-width:720px;border-radius:8px"></div>'
+            '<div style="margin-bottom:24px"><img src="%s" alt="%s" style="width:100%%;max-width:720px;border-radius:8px" loading="lazy"></div>'
         ) % (og_image, clean_title or title) if og_image else ""
 
         niche_tag = ""
         if niche and niche in NICHE_NAMES:
             niche_tag = '<a href="/niche-%s.html" class="niche-tag">%s</a>' % (niche, NICHE_NAMES[niche])
+
+        reading_time = _reading_time(content)
 
         articles.append({
             "slug": slug,
@@ -366,6 +412,7 @@ def generate_site():
             "og_image_html": og_image_html,
             "niche": niche,
             "niche_tag": niche_tag,
+            "reading_time": reading_time,
         })
 
     nav_links = "".join(
@@ -373,7 +420,6 @@ def generate_site():
         for key, name in NICHE_NAMES.items()
     )
 
-    # --- Generate individual article pages ---
     for i, art in enumerate(articles):
         related = _find_related(articles, i, count=3)
         related_html = ""
@@ -382,8 +428,14 @@ def generate_site():
             related_html = '<div class="related"><h3>📖 Читайте также</h3>%s</div>' % links
 
         url = "%s/%s.html" % (SITE_URL, art["slug"]) if SITE_URL else "/%s.html" % art["slug"]
+        niche_url = "/niche-%s.html" % art["niche"] if art["niche"] else "/"
+        niche_name = NICHE_NAMES.get(art["niche"], art["niche"]) if art["niche"] else ""
+
+        jsonld = _make_jsonld(art["title"], art["description"], url, art["og_image"], art["iso_date"], SITE_NAME)
+
         page = _render(
             ARTICLE_TEMPLATE,
+            css=CSS,
             title=art["title"],
             description=art["description"],
             keywords=art["keywords"],
@@ -391,38 +443,49 @@ def generate_site():
             og_image=art["og_image"],
             site_name=SITE_NAME,
             date=art["date"],
+            reading_time=art["reading_time"],
             og_image_html=art["og_image_html"],
             niche_tag=art["niche_tag"],
+            niche_url=niche_url,
+            niche_name=niche_name,
             content=art["content"],
             related_html=related_html,
             year=art["year"],
+            nav_links=nav_links,
+            jsonld=jsonld,
         )
         (SITE_DIR / ("%s.html" % art["slug"])).write_text(page, encoding="utf-8")
 
     logger.info("  Generated %d article pages" % len(articles))
 
-    # --- Generate "all articles" page ---
     all_cards = []
     for art in articles:
-        img = '<div class="card-img"><img src="%s" alt=""/></div>' % art["og_image"] if art.get("og_image") else '<div class="card-img"></div>'
+        img = '<div class="card-img"><img src="%s" alt="" loading="lazy"/></div>' % art["og_image"] if art.get("og_image") else ""
         snippet = re.sub(r"<[^>]+>", "", art["content"])
         snippet = re.sub(r"\s+", " ", snippet).strip()[:150]
-        all_cards.append(_build_card(img, art["slug"], art["title"], art["date"], art["niche"], snippet))
+        all_cards.append(_build_card(img, art["slug"], art["title"], art["date"], art["niche"], snippet, art["reading_time"]))
 
+    og_url = SITE_URL + "/all.html" if SITE_URL else "/all.html"
+    jsonld_all = _make_jsonld("Все статьи — " + SITE_NAME, SITE_DESCRIPTION, og_url, "", datetime.now().strftime("%Y-%m-%d"), SITE_NAME)
     all_page = _render(
         HEAD,
+        css=CSS,
         title="Все статьи — " + SITE_NAME,
         description=SITE_DESCRIPTION,
         site_name=SITE_NAME,
         site_description=SITE_DESCRIPTION,
+        og_title="Все статьи — " + SITE_NAME,
+        og_description=SITE_DESCRIPTION,
+        og_url=og_url,
+        og_image="",
         nav_links=nav_links,
-        content='<div class="page-header"><h2>📚 Все статьи</h2><p>%d статей</p></div><div class="article-list">%s</div>' % (len(all_cards), "\n".join(all_cards)),
+        jsonld=jsonld_all,
+        content='<div class="page-header"><h2>Все статьи</h2><p>%d статей</p></div><div class="article-list">%s</div>' % (len(all_cards), "\n".join(all_cards)),
         year=str(datetime.now().year),
     )
     (SITE_DIR / "all.html").write_text(all_page, encoding="utf-8")
     logger.info("  Generated: all.html (%d articles)" % len(all_cards))
 
-    # --- Generate niche pages ---
     niche_articles: dict[str, list[dict]] = {}
     for art in articles:
         n = art.get("niche", "")
@@ -432,13 +495,22 @@ def generate_site():
 
     for niche_key, niche_arts in niche_articles.items():
         niche_content = _niche_page_html(niche_key, niche_arts)
+        niche_name = NICHE_NAMES.get(niche_key, niche_key)
+        og_url_niche = "%s/niche-%s.html" % (SITE_URL, niche_key) if SITE_URL else "/niche-%s.html" % niche_key
+        jsonld_niche = _make_jsonld(niche_name + " — " + SITE_NAME, "Статьи по теме «%s»" % niche_name, og_url_niche, "", datetime.now().strftime("%Y-%m-%d"), SITE_NAME)
         page = _render(
             HEAD,
-            title=NICHE_NAMES.get(niche_key, niche_key) + " — " + SITE_NAME,
-            description="Статьи по теме «%s»" % NICHE_NAMES.get(niche_key, niche_key),
+            css=CSS,
+            title=niche_name + " — " + SITE_NAME,
+            description="Статьи по теме «%s»" % niche_name,
             site_name=SITE_NAME,
             site_description=SITE_DESCRIPTION,
+            og_title=niche_name + " — " + SITE_NAME,
+            og_description="Статьи по теме «%s»" % niche_name,
+            og_url=og_url_niche,
+            og_image="",
             nav_links=nav_links,
+            jsonld=jsonld_niche,
             content=niche_content,
             year=str(datetime.now().year),
         )
@@ -446,23 +518,30 @@ def generate_site():
 
     logger.info("  Generated %d niche category pages" % len(niche_articles))
 
-    # --- Generate index page (latest 20 articles) ---
     index_cards = []
     for art in articles[:20]:
-        img = '<div class="card-img"><img src="%s" alt=""/></div>' % art["og_image"] if art.get("og_image") else ""
+        img = '<div class="card-img"><img src="%s" alt="" loading="lazy"/></div>' % art["og_image"] if art.get("og_image") else ""
         snippet = re.sub(r"<[^>]+>", "", art["content"])
         snippet = re.sub(r"\s+", " ", snippet).strip()[:150]
-        index_cards.append(_build_card(img, art["slug"], art["title"], art["date"], art["niche"], snippet))
+        index_cards.append(_build_card(img, art["slug"], art["title"], art["date"], art["niche"], snippet, art["reading_time"]))
 
     index_all_link = '<div class="pagination"><a href="/all.html">Все статьи →</a></div>' if len(articles) > 20 else ""
+    og_url_index = SITE_URL + "/" if SITE_URL else "/"
+    jsonld_index = _make_jsonld(SITE_NAME, SITE_DESCRIPTION, og_url_index, "", datetime.now().strftime("%Y-%m-%d"), SITE_NAME)
 
     index_page = _render(
         HEAD,
+        css=CSS,
         title=SITE_NAME,
         description=SITE_DESCRIPTION,
         site_name=SITE_NAME,
         site_description=SITE_DESCRIPTION,
+        og_title=SITE_NAME,
+        og_description=SITE_DESCRIPTION,
+        og_url=og_url_index,
+        og_image="",
         nav_links=nav_links,
+        jsonld=jsonld_index,
         content='<div class="article-list">%s</div>%s' % ("\n".join(index_cards), index_all_link),
         year=str(datetime.now().year),
     )
