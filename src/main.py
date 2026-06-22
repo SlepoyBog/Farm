@@ -557,6 +557,30 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
 
 
 
+async def enhance_for_vk(html_article: str, niche: str) -> str:
+    """Rewrite article for VK with trends and engagement using VK prompt."""
+    system_prompt, user_template = load_prompt("vk_trend_editor")
+    user_prompt = (
+        user_template.replace("{{article}}", html_article)
+        .replace("{{niche}}", niche)
+    )
+    try:
+        result = await client.call(
+            prompt=user_prompt,
+            system_prompt=system_prompt,
+            temperature=0.5,
+            max_tokens=1800,
+        )
+        result = result.strip()
+        if len(result) < 50:
+            logger.warning(f"VK enhancement too short ({len(result)} chars), using original")
+            return html_article
+        return result
+    except Exception as e:
+        logger.warning(f"VK enhancement failed, using original HTML: {e}")
+        return html_article
+
+
 def _extract_title(html: str) -> str:
     m = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.DOTALL)
     if m:
@@ -665,7 +689,13 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             if tg_ok and random.random() < 0.3:
                 send_tg_poll(niche, tg_title)
 
-            # Step 6: Publish to VK (base article, VK publisher converts HTML)
+            # Step 3.5: VK trend rewrite (uses dedicated VK prompt)
+            logger.info("Enhancing article for VK...")
+            vk_article = await enhance_for_vk(article, niche)
+            if len(vk_article) < 50:
+                vk_article = article
+
+            # Step 6: Publish to VK (with VK-enhanced content)
             vk_ok = False
             vk_post_id_local = None
             try:
@@ -677,6 +707,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                     html_content=article,
                     niche=niche,
                     image_url=image_url,
+                    raw_text=vk_article,
                 )
             except Exception as e:
                 logger.warning(f"VK publish failed for '{topic}': {e}")
