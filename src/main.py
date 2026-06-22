@@ -736,24 +736,21 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             except Exception as e:
                 logger.warning("OK publish failed: %s", e)
 
-            # Step 7: Dzen — только если VK не опубликован (чтобы избежать дублей VK→Дзен + прямой API)
-            if not vk_ok:
-                try:
-                    dzen_ok, dzen_msg = publish_to_dzen_direct(
-                        title=tg_title,
-                        html_content=article,
-                        image_url=None,
-                        niche=niche,
-                        topic=topic,
-                    )
-                    if dzen_ok:
-                        logger.info(f"Dzen publish: {dzen_msg}")
-                    else:
-                        logger.warning(f"Dzen: {dzen_msg}")
-                except Exception as e:
-                    logger.warning(f"Dzen publish failed: {e}")
-            else:
-                logger.info("VK published — Dzen should auto-import from VK, skipping direct API")
+            # Step 7: Dzen — прямой API (только текст, без фото — фото поставил бы дубль)
+            try:
+                dzen_ok, dzen_msg = publish_to_dzen_direct(
+                    title=tg_title,
+                    html_content=article,
+                    image_url=None,
+                    niche=niche,
+                    topic=topic,
+                )
+                if dzen_ok:
+                    logger.info(f"Dzen publish: {dzen_msg}")
+                else:
+                    logger.warning(f"Dzen: {dzen_msg}")
+            except Exception as e:
+                logger.warning(f"Dzen publish failed: {e}")
 
             # Step 8: Record publication for feedback loop
             vk_numeric = VK_GROUP_ID
