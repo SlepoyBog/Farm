@@ -4311,5 +4311,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как научиться копить деньги",
+    "title": "💰 Как научиться копить деньги",
+    "niche": "финансы",
+    "published_at": "2026-06-22T16:46:07.439971",
+    "platforms": {
+      "telegram": {
+        "message_id": 539,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 557,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
