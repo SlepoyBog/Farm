@@ -4495,5 +4495,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Цифровая трансформация каждого бизнеса",
+    "title": "🚀 Цифровая трансформация каждого бизнеса",
+    "niche": "технологии",
+    "published_at": "2026-06-23T16:27:42.667931",
+    "platforms": {
+      "telegram": {
+        "message_id": 555,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 565,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
