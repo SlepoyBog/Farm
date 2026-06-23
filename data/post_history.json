@@ -4518,5 +4518,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Травяные чаи и их польза",
+    "title": "🍵 Травяные чаи: природная аптека, доступная каждому",
+    "niche": "здоровье",
+    "published_at": "2026-06-23T17:49:59.143335",
+    "platforms": {
+      "telegram": {
+        "message_id": 557,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 566,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
