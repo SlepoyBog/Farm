@@ -4449,5 +4449,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Будущее нейросетей и человека",
+    "title": "🤖 Будущее нейросетей и человека: что нас ждёт?",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-23T12:10:18.161504",
+    "platforms": {
+      "telegram": {
+        "message_id": 551,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 563,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
