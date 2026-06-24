@@ -4610,5 +4610,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Психология спортивных побед",
+    "title": "🧠 Психология спортивных побед: что мешает и как побеждать",
+    "niche": "спорт",
+    "published_at": "2026-06-24T12:14:01.059017",
+    "platforms": {
+      "telegram": {
+        "message_id": 565,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 570,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
