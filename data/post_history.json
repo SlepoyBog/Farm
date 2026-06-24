@@ -4587,5 +4587,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "EdTech стартапы: тренды и инвестиции",
+    "title": "🚀 EdTech стартапы: тренды и инвестиции",
+    "niche": "образование",
+    "published_at": "2026-06-24T11:46:36.008969",
+    "platforms": {
+      "telegram": {
+        "message_id": 563,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 569,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
