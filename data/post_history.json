@@ -4633,5 +4633,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Локации и декорации фильмов",
+    "title": "🎬 Локации и декорации фильмов: как они превращают сценарий в реальность",
+    "niche": "кино",
+    "published_at": "2026-06-24T16:22:53.874053",
+    "platforms": {
+      "telegram": {
+        "message_id": 567,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 571,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
