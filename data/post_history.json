@@ -4679,5 +4679,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "ИИ и интернет вещей (IoT)",
+    "title": "🤖 Как ИИ оживляет интернет вещей: главные сценарии",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-24T19:44:44.408283",
+    "platforms": {
+      "telegram": {
+        "message_id": 571,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 573,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
