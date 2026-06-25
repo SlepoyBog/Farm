@@ -4771,5 +4771,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Аренда или покупка жилья",
+    "title": "🏠 Аренда или покупка жилья: что выгоднее?",
+    "niche": "финансы",
+    "published_at": "2026-06-25T16:24:16.134429",
+    "platforms": {
+      "telegram": {
+        "message_id": 579,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 577,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
