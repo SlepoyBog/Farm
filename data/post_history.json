@@ -4748,5 +4748,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Память и питание мозга",
+    "title": "🧠 Память и питание мозга: что вы едите, то и вспоминаете",
+    "niche": "здоровье",
+    "published_at": "2026-06-25T12:12:16.697522",
+    "platforms": {
+      "telegram": {
+        "message_id": 577,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 576,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
