@@ -4702,5 +4702,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "🔊 Громкая музыка в авто: риски",
+    "title": "🔊 Громкая музыка в авто: риски, о которых молчат",
+    "niche": "авто",
+    "published_at": "2026-06-25T09:29:53.847139",
+    "platforms": {
+      "telegram": {
+        "message_id": 573,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 574,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
