@@ -4725,5 +4725,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Популярные языки программирования года",
+    "title": "🐍 Топ языков программирования 2025: что учить прямо сейчас?",
+    "niche": "технологии",
+    "published_at": "2026-06-25T11:41:40.048271",
+    "platforms": {
+      "telegram": {
+        "message_id": 575,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 575,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
