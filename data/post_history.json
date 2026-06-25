@@ -4817,5 +4817,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Сертификация навыков: будущее рынка труда",
+    "title": "🏅 Сертификация навыков: будущее рынка труда",
+    "niche": "образование",
+    "published_at": "2026-06-25T19:58:47.253626",
+    "platforms": {
+      "telegram": {
+        "message_id": 583,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 579,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
