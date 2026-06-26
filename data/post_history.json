@@ -4932,5 +4932,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "🧰 Аварийный набор в авто",
+    "title": "🧰 Аварийный набор в авто: что реально спасёт в дороге",
+    "niche": "авто",
+    "published_at": "2026-06-26T17:44:45.559533",
+    "platforms": {
+      "telegram": {
+        "message_id": 593,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 584,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
