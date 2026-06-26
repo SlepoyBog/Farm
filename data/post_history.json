@@ -4886,5 +4886,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Наблюдение за птицами в заповедниках",
+    "title": "☀️ Как сделать утро бодрым и продуктивным — 5 простых шагов",
+    "niche": "путешествия",
+    "published_at": "2026-06-26T12:07:12.086035",
+    "platforms": {
+      "telegram": {
+        "message_id": 589,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 582,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
