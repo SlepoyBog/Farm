@@ -4955,5 +4955,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "6G: связь за гранью воображения",
+    "title": "🔄 6G: связь за гранью воображения",
+    "niche": "технологии",
+    "published_at": "2026-06-26T19:47:59.156674",
+    "platforms": {
+      "telegram": {
+        "message_id": 595,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 585,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
