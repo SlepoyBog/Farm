@@ -4863,5 +4863,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Театр и кино: сравнение",
+    "title": "Театр vs Кино: что выбрать вечером? 🎭🎬",
+    "niche": "кино",
+    "published_at": "2026-06-26T11:45:56.938666",
+    "platforms": {
+      "telegram": {
+        "message_id": 587,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 581,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
