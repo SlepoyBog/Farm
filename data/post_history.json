@@ -4909,5 +4909,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "ИИ в переводе и лингвистике",
+    "title": "🤖 ИИ в переводе и лингвистике: прорыв или ловушка?",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-26T16:16:20.361854",
+    "platforms": {
+      "telegram": {
+        "message_id": 591,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 583,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
