@@ -5024,5 +5024,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Упаковка продукта: секреты",
+    "title": "💎 Упаковка продукта: секреты, которые продают",
+    "niche": "бизнес",
+    "published_at": "2026-06-27T11:19:26.498580",
+    "platforms": {
+      "telegram": {
+        "message_id": 601,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 588,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
