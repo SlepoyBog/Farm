@@ -5001,5 +5001,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Оплата по QR-коду: плюсы",
+    "title": "Оплата по QR-коду: 5 плюсов, которые изменят ваши привычки 📱",
+    "niche": "финансы",
+    "published_at": "2026-06-27T10:59:06.118922",
+    "platforms": {
+      "telegram": {
+        "message_id": 599,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 587,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
