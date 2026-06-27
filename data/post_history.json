@@ -4978,5 +4978,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Веганство и дефицит витаминов",
+    "title": "🥦 Как вегану не остаться без витаминов?",
+    "niche": "здоровье",
+    "published_at": "2026-06-27T08:42:32.234628",
+    "platforms": {
+      "telegram": {
+        "message_id": 597,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 586,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
