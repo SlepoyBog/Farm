@@ -5070,5 +5070,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Баскетбол уличный и профессиональный",
+    "title": "🏀 Уличный vs профессиональный баскетбол: два мира одной игры",
+    "niche": "спорт",
+    "published_at": "2026-06-27T17:06:02.353327",
+    "platforms": {
+      "telegram": {
+        "message_id": 605,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 590,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
