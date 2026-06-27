@@ -5093,5 +5093,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Тренды мирового кинопроката",
+    "title": "🎬 Почему «Барби» — главный тренд кинопроката 2023",
+    "niche": "кино",
+    "published_at": "2026-06-27T19:18:52.716428",
+    "platforms": {
+      "telegram": {
+        "message_id": 607,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 591,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
