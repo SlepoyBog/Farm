@@ -5047,5 +5047,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Гранты и стипендии: как получить",
+    "title": "🎁 Гранты и стипендии: как получить деньги на обучение и проекты",
+    "niche": "образование",
+    "published_at": "2026-06-27T15:16:04.354866",
+    "platforms": {
+      "telegram": {
+        "message_id": 603,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 589,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
