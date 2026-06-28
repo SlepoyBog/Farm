@@ -5185,5 +5185,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Искусственный интеллект в бизнесе",
+    "title": "🤖 Искусственный интеллект в бизнесе: мода или необходимость?",
+    "niche": "технологии",
+    "published_at": "2026-06-28T15:18:32.311918",
+    "platforms": {
+      "telegram": {
+        "message_id": 615,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 595,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
