@@ -5162,5 +5162,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "📚 ПДД: частые ошибки",
+    "title": "🚗 Частые ошибки на дороге: как их избежать?",
+    "niche": "авто",
+    "published_at": "2026-06-28T11:40:41.832989",
+    "platforms": {
+      "telegram": {
+        "message_id": 613,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 594,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
