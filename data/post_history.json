@@ -5139,5 +5139,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Сельское хозяйство и умные фермы",
+    "title": "🌱 Умные фермы: как технологии спасают сельское хозяйство?",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-06-28T11:09:21.215581",
+    "platforms": {
+      "telegram": {
+        "message_id": 611,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 593,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
