@@ -5116,5 +5116,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Цирковые представления и шоу",
+    "title": "🎪 Цирковые представления и шоу: магия, которая объединяет",
+    "niche": "путешествия",
+    "published_at": "2026-06-28T09:17:17.794189",
+    "platforms": {
+      "telegram": {
+        "message_id": 609,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 592,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
