@@ -5231,5 +5231,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Автоматизация малого бизнеса",
+    "title": "📊 Как автоматизация малого бизнеса помогает водителям зарабатывать больше?",
+    "niche": "бизнес",
+    "published_at": "2026-06-29T11:08:50.312614",
+    "platforms": {
+      "telegram": {
+        "message_id": 619,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 597,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
