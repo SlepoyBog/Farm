@@ -5300,5 +5300,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Режиссеры-визионеры современности",
+    "title": "🎬 Режиссёры-визионеры: как они меняют кино прямо сейчас",
+    "niche": "кино",
+    "published_at": "2026-06-29T16:53:19.305231",
+    "platforms": {
+      "telegram": {
+        "message_id": 625,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 600,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
