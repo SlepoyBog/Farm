@@ -5254,5 +5254,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Онлайн-обучение для всех",
+    "title": "📚 Онлайн-обучение для всех: как учиться без границ",
+    "niche": "образование",
+    "published_at": "2026-06-29T13:08:53.402838",
+    "platforms": {
+      "telegram": {
+        "message_id": 621,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 598,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
