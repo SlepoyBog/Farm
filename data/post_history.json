@@ -5484,5 +5484,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Глобальное образование без границ",
+    "title": "Глобальное образование без границ: ваш ключ к будущему 🌍",
+    "niche": "образование",
+    "published_at": "2026-06-30T19:53:51.596778",
+    "platforms": {
+      "telegram": {
+        "message_id": 641,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 608,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
