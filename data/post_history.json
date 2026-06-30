@@ -5415,5 +5415,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Генетика и предрасположенность к болезням",
+    "title": "🧬 Генетика и предрасположенность к болезням: что нужно знать каждому",
+    "niche": "здоровье",
+    "published_at": "2026-06-30T12:05:17.868692",
+    "platforms": {
+      "telegram": {
+        "message_id": 635,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 605,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
