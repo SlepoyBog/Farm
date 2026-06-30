@@ -5369,5 +5369,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Электромобили заменят бензин полностью",
+    "title": "🚗 Электромобили полностью заменят бензин: это не вопрос «если», а вопрос «когда»",
+    "niche": "авто",
+    "published_at": "2026-06-30T09:46:48.504541",
+    "platforms": {
+      "telegram": {
+        "message_id": 631,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 603,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
