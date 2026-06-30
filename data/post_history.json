@@ -5392,5 +5392,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Криптовалюты и децентрализованные финансы",
+    "title": "Криптовалюты и DeFi: как работают деньги без банков 🚀",
+    "niche": "технологии",
+    "published_at": "2026-06-30T11:46:15.992346",
+    "platforms": {
+      "telegram": {
+        "message_id": 633,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 604,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
