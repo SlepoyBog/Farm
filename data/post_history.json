@@ -5438,5 +5438,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Тренды фондового рынка сегодня",
+    "title": "Тренды фондового рынка: как не упустить прибыль 🚀",
+    "niche": "финансы",
+    "published_at": "2026-06-30T16:23:55.828824",
+    "platforms": {
+      "telegram": {
+        "message_id": 637,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 606,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
