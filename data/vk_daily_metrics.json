@@ -15,6 +15,14 @@
     "shares": 0,
     "subscribers": 1
   },
+  "01.07.2026": {
+    "views": 84,
+    "reach": 64,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "subscribers": 2
+  },
   "02.05.2026": {
     "views": 0,
     "reach": 0,
@@ -344,8 +352,8 @@
     "subscribers": 1
   },
   "22.06.2026": {
-    "views": 456,
-    "reach": 218,
+    "views": 440,
+    "reach": 202,
     "likes": 0,
     "comments": 0,
     "shares": 0,
@@ -359,9 +367,25 @@
     "shares": 0,
     "subscribers": 1
   },
+  "23.06.2026": {
+    "views": 344,
+    "reach": 224,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "subscribers": 1
+  },
   "24.05.2026": {
     "views": 852,
     "reach": 328,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "subscribers": 1
+  },
+  "24.06.2026": {
+    "views": 164,
+    "reach": 126,
     "likes": 0,
     "comments": 0,
     "shares": 0,
@@ -375,6 +399,14 @@
     "shares": 4,
     "subscribers": 1
   },
+  "25.06.2026": {
+    "views": 156,
+    "reach": 126,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "subscribers": 1
+  },
   "26.05.2026": {
     "views": 340,
     "reach": 216,
@@ -382,6 +414,14 @@
     "comments": 0,
     "shares": 0,
     "subscribers": 1
+  },
+  "26.06.2026": {
+    "views": 172,
+    "reach": 100,
+    "likes": 4,
+    "comments": 0,
+    "shares": 4,
+    "subscribers": 2
   },
   "27.04.2026": {
     "views": 0,
@@ -399,6 +439,14 @@
     "shares": 4,
     "subscribers": 1
   },
+  "27.06.2026": {
+    "views": 124,
+    "reach": 100,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "subscribers": 2
+  },
   "28.05.2026": {
     "views": 256,
     "reach": 188,
@@ -406,6 +454,14 @@
     "comments": 0,
     "shares": 4,
     "subscribers": 1
+  },
+  "28.06.2026": {
+    "views": 260,
+    "reach": 174,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "subscribers": 2
   },
   "29.05.2026": {
     "views": 168,
@@ -415,6 +471,14 @@
     "shares": 0,
     "subscribers": 1
   },
+  "29.06.2026": {
+    "views": 208,
+    "reach": 116,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "subscribers": 2
+  },
   "30.05.2026": {
     "views": 372,
     "reach": 158,
@@ -422,6 +486,14 @@
     "comments": 0,
     "shares": 0,
     "subscribers": 1
+  },
+  "30.06.2026": {
+    "views": 232,
+    "reach": 154,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "subscribers": 2
   },
   "31.05.2026": {
     "views": 552,
