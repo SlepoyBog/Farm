@@ -5553,5 +5553,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Достопримечательности с высоты птиц",
+    "title": "🚁 С высоты птичьего полета: как достопримечательности раскрывают свою душу",
+    "niche": "путешествия",
+    "published_at": "2026-07-01T12:27:44.977009",
+    "platforms": {
+      "telegram": {
+        "message_id": 647,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 611,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
