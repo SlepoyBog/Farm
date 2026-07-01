@@ -5507,5 +5507,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Скейтбординг для новичков",
+    "title": "🛹 Скейтбординг для новичков: ваш первый шаг на доске",
+    "niche": "спорт",
+    "published_at": "2026-07-01T09:57:30.487531",
+    "platforms": {
+      "telegram": {
+        "message_id": 643,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 609,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
