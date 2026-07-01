@@ -5530,5 +5530,28 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Хорроры: почему мы любим",
+    "title": "🕶 Хорроры: почему мы любим",
+    "niche": "кино",
+    "published_at": "2026-07-01T12:10:15.675819",
+    "platforms": {
+      "telegram": {
+        "message_id": 645,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 610,
+        "owner_id": "-186888784",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
