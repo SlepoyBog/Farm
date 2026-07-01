@@ -55,6 +55,7 @@ def record_publication(
     tg_message_id: int | None = None,
     vk_post_id: int | None = None,
     vk_owner_id: str | None = None,
+    vk_format: str | None = None,
     ok_post_id: str | None = None,
 ) -> dict:
     history = _load_history()
@@ -77,6 +78,7 @@ def record_publication(
         record["platforms"]["vk"] = {
             "post_id": vk_post_id,
             "owner_id": vk_owner_id or "",
+            "format": vk_format or "A",
             "views": None,
             "likes": None,
             "comments": None,

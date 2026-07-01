@@ -693,32 +693,65 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             if tg_ok and random.random() < 0.3:
                 send_tg_poll(niche, tg_title)
 
-            # Step 3.5: VK trend rewrite (uses dedicated VK prompt)
-            logger.info("Enhancing article for VK...")
-            vk_article = await enhance_for_vk(article, niche)
-            if len(vk_article) < 50:
-                vk_article = article
+            # Step 3.5: VK A/B test — alternate between Format A and Format B
             from src.vk_publisher import _generate_hashtags as vk_hashtags
-            vk_hash_str = vk_hashtags(niche, tg_title)
-            if vk_hash_str:
-                vk_article = vk_article.rstrip() + "\n\n" + vk_hash_str
+            from src.vk_publisher import adapt_for_vk_b, _create_vk_poll
+
+            post_history_data = Path("data") / "post_history.json"
+            vk_post_count = 0
+            if post_history_data.exists():
+                try:
+                    records = json.loads(post_history_data.read_text(encoding="utf-8"))
+                    vk_post_count = sum(1 for r in records if "vk" in r.get("platforms", {}))
+                except Exception:
+                    pass
+
+            use_format_b = vk_post_count % 2 == 0
+            vk_format = "B" if use_format_b else "A"
+            logger.info(f"VK format: {vk_format} (post #{vk_post_count + 1})")
+
+            vk_post_text = None
+            poll_attachment = None
+
+            if use_format_b:
+                # Format B: short lead + poll
+                vk_post_text, poll_q, poll_opts = adapt_for_vk_b(tg_title, article, niche)
+                try:
+                    poll_att = _create_vk_poll(VK_ACCESS_TOKEN, VK_GROUP_ID, poll_q, poll_opts)
+                    if poll_att:
+                        poll_attachment = poll_att
+                except Exception as e:
+                    logger.warning(f"VK poll creation failed, falling back: {e}")
+                    vk_format = "A"
+                    vk_post_text = None
+            else:
+                logger.info("Enhancing article for VK...")
+                vk_article = await enhance_for_vk(article, niche)
+                if len(vk_article) < 50:
+                    vk_article = article
+                vk_hash_str = vk_hashtags(niche, tg_title)
+                if vk_hash_str:
+                    vk_article = vk_article.rstrip() + "\n\n" + vk_hash_str
+                vk_post_text = vk_article
 
             # Step 6: Publish to VK (with VK-enhanced content)
             vk_ok = False
             vk_post_id_local = None
-            try:
-                from src.vk_publisher import publish_to_vk as publish_vk
-                vk_ok, vk_post_id_local = publish_vk(
-                    access_token=VK_ACCESS_TOKEN,
-                    group_id=VK_GROUP_ID,
-                    title=tg_title,
-                    html_content=article,
-                    niche=niche,
-                    image_url=image_url,
-                    raw_text=vk_article,
-                )
-            except Exception as e:
-                logger.warning(f"VK publish failed for '{topic}': {e}")
+            if vk_post_text:
+                try:
+                    from src.vk_publisher import publish_to_vk as publish_vk
+                    vk_ok, vk_post_id_local = publish_vk(
+                        access_token=VK_ACCESS_TOKEN,
+                        group_id=VK_GROUP_ID,
+                        title=tg_title,
+                        html_content=article,
+                        niche=niche,
+                        image_url=image_url,
+                        raw_text=vk_post_text,
+                        poll_attachment=poll_attachment,
+                    )
+                except Exception as e:
+                    logger.warning(f"VK publish failed for '{topic}': {e}")
 
             # Step 6.5: Publish to OK.ru
             ok_post_id = None
@@ -771,6 +804,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                 tg_message_id=tg_msg_id,
                 vk_post_id=vk_post_id_local,
                 vk_owner_id=vk_owner_id,
+                vk_format=vk_format,
                 ok_post_id=ok_post_id,
             )
 
