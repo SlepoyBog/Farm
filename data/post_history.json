@@ -5576,5 +5576,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Глобальное влияние искусственного интеллекта",
+    "title": "🌐 Искусственный интеллект: глобальная революция, которую мы уже не остановим",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-07-01T16:27:19.888107",
+    "platforms": {
+      "telegram": {
+        "message_id": 649,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 612,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
