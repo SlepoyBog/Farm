@@ -1,506 +1,250 @@
 {
-  "01.05.2026": {
-    "views": 0,
-    "reach": 0,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
   "01.06.2026": {
-    "views": 1332,
-    "reach": 970,
-    "likes": 4,
-    "comments": 2,
+    "views": 40,
+    "reach": 30,
+    "likes": 0,
+    "comments": 1,
     "shares": 0,
     "subscribers": 1
   },
   "01.07.2026": {
-    "views": 84,
-    "reach": 64,
+    "views": 22,
+    "reach": 17,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 2
   },
-  "02.05.2026": {
-    "views": 0,
-    "reach": 0,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
   "02.06.2026": {
-    "views": 412,
-    "reach": 306,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "03.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 101,
+    "reach": 74,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "03.06.2026": {
-    "views": 132,
-    "reach": 110,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "04.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 33,
+    "reach": 27,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "04.06.2026": {
-    "views": 1012,
-    "reach": 784,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "05.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 244,
+    "reach": 194,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "05.06.2026": {
-    "views": 184,
-    "reach": 144,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "06.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 46,
+    "reach": 36,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "06.06.2026": {
-    "views": 144,
-    "reach": 100,
-    "likes": 4,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "07.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 36,
+    "reach": 23,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "07.06.2026": {
-    "views": 300,
-    "reach": 208,
-    "likes": 4,
-    "comments": 4,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "08.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 68,
+    "reach": 48,
     "likes": 0,
-    "comments": 0,
+    "comments": 1,
     "shares": 0,
     "subscribers": 1
   },
   "08.06.2026": {
-    "views": 1234,
-    "reach": 678,
-    "likes": 4,
-    "comments": 0,
-    "shares": 2,
-    "subscribers": 1
-  },
-  "09.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 88,
+    "reach": 64,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "09.06.2026": {
-    "views": 240,
-    "reach": 148,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "10.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 60,
+    "reach": 37,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "10.06.2026": {
-    "views": 108,
-    "reach": 84,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "11.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 27,
+    "reach": 21,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "11.06.2026": {
-    "views": 140,
-    "reach": 98,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "12.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 35,
+    "reach": 24,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "12.06.2026": {
-    "views": 132,
-    "reach": 112,
-    "likes": 4,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "13.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 33,
+    "reach": 28,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "13.06.2026": {
-    "views": 120,
-    "reach": 70,
-    "likes": 4,
-    "comments": 0,
-    "shares": 4,
-    "subscribers": 1
-  },
-  "14.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 30,
+    "reach": 17,
     "likes": 0,
     "comments": 0,
-    "shares": 0,
+    "shares": 1,
     "subscribers": 1
   },
   "14.06.2026": {
-    "views": 120,
-    "reach": 98,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "15.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 30,
+    "reach": 23,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "15.06.2026": {
-    "views": 1250,
-    "reach": 712,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "16.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 39,
+    "reach": 27,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "16.06.2026": {
-    "views": 144,
-    "reach": 110,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "17.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 32,
+    "reach": 26,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "17.06.2026": {
-    "views": 532,
-    "reach": 298,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "18.05.2026": {
-    "views": 2380,
-    "reach": 624,
+    "views": 123,
+    "reach": 72,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "18.06.2026": {
-    "views": 292,
-    "reach": 176,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "19.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 66,
+    "reach": 43,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "19.06.2026": {
-    "views": 284,
-    "reach": 198,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "20.05.2026": {
-    "views": 0,
-    "reach": 0,
+    "views": 66,
+    "reach": 48,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "20.06.2026": {
-    "views": 416,
-    "reach": 202,
-    "likes": 4,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "21.05.2026": {
-    "views": 908,
-    "reach": 112,
-    "likes": 0,
+    "views": 70,
+    "reach": 49,
+    "likes": 1,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "21.06.2026": {
-    "views": 352,
-    "reach": 154,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "22.05.2026": {
-    "views": 2404,
-    "reach": 562,
+    "views": 50,
+    "reach": 36,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "22.06.2026": {
-    "views": 440,
-    "reach": 202,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "23.05.2026": {
-    "views": 596,
-    "reach": 350,
+    "views": 70,
+    "reach": 45,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "23.06.2026": {
-    "views": 344,
-    "reach": 224,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "24.05.2026": {
-    "views": 852,
-    "reach": 328,
+    "views": 71,
+    "reach": 52,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "24.06.2026": {
-    "views": 164,
-    "reach": 126,
+    "views": 36,
+    "reach": 30,
     "likes": 0,
     "comments": 0,
     "shares": 0,
-    "subscribers": 1
-  },
-  "25.05.2026": {
-    "views": 2134,
-    "reach": 1066,
-    "likes": 6,
-    "comments": 0,
-    "shares": 4,
     "subscribers": 1
   },
   "25.06.2026": {
-    "views": 156,
-    "reach": 126,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
-  },
-  "26.05.2026": {
-    "views": 340,
-    "reach": 216,
+    "views": 39,
+    "reach": 31,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 1
   },
   "26.06.2026": {
-    "views": 172,
-    "reach": 100,
-    "likes": 4,
+    "views": 32,
+    "reach": 23,
+    "likes": 0,
     "comments": 0,
-    "shares": 4,
+    "shares": 1,
     "subscribers": 2
-  },
-  "27.04.2026": {
-    "views": 0,
-    "reach": 0,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 0
-  },
-  "27.05.2026": {
-    "views": 324,
-    "reach": 204,
-    "likes": 0,
-    "comments": 0,
-    "shares": 4,
-    "subscribers": 1
   },
   "27.06.2026": {
-    "views": 124,
-    "reach": 100,
+    "views": 27,
+    "reach": 24,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 2
-  },
-  "28.05.2026": {
-    "views": 256,
-    "reach": 188,
-    "likes": 0,
-    "comments": 0,
-    "shares": 4,
-    "subscribers": 1
   },
   "28.06.2026": {
-    "views": 260,
-    "reach": 174,
+    "views": 53,
+    "reach": 40,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 2
-  },
-  "29.05.2026": {
-    "views": 168,
-    "reach": 132,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
   },
   "29.06.2026": {
-    "views": 208,
-    "reach": 116,
+    "views": 36,
+    "reach": 27,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 2
-  },
-  "30.05.2026": {
-    "views": 372,
-    "reach": 158,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
   },
   "30.06.2026": {
-    "views": 232,
-    "reach": 154,
+    "views": 58,
+    "reach": 37,
     "likes": 0,
     "comments": 0,
     "shares": 0,
     "subscribers": 2
-  },
-  "31.05.2026": {
-    "views": 552,
-    "reach": 408,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "subscribers": 1
   }
 }
