@@ -5600,5 +5600,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Двигатель: признаки скорой поломки",
+    "title": "🔧 Двигатель: признаки скорой поломки",
+    "niche": "авто",
+    "published_at": "2026-07-02T09:22:06.577535",
+    "platforms": {
+      "telegram": {
+        "message_id": 651,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 613,
+        "owner_id": "-186888784",
+        "format": "B",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
