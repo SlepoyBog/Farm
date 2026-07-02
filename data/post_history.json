@@ -5624,5 +5624,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "‍💻 DevOps и автоматизация развертывания",
+    "title": "DevOps и автоматизация развертывания: от ручного кода до бесшовных релизов 🚀",
+    "niche": "технологии",
+    "published_at": "2026-07-02T12:01:36.182366",
+    "platforms": {
+      "telegram": {
+        "message_id": 653,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 614,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
