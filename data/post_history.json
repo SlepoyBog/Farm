@@ -5696,5 +5696,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Онлайн-курсы по бизнесу",
+    "title": "🎓 Онлайн-курсы по бизнесу: как превратить знания в прибыль",
+    "niche": "бизнес",
+    "published_at": "2026-07-03T11:59:58.809410",
+    "platforms": {
+      "telegram": {
+        "message_id": 659,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 617,
+        "owner_id": "-186888784",
+        "format": "B",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
