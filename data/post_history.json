@@ -5672,5 +5672,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Образование в сфере финансов",
+    "title": "Финансовое образование: почему оно нужно каждому и как не потерять деньги? 🎓",
+    "niche": "финансы",
+    "published_at": "2026-07-03T09:25:46.656394",
+    "platforms": {
+      "telegram": {
+        "message_id": 657,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 616,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
