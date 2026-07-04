@@ -5744,5 +5744,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "‍♂️ Водное поло",
+    "title": "🤽‍♂️ Водное поло: плавать и забивать",
+    "niche": "спорт",
+    "published_at": "2026-07-04T04:28:32.115040",
+    "platforms": {
+      "telegram": {
+        "message_id": 665,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 620,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
