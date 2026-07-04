@@ -3,11 +3,8 @@ VK (Vkontakte) publisher for AI Content Farm.
 Adapts articles for VK style and publishes to VK group/wall.
 """
 
-import json
 import logging
-import random
 import re
-from typing import Optional
 
 import requests
 
@@ -80,107 +77,6 @@ def adapt_for_vk(title: str, html_content: str, niche: str) -> str:
     ]
     
     return '\n'.join(post_parts)
-
-
-def _create_vk_poll(access_token: str, group_id: str, question: str, options: list[str]) -> str | None:
-    """Create a poll in VK group and return attachment string."""
-    numeric_id = group_id
-    if numeric_id.startswith("club"):
-        numeric_id = numeric_id[4:]
-    if numeric_id.startswith("public"):
-        numeric_id = numeric_id[6:]
-    try:
-        resp = requests.post(
-            "https://api.vk.com/method/polls.create",
-            data={
-                "access_token": access_token,
-                "v": "5.199",
-                "owner_id": f"-{numeric_id}",
-                "question": question,
-                "add_answers": json.dumps(options),
-            },
-            timeout=15,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        if "error" in data:
-            logger.error(f"VK poll create error: {data['error']}")
-            return None
-        poll = data["response"]
-        attachment = f"poll{poll['owner_id']}_{poll['id']}"
-        logger.info(f"VK poll created: {attachment}")
-        return attachment
-    except Exception as e:
-        logger.error(f"Failed to create VK poll: {e}")
-        return None
-
-
-def adapt_for_vk_b(title: str, html_content: str, niche: str) -> tuple[str, str, list[str]]:
-    """
-    Format B for VK A/B test:
-    - Short intriguing lead (1-2 sentences)
-    - CTA for poll
-    Returns (post_text, poll_question, poll_options).
-    """
-    content_no_h1 = re.sub(r'<h1[^>]*>.*?</h1>\s*', '', html_content, flags=re.DOTALL)
-    content_no_h1 = re.sub(r'`{3,}(?:html)?\s*|\s*`{3,}', '', content_no_h1)
-    content_no_h1 = re.sub(r'~{3,}(?:html)?\s*|\s*~{3,}', '', content_no_h1)
-
-    import html as html_module
-    block_tags = r'</?(?:p|h[1-6]|li|div|ul|ol|br|hr|blockquote)[^>]*>'
-    text = re.sub(block_tags, '\n', content_no_h1)
-    text = re.sub(r'<[^>]+>', '', text)
-    text = html_module.unescape(text)
-    text = re.sub(r'\n{3,}', '\n\n', text).strip()
-
-    clean_title = re.sub(r'^-\s*', '', title).strip()
-    lines = [l.strip() for l in text.split('\n') if l.strip()]
-
-    # Lead: first 1-2 sentences (max 300 chars)
-    lead = ""
-    for line in lines:
-        for sentence in re.split(r'(?<=[.!?])\s+', line):
-            if len(lead) + len(sentence) > 300:
-                break
-            lead += sentence + " "
-        if len(lead) > 100:
-            break
-    lead = lead.strip().rstrip(".!?") + "."
-
-    # Poll question based on topic
-    poll_question = _generate_poll_question(clean_title)
-    poll_options = _generate_poll_options(clean_title)
-
-    # Build post
-    post_parts = [
-        f"🔥 {clean_title}",
-        "",
-        lead,
-        "",
-        "👇 Как считаете? Голосуйте в опросе!",
-    ]
-    return '\n'.join(post_parts), poll_question, poll_options
-
-
-def _generate_poll_question(title: str) -> str:
-    templates = [
-        f"Что вы думаете о \"{title[:60]}\"?",
-        f"Согласны с этим мнением?",
-        f"Как это повлияет на нашу жизнь?",
-        f"Стоит ли этим пользоваться?",
-        f"Будет ли это популярно через год?",
-    ]
-    return templates[len(title) % len(templates)]
-
-
-def _generate_poll_options(title: str) -> list[str]:
-    option_sets = [
-        ["Да, полностью согласен", "Скорее да", "Скорее нет", "Нет, не согласен"],
-        ["Уже пользуюсь", "Планирую попробовать", "Не интересно", "В первый раз слышу"],
-        ["Прорыв года", "Полезно, но не революция", "Маркетинговая шумиха", "Вредная технология"],
-        ["Определённо да", "Возможно", "Вряд ли", "Никогда"],
-    ]
-    return option_sets[len(title) % len(option_sets)]
 
 
 def _generate_hashtags(niche: str, title: str) -> str:
@@ -352,7 +248,6 @@ def publish_to_vk(
     from_group: int = 1,
     raw_text: str | None = None,
     image_url: str | None = None,
-    poll_attachment: str | None = None,
 ) -> tuple[bool, int | None]:
     if not access_token or not group_id:
         logger.warning("VK not configured. Skipping publication.")
@@ -382,8 +277,6 @@ def publish_to_vk(
         "from_group": from_group,
         "message": post_text,
     }
-    if poll_attachment:
-        attachments.append(poll_attachment)
     if attachments:
         data["attachments"] = ",".join(attachments)
 

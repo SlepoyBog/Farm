@@ -509,31 +509,6 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     return False, None
 
 
-def send_tg_poll(niche: str, topic: str = ""):
-    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
-        return
-    from growth.engagement_hooks import get_poll
-    poll = get_poll(niche, topic)
-    if not poll:
-        return
-    question, options = poll
-    try:
-        resp = requests.post(
-            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPoll",
-            json={
-                "chat_id": TELEGRAM_CHAT_ID,
-                "question": question,
-                "options": json.dumps([{"text": o} for o in options]),
-                "is_anonymous": False,
-            },
-            timeout=15,
-        )
-        if resp.ok:
-            logger.info("TG poll sent: %s", question)
-    except Exception as e:
-        logger.warning("TG poll error: %s", e)
-
-
 async def enhance_for_tg(html_article: str, niche: str) -> str:
     """Rewrite article HTML for Telegram with trends and engagement."""
     system_prompt, user_template = load_prompt("tg_trend_editor")
@@ -690,49 +665,18 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             # Step 5: Publish to Telegram (with enhanced content)
             tg_title = _extract_title(article)
             tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url, niche=niche)
-            if tg_ok and random.random() < 0.3:
-                send_tg_poll(niche, tg_title)
 
-            # Step 3.5: VK A/B test — alternate between Format A and Format B
+            # Step 3.5: Enhance for VK
             from src.vk_publisher import _generate_hashtags as vk_hashtags
-            from src.vk_publisher import adapt_for_vk_b, _create_vk_poll
 
-            post_history_data = Path("data") / "post_history.json"
-            vk_post_count = 0
-            if post_history_data.exists():
-                try:
-                    records = json.loads(post_history_data.read_text(encoding="utf-8"))
-                    vk_post_count = sum(1 for r in records if "vk" in r.get("platforms", {}))
-                except Exception:
-                    pass
-
-            use_format_b = vk_post_count % 2 == 0
-            vk_format = "B" if use_format_b else "A"
-            logger.info(f"VK format: {vk_format} (post #{vk_post_count + 1})")
-
-            vk_post_text = None
-            poll_attachment = None
-
-            if use_format_b:
-                # Format B: short lead + poll
-                vk_post_text, poll_q, poll_opts = adapt_for_vk_b(tg_title, article, niche)
-                try:
-                    poll_att = _create_vk_poll(VK_ACCESS_TOKEN, VK_GROUP_ID, poll_q, poll_opts)
-                    if poll_att:
-                        poll_attachment = poll_att
-                except Exception as e:
-                    logger.warning(f"VK poll creation failed, falling back: {e}")
-                    vk_format = "A"
-                    vk_post_text = None
-            else:
-                logger.info("Enhancing article for VK...")
-                vk_article = await enhance_for_vk(article, niche)
-                if len(vk_article) < 50:
-                    vk_article = article
-                vk_hash_str = vk_hashtags(niche, tg_title)
-                if vk_hash_str:
-                    vk_article = vk_article.rstrip() + "\n\n" + vk_hash_str
-                vk_post_text = vk_article
+            logger.info("Enhancing article for VK...")
+            vk_article = await enhance_for_vk(article, niche)
+            if len(vk_article) < 50:
+                vk_article = article
+            vk_hash_str = vk_hashtags(niche, tg_title)
+            if vk_hash_str:
+                vk_article = vk_article.rstrip() + "\n\n" + vk_hash_str
+            vk_post_text = vk_article
 
             # Step 6: Publish to VK (with VK-enhanced content)
             vk_ok = False
@@ -748,7 +692,6 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                         niche=niche,
                         image_url=image_url,
                         raw_text=vk_post_text,
-                        poll_attachment=poll_attachment,
                     )
                 except Exception as e:
                     logger.warning(f"VK publish failed for '{topic}': {e}")
@@ -804,7 +747,6 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                 tg_message_id=tg_msg_id,
                 vk_post_id=vk_post_id_local,
                 vk_owner_id=vk_owner_id,
-                vk_format=vk_format,
                 ok_post_id=ok_post_id,
             )
 

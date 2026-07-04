@@ -1,7 +1,4 @@
-import json
 import logging
-import random
-from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -63,32 +60,8 @@ QUESTIONS = {
     ],
 }
 
-POLL_TOPICS = {
-    "default": [
-        ("Что важнее в статье?", ["Полезная информация", "Лёгкий стиль", "Экспертность", "Примеры"]),
-        ("Какой формат предпочитаете?", ["Короткие новости", "Глубокий разбор", "Видео", "Списки"]),
-    ],
-    "технологии": [
-        ("Какая технология изменит мир в 2026?", ["ИИ", "Квантовые компьютеры", "Биотех", "Космос"]),
-        ("Что больше всего влияет на выбор гаджета?", ["Цена", "Характеристики", "Бренд", "Отзывы"]),
-    ],
-    "искусственный интеллект": [
-        ("Боитесь ли вы ИИ?", ["Да, это опасно", "Нет, это инструмент", "Пока не знаю", "Мне всё равно"]),
-        ("Где ИИ принесёт больше пользы?", ["Медицина", "Образование", "Бизнес", "Творчество"]),
-    ],
-}
-
-
 def get_engagement_question(niche: str, title: str = "") -> str:
     pool = QUESTIONS.get(niche, QUESTIONS["default"])
-    idx = (len(title) if title else 0) % len(pool)
-    return pool[idx]
-
-
-def get_poll(niche: str, title: str = "") -> tuple[str, list[str]] | None:
-    pool = POLL_TOPICS.get(niche, POLL_TOPICS.get("default", []))
-    if not pool:
-        return None
     idx = (len(title) if title else 0) % len(pool)
     return pool[idx]
 
@@ -114,4 +87,3 @@ def enhance_post_text(text: str, niche: str, title: str = "") -> str:
 if __name__ == "__main__":
     test_niche = "технологии"
     print("Question:", get_engagement_question(test_niche, "Тест"))
-    print("Poll:", get_poll(test_niche, "Тест"))
