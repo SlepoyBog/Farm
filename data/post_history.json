@@ -5792,5 +5792,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Винные туры по Италии и Франции",
+    "title": "🍷 Винные туры: Италия и Франция без пафоса",
+    "niche": "путешествия",
+    "published_at": "2026-07-04T05:04:57.871269",
+    "platforms": {
+      "telegram": {
+        "message_id": 669,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 622,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
