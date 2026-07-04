@@ -5768,5 +5768,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Попкорн против кино",
+    "title": "🍿 Попкорн против кино: кто кого пережуёт?",
+    "niche": "кино",
+    "published_at": "2026-07-04T04:55:31.973830",
+    "platforms": {
+      "telegram": {
+        "message_id": 667,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 621,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
