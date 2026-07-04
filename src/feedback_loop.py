@@ -107,7 +107,7 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
 
     updated = 0
 
-    # --- VK metrics via stats.getPostReach (works with group token) ---
+    # --- VK metrics via wall.get (пагинация по 100, работает с group-токеном) ---
     if vk_access_token and vk_group_id:
         numeric_id = vk_group_id
         if numeric_id.startswith("club"):
@@ -116,42 +116,69 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
             numeric_id = numeric_id[6:]
         owner_id = f"-{numeric_id}"
 
-        for record in history:
-            vk_data = record.get("platforms", {}).get("vk")
-            if not vk_data or not vk_data.get("post_id"):
-                continue
-
-            post_id = vk_data["post_id"]
+        logger.info("Fetching VK wall posts in batches...")
+        all_posts = []
+        offset = 0
+        page = 1
+        while True:
             try:
                 resp = sync_requests.post(
-                    "https://api.vk.com/method/stats.getPostReach",
+                    "https://api.vk.com/method/wall.get",
                     data={
                         "access_token": vk_access_token,
                         "v": "5.199",
                         "owner_id": owner_id,
-                        "post_id": post_id,
+                        "count": 100,
+                        "offset": offset,
                     },
                     timeout=15,
                 )
                 data = resp.json()
                 if "error" in data:
-                    logger.warning(f"VK API error for post {post_id}: {data['error']}")
-                    continue
-                if "response" in data and len(data["response"]) > 0:
-                    stat = data["response"][0]
-                    old = vk_data.get("views")
-                    vk_data["views"] = stat.get("views", 0)
-                    vk_data["reach"] = stat.get("reach", 0)
-                    vk_data["likes"] = stat.get("likes", 0)
-                    vk_data["comments"] = stat.get("comments", 0)
-                    vk_data["reposts"] = stat.get("reposts", 0)
-                    vk_data["subscribed"] = stat.get("subscribed", 0)
-                    if old is None:
-                        updated += 1
-                else:
-                    logger.warning(f"VK stats.getPostReach: unexpected response for post {post_id}: {json.dumps(data, ensure_ascii=False)[:200]}")
+                    logger.warning(f"VK wall.get error: {data['error']}")
+                    break
+                posts = data.get("response", {}).get("items", [])
+                if not posts:
+                    break
+                all_posts.extend(posts)
+                logger.info(f"  Batch {page}: got {len(posts)} posts (total {len(all_posts)})")
+                if len(posts) < 100:
+                    break
+                offset += 100
+                page += 1
             except Exception as e:
-                logger.warning(f"VK metrics fetch failed for post {post_id}: {e}")
+                logger.warning(f"VK wall.get batch failed at offset {offset}: {e}")
+                break
+
+        post_metrics = {}
+        for post in all_posts:
+            pid = post.get("id")
+            if pid is None:
+                continue
+            post_metrics[pid] = {
+                "views": (post.get("views") or {}).get("count", 0),
+                "likes": (post.get("likes") or {}).get("count", 0),
+                "comments": (post.get("comments") or {}).get("count", 0),
+                "reposts": (post.get("reposts") or {}).get("count", 0),
+            }
+
+        logger.info(f"Total {len(post_metrics)} unique posts fetched from VK wall")
+
+        for record in history:
+            vk_data = record.get("platforms", {}).get("vk")
+            if not vk_data or not vk_data.get("post_id"):
+                continue
+            post_id = vk_data["post_id"]
+            if post_id not in post_metrics:
+                continue
+            stats = post_metrics[post_id]
+            old = vk_data.get("views")
+            vk_data["views"] = stats["views"]
+            vk_data["likes"] = stats["likes"]
+            vk_data["comments"] = stats["comments"]
+            vk_data["reposts"] = stats["reposts"]
+            if old is None:
+                updated += 1
 
     # --- Telegram: Bot API can't fetch per-message stats for channels ---
     # Placeholder for future extension (e.g. via Telegram API or parsing)
