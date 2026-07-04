@@ -107,13 +107,14 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
 
     updated = 0
 
-    # --- VK metrics via wall.getById ---
+    # --- VK metrics via stats.getPostReach (works with group token) ---
     if vk_access_token and vk_group_id:
         numeric_id = vk_group_id
         if numeric_id.startswith("club"):
             numeric_id = numeric_id[4:]
         if numeric_id.startswith("public"):
             numeric_id = numeric_id[6:]
+        owner_id = f"-{numeric_id}"
 
         for record in history:
             vk_data = record.get("platforms", {}).get("vk")
@@ -121,25 +122,27 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
                 continue
 
             post_id = vk_data["post_id"]
-            owner_id = vk_data.get("owner_id", f"-{numeric_id}")
             try:
                 resp = sync_requests.post(
-                    "https://api.vk.com/method/wall.getById",
+                    "https://api.vk.com/method/stats.getPostReach",
                     data={
                         "access_token": vk_access_token,
                         "v": "5.199",
-                        "posts": f"{owner_id}_{post_id}",
+                        "owner_id": owner_id,
+                        "post_id": post_id,
                     },
                     timeout=15,
                 )
                 data = resp.json()
                 if "response" in data and len(data["response"]) > 0:
-                    post = data["response"][0]
+                    stat = data["response"][0]
                     old = vk_data.get("views")
-                    vk_data["views"] = post.get("views", {}).get("count", 0)
-                    vk_data["likes"] = post.get("likes", {}).get("count", 0)
-                    vk_data["comments"] = post.get("comments", {}).get("count", 0)
-                    vk_data["reposts"] = post.get("reposts", {}).get("count", 0)
+                    vk_data["views"] = stat.get("views", 0)
+                    vk_data["reach"] = stat.get("reach", 0)
+                    vk_data["likes"] = stat.get("likes", 0)
+                    vk_data["comments"] = stat.get("comments", 0)
+                    vk_data["reposts"] = stat.get("reposts", 0)
+                    vk_data["subscribed"] = stat.get("subscribed", 0)
                     if old is None:
                         updated += 1
             except Exception as e:
