@@ -134,6 +134,9 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
                     timeout=15,
                 )
                 data = resp.json()
+                if "error" in data:
+                    logger.warning(f"VK API error for post {post_id}: {data['error']}")
+                    continue
                 if "response" in data and len(data["response"]) > 0:
                     stat = data["response"][0]
                     old = vk_data.get("views")
@@ -145,6 +148,8 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
                     vk_data["subscribed"] = stat.get("subscribed", 0)
                     if old is None:
                         updated += 1
+                else:
+                    logger.warning(f"VK stats.getPostReach: unexpected response for post {post_id}: {json.dumps(data, ensure_ascii=False)[:200]}")
             except Exception as e:
                 logger.warning(f"VK metrics fetch failed for post {post_id}: {e}")
 
