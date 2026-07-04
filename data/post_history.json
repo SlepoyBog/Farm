@@ -5816,5 +5816,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Будущее генеративных нейросетей",
+    "title": "🤖 Будущее генеративных нейросетей",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-07-04T08:44:02.064646",
+    "platforms": {
+      "telegram": {
+        "message_id": 671,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 623,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
