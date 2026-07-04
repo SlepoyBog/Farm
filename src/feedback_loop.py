@@ -135,11 +135,14 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
                     timeout=15,
                 )
                 data = resp.json()
+                if page == 1:
+                    Path("logs/vk_wall_debug.json").write_text(json.dumps(data, ensure_ascii=False, indent=2)[:5000], encoding="utf-8")
                 if "error" in data:
                     logger.warning(f"VK wall.get error: {data['error']}")
                     break
                 posts = data.get("response", {}).get("items", [])
                 if not posts:
+                    logger.warning(f"VK wall.get: no items in response (count={data.get('response', {}).get('count', '?')})")
                     break
                 all_posts.extend(posts)
                 logger.info(f"  Batch {page}: got {len(posts)} posts (total {len(all_posts)})")
