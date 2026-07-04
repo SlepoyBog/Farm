@@ -130,6 +130,7 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
                         "owner_id": owner_id,
                         "count": 100,
                         "offset": offset,
+                        "extended": 1,
                     },
                     timeout=15,
                 )
@@ -163,6 +164,10 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
             }
 
         logger.info(f"Total {len(post_metrics)} unique posts fetched from VK wall")
+
+        history_pids = sum(1 for r in history if r.get("platforms", {}).get("vk", {}).get("post_id"))
+        match_count = sum(1 for r in history if r.get("platforms", {}).get("vk", {}).get("post_id") in post_metrics)
+        logger.info(f"History: {history_pids} VK posts, {match_count} matched with wall data")
 
         for record in history:
             vk_data = record.get("platforms", {}).get("vk")
