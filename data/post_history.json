@@ -5840,5 +5840,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Кузовной ремонт без покраски: возможно?",
+    "title": "🧰 Кузовной ремонт без покраски: реальная экономия",
+    "niche": "авто",
+    "published_at": "2026-07-04T11:16:55.123576",
+    "platforms": {
+      "telegram": {
+        "message_id": 673,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 624,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
