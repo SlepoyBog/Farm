@@ -58,10 +58,8 @@ def remove_from_queue(topic: str):
 
 async def worker_loop():
     """Main worker loop - processes topics from queue."""
-    niche = await detect_trending_niche(client)
     logger.info("=" * 60)
     logger.info("Batch Worker Started")
-    logger.info(f"Niche: {niche}")
     logger.info("=" * 60)
 
     semaphore = asyncio.Semaphore(2)  # Process 2 topics concurrently
@@ -78,7 +76,8 @@ async def worker_loop():
 
             # Process first topic from queue
             topic = topics[0]
-            logger.info(f"Processing topic from queue: {topic}")
+            niche = await detect_trending_niche(client)
+            logger.info(f"Processing topic from queue: {topic} | niche: {niche}")
 
             await process_topic(topic, niche, semaphore)
 

@@ -205,13 +205,9 @@ def validate_and_fix(
         threshold = max_chars - TRUNCATION_SAFETY
         if threshold > 200:
             logger.warning("[%s] Length %d > %d — truncating", context, len(html), max_chars)
-            html = fix_truncated_html(html[:threshold])
+            trimmed = html[:threshold]
+            html = fix_truncated_html(trimmed)
             issues.append("Truncated to %d chars" % max_chars)
-            recheck_text = extract_clean_text(html)
-            recheck_ok, _ = check_completeness(recheck_text)
-            if not recheck_ok:
-                html = fix_truncated_html(html[:max_chars - 100])
-                issues.append("Re-truncated to safe boundary")
 
     html_ok, _ = check_html_integrity(html)
     if not html_ok:

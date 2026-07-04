@@ -77,11 +77,17 @@ def inject_into_tg_prompt(prompt_template: str, niche: str, title: str = "") -> 
 
 
 def enhance_post_text(text: str, niche: str, title: str = "") -> str:
-    question = get_engagement_question(niche, title)
     text = text.rstrip()
-    if text and not text.endswith((".", "!", "?", "…", "\"", ")")):
-        text += "."
-    return f"{text}\n\n💬 {question}"
+    if not text:
+        return ""
+
+    question = get_engagement_question(niche, title)
+    last_char = text[-1]
+    if last_char in (".", "!", "?", "…"):
+        return f"{text}\n\n💬 {question}"
+    if text.rstrip().endswith("\"") or text.rstrip().endswith(")"):
+        return f"{text}\n\n💬 {question}"
+    return f"{text}.\n\n💬 {question}"
 
 
 if __name__ == "__main__":

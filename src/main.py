@@ -567,7 +567,7 @@ def _extract_title(html: str) -> str:
     return "Без названия"
 
 
-async def run_batch_seo(client: DeepSeekClient, niche: str):
+async def run_batch_seo(client: DeepSeekClient):
     """Run SEO optimization once on all articles in output/."""
     logger.info("Running batch SEO optimization...")
     output_dir = Path("output")
@@ -590,12 +590,13 @@ async def run_batch_seo(client: DeepSeekClient, niche: str):
         with meta_path.open("r", encoding="utf-8") as f:
             meta = json.load(f)
         topic = meta.get("topic", slug)
+        article_niche = meta.get("niche", "")
         article = fpath.read_text(encoding="utf-8")
 
         with outline_path.open("r", encoding="utf-8") as f:
             outline = json.load(f)
 
-        seo = await optimize_article(client, topic, niche, outline, article)
+        seo = await optimize_article(client, topic, article_niche, outline, article)
         save_metadata(slug, topic, seo)
 
         fpath.write_text(seo.article_html, encoding="utf-8")
@@ -640,7 +641,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             while tg_issues and retry_count < 2:
                 logger.info("TG content had %d issues — re-enhancing (attempt %d)...", len(tg_issues), retry_count + 1)
                 tg_article = await enhance_for_tg(article, niche)
-                tg_article, tg_issues = validate_and_fix(tg_article, max_chars=3500, context="tg-retry-%d" % retry_count)
+                tg_article, tg_issues = validate_and_fix(tg_article, max_chars=3500, context=f"tg-retry-{retry_count}")
                 retry_count += 1
 
             # Step 4: Save article + outline to files
@@ -799,7 +800,7 @@ async def main():
     logger.info("All topics processed successfully!")
     logger.info(f"{'='*60}")
 
-    await run_batch_seo(client, niche)
+    await run_batch_seo(client)
     generate_site()
 
     from growth.cross_poster import run_cross_post
