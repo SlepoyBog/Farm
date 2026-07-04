@@ -5720,5 +5720,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Безопасность персональных данных",
+    "title": "🔐 Безопасность персональных данных: ваш цифровой щит",
+    "niche": "образование",
+    "published_at": "2026-07-04T04:17:32.391991",
+    "platforms": {
+      "telegram": {
+        "message_id": 663,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 619,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
