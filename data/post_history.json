@@ -5864,5 +5864,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Искусственный интеллект в повседневной жизни",
+    "title": "🤖 Искусственный интеллект в повседневной жизни",
+    "niche": "технологии",
+    "published_at": "2026-07-04T15:05:36.001704",
+    "platforms": {
+      "telegram": {
+        "message_id": 675,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 625,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
