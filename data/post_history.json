@@ -5888,5 +5888,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Скорочтение и здоровье мозга",
+    "title": "🧠 Скорочтение и здоровье мозга: правда и мифы",
+    "niche": "здоровье",
+    "published_at": "2026-07-05T08:59:57.262754",
+    "platforms": {
+      "telegram": {
+        "message_id": 677,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 626,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
