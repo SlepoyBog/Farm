@@ -5960,5 +5960,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Публичные выступления для школьников",
+    "title": "Публичные выступления для школьников: как превратить страх в суперсилу 🎤",
+    "niche": "образование",
+    "published_at": "2026-07-06T16:52:47.862849",
+    "platforms": {
+      "telegram": {
+        "message_id": 687,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 631,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
