@@ -6032,5 +6032,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Уличная еда безопасность и выбор",
+    "title": "🍜 Уличная еда: как выбирать безопасно и не пожалеть",
+    "niche": "путешествия",
+    "published_at": "2026-07-07T16:31:12.671992",
+    "platforms": {
+      "telegram": {
+        "message_id": 693,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 635,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
