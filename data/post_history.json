@@ -5984,5 +5984,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Снаряжение для похода",
+    "title": "Снаряжение для похода: базовый набор для комфорта и безопасности 🏔️",
+    "niche": "спорт",
+    "published_at": "2026-07-07T09:51:09.622982",
+    "platforms": {
+      "telegram": {
+        "message_id": 689,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 632,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
