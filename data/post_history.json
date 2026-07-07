@@ -6008,5 +6008,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Главные премьеры этой недели",
+    "title": "🎬 Главные премьеры этой недели: что действительно стоит вашего времени",
+    "niche": "кино",
+    "published_at": "2026-07-07T12:22:02.702654",
+    "platforms": {
+      "telegram": {
+        "message_id": 691,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 634,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
