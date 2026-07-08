@@ -6056,5 +6056,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "ИИ диагностика заболеваний",
+    "title": "ИИ-диагностика: как алгоритмы ставят врачей в тупик 🧠",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-07-08T08:35:56.789002",
+    "platforms": {
+      "telegram": {
+        "message_id": 695,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 636,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
