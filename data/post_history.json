@@ -6128,5 +6128,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Укрепление иммунной системы",
+    "title": "🧬 Иммунитет под защитой: 3 шага к крепкому здоровью",
+    "niche": "здоровье",
+    "published_at": "2026-07-09T09:58:21.517797",
+    "platforms": {
+      "telegram": {
+        "message_id": 701,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 639,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
