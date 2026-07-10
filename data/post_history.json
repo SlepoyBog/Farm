@@ -6200,5 +6200,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "‍🎓 Онлайн-образование против традиционного",
+    "title": "👩‍🎓 Онлайн-образование против традиционного: что победит?",
+    "niche": "образование",
+    "published_at": "2026-07-10T12:19:14.595593",
+    "platforms": {
+      "telegram": {
+        "message_id": 707,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 642,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
