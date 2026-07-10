@@ -6224,5 +6224,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Зарядка для утренней бодрости",
+    "title": "🏃 Зарядка для утренней бодрости: просыпайся с энергией",
+    "niche": "спорт",
+    "published_at": "2026-07-10T16:24:37.922610",
+    "platforms": {
+      "telegram": {
+        "message_id": 709,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 643,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
