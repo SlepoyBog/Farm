@@ -6296,5 +6296,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Мультимодальные модели",
+    "title": "🌐 Мультимодальные модели: что это и как они меняют AI?",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-07-11T14:53:22.290342",
+    "platforms": {
+      "telegram": {
+        "message_id": 715,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 646,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
