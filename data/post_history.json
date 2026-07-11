@@ -6248,5 +6248,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Сериалы, затмившие полный метр",
+    "title": "Сериалы, затмившие полный метр 🎬",
+    "niche": "кино",
+    "published_at": "2026-07-11T08:02:59.551996",
+    "platforms": {
+      "telegram": {
+        "message_id": 711,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 644,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
