@@ -6320,5 +6320,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Электромобили против гибридов",
+    "title": "🚗 Электромобили vs гибриды: битва за будущее",
+    "niche": "авто",
+    "published_at": "2026-07-12T08:24:03.373714",
+    "platforms": {
+      "telegram": {
+        "message_id": 717,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 647,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
