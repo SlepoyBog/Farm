@@ -6368,5 +6368,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Соль и ее влияние",
+    "title": "🧂 Соль: не просто приправа, а вопрос жизни",
+    "niche": "здоровье",
+    "published_at": "2026-07-12T14:55:46.255301",
+    "platforms": {
+      "telegram": {
+        "message_id": 721,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 649,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
