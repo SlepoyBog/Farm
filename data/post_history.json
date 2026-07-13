@@ -6416,5 +6416,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Мобильные приложения для управления компанией",
+    "title": "📱 Мобильные приложения для управления компанией: бизнес в кармане",
+    "niche": "бизнес",
+    "published_at": "2026-07-13T12:25:45.658054",
+    "platforms": {
+      "telegram": {
+        "message_id": 725,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 651,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
