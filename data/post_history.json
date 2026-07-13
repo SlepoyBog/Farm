@@ -6440,5 +6440,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Раннее развитие и гаджеты",
+    "title": "📱 Гаджеты и раннее развитие: враг или помощник?",
+    "niche": "образование",
+    "published_at": "2026-07-13T16:32:54.800207",
+    "platforms": {
+      "telegram": {
+        "message_id": 727,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 652,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
