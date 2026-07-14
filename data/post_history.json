@@ -6512,5 +6512,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Фестивальный туризм: куда поехать",
+    "title": "🎭 Фестивальный туризм: куда поехать в этом сезоне",
+    "niche": "путешествия",
+    "published_at": "2026-07-14T15:23:52.723511",
+    "platforms": {
+      "telegram": {
+        "message_id": 733,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 655,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
