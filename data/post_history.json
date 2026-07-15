@@ -6560,5 +6560,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Каршеринг или личный автомобиль",
+    "title": "🚘 Каршеринг vs Личный автомобиль: что выбрать в 2025?",
+    "niche": "авто",
+    "published_at": "2026-07-15T11:20:56.161564",
+    "platforms": {
+      "telegram": {
+        "message_id": 737,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 657,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
