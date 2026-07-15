@@ -6536,5 +6536,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "ИИ в городском планировании",
+    "title": "🚦 Города будущего: Как ИИ меняет городское планирование",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-07-15T08:21:40.679248",
+    "platforms": {
+      "telegram": {
+        "message_id": 735,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 656,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
