@@ -6656,5 +6656,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как продавать свои идеи команде",
+    "title": "🎤 Как продавать свои идеи команде: от замысла к действию",
+    "niche": "бизнес",
+    "published_at": "2026-07-16T15:39:10.903935",
+    "platforms": {
+      "telegram": {
+        "message_id": 745,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 661,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
