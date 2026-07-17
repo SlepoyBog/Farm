@@ -6704,5 +6704,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Функциональный тренинг для тела",
+    "title": "🔧 Функциональный тренинг: движение, которое меняет тело",
+    "niche": "спорт",
+    "published_at": "2026-07-17T11:13:58.072801",
+    "platforms": {
+      "telegram": {
+        "message_id": 749,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 663,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
