@@ -6728,5 +6728,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Документальное кино: тренды и открытия",
+    "title": "🎥 Документальное кино: тренды и открытия",
+    "niche": "кино",
+    "published_at": "2026-07-17T15:12:53.777530",
+    "platforms": {
+      "telegram": {
+        "message_id": 751,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 664,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
