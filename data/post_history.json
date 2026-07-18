@@ -6752,5 +6752,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "️ Лайфхаки для долгих перелётов",
+    "title": "✈️ Долгий перелёт: как превратить его в комфортный отдых",
+    "niche": "путешествия",
+    "published_at": "2026-07-18T07:58:56.713354",
+    "platforms": {
+      "telegram": {
+        "message_id": 753,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 665,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
