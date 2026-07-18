@@ -6800,5 +6800,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Автокредиты с низким процентом",
+    "title": "💼 Автокредиты с низким процентом",
+    "niche": "авто",
+    "published_at": "2026-07-18T14:52:36.179182",
+    "platforms": {
+      "telegram": {
+        "message_id": 757,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 667,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
