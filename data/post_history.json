@@ -6824,5 +6824,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Искусственный интеллект в медицине",
+    "title": "🤖 Искусственный интеллект в медицине: диагностика будущего",
+    "niche": "технологии",
+    "published_at": "2026-07-19T08:25:37.393659",
+    "platforms": {
+      "telegram": {
+        "message_id": 759,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 668,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
