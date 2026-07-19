@@ -6872,5 +6872,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Прогноз курса рубля сейчас",
+    "title": "🔮 Курс рубля: новый взгляд на старую проблему",
+    "niche": "финансы",
+    "published_at": "2026-07-19T14:55:34.238774",
+    "platforms": {
+      "telegram": {
+        "message_id": 763,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 670,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
