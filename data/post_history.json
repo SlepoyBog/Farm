@@ -6944,5 +6944,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как перестать бояться тренажеров",
+    "title": "🚫 Тема: как перестать бояться тренажеров",
+    "niche": "спорт",
+    "published_at": "2026-07-20T15:49:37.733570",
+    "platforms": {
+      "telegram": {
+        "message_id": 769,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 673,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
