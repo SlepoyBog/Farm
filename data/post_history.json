@@ -7016,5 +7016,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "ИИ в финансовом анализе",
+    "title": "📈 ИИ в финансах: как машины считают деньги быстрее и точнее",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-07-21T15:43:26.051642",
+    "platforms": {
+      "telegram": {
+        "message_id": 775,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 676,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
