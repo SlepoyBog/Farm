@@ -6992,5 +6992,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Языковой барьер: как общаться",
+    "title": "🌐 Языковой барьер: как общаться и не бояться",
+    "niche": "путешествия",
+    "published_at": "2026-07-21T11:41:38.183847",
+    "platforms": {
+      "telegram": {
+        "message_id": 773,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 675,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
