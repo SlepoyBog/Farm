@@ -6968,5 +6968,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Главные киноновинки этой недели",
+    "title": "🍿 Киноновинки недели: 3 фильма, которые удивят и заставят спорить",
+    "niche": "кино",
+    "published_at": "2026-07-21T08:35:39.685812",
+    "platforms": {
+      "telegram": {
+        "message_id": 771,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 674,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
