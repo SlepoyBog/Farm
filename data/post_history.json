@@ -7040,5 +7040,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Как избежать ДТП на перекрестке",
+    "title": "🚦 Как избежать ДТП на перекрестке: 3 лайфхака для безопасного проезда",
+    "niche": "авто",
+    "published_at": "2026-07-22T08:35:09.979385",
+    "platforms": {
+      "telegram": {
+        "message_id": 777,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 677,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
