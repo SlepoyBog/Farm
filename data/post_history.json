@@ -7064,5 +7064,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "AI создаёт произведения искусства",
+    "title": "🎨 Искусственный интеллект: новый художник?",
+    "niche": "технологии",
+    "published_at": "2026-07-22T11:41:29.638499",
+    "platforms": {
+      "telegram": {
+        "message_id": 779,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 678,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
