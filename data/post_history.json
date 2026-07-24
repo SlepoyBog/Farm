@@ -7208,5 +7208,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Лучшие мелодрамы для настроения",
+    "title": "💔 Лучшие мелодрамы для настроения",
+    "niche": "кино",
+    "published_at": "2026-07-24T11:29:36.363256",
+    "platforms": {
+      "telegram": {
+        "message_id": 791,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 684,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
