@@ -7184,5 +7184,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Бег для укрепления сердца",
+    "title": "🏃 Бег для сердца: как укрепить главную мышцу без вреда",
+    "niche": "спорт",
+    "published_at": "2026-07-24T08:33:05.263039",
+    "platforms": {
+      "telegram": {
+        "message_id": 789,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 683,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
