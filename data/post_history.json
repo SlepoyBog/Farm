@@ -7280,5 +7280,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "️ Компьютерное зрение распознаёт лица",
+    "title": "👁️ Компьютерное зрение распознаёт лица: от теории к практике",
+    "niche": "технологии",
+    "published_at": "2026-07-25T11:00:52.027310",
+    "platforms": {
+      "telegram": {
+        "message_id": 797,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 687,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
