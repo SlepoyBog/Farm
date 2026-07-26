@@ -10,6 +10,7 @@ VOID_ELEMENTS = {
 
 SENTENCE_ENDERS = {".", "!", "?", "\u2026", '"', "\u00bb", ")"}
 SENTENCE_ENDERS_PATTERN = r"(?<=[.!?\u2026\"\u00bb)])\s+"
+TRUNCATED_FRAGMENT_MAX_LEN = 3
 
 
 def check_html_integrity(html: str) -> tuple[bool, list[str]]:
@@ -65,69 +66,58 @@ def check_completeness(text: str) -> tuple[bool, str | None]:
     if last_char in SENTENCE_ENDERS:
         return True, None
 
-    last_space = stripped.rfind(" ")
-    if last_space > len(stripped) // 2:
-        incomplete_word = stripped[last_space + 1:]
-        if incomplete_word and not incomplete_word[-1].isalpha():
-            return True, None
+    sentence_boundary = re.search(r'[.!?\u2026]["\u00bb)]?\s+', stripped)
+    incomplete_word = stripped.rsplit(maxsplit=1)[-1]
+    if (
+        sentence_boundary
+        and incomplete_word.isalpha()
+        and len(incomplete_word) <= TRUNCATED_FRAGMENT_MAX_LEN
+    ):
         return False, "Text truncated: incomplete word '%s...'" % incomplete_word
-
-    if last_char.isalpha():
-        return False, "Text truncated: ends mid-word at '%s'" % stripped[-15:]
 
     return True, None
 
 
 def check_sentence_completeness(text: str) -> bool:
-    import html as html_module
-    stripped = html_module.unescape(text).rstrip()
-    if not stripped:
-        return False
-
-    stripped = re.sub(r"<[^>]+>", "", stripped)
-    sentences = re.split(SENTENCE_ENDERS_PATTERN, stripped)
-    if not sentences:
-        return False
-
-    last_sentence = sentences[-1].strip()
-    if len(last_sentence) < 3:
-        return True
-
-    last_char = last_sentence[-1] if last_sentence else ""
-    return last_char in SENTENCE_ENDERS
+    complete, _ = check_completeness(re.sub(r"<[^>]+>", "", text))
+    return complete
 
 
 def _close_open_tags(html: str) -> str:
-    """Закрывает незакрытые HTML-теги в конце строки, не трогая контент."""
-    open_tags = []
-    i = 0
-    while i < len(html):
-        if html[i] == "<":
-            end = html.find(">", i)
-            if end == -1:
-                break
-            raw = html[i + 1 : end].strip()
-            if raw.startswith("!--"):
-                i = end + 1
-                continue
-            if raw.startswith("?"):
-                i = end + 1
-                continue
-            if raw.startswith("/"):
-                tag_name = raw[1:].split()[0]
-                if open_tags and open_tags[-1] == tag_name:
-                    open_tags.pop()
-            elif not raw.endswith("/"):
-                tag_name = raw.split()[0].split(">")[0]
-                if tag_name.lower() not in VOID_ELEMENTS:
-                    open_tags.append(tag_name)
-            i = end + 1
-        else:
-            i += 1
+    """Балансирует простой сгенерированный HTML, сохраняя текст."""
+    result: list[str] = []
+    open_tags: list[str] = []
+    cursor = 0
 
-    for tag in reversed(open_tags):
-        html += "</%s>" % tag
-    return html
+    for match in re.finditer(r"<!--.*?-->|<[^>]*>", html, flags=re.DOTALL):
+        result.append(html[cursor:match.start()])
+        token = match.group(0)
+        raw = token[1:-1].strip()
+        cursor = match.end()
+
+        if token.startswith("<!--") or raw.startswith(("!", "?")):
+            result.append(token)
+            continue
+
+        if raw.startswith("/"):
+            tag_name = raw[1:].split()[0].lower()
+            if tag_name not in open_tags:
+                continue
+            while open_tags and open_tags[-1] != tag_name:
+                result.append("</%s>" % open_tags.pop())
+            open_tags.pop()
+            result.append(token)
+            continue
+
+        result.append(token)
+        if not raw.endswith("/"):
+            tag_name = raw.split()[0].lower()
+            if tag_name not in VOID_ELEMENTS:
+                open_tags.append(tag_name)
+
+    result.append(html[cursor:])
+    result.extend("</%s>" % tag for tag in reversed(open_tags))
+    return "".join(result)
 
 
 def fix_truncated_html(html: str) -> str:
@@ -135,17 +125,11 @@ def fix_truncated_html(html: str) -> str:
     if not stripped:
         return html
 
-    last_good = 0
-    for match in re.finditer(SENTENCE_ENDERS_PATTERN, stripped):
-        pos = match.end()
-        if pos > last_good:
-            last_good = pos
-
-    if last_good > 0:
-        cut_pos = last_good
-        while cut_pos < len(stripped) and stripped[cut_pos] in " \t\n\r":
-            cut_pos += 1
-        html = stripped[:cut_pos]
+    boundaries = list(
+        re.finditer(r'[.!?\u2026](?:["\u00bb)])?(?=\s|<|$)', stripped)
+    )
+    if boundaries:
+        html = stripped[:boundaries[-1].end()]
 
     return _close_open_tags(html)
 

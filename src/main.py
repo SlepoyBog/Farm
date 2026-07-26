@@ -51,11 +51,7 @@ OK_PUBLIC_KEY = os.getenv("OK_PUBLIC_KEY", "")
 OK_APP_SECRET = os.getenv("OK_APP_SECRET", "")
 OK_GROUP_ID = os.getenv("OK_GROUP_ID", "")
 SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
-if not DEEPSEEK_API_KEY:
-    logger.error("DEEPSEEK_API_KEY not found in .env file!")
-    sys.exit(1)
-
-client = DeepSeekClient(api_key=DEEPSEEK_API_KEY)
+client = DeepSeekClient(api_key=DEEPSEEK_API_KEY) if DEEPSEEK_API_KEY else None
 
 
 def load_prompt(name: str) -> tuple[str, str]:
@@ -90,6 +86,7 @@ def slugify(text: str) -> str:
 
 
 TOPICS_POOL_PATH = Path("data") / "topics_pool.json"
+POST_HISTORY_PATH = Path("data") / "post_history.json"
 
 
 def _load_topic_pool() -> dict:
@@ -105,12 +102,67 @@ def _save_topic_pool(pool: dict):
     TOPICS_POOL_PATH.write_text(json.dumps(pool, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def _recent_topic_titles(limit: int = 100) -> list[str]:
+    """Return recent published titles so the generator can avoid repetition."""
+    if not POST_HISTORY_PATH.exists():
+        return []
+    try:
+        history = json.loads(POST_HISTORY_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError, TypeError):
+        return []
+
+    titles = []
+    for record in reversed(history):
+        title = str(record.get("title") or record.get("topic") or "").strip()
+        if title:
+            titles.append(title)
+        if len(titles) >= limit:
+            break
+    return titles
+
+
+def _topic_key(topic: str) -> str:
+    """Normalize a topic for exact and near-duplicate detection."""
+    topic = re.sub(r"^(?:[-*•]+|\d+[.)])\s*", "", topic).strip()
+    topic = re.sub(r"[^\w\s]", " ", topic.lower(), flags=re.UNICODE)
+    return " ".join(topic.split())
+
+
+def _topics_are_similar(left: str, right: str) -> bool:
+    left_words = set(_topic_key(left).split())
+    right_words = set(_topic_key(right).split())
+    if not left_words or not right_words:
+        return False
+    overlap = len(left_words & right_words) / min(len(left_words), len(right_words))
+    return overlap >= 0.75
+
+
+def _deduplicate_topics(topics: list[str], excluded: list[str] | None = None) -> list[str]:
+    """Remove duplicate topics and close paraphrases of already published ones."""
+    accepted: list[str] = []
+    comparison = [topic for topic in (excluded or []) if _topic_key(topic)]
+    for topic in topics:
+        clean = re.sub(r"^(?:[-*•]+|\d+[.)])\s*", "", topic).strip()
+        if not clean or any(_topics_are_similar(clean, other) for other in comparison):
+            continue
+        accepted.append(clean)
+        comparison.append(clean)
+    return accepted
+
+
 async def _refill_topic_pool(niche: str, pool: dict):
     """Generate 50 topics for niche via 1 API call and store in pool."""
     logger.info(f"Refilling topic pool for niche: {niche}")
     try:
         system_prompt, user_template = load_prompt("generate_topics")
-        user_prompt = user_template.replace("{{niche}}", niche).replace("{{count}}", "50")
+        system_prompt = inject_recommendations(system_prompt)
+        recent_titles = _recent_topic_titles()
+        recent_topics = "\n".join(f"- {title}" for title in recent_titles) or "- Нет"
+        user_prompt = (
+            user_template.replace("{{niche}}", niche)
+            .replace("{{count}}", "50")
+            .replace("{{recent_topics}}", recent_topics)
+        )
 
         response = await client.call(
             prompt=user_prompt,
@@ -119,7 +171,7 @@ async def _refill_topic_pool(niche: str, pool: dict):
             max_tokens=2000,
         )
 
-        topics = _parse_topic_list(response)
+        topics = _deduplicate_topics(_parse_topic_list(response), recent_titles)
         if topics:
             pool["generated_at"] = datetime.now().isoformat()
             pool.setdefault("topics", {})[niche] = topics
@@ -136,7 +188,7 @@ def _parse_topic_list(response: str) -> list[str]:
     topics = []
     for line in lines:
         line = line.strip()
-        line = re.sub(r"^[-*\d]+[.)]\s*", "", line).strip()
+        line = re.sub(r"^(?:[-*•]+|\d+[.)])\s*", "", line).strip()
         if line and not line.startswith("```") and len(line) > 5:
             topics.append(line)
     if not topics:
@@ -713,7 +765,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             except Exception as e:
                 logger.warning("OK publish failed: %s", e)
 
-            # Step 7: Dzen — прямой API (только текст, без фото — фото поставил бы дубль)
+            # Step 7: Dzen — прямой API (только текст, чтобы избежать дубля фото)
             try:
                 dzen_ok, dzen_msg = publish_to_dzen_direct(
                     title=tg_title,
@@ -762,6 +814,12 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
 async def main():
     """Main orchestrator function."""
+    if client is None:
+        raise RuntimeError(
+            "DEEPSEEK_API_KEY is required to run the content pipeline. "
+            "Set it in .env or in the process environment."
+        )
+
     parser = argparse.ArgumentParser(description="AI Content Farm")
     parser.add_argument("--full", action="store_true", help="Process all topics (default: test mode, 1 topic)")
     args = parser.parse_args()
@@ -788,8 +846,14 @@ async def main():
     queue_path.write_text("\n".join(topics), encoding="utf-8")
     logger.info(f"Topics saved to queue: {queue_path}")
 
-    # Step 2: Process topics in parallel (max 5 concurrent)
-    semaphore = asyncio.Semaphore(5)
+    # Step 2: Process topics with configurable bounded concurrency.
+    try:
+        max_concurrency = max(1, int(os.getenv("MAX_CONCURRENCY", "3")))
+    except ValueError:
+        logger.warning("Invalid MAX_CONCURRENCY; using 3")
+        max_concurrency = 3
+    logger.info("Max concurrent topics: %d", max_concurrency)
+    semaphore = asyncio.Semaphore(max_concurrency)
     tasks = [process_topic(topic, niche, semaphore) for topic in topics]
     results = await asyncio.gather(*tasks)
 
