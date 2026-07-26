@@ -7352,5 +7352,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Обучение через игровые механики",
+    "title": "🎲 Обучение через игровые механики: играть или учиться?",
+    "niche": "образование",
+    "published_at": "2026-07-26T15:04:49.724031",
+    "platforms": {
+      "telegram": {
+        "message_id": 803,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 690,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
