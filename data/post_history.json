@@ -7328,5 +7328,29 @@
       }
     },
     "score": 0.0
+  },
+  {
+    "topic": "Создание эффективного сайта",
+    "title": "Создание эффективного сайта: инструкция для бизнеса 🚀",
+    "niche": "бизнес",
+    "published_at": "2026-07-26T11:13:22.378011",
+    "platforms": {
+      "telegram": {
+        "message_id": 801,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      },
+      "vk": {
+        "post_id": 689,
+        "owner_id": "-186888784",
+        "format": "A",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
+    "score": 0.0
   }
 ]
