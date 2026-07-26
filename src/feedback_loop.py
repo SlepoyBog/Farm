@@ -6,6 +6,7 @@ import json
 import logging
 from datetime import datetime, timedelta
 from pathlib import Path
+from typing import Callable
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +17,8 @@ PROMPT_PATH = Path("prompts") / "write_article.prompter"
 WEIGHT_VIEWS = 0.4
 WEIGHT_REACTIONS = 0.3
 WEIGHT_COMMENTS = 0.3
+VK_API_VERSION = "5.199"
+VK_BATCH_SIZE = 100
 
 
 def _load_history() -> list[dict]:
@@ -97,6 +100,144 @@ def record_publication(
     return record
 
 
+def _normalize_vk_owner_id(group_id: str) -> str:
+    numeric_id = str(group_id).strip()
+    for prefix in ("club", "public"):
+        if numeric_id.startswith(prefix):
+            numeric_id = numeric_id[len(prefix):]
+    return numeric_id if numeric_id.startswith("-") else f"-{numeric_id}"
+
+
+def _vk_post_refs(history: list[dict], fallback_owner_id: str) -> list[str]:
+    refs = []
+    for record in history:
+        vk_data = record.get("platforms", {}).get("vk") or {}
+        post_id = vk_data.get("post_id")
+        if post_id is None:
+            continue
+        owner_id = str(vk_data.get("owner_id") or fallback_owner_id)
+        refs.append(f"{owner_id}_{post_id}")
+    return list(dict.fromkeys(refs))
+
+
+def _chunks(items: list[str], size: int):
+    for start in range(0, len(items), size):
+        yield items[start:start + size]
+
+
+def _fetch_vk_metrics(
+    history: list[dict],
+    access_token: str,
+    group_id: str,
+    http_post: Callable,
+) -> dict[str, dict]:
+    """Fetch exact saved posts instead of scanning a potentially restricted wall."""
+    fallback_owner_id = _normalize_vk_owner_id(group_id)
+    refs = _vk_post_refs(history, fallback_owner_id)
+    metrics: dict[str, dict] = {}
+
+    for batch_number, batch in enumerate(_chunks(refs, VK_BATCH_SIZE), 1):
+        try:
+            response = http_post(
+                "https://api.vk.com/method/wall.getById",
+                data={
+                    "access_token": access_token,
+                    "v": VK_API_VERSION,
+                    "posts": ",".join(batch),
+                    "extended": 0,
+                },
+                timeout=20,
+            )
+            response.raise_for_status()
+            payload = response.json()
+        except Exception as exc:
+            logger.warning("VK wall.getById batch %d failed: %s", batch_number, exc)
+            continue
+
+        if "error" in payload:
+            error = payload["error"]
+            error_code = error.get("error_code", "?")
+            if error_code == 27:
+                logger.error(
+                    "VK analytics requires a user/service token. The configured "
+                    "token is a group token and cannot read post metrics. Set "
+                    "VK_ANALYTICS_TOKEN separately."
+                )
+            else:
+                logger.warning(
+                    "VK wall.getById error %s: %s",
+                    error_code,
+                    error.get("error_msg", "unknown error"),
+                )
+            continue
+
+        posts = payload.get("response", [])
+        if isinstance(posts, dict):
+            posts = posts.get("items", [])
+
+        for post in posts:
+            post_id = post.get("id")
+            owner_id = post.get("owner_id")
+            if post_id is None or owner_id is None:
+                continue
+            metrics[f"{owner_id}_{post_id}"] = {
+                "views": (post.get("views") or {}).get("count", 0),
+                "likes": (post.get("likes") or {}).get("count", 0),
+                "comments": (post.get("comments") or {}).get("count", 0),
+                "reposts": (post.get("reposts") or {}).get("count", 0),
+            }
+
+    return metrics
+
+
+def _apply_vk_metrics(
+    history: list[dict],
+    metrics: dict[str, dict],
+    fallback_owner_id: str,
+    collected_at: datetime | None = None,
+) -> tuple[int, int]:
+    now = collected_at or datetime.now()
+    matched = 0
+    changed = 0
+
+    for record in history:
+        vk_data = record.get("platforms", {}).get("vk")
+        if not vk_data or vk_data.get("post_id") is None:
+            continue
+
+        owner_id = str(vk_data.get("owner_id") or fallback_owner_id)
+        ref = f"{owner_id}_{vk_data['post_id']}"
+        stats = metrics.get(ref)
+        if stats is None:
+            continue
+        matched += 1
+
+        previous = {key: vk_data.get(key) for key in stats}
+        vk_data.update(stats)
+        vk_data["metrics_collected_at"] = now.isoformat()
+
+        try:
+            published_at = datetime.fromisoformat(record["published_at"])
+            age_hours = max((now - published_at).total_seconds() / 3600, 0)
+        except (KeyError, TypeError, ValueError):
+            age_hours = 0
+
+        snapshot = {**stats, "collected_at": now.isoformat()}
+        snapshots = vk_data.setdefault("metric_snapshots", {})
+        snapshots["latest"] = snapshot
+        if age_hours < 24:
+            snapshots.setdefault("initial", snapshot)
+        elif age_hours < 72:
+            snapshots.setdefault("24h", snapshot)
+        else:
+            snapshots.setdefault("72h", snapshot)
+
+        if previous != stats:
+            changed += 1
+
+    return matched, changed
+
+
 async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> list[dict]:
     import requests as sync_requests
 
@@ -105,95 +246,29 @@ async def collect_metrics(vk_access_token: str = "", vk_group_id: str = "") -> l
         logger.info("No posts in history to collect metrics for.")
         return history
 
-    updated = 0
-
-    # --- VK metrics via wall.get (пагинация по 100, работает с group-токеном) ---
     if vk_access_token and vk_group_id:
-        numeric_id = vk_group_id
-        if numeric_id.startswith("club"):
-            numeric_id = numeric_id[4:]
-        if numeric_id.startswith("public"):
-            numeric_id = numeric_id[6:]
-        owner_id = f"-{numeric_id}"
-
-        logger.info("Fetching VK wall posts in batches...")
-        all_posts = []
-        offset = 0
-        page = 1
-        while True:
-            try:
-                resp = sync_requests.post(
-                    "https://api.vk.com/method/wall.get",
-                    data={
-                        "access_token": vk_access_token,
-                        "v": "5.199",
-                        "owner_id": owner_id,
-                        "count": 100,
-                        "offset": offset,
-                        "extended": 1,
-                    },
-                    timeout=15,
-                )
-                data = resp.json()
-                if page == 1:
-                    Path("logs/vk_wall_debug.json").write_text(json.dumps(data, ensure_ascii=False, indent=2)[:5000], encoding="utf-8")
-                if "error" in data:
-                    logger.warning(f"VK wall.get error: {data['error']}")
-                    break
-                posts = data.get("response", {}).get("items", [])
-                if not posts:
-                    logger.warning(f"VK wall.get: no items in response (count={data.get('response', {}).get('count', '?')})")
-                    break
-                all_posts.extend(posts)
-                logger.info(f"  Batch {page}: got {len(posts)} posts (total {len(all_posts)})")
-                if len(posts) < 100:
-                    break
-                offset += 100
-                page += 1
-            except Exception as e:
-                logger.warning(f"VK wall.get batch failed at offset {offset}: {e}")
-                break
-
-        post_metrics = {}
-        for post in all_posts:
-            pid = post.get("id")
-            if pid is None:
-                continue
-            post_metrics[pid] = {
-                "views": (post.get("views") or {}).get("count", 0),
-                "likes": (post.get("likes") or {}).get("count", 0),
-                "comments": (post.get("comments") or {}).get("count", 0),
-                "reposts": (post.get("reposts") or {}).get("count", 0),
-            }
-
-        logger.info(f"Total {len(post_metrics)} unique posts fetched from VK wall")
-
-        history_pids = sum(1 for r in history if r.get("platforms", {}).get("vk", {}).get("post_id"))
-        match_count = sum(1 for r in history if r.get("platforms", {}).get("vk", {}).get("post_id") in post_metrics)
-        logger.info(f"History: {history_pids} VK posts, {match_count} matched with wall data")
-
-        for record in history:
-            vk_data = record.get("platforms", {}).get("vk")
-            if not vk_data or not vk_data.get("post_id"):
-                continue
-            post_id = vk_data["post_id"]
-            if post_id not in post_metrics:
-                continue
-            stats = post_metrics[post_id]
-            old = vk_data.get("views")
-            vk_data["views"] = stats["views"]
-            vk_data["likes"] = stats["likes"]
-            vk_data["comments"] = stats["comments"]
-            vk_data["reposts"] = stats["reposts"]
-            if old is None:
-                updated += 1
+        owner_id = _normalize_vk_owner_id(vk_group_id)
+        post_metrics = _fetch_vk_metrics(
+            history, vk_access_token, vk_group_id, sync_requests.post
+        )
+        matched, changed = _apply_vk_metrics(history, post_metrics, owner_id)
+        logger.info(
+            "VK metrics: requested %d posts, matched %d, changed %d",
+            len(_vk_post_refs(history, owner_id)),
+            matched,
+            changed,
+        )
+        if matched:
+            _save_history(history)
+        elif _vk_post_refs(history, owner_id):
+            logger.warning(
+                "VK returned no matching posts. Check token access, VK_GROUP_ID "
+                "and owner_id values stored in post_history.json."
+            )
 
     # --- Telegram: Bot API can't fetch per-message stats for channels ---
     # Placeholder for future extension (e.g. via Telegram API or parsing)
 
-    if updated:
-        _save_history(history)
-        logger.info(f"Updated metrics for {updated} posts")
     return history
 
 
@@ -227,6 +302,16 @@ def score_posts(history: list[dict] | None = None, days_back: int = 30) -> list[
                 views += data.get("views", 0) or 0
                 reactions += data.get("likes", 0) or 0
                 comments += data.get("comments", 0) or 0
+
+        # Do not teach the generator from publications for which no platform
+        # has returned real metrics yet.
+        has_metrics = any(
+            data.get("views") is not None
+            for data in record.get("platforms", {}).values()
+        )
+        if not has_metrics:
+            record["score"] = None
+            continue
 
         score = (
             views * WEIGHT_VIEWS
@@ -415,7 +500,7 @@ if __name__ == "__main__":
         logger.error("DEEPSEEK_API_KEY not found in .env")
         sys.exit(1)
 
-    vk_token = os.getenv("VK_ACCESS_TOKEN", "")
+    vk_token = os.getenv("VK_ANALYTICS_TOKEN") or os.getenv("VK_ACCESS_TOKEN", "")
     vk_group = os.getenv("VK_GROUP_ID", "")
 
     client = DeepSeekClient(api_key=api_key)

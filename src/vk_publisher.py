@@ -4,6 +4,7 @@ Adapts articles for VK style and publishes to VK group/wall.
 """
 
 import logging
+import os
 import re
 
 import requests
@@ -249,6 +250,10 @@ def publish_to_vk(
     raw_text: str | None = None,
     image_url: str | None = None,
 ) -> tuple[bool, int | None]:
+    if os.getenv("VK_PUBLISH_ENABLED", "true").lower() in {"0", "false", "no", "off"}:
+        logger.info("Direct VK publishing disabled; RSS publisher is active.")
+        return False, None
+
     if not access_token or not group_id:
         logger.warning("VK not configured. Skipping publication.")
         return False, None
@@ -268,6 +273,12 @@ def publish_to_vk(
         photo_attachment = _upload_wall_photo(access_token, group_id, image_url)
         if photo_attachment:
             attachments.append(photo_attachment)
+        else:
+            # Group tokens cannot upload wall photos (VK error 27). VK wall.post
+            # also accepts an external URL as an attachment, which gives the post
+            # a chance to keep a visual link preview without requiring a user token.
+            attachments.append(image_url)
+            logger.info("VK photo upload unavailable; using image URL attachment")
 
     url = "https://api.vk.com/method/wall.post"
     data = {
@@ -289,15 +300,31 @@ def publish_to_vk(
             logger.error("VK API returned empty response. Check access token and group ID.")
             return False, None
 
-        data = response.json()
+        response_data = response.json()
 
-        if "error" in data:
-            error_msg = data["error"].get("error_msg", "Unknown error")
-            error_code = data["error"].get("error_code", 0)
+        if "error" in response_data and attachments:
+            # Some VK configurations reject an external URL attachment. Do not
+            # lose the publication: retry once as a text-only post.
+            error_msg = response_data["error"].get("error_msg", "Unknown error")
+            logger.warning(
+                "VK rejected attachment (%s); retrying text-only post", error_msg
+            )
+            retry_data = dict(data)
+            retry_data.pop("attachments", None)
+            response = requests.post(url, data=retry_data, timeout=30)
+            response.raise_for_status()
+            if not response.text.strip():
+                logger.error("VK API returned empty response on text-only retry.")
+                return False, None
+            response_data = response.json()
+
+        if "error" in response_data:
+            error_msg = response_data["error"].get("error_msg", "Unknown error")
+            error_code = response_data["error"].get("error_code", 0)
             logger.error(f"VK API error {error_code}: {error_msg}")
             return False, None
 
-        post_id = data.get("response", {}).get("post_id", None)
+        post_id = response_data.get("response", {}).get("post_id", None)
         logger.info(f"VK post published successfully! Post ID: {post_id}")
         return True, post_id
 
