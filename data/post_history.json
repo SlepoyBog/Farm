@@ -4948,13 +4948,31 @@
       "vk": {
         "post_id": 584,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0044
   },
   {
     "topic": "6G: связь за гранью воображения",
@@ -4971,13 +4989,31 @@
       "vk": {
         "post_id": 585,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 3,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0017
   },
   {
     "topic": "Веганство и дефицит витаминов",
@@ -4994,13 +5030,31 @@
       "vk": {
         "post_id": 586,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 14,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 14,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0079
   },
   {
     "topic": "Оплата по QR-коду: плюсы",
@@ -5017,13 +5071,31 @@
       "vk": {
         "post_id": 587,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 3,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0017
   },
   {
     "topic": "Упаковка продукта: секреты",
@@ -5040,13 +5112,31 @@
       "vk": {
         "post_id": 588,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0051
   },
   {
     "topic": "Гранты и стипендии: как получить",
@@ -5063,13 +5153,31 @@
       "vk": {
         "post_id": 589,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 11,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 11,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0063
   },
   {
     "topic": "Баскетбол уличный и профессиональный",
@@ -5086,13 +5194,31 @@
       "vk": {
         "post_id": 590,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 12,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 12,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0069
   },
   {
     "topic": "Тренды мирового кинопроката",
@@ -5109,13 +5235,31 @@
       "vk": {
         "post_id": 591,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 24,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 24,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0138
   },
   {
     "topic": "Цирковые представления и шоу",
@@ -5132,13 +5276,31 @@
       "vk": {
         "post_id": 592,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 16,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 16,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0094
   },
   {
     "topic": "Сельское хозяйство и умные фермы",
@@ -5155,13 +5317,31 @@
       "vk": {
         "post_id": 593,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 17,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 17,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.01
   },
   {
     "topic": "📚 ПДД: частые ошибки",
@@ -5178,13 +5358,31 @@
       "vk": {
         "post_id": 594,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0047
   },
   {
     "topic": "Искусственный интеллект в бизнесе",
@@ -5201,13 +5399,31 @@
       "vk": {
         "post_id": 595,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 6,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0036
   },
   {
     "topic": "Как укрепить иммунитет осенью",
@@ -5224,13 +5440,31 @@
       "vk": {
         "post_id": 596,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 10,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0059
   },
   {
     "topic": "Автоматизация малого бизнеса",
@@ -5247,13 +5481,31 @@
       "vk": {
         "post_id": 597,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 4,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0024
   },
   {
     "topic": "Онлайн-обучение для всех",
@@ -5270,13 +5522,31 @@
       "vk": {
         "post_id": 598,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0049
   },
   {
     "topic": "️‍♂️ Как начать бегать",
@@ -5293,13 +5563,31 @@
       "vk": {
         "post_id": 599,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 5,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 5,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0031
   },
   {
     "topic": "Режиссеры-визионеры современности",
@@ -5316,13 +5604,31 @@
       "vk": {
         "post_id": 600,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 4,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0025
   },
   {
     "topic": "️ Куда поехать без визы",
@@ -5339,13 +5645,31 @@
       "vk": {
         "post_id": 601,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 19,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 19,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0117
   },
   {
     "topic": "Будущее автономных AI агентов",
@@ -5362,13 +5686,31 @@
       "vk": {
         "post_id": 602,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 22,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 22,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0136
   },
   {
     "topic": "Электромобили заменят бензин полностью",
@@ -5385,13 +5727,31 @@
       "vk": {
         "post_id": 603,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 14,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 14,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0089
   },
   {
     "topic": "Криптовалюты и децентрализованные финансы",
@@ -5408,13 +5768,31 @@
       "vk": {
         "post_id": 604,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 7,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0044
   },
   {
     "topic": "Генетика и предрасположенность к болезням",
@@ -5431,13 +5809,31 @@
       "vk": {
         "post_id": 605,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 16,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 16,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0102
   },
   {
     "topic": "Тренды фондового рынка сегодня",
@@ -5454,13 +5850,31 @@
       "vk": {
         "post_id": 606,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 3,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0019
   },
   {
     "topic": "Гранты и субсидии для МСП",
@@ -5477,13 +5891,31 @@
       "vk": {
         "post_id": 607,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 4,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0026
   },
   {
     "topic": "Глобальное образование без границ",
@@ -5500,13 +5932,31 @@
       "vk": {
         "post_id": 608,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0051
   },
   {
     "topic": "Скейтбординг для новичков",
@@ -5523,13 +5973,31 @@
       "vk": {
         "post_id": 609,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 17,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 17,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0112
   },
   {
     "topic": "Хорроры: почему мы любим",
@@ -5546,13 +6014,31 @@
       "vk": {
         "post_id": 610,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 15,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 15,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0099
   },
   {
     "topic": "Достопримечательности с высоты птиц",
@@ -5569,13 +6055,31 @@
       "vk": {
         "post_id": 611,
         "owner_id": "-186888784",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 14,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 14,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0093
   },
   {
     "topic": "Глобальное влияние искусственного интеллекта",
@@ -5593,13 +6097,31 @@
         "post_id": 612,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 30,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 30,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.02
   },
   {
     "topic": "Двигатель: признаки скорой поломки",
@@ -5623,7 +6145,7 @@
         "reposts": null
       }
     },
-    "score": 0.0
+    "score": null
   },
   {
     "topic": "‍💻 DevOps и автоматизация развертывания",
@@ -5641,13 +6163,31 @@
         "post_id": 614,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 7,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0048
   },
   {
     "topic": "Интервальное голодание: риски",
@@ -5665,13 +6205,31 @@
         "post_id": 615,
         "owner_id": "-186888784",
         "format": "B",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 3,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0021
   },
   {
     "topic": "Образование в сфере финансов",
@@ -5689,13 +6247,31 @@
         "post_id": 616,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0057
   },
   {
     "topic": "Онлайн-курсы по бизнесу",
@@ -5713,13 +6289,31 @@
         "post_id": 617,
         "owner_id": "-186888784",
         "format": "B",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0057
   },
   {
     "topic": "Безопасность персональных данных",
@@ -5737,13 +6331,31 @@
         "post_id": 619,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 4,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.003
   },
   {
     "topic": "‍♂️ Водное поло",
@@ -5761,13 +6373,31 @@
         "post_id": 620,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 15,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 15,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0111
   },
   {
     "topic": "Попкорн против кино",
@@ -5785,13 +6415,31 @@
         "post_id": 621,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 14,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 14,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0104
   },
   {
     "topic": "Винные туры по Италии и Франции",
@@ -5809,13 +6457,31 @@
         "post_id": 622,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 6,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0044
   },
   {
     "topic": "Будущее генеративных нейросетей",
@@ -5833,13 +6499,31 @@
         "post_id": 623,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.006
   },
   {
     "topic": "Кузовной ремонт без покраски: возможно?",
@@ -5857,13 +6541,31 @@
         "post_id": 624,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0067
   },
   {
     "topic": "Искусственный интеллект в повседневной жизни",
@@ -5881,13 +6583,31 @@
         "post_id": 625,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 11,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 11,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0083
   },
   {
     "topic": "Скорочтение и здоровье мозга",
@@ -5905,13 +6625,31 @@
         "post_id": 626,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.007
   },
   {
     "topic": "ETF для диверсификации портфеля",
@@ -5929,13 +6667,31 @@
         "post_id": 627,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 10,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0078
   },
   {
     "topic": "Сервисы доставки продуктов",
@@ -5953,13 +6709,31 @@
         "post_id": 629,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 7,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0058
   },
   {
     "topic": "Публичные выступления для школьников",
@@ -5977,13 +6751,31 @@
         "post_id": 631,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 16,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 16,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0133
   },
   {
     "topic": "Снаряжение для похода",
@@ -6001,13 +6793,31 @@
         "post_id": 632,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 23,
+        "likes": 1,
+        "comments": 1,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 23,
+            "reach": 0,
+            "likes": 1,
+            "comments": 1,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0211
   },
   {
     "topic": "Главные премьеры этой недели",
@@ -6025,13 +6835,31 @@
         "post_id": 634,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0078
   },
   {
     "topic": "Уличная еда безопасность и выбор",
@@ -6049,13 +6877,31 @@
         "post_id": 635,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 5,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 5,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0044
   },
   {
     "topic": "ИИ диагностика заболеваний",
@@ -6073,13 +6919,31 @@
         "post_id": 636,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0082
   },
   {
     "topic": "Электроскутеры против авто: пробки решены",
@@ -6097,13 +6961,31 @@
         "post_id": 637,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 34,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 34,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0311
   },
   {
     "topic": "Геймификация образования через технологии",
@@ -6121,13 +7003,31 @@
         "post_id": 638,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 20,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 20,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0184
   },
   {
     "topic": "Укрепление иммунной системы",
@@ -6145,13 +7045,31 @@
         "post_id": 639,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 7,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0067
   },
   {
     "topic": "IPO: стоит ли участвовать",
@@ -6169,13 +7087,31 @@
         "post_id": 640,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 4,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0039
   },
   {
     "topic": "Как масштабировать малый бизнес",
@@ -6193,13 +7129,31 @@
         "post_id": 641,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 2,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 2,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.002
   },
   {
     "topic": "‍🎓 Онлайн-образование против традиционного",
@@ -6217,13 +7171,31 @@
         "post_id": 642,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 4,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0041
   },
   {
     "topic": "Зарядка для утренней бодрости",
@@ -6241,13 +7213,31 @@
         "post_id": 643,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 4,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0042
   },
   {
     "topic": "Сериалы, затмившие полный метр",
@@ -6265,13 +7255,31 @@
         "post_id": 644,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 14,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 14,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0152
   },
   {
     "topic": "️ Как планировать бюджетные путешествия",
@@ -6289,13 +7297,31 @@
         "post_id": 645,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 10,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0109
   },
   {
     "topic": "Мультимодальные модели",
@@ -6313,13 +7339,31 @@
         "post_id": 646,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 10,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.011
   },
   {
     "topic": "Электромобили против гибридов",
@@ -6337,13 +7381,31 @@
         "post_id": 647,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 6,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.007
   },
   {
     "topic": "Модульные смартфоны будущего",
@@ -6361,13 +7423,31 @@
         "post_id": 648,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 6,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.007
   },
   {
     "topic": "Соль и ее влияние",
@@ -6385,13 +7465,31 @@
         "post_id": 649,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 16,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 16,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0189
   },
   {
     "topic": "Пассивный доход для начинающих",
@@ -6409,13 +7507,31 @@
         "post_id": 650,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 7,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0087
   },
   {
     "topic": "Мобильные приложения для управления компанией",
@@ -6433,13 +7549,31 @@
         "post_id": 651,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 15,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 15,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0189
   },
   {
     "topic": "Раннее развитие и гаджеты",
@@ -6457,13 +7591,31 @@
         "post_id": 652,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 32,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 32,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0409
   },
   {
     "topic": "Скакалка: секреты жиросжигания",
@@ -6481,13 +7633,31 @@
         "post_id": 653,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 11,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 11,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0148
   },
   {
     "topic": "Культовые фильмы про пришельцев",
@@ -6505,13 +7675,31 @@
         "post_id": 654,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 6,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0082
   },
   {
     "topic": "Фестивальный туризм: куда поехать",
@@ -6529,13 +7717,31 @@
         "post_id": 655,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 22,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 0,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 22,
+            "reach": 0,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0303
   },
   {
     "topic": "ИИ в городском планировании",
@@ -6553,13 +7759,31 @@
         "post_id": 656,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 17,
+        "likes": 1,
+        "comments": 0,
+        "reposts": null,
+        "reach": 17,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 17,
+            "reach": 17,
+            "likes": 1,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.026
   },
   {
     "topic": "Каршеринг или личный автомобиль",
@@ -6577,13 +7801,31 @@
         "post_id": 657,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 5,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 5,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 5,
+            "reach": 5,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0074
   },
   {
     "topic": "Криптография на основе решеток",
@@ -6601,13 +7843,31 @@
         "post_id": 658,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 11,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 11,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 11,
+            "reach": 11,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0165
   },
   {
     "topic": "Дыхательные практики для релаксации",
@@ -6625,13 +7885,31 @@
         "post_id": 659,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 2,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 2,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 2,
+            "reach": 2,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0032
   },
   {
     "topic": "️ Доход от аренды недвижимости",
@@ -6649,13 +7927,31 @@
         "post_id": 660,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 2,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 2,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 2,
+            "reach": 2,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0032
   },
   {
     "topic": "Как продавать свои идеи команде",
@@ -6673,13 +7969,31 @@
         "post_id": 661,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 6,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 6,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 6,
+            "reach": 6,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0099
   },
   {
     "topic": "Soft skills для успешной карьеры",
@@ -6697,13 +8011,31 @@
         "post_id": 662,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 3,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 3,
+            "reach": 3,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0053
   },
   {
     "topic": "Функциональный тренинг для тела",
@@ -6721,13 +8053,31 @@
         "post_id": 663,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 3,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 3,
+            "reach": 3,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0054
   },
   {
     "topic": "Документальное кино: тренды и открытия",
@@ -6745,13 +8095,31 @@
         "post_id": 664,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 7,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 7,
+            "reach": 7,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0128
   },
   {
     "topic": "️ Лайфхаки для долгих перелётов",
@@ -6769,13 +8137,31 @@
         "post_id": 665,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 3,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 3,
+            "reach": 3,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.006
   },
   {
     "topic": "Нейросети меняют мир",
@@ -6793,13 +8179,31 @@
         "post_id": 666,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 9,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 9,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0181
   },
   {
     "topic": "Автокредиты с низким процентом",
@@ -6817,13 +8221,31 @@
         "post_id": 667,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 10,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 10,
+            "reach": 10,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0205
   },
   {
     "topic": "Искусственный интеллект в медицине",
@@ -6841,13 +8263,31 @@
         "post_id": 668,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 22,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 22,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 22,
+            "reach": 22,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0497
   },
   {
     "topic": "‍♂️ Управление хроническим стрессом",
@@ -6865,13 +8305,31 @@
         "post_id": 669,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 3,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 3,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 3,
+            "reach": 3,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0069
   },
   {
     "topic": "Прогноз курса рубля сейчас",
@@ -6889,13 +8347,31 @@
         "post_id": 670,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 11,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 11,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 11,
+            "reach": 11,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0258
   },
   {
     "topic": "Customer Development: пошаговое руководство",
@@ -6913,13 +8389,31 @@
         "post_id": 671,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 4,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 4,
+            "reach": 4,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0105
   },
   {
     "topic": "EdTech стартапы: тенденции и идеи",
@@ -6937,13 +8431,31 @@
         "post_id": 672,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 10,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 10,
+            "reach": 10,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0268
   },
   {
     "topic": "Как перестать бояться тренажеров",
@@ -6961,13 +8473,31 @@
         "post_id": 673,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 8,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 8,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0219
   },
   {
     "topic": "Главные киноновинки этой недели",
@@ -6985,13 +8515,31 @@
         "post_id": 674,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 11,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 11,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 11,
+            "reach": 11,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0341
   },
   {
     "topic": "Языковой барьер: как общаться",
@@ -7009,13 +8557,31 @@
         "post_id": 675,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 8,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 8,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 8,
+            "reach": 8,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0254
   },
   {
     "topic": "ИИ в финансовом анализе",
@@ -7033,13 +8599,31 @@
         "post_id": 676,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 9,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 9,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0295
   },
   {
     "topic": "Как избежать ДТП на перекрестке",
@@ -7057,13 +8641,31 @@
         "post_id": 677,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 15,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 15,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 15,
+            "reach": 15,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0571
   },
   {
     "topic": "AI создаёт произведения искусства",
@@ -7081,13 +8683,31 @@
         "post_id": 678,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 10,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 10,
+            "reach": 10,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0392
   },
   {
     "topic": "Омега-3 для сердца и мозга",
@@ -7105,13 +8725,31 @@
         "post_id": 679,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 10,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 10,
+            "reach": 10,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0408
   },
   {
     "topic": "Финансовое воспитание подростков",
@@ -7129,13 +8767,31 @@
         "post_id": 680,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 9,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 9,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0444
   },
   {
     "topic": "Масштабирование стартапа и рост",
@@ -7153,13 +8809,31 @@
         "post_id": 681,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 9,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 9,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 9,
+            "reach": 9,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0462
   },
   {
     "topic": "Геймификация в современном обучении",
@@ -7177,13 +8851,31 @@
         "post_id": 682,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 7,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 7,
+            "reach": 7,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.038
   },
   {
     "topic": "Бег для укрепления сердца",
@@ -7201,13 +8893,31 @@
         "post_id": 683,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 15,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 15,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 15,
+            "reach": 15,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.1051
   },
   {
     "topic": "Лучшие мелодрамы для настроения",
@@ -7225,13 +8935,31 @@
         "post_id": 684,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 19,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 19,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 19,
+            "reach": 19,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.1403
   },
   {
     "topic": "Чат-боты становятся людьми",
@@ -7249,13 +8977,31 @@
         "post_id": 685,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 17,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 17,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 17,
+            "reach": 17,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.1366
   },
   {
     "topic": "Электромобили вытесняют ДВС",
@@ -7273,13 +9019,31 @@
         "post_id": 686,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 7,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 7,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 7,
+            "reach": 7,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0837
   },
   {
     "topic": "️ Компьютерное зрение распознаёт лица",
@@ -7297,13 +9061,31 @@
         "post_id": 687,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 14,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 14,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 14,
+            "reach": 14,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.1828
   },
   {
     "topic": "Зелень в рационе детокс",
@@ -7321,13 +9103,31 @@
         "post_id": 688,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 12,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 12,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 12,
+            "reach": 12,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.1804
   },
   {
     "topic": "Создание эффективного сайта",
@@ -7345,13 +9145,31 @@
         "post_id": 689,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 1,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 1,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 1,
+            "reach": 1,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.0622
   },
   {
     "topic": "Обучение через игровые механики",
@@ -7369,12 +9187,45 @@
         "post_id": 690,
         "owner_id": "-186888784",
         "format": "A",
-        "views": null,
-        "likes": null,
-        "comments": null,
-        "reposts": null
+        "views": 1,
+        "likes": 0,
+        "comments": 0,
+        "reposts": null,
+        "reach": 1,
+        "actions": 0,
+        "err": 0.0,
+        "erv": 0.0,
+        "metrics_collected_at": "2026-07-26T17:39:14.096591+00:00",
+        "metric_snapshots": {
+          "latest": {
+            "views": 1,
+            "reach": 1,
+            "likes": 0,
+            "comments": 0,
+            "actions": 0,
+            "err": 0.0,
+            "erv": 0.0,
+            "collected_at": "2026-07-26T17:39:14.096591+00:00",
+            "source": "postmypost_api"
+          }
+        }
       }
     },
-    "score": 0.0
+    "score": 0.1554
+  },
+  {
+    "topic": "Спортивные напитки или вода",
+    "title": "💧 Вода или 🥤 спортпит: что пить на тренировке?",
+    "niche": "спорт",
+    "published_at": "2026-07-26T17:39:01.215574",
+    "platforms": {
+      "telegram": {
+        "message_id": 805,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      }
+    },
+    "score": null
   }
 ]
