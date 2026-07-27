@@ -2,7 +2,7 @@
   "source": "postmypost_api",
   "project_id": "353549",
   "account_id": "2205063",
-  "collected_at": "2026-07-26T17:39:14.096591+00:00",
+  "collected_at": "2026-07-27T09:59:22.593213+00:00",
   "posts": [
     {
       "post_id": 690,
@@ -13,8 +13,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 1,
-      "reach": 1,
+      "views": 2,
+      "reach": 2,
       "err": 0.0,
       "erv": 0.0
     },
@@ -27,8 +27,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 1,
-      "reach": 1,
+      "views": 2,
+      "reach": 2,
       "err": 0.0,
       "erv": 0.0
     },
@@ -41,8 +41,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 12,
-      "reach": 12,
+      "views": 14,
+      "reach": 14,
       "err": 0.0,
       "erv": 0.0
     },
@@ -55,8 +55,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 14,
-      "reach": 14,
+      "views": 15,
+      "reach": 15,
       "err": 0.0,
       "erv": 0.0
     },
@@ -111,8 +111,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 15,
-      "reach": 15,
+      "views": 16,
+      "reach": 16,
       "err": 0.0,
       "erv": 0.0
     },
@@ -167,8 +167,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 10,
-      "reach": 10,
+      "views": 11,
+      "reach": 11,
       "err": 0.0,
       "erv": 0.0
     },
@@ -223,8 +223,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 8,
-      "reach": 8,
+      "views": 9,
+      "reach": 9,
       "err": 0.0,
       "erv": 0.0
     },
@@ -475,7 +475,7 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 5,
+      "views": 7,
       "reach": 5,
       "err": 0.0,
       "erv": 0.0
@@ -615,7 +615,7 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 6,
+      "views": 7,
       "reach": 0,
       "err": 0.0,
       "erv": 0.0
@@ -755,7 +755,7 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 34,
+      "views": 35,
       "reach": 0,
       "err": 0.0,
       "erv": 0.0
@@ -1442,34 +1442,6 @@
       "reactions": 0,
       "comments": 0,
       "views": 14,
-      "reach": 0,
-      "err": 0.0,
-      "erv": 0.0
-    },
-    {
-      "post_id": 585,
-      "publication_id": "6a638f8d80203668a5036775",
-      "text": "",
-      "published_at": "2026-06-27T05:47:57+05:00",
-      "url": "",
-      "actions": 0,
-      "reactions": 0,
-      "comments": 0,
-      "views": 3,
-      "reach": 0,
-      "err": 0.0,
-      "erv": 0.0
-    },
-    {
-      "post_id": 584,
-      "publication_id": "6a638f8d80203668a5036776",
-      "text": "",
-      "published_at": "2026-06-27T03:44:43+05:00",
-      "url": "",
-      "actions": 0,
-      "reactions": 0,
-      "comments": 0,
-      "views": 8,
       "reach": 0,
       "err": 0.0,
       "erv": 0.0
