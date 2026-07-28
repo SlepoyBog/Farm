@@ -5284,7 +5284,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -5294,7 +5294,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5325,7 +5325,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 17,
@@ -5335,7 +5335,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5366,7 +5366,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -5376,7 +5376,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5407,7 +5407,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -5417,7 +5417,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5448,7 +5448,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -5458,7 +5458,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5489,7 +5489,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -5499,7 +5499,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5530,7 +5530,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -5540,7 +5540,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5571,7 +5571,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 5,
@@ -5581,7 +5581,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5612,7 +5612,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -5622,7 +5622,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5653,7 +5653,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 19,
@@ -5663,7 +5663,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5694,7 +5694,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 22,
@@ -5704,7 +5704,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5735,7 +5735,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 14,
@@ -5745,7 +5745,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5776,7 +5776,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -5786,7 +5786,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5817,7 +5817,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -5827,7 +5827,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5858,7 +5858,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -5868,7 +5868,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5899,7 +5899,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -5909,7 +5909,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5940,7 +5940,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -5950,7 +5950,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -5981,7 +5981,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 17,
@@ -5991,13 +5991,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0105
+    "score": 0.0104
   },
   {
     "topic": "Хорроры: почему мы любим",
@@ -6022,7 +6022,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -6032,13 +6032,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0093
+    "score": 0.0092
   },
   {
     "topic": "Достопримечательности с высоты птиц",
@@ -6063,7 +6063,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 14,
@@ -6073,13 +6073,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0087
+    "score": 0.0086
   },
   {
     "topic": "Глобальное влияние искусственного интеллекта",
@@ -6105,7 +6105,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 30,
@@ -6115,13 +6115,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0187
+    "score": 0.0186
   },
   {
     "topic": "Двигатель: признаки скорой поломки",
@@ -6171,7 +6171,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -6181,7 +6181,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6213,7 +6213,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -6223,7 +6223,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6255,7 +6255,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -6265,7 +6265,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6297,7 +6297,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -6307,7 +6307,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6339,7 +6339,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -6349,7 +6349,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6381,7 +6381,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -6391,7 +6391,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6423,7 +6423,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 14,
@@ -6433,7 +6433,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6465,7 +6465,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -6475,7 +6475,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6507,7 +6507,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -6517,7 +6517,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6549,7 +6549,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -6559,7 +6559,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6591,7 +6591,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -6601,7 +6601,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6633,7 +6633,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -6643,7 +6643,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6675,7 +6675,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -6685,7 +6685,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6717,7 +6717,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -6727,7 +6727,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6759,7 +6759,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -6769,7 +6769,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6801,7 +6801,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 23,
@@ -6811,13 +6811,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0194
+    "score": 0.0193
   },
   {
     "topic": "Главные премьеры этой недели",
@@ -6843,7 +6843,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -6853,13 +6853,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0072
+    "score": 0.0071
   },
   {
     "topic": "Уличная еда безопасность и выбор",
@@ -6885,7 +6885,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 5,
@@ -6895,7 +6895,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6927,7 +6927,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -6937,7 +6937,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -6969,7 +6969,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 35,
@@ -6979,13 +6979,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0292
+    "score": 0.029
   },
   {
     "topic": "Геймификация образования через технологии",
@@ -7011,7 +7011,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 20,
@@ -7021,13 +7021,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0168
+    "score": 0.0167
   },
   {
     "topic": "Укрепление иммунной системы",
@@ -7053,7 +7053,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -7063,7 +7063,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7095,7 +7095,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -7105,7 +7105,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7137,7 +7137,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 2,
@@ -7147,7 +7147,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7179,7 +7179,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -7189,7 +7189,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7221,7 +7221,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -7231,7 +7231,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7263,7 +7263,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 14,
@@ -7273,13 +7273,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0136
+    "score": 0.0135
   },
   {
     "topic": "️ Как планировать бюджетные путешествия",
@@ -7305,7 +7305,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -7315,13 +7315,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0098
+    "score": 0.0097
   },
   {
     "topic": "Мультимодальные модели",
@@ -7347,7 +7347,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -7357,13 +7357,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0099
+    "score": 0.0098
   },
   {
     "topic": "Электромобили против гибридов",
@@ -7389,7 +7389,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -7399,7 +7399,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7431,7 +7431,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -7441,7 +7441,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7473,7 +7473,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -7483,13 +7483,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0168
+    "score": 0.0167
   },
   {
     "topic": "Пассивный доход для начинающих",
@@ -7515,7 +7515,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -7525,7 +7525,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7557,7 +7557,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -7567,13 +7567,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0167
+    "score": 0.0166
   },
   {
     "topic": "Раннее развитие и гаджеты",
@@ -7599,7 +7599,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 33,
@@ -7609,13 +7609,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0372
+    "score": 0.037
   },
   {
     "topic": "Скакалка: секреты жиросжигания",
@@ -7641,7 +7641,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -7651,13 +7651,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.013
+    "score": 0.0129
   },
   {
     "topic": "Культовые фильмы про пришельцев",
@@ -7683,7 +7683,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -7693,7 +7693,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7725,7 +7725,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 25,
@@ -7735,13 +7735,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0301
+    "score": 0.0299
   },
   {
     "topic": "ИИ в городском планировании",
@@ -7767,7 +7767,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 17,
@@ -7777,13 +7777,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0225
+    "score": 0.0224
   },
   {
     "topic": "Каршеринг или личный автомобиль",
@@ -7809,7 +7809,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -7819,13 +7819,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.009
+    "score": 0.0089
   },
   {
     "topic": "Криптография на основе решеток",
@@ -7851,7 +7851,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -7861,13 +7861,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0143
+    "score": 0.0142
   },
   {
     "topic": "Дыхательные практики для релаксации",
@@ -7893,7 +7893,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 2,
@@ -7903,7 +7903,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7935,7 +7935,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 2,
@@ -7945,7 +7945,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -7977,7 +7977,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -7987,7 +7987,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -8011,31 +8011,31 @@
         "post_id": 662,
         "owner_id": "-186888784",
         "format": "A",
-        "views": 3,
+        "views": 4,
         "likes": 0,
         "comments": 0,
         "reposts": null,
-        "reach": 3,
+        "reach": 4,
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
-            "views": 3,
-            "reach": 3,
+            "views": 4,
+            "reach": 4,
             "likes": 0,
             "comments": 0,
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0045
+    "score": 0.0059
   },
   {
     "topic": "Функциональный тренинг для тела",
@@ -8061,7 +8061,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -8071,7 +8071,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -8103,7 +8103,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -8113,7 +8113,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -8145,7 +8145,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -8155,7 +8155,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -8187,7 +8187,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8197,13 +8197,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0149
+    "score": 0.0148
   },
   {
     "topic": "Автокредиты с низким процентом",
@@ -8229,7 +8229,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -8239,13 +8239,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0169
+    "score": 0.0167
   },
   {
     "topic": "Искусственный интеллект в медицине",
@@ -8271,7 +8271,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 22,
@@ -8281,13 +8281,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0401
+    "score": 0.0398
   },
   {
     "topic": "‍♂️ Управление хроническим стрессом",
@@ -8313,7 +8313,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -8323,7 +8323,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
@@ -8355,7 +8355,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -8365,13 +8365,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0207
+    "score": 0.0205
   },
   {
     "topic": "Customer Development: пошаговое руководство",
@@ -8397,7 +8397,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -8407,13 +8407,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0082
+    "score": 0.0081
   },
   {
     "topic": "EdTech стартапы: тенденции и идеи",
@@ -8439,7 +8439,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -8449,13 +8449,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0209
+    "score": 0.0207
   },
   {
     "topic": "Как перестать бояться тренажеров",
@@ -8481,7 +8481,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -8491,13 +8491,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.017
+    "score": 0.0168
   },
   {
     "topic": "Главные киноновинки этой недели",
@@ -8523,7 +8523,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -8533,13 +8533,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0257
+    "score": 0.0254
   },
   {
     "topic": "Языковой барьер: как общаться",
@@ -8565,7 +8565,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8575,13 +8575,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0214
+    "score": 0.0212
   },
   {
     "topic": "ИИ в финансовом анализе",
@@ -8607,7 +8607,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8617,13 +8617,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0219
+    "score": 0.0217
   },
   {
     "topic": "Как избежать ДТП на перекрестке",
@@ -8649,7 +8649,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -8659,13 +8659,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0407
+    "score": 0.0402
   },
   {
     "topic": "AI создаёт произведения искусства",
@@ -8691,7 +8691,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -8701,13 +8701,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0305
+    "score": 0.0301
   },
   {
     "topic": "Омега-3 для сердца и мозга",
@@ -8733,7 +8733,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 12,
@@ -8743,13 +8743,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0343
+    "score": 0.0338
   },
   {
     "topic": "Финансовое воспитание подростков",
@@ -8775,7 +8775,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8785,13 +8785,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0292
+    "score": 0.0288
   },
   {
     "topic": "Масштабирование стартапа и рост",
@@ -8817,7 +8817,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8827,13 +8827,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.03
+    "score": 0.0295
   },
   {
     "topic": "Геймификация в современном обучении",
@@ -8851,31 +8851,31 @@
         "post_id": 682,
         "owner_id": "-186888784",
         "format": "A",
-        "views": 9,
+        "views": 10,
         "likes": 0,
         "comments": 0,
         "reposts": null,
-        "reach": 9,
+        "reach": 10,
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
-            "views": 9,
-            "reach": 9,
+            "views": 10,
+            "reach": 10,
             "likes": 0,
             "comments": 0,
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0311
+    "score": 0.0339
   },
   {
     "topic": "Бег для укрепления сердца",
@@ -8901,7 +8901,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -8911,13 +8911,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0645
+    "score": 0.0632
   },
   {
     "topic": "Лучшие мелодрамы для настроения",
@@ -8943,7 +8943,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 19,
@@ -8953,13 +8953,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0789
+    "score": 0.0773
   },
   {
     "topic": "Чат-боты становятся людьми",
@@ -8985,7 +8985,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 17,
@@ -8995,13 +8995,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0739
+    "score": 0.0724
   },
   {
     "topic": "Электромобили вытесняют ДВС",
@@ -9027,7 +9027,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -9037,13 +9037,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.037
+    "score": 0.0361
   },
   {
     "topic": "️ Компьютерное зрение распознаёт лица",
@@ -9069,7 +9069,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -9079,13 +9079,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0824
+    "score": 0.0803
   },
   {
     "topic": "Зелень в рационе детокс",
@@ -9103,31 +9103,31 @@
         "post_id": 688,
         "owner_id": "-186888784",
         "format": "A",
-        "views": 17,
+        "views": 18,
         "likes": 0,
         "comments": 0,
         "reposts": null,
-        "reach": 17,
+        "reach": 18,
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
-            "views": 17,
-            "reach": 17,
+            "views": 18,
+            "reach": 18,
             "likes": 0,
             "comments": 0,
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0988
+    "score": 0.1018
   },
   {
     "topic": "Создание эффективного сайта",
@@ -9145,31 +9145,31 @@
         "post_id": 689,
         "owner_id": "-186888784",
         "format": "A",
-        "views": 3,
+        "views": 7,
         "likes": 0,
         "comments": 0,
         "reposts": null,
-        "reach": 3,
+        "reach": 7,
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
-            "views": 3,
-            "reach": 3,
+            "views": 7,
+            "reach": 7,
             "likes": 0,
             "comments": 0,
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0247
+    "score": 0.0554
   },
   {
     "topic": "Обучение через игровые механики",
@@ -9187,31 +9187,31 @@
         "post_id": 690,
         "owner_id": "-186888784",
         "format": "A",
-        "views": 4,
+        "views": 8,
         "likes": 0,
         "comments": 0,
         "reposts": null,
-        "reach": 4,
+        "reach": 8,
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-28T11:50:31.987827+00:00",
+        "metrics_collected_at": "2026-07-28T13:45:52.580234+00:00",
         "metric_snapshots": {
           "latest": {
-            "views": 4,
-            "reach": 4,
+            "views": 8,
+            "reach": 8,
             "likes": 0,
             "comments": 0,
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-28T11:50:31.987827+00:00",
+            "collected_at": "2026-07-28T13:45:52.580234+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0357
+    "score": 0.0685
   },
   {
     "topic": "Спортивные напитки или вода",
@@ -9296,6 +9296,21 @@
     "platforms": {
       "telegram": {
         "message_id": 815,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      }
+    },
+    "score": null
+  },
+  {
+    "topic": "🎯 Как не бросить спорт через месяц: простые лайфхаки мотивации",
+    "title": "🎯 Как не бросить спорт через месяц: лайфхаки мотивации с помощью ИИ",
+    "niche": "спорт",
+    "published_at": "2026-07-28T13:45:42.281221",
+    "platforms": {
+      "telegram": {
+        "message_id": 817,
         "views": null,
         "reactions": null,
         "comments": null

@@ -2,7 +2,7 @@
   "source": "postmypost_api",
   "project_id": "353549",
   "account_id": "2205063",
-  "collected_at": "2026-07-28T11:50:31.987827+00:00",
+  "collected_at": "2026-07-28T13:45:52.580234+00:00",
   "posts": [
     {
       "post_id": 690,
@@ -13,8 +13,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 4,
-      "reach": 4,
+      "views": 8,
+      "reach": 8,
       "err": 0.0,
       "erv": 0.0
     },
@@ -27,8 +27,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 3,
-      "reach": 3,
+      "views": 7,
+      "reach": 7,
       "err": 0.0,
       "erv": 0.0
     },
@@ -41,8 +41,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 17,
-      "reach": 17,
+      "views": 18,
+      "reach": 18,
       "err": 0.0,
       "erv": 0.0
     },
@@ -125,8 +125,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 9,
-      "reach": 9,
+      "views": 10,
+      "reach": 10,
       "err": 0.0,
       "erv": 0.0
     },
@@ -405,8 +405,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 3,
-      "reach": 3,
+      "views": 4,
+      "reach": 4,
       "err": 0.0,
       "erv": 0.0
     },
