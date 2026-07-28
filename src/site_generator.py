@@ -17,7 +17,8 @@ load_dotenv()
 
 SITE_NAME = "AI Блог — технологии, тренды, инсайты"
 SITE_DESCRIPTION = "Ежедневные статьи об искусственном интеллекте, технологиях и трендах."
-SITE_URL = (os.getenv("SITE_URL") or "").rstrip("/")
+DEFAULT_SITE_URL = "https://slepoybog.github.io/Farm"
+SITE_URL = (os.getenv("SITE_URL") or DEFAULT_SITE_URL).rstrip("/")
 
 NICHE_NAMES = {
     "искусственный интеллект": "AI",
