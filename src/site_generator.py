@@ -627,8 +627,7 @@ def _generate_rss(articles: list[dict]):
 
 def _rss_description(content: str, max_length: int = 3000) -> str:
     """Build a VK-friendly plain-text excerpt without cutting a sentence."""
-    text = html.unescape(re.sub(r"<[^>]+>", " ", content))
-    text = re.sub(r"\s+", " ", text).strip()
+    text = _html_to_vk_text(content)
     if len(text) <= max_length:
         return text
 
@@ -643,6 +642,26 @@ def _rss_description(content: str, max_length: int = 3000) -> str:
 
     word_end = excerpt.rfind(" ")
     return excerpt[:word_end].rstrip(" ,;:-") + "…"
+
+
+def _html_to_vk_text(content: str) -> str:
+    """Preserve article structure when converting HTML to VK plain text."""
+    text = re.sub(r"<br\s*/?>", "\n", content, flags=re.IGNORECASE)
+    text = re.sub(r"<li[^>]*>", "• ", text, flags=re.IGNORECASE)
+    text = re.sub(r"</li\s*>", "\n", text, flags=re.IGNORECASE)
+    text = re.sub(
+        r"</(?:p|h[1-6]|blockquote|ul|ol)\s*>",
+        "\n\n",
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(r"<[^>]+>", "", text)
+    text = html.unescape(text).replace("\xa0", " ")
+
+    lines = [re.sub(r"[ \t]+", " ", line).strip() for line in text.splitlines()]
+    normalized = "\n".join(lines)
+    normalized = re.sub(r"\n{3,}", "\n\n", normalized)
+    return normalized.strip()
 
 
 def _rss_full_content(art: dict) -> str:
