@@ -46,6 +46,25 @@ class SiteGeneratorRssTests(unittest.TestCase):
         self.assertTrue(result.endswith("."))
         self.assertNotIn("<p>", result)
 
+    def test_rss_description_preserves_paragraphs_and_lists(self):
+        content = (
+            "<h2>Что проверить</h2>"
+            "<p>Первый абзац.</p>"
+            "<ul><li>Первый пункт</li><li>Второй пункт</li></ul>"
+            "<p>Последний абзац.</p>"
+        )
+
+        result = site_generator._rss_description(content)
+
+        self.assertEqual(
+            result,
+            "Что проверить\n\n"
+            "Первый абзац.\n\n"
+            "• Первый пункт\n"
+            "• Второй пункт\n\n"
+            "Последний абзац.",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
