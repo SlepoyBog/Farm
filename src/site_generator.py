@@ -1,4 +1,5 @@
 import json
+import html
 import logging
 import os
 import re
@@ -580,7 +581,7 @@ def _generate_rss(articles: list[dict]):
     base = SITE_URL or ""
     items = []
     for art in articles:
-        description = xml_escape(re.sub(r"<[^>]+>", "", art["content"])[:500])
+        description = xml_escape(_rss_description(art["content"]))
         full_content = _rss_full_content(art)
         enclosure = ""
         if art.get("og_image"):
@@ -622,6 +623,26 @@ def _generate_rss(articles: list[dict]):
     ) % (xml_escape(SITE_NAME), base, xml_escape(SITE_DESCRIPTION), base, "\n".join(items))
     (SITE_DIR / "rss.xml").write_text(rss, encoding="utf-8")
     logger.info("  Generated: rss.xml (%d items)" % len(items))
+
+
+def _rss_description(content: str, max_length: int = 3000) -> str:
+    """Build a VK-friendly plain-text excerpt without cutting a sentence."""
+    text = html.unescape(re.sub(r"<[^>]+>", " ", content))
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) <= max_length:
+        return text
+
+    excerpt = text[:max_length]
+    sentence_ends = [
+        excerpt.rfind(mark)
+        for mark in (".", "!", "?", "…")
+    ]
+    sentence_end = max(sentence_ends)
+    if sentence_end >= max_length // 2:
+        return excerpt[: sentence_end + 1].strip()
+
+    word_end = excerpt.rfind(" ")
+    return excerpt[:word_end].rstrip(" ,;:-") + "…"
 
 
 def _rss_full_content(art: dict) -> str:

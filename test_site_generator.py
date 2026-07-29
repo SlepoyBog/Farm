@@ -36,6 +36,16 @@ class SiteGeneratorRssTests(unittest.TestCase):
             rss,
         )
 
+    def test_rss_description_does_not_cut_mid_sentence(self):
+        paragraph = "Это законченное предложение. " * 180
+
+        result = site_generator._rss_description(f"<p>{paragraph}</p>", 500)
+
+        self.assertLessEqual(len(result), 500)
+        self.assertGreater(len(result), 250)
+        self.assertTrue(result.endswith("."))
+        self.assertNotIn("<p>", result)
+
 
 if __name__ == "__main__":
     unittest.main()
