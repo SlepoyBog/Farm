@@ -13,6 +13,7 @@ class VkPromptTests(unittest.TestCase):
     def test_keeps_required_template_variables(self):
         self.assertIn("{{article}}", self.prompt)
         self.assertIn("{{niche}}", self.prompt)
+        self.assertIn("{{ab_variant}}", self.prompt)
 
     def test_requires_subscriber_call_to_action(self):
         self.assertIn("Подпишитесь на НейроПоток", self.prompt)
@@ -25,6 +26,8 @@ class VkPromptTests(unittest.TestCase):
         self.assertIn("900–1400 символов", self.prompt)
         self.assertIn("не более двух предложений", self.prompt)
         self.assertIn("Не добавляй хештеги", self.prompt)
+        self.assertIn("Если вариант A", self.prompt)
+        self.assertIn("Если вариант B", self.prompt)
 
 
 if __name__ == "__main__":

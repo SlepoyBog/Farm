@@ -59,6 +59,7 @@ def record_publication(
     vk_post_id: int | None = None,
     vk_owner_id: str | None = None,
     ok_post_id: str | None = None,
+    ab_variant: str | None = None,
 ) -> dict:
     history = _load_history()
     record = {
@@ -69,6 +70,8 @@ def record_publication(
         "platforms": {},
         "score": None,
     }
+    if ab_variant in {"A", "B"}:
+        record["ab_variant"] = ab_variant
     if tg_message_id is not None:
         record["platforms"]["telegram"] = {
             "message_id": tg_message_id,

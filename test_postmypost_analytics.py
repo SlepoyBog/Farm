@@ -109,6 +109,47 @@ class PostmypostAnalyticsTests(unittest.TestCase):
                 (1, 1),
             )
 
+    def test_imports_textless_rss_publication_by_nearby_time(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            history_path = Path(tmp) / "history.json"
+            history_path.write_text(
+                json.dumps(
+                    [
+                        {
+                            "title": "Практический ИИ",
+                            "published_at": "2026-07-30T06:00:00+00:00",
+                            "ab_variant": "B",
+                            "platforms": {},
+                        }
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            metrics = [
+                {
+                    "post_id": 710,
+                    "publication_id": "pub-710",
+                    "text": "",
+                    "published_at": "2026-07-30T11:12:00+05:00",
+                    "url": "https://vk.ru/wall-186888784_710",
+                    "views": 25,
+                    "reach": 20,
+                    "reactions": 2,
+                    "comments": 1,
+                    "actions": 0,
+                    "err": 0.0,
+                    "erv": 0.0,
+                }
+            ]
+
+            self.assertEqual(
+                import_into_history(metrics, history_path=history_path),
+                (1, 1),
+            )
+            stored = json.loads(history_path.read_text(encoding="utf-8"))
+            self.assertEqual(stored[0]["platforms"]["vk"]["post_id"], 710)
+            self.assertEqual(stored[0]["platforms"]["vk"]["views"], 25)
+
 
 if __name__ == "__main__":
     unittest.main()

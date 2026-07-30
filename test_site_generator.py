@@ -65,6 +65,32 @@ class SiteGeneratorRssTests(unittest.TestCase):
             "Последний абзац.",
         )
 
+    def test_rss_prefers_prepared_vk_text(self):
+        article = {
+            "title": "Тест",
+            "slug": "test",
+            "content": "<p>Текст статьи.</p>",
+            "mtime": datetime(2026, 7, 28, tzinfo=timezone.utc),
+            "og_image": "",
+            "vk_text": "Заход варианта B.\n\n• Первый шаг\n• Второй шаг",
+        }
+        old_dir = site_generator.SITE_DIR
+        try:
+            with tempfile.TemporaryDirectory() as temp_dir:
+                site_generator.SITE_DIR = Path(temp_dir)
+                site_generator._generate_rss([article])
+                rss = (Path(temp_dir) / "rss.xml").read_text(encoding="utf-8")
+        finally:
+            site_generator.SITE_DIR = old_dir
+
+        self.assertIn("Заход варианта B.", rss)
+        self.assertIn("• Первый шаг", rss)
+        self.assertIn(
+            "<description>Заход варианта B.\n\n"
+            "• Первый шаг\n• Второй шаг</description>",
+            rss,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
