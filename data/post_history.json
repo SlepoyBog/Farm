@@ -5735,7 +5735,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 14,
@@ -5745,7 +5745,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -5778,7 +5778,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -5788,7 +5788,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -5821,7 +5821,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -5831,7 +5831,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -5864,7 +5864,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -5874,7 +5874,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -5907,7 +5907,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -5917,7 +5917,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -5950,7 +5950,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -5960,7 +5960,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -5993,7 +5993,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 17,
@@ -6003,7 +6003,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6036,7 +6036,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -6046,7 +6046,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6079,7 +6079,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 14,
@@ -6089,7 +6089,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6123,7 +6123,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 30,
@@ -6133,7 +6133,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6191,7 +6191,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -6201,7 +6201,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6235,7 +6235,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -6245,7 +6245,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6279,7 +6279,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -6289,7 +6289,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6323,7 +6323,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -6333,7 +6333,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6367,7 +6367,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -6377,7 +6377,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6411,7 +6411,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -6421,7 +6421,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6455,7 +6455,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 14,
@@ -6465,7 +6465,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6499,7 +6499,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -6509,7 +6509,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6543,7 +6543,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -6553,7 +6553,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6587,7 +6587,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -6597,7 +6597,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6631,7 +6631,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -6641,7 +6641,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6675,7 +6675,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -6685,7 +6685,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6719,7 +6719,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -6729,7 +6729,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6763,7 +6763,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -6773,7 +6773,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6807,7 +6807,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -6817,7 +6817,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6851,7 +6851,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 23,
@@ -6861,7 +6861,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6895,7 +6895,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -6905,7 +6905,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6939,7 +6939,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 5,
@@ -6949,7 +6949,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -6983,7 +6983,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -6993,7 +6993,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7027,7 +7027,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 35,
@@ -7037,7 +7037,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7071,7 +7071,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 20,
@@ -7081,7 +7081,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7115,7 +7115,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -7125,7 +7125,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7159,7 +7159,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -7169,7 +7169,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7203,7 +7203,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 2,
@@ -7213,7 +7213,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7247,7 +7247,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -7257,7 +7257,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7291,7 +7291,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -7301,7 +7301,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7335,7 +7335,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 14,
@@ -7345,7 +7345,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7379,7 +7379,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -7389,7 +7389,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7423,7 +7423,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -7433,7 +7433,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7467,7 +7467,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -7477,7 +7477,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7511,7 +7511,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -7521,7 +7521,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7555,7 +7555,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -7565,7 +7565,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7599,7 +7599,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -7609,7 +7609,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7643,7 +7643,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -7653,7 +7653,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7687,7 +7687,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 34,
@@ -7697,7 +7697,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7731,7 +7731,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 12,
@@ -7741,7 +7741,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7775,7 +7775,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -7785,7 +7785,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7819,7 +7819,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 25,
@@ -7829,7 +7829,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7863,7 +7863,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 17,
@@ -7873,7 +7873,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7907,7 +7907,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -7917,7 +7917,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7951,7 +7951,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -7961,7 +7961,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -7995,7 +7995,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 2,
@@ -8005,7 +8005,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8039,7 +8039,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 2,
@@ -8049,7 +8049,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8083,7 +8083,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 6,
@@ -8093,7 +8093,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8127,7 +8127,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -8137,7 +8137,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8171,7 +8171,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -8181,7 +8181,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8215,7 +8215,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 7,
@@ -8225,7 +8225,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8259,7 +8259,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -8269,7 +8269,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8303,7 +8303,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8313,7 +8313,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8321,7 +8321,7 @@
         "published_at": "2026-07-18T20:55:21+05:00"
       }
     },
-    "score": 0.0124
+    "score": 0.0123
   },
   {
     "topic": "Автокредиты с низким процентом",
@@ -8347,7 +8347,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -8357,7 +8357,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8391,7 +8391,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 22,
@@ -8401,7 +8401,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8435,7 +8435,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -8445,7 +8445,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8479,7 +8479,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -8489,7 +8489,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8523,7 +8523,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 4,
@@ -8533,7 +8533,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8567,7 +8567,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -8577,7 +8577,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8611,7 +8611,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8621,7 +8621,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8655,7 +8655,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 11,
@@ -8665,7 +8665,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8699,7 +8699,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8709,7 +8709,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8743,7 +8743,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8753,7 +8753,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8787,7 +8787,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -8797,7 +8797,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8831,7 +8831,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 12,
@@ -8841,7 +8841,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8849,7 +8849,7 @@
         "published_at": "2026-07-22T21:41:27+05:00"
       }
     },
-    "score": 0.0247
+    "score": 0.0246
   },
   {
     "topic": "Омега-3 для сердца и мозга",
@@ -8875,7 +8875,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 12,
@@ -8885,7 +8885,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8919,7 +8919,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8929,7 +8929,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -8963,7 +8963,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 9,
@@ -8973,7 +8973,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9007,7 +9007,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 10,
@@ -9017,7 +9017,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9051,7 +9051,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 16,
@@ -9061,7 +9061,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9095,7 +9095,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 21,
@@ -9105,7 +9105,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9139,7 +9139,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 17,
@@ -9149,7 +9149,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9183,7 +9183,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -9193,7 +9193,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9201,7 +9201,7 @@
         "published_at": "2026-07-25T18:12:33+05:00"
       }
     },
-    "score": 0.0254
+    "score": 0.0253
   },
   {
     "topic": "️ Компьютерное зрение распознаёт лица",
@@ -9227,7 +9227,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 15,
@@ -9237,7 +9237,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9245,7 +9245,7 @@
         "published_at": "2026-07-25T21:00:49+05:00"
       }
     },
-    "score": 0.0487
+    "score": 0.0486
   },
   {
     "topic": "Зелень в рационе детокс",
@@ -9271,7 +9271,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 18,
@@ -9281,7 +9281,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9289,7 +9289,7 @@
         "published_at": "2026-07-26T01:02:37+05:00"
       }
     },
-    "score": 0.0604
+    "score": 0.0603
   },
   {
     "topic": "Создание эффективного сайта",
@@ -9315,7 +9315,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 8,
@@ -9325,7 +9325,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9333,7 +9333,7 @@
         "published_at": "2026-07-26T21:13:19+05:00"
       }
     },
-    "score": 0.0323
+    "score": 0.0322
   },
   {
     "topic": "Обучение через игровые механики",
@@ -9359,7 +9359,7 @@
         "actions": 0,
         "err": 0.0,
         "erv": 0.0,
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 31,
@@ -9369,7 +9369,7 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         },
@@ -9377,7 +9377,7 @@
         "published_at": "2026-07-27T01:04:47+05:00"
       }
     },
-    "score": 0.1303
+    "score": 0.13
   },
   {
     "topic": "Спортивные напитки или вода",
@@ -9613,7 +9613,7 @@
         "publication_id": "6a69f5a90eb67e604d0bc097",
         "url": "https://sun9-56.vkuserphoto.ru/s/v1/ig2/cjcazCucHgwmEdrK48cCYrHVLFUOJOJrOkd-5LldsYOgU-GQuEUBXslXMSVvUlbl5g7plS2kzhPMC-KQMgU36FZH.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720&from=bu&cs=1080x0",
         "published_at": "2026-07-29T21:59:03+05:00",
-        "metrics_collected_at": "2026-07-30T14:16:44.411634+00:00",
+        "metrics_collected_at": "2026-07-30T14:27:02.629222+00:00",
         "metric_snapshots": {
           "latest": {
             "views": 3,
@@ -9623,13 +9623,13 @@
             "actions": 0,
             "err": 0.0,
             "erv": 0.0,
-            "collected_at": "2026-07-30T14:16:44.411634+00:00",
+            "collected_at": "2026-07-30T14:27:02.629222+00:00",
             "source": "postmypost_api"
           }
         }
       }
     },
-    "score": 0.0557
+    "score": 0.0553
   },
   {
     "topic": "🤸 Гимнастика для гибкости: три упражнения для шпагата",
@@ -9676,5 +9676,21 @@
     },
     "score": null,
     "ab_variant": "A"
+  },
+  {
+    "topic": "🛡️ Безопасность: почему нельзя загружать документы с паспортом в бесплатные нейросети",
+    "title": "🛡️ Почему нельзя загружать паспорт в нейросеть",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-07-30T14:26:51.638990",
+    "platforms": {
+      "telegram": {
+        "message_id": 842,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      }
+    },
+    "score": null,
+    "ab_variant": "B"
   }
 ]
