@@ -1,7 +1,15 @@
+import json
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
-from src.main import _deduplicate_topics, _parse_topic_list, _recent_topic_titles
+from src.main import (
+    _choose_ab_variant,
+    _deduplicate_topics,
+    _parse_topic_list,
+    _recent_topic_titles,
+)
 
 
 class TopicGenerationTests(unittest.TestCase):
@@ -39,6 +47,30 @@ class TopicGenerationTests(unittest.TestCase):
     def test_recent_titles_tolerates_missing_history(self, history_path):
         history_path.exists.return_value = False
         self.assertEqual(_recent_topic_titles(), [])
+
+    def test_ab_variants_start_balanced(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            history_path = Path(temp_dir) / "history.json"
+            history_path.write_text(
+                json.dumps([{"ab_variant": "A"}]),
+                encoding="utf-8",
+            )
+            self.assertEqual(_choose_ab_variant(history_path), "B")
+
+    def test_ab_variant_favors_winner_after_enough_samples(self):
+        records = []
+        for variant, views in (("A", 40), ("B", 10)):
+            for _ in range(5):
+                records.append(
+                    {
+                        "ab_variant": variant,
+                        "platforms": {"vk": {"views": views}},
+                    }
+                )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            history_path = Path(temp_dir) / "history.json"
+            history_path.write_text(json.dumps(records), encoding="utf-8")
+            self.assertEqual(_choose_ab_variant(history_path), "A")
 
 
 if __name__ == "__main__":

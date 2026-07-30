@@ -3,8 +3,7 @@ name: AI Content Farm
 on:
   schedule:
     - cron: '0 6 * * *'   # 09:00 MSK
-    - cron: '0 10 * * *'  # 13:00 MSK
-    - cron: '0 14 * * *'  # 17:00 MSK
+    - cron: '0 15 * * *'  # 18:00 MSK
   workflow_dispatch:
 
 permissions:
@@ -55,6 +54,7 @@ jobs:
           OK_APP_SECRET: ${{ secrets.OK_APP_SECRET }}
           OK_GROUP_ID: ${{ secrets.OK_GROUP_ID }}
           MAX_CONCURRENCY: ${{ vars.MAX_CONCURRENCY || '3' }}
+          CONTENT_NICHE: "искусственный интеллект"
 
       - name: Collect Postmypost analytics
         run: python src/postmypost_analytics.py

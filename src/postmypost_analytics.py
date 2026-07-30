@@ -168,6 +168,38 @@ def _matches_record(metric: dict, record: dict) -> bool:
     return False
 
 
+def _parse_datetime(value: str) -> datetime | None:
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def _nearest_metric_by_time(
+    publications: list[dict],
+    record: dict,
+) -> dict | None:
+    """Match RSS publications when Postmypost omits their text."""
+    record_time = _parse_datetime(record.get("published_at", ""))
+    if record_time is None:
+        return None
+
+    candidates = []
+    for metric in publications:
+        metric_time = _parse_datetime(metric.get("published_at", ""))
+        if metric_time is None:
+            continue
+        delay = (metric_time - record_time).total_seconds()
+        if -5 * 60 <= delay <= 45 * 60:
+            candidates.append((abs(delay), metric))
+    return min(candidates, key=lambda item: item[0])[1] if candidates else None
+
+
 def import_into_history(
     publications: list[dict],
     history_path: Path = DEFAULT_HISTORY,
@@ -180,14 +212,19 @@ def import_into_history(
     timestamp = collected_at or datetime.now(timezone.utc).isoformat()
     matched = 0
     changed = 0
+    available = list(publications)
 
     for record in history:
         metric = next(
-            (item for item in publications if _matches_record(item, record)),
+            (item for item in available if _matches_record(item, record)),
             None,
         )
+        saved_vk = record.get("platforms", {}).get("vk") or {}
+        if metric is None and not saved_vk.get("post_id"):
+            metric = _nearest_metric_by_time(available, record)
         if metric is None:
             continue
+        available.remove(metric)
 
         matched += 1
         vk = record.setdefault("platforms", {}).setdefault("vk", {})
@@ -202,6 +239,14 @@ def import_into_history(
         }
         previous = {key: vk.get(key) for key in values}
         vk.update(values)
+        if metric.get("post_id"):
+            vk["post_id"] = metric["post_id"]
+        if metric.get("publication_id"):
+            vk["publication_id"] = metric["publication_id"]
+        if metric.get("url"):
+            vk["url"] = metric["url"]
+        if metric.get("published_at"):
+            vk["published_at"] = metric["published_at"]
         vk["metrics_collected_at"] = timestamp
         vk.setdefault("metric_snapshots", {})["latest"] = {
             **values,

@@ -415,6 +415,8 @@ def generate_site():
             "niche": niche,
             "niche_tag": niche_tag,
             "reading_time": reading_time,
+            "vk_text": meta.get("vk_text", ""),
+            "ab_variant": meta.get("ab_variant", ""),
         })
 
     nav_links = "".join(
@@ -581,7 +583,13 @@ def _generate_rss(articles: list[dict]):
     base = SITE_URL or ""
     items = []
     for art in articles:
-        description = xml_escape(_rss_description(art["content"]))
+        vk_text = art.get("vk_text", "")
+        description_text = (
+            vk_text
+            if vk_text and "<" not in vk_text
+            else _rss_description(art["content"])
+        )
+        description = xml_escape(description_text)
         full_content = _rss_full_content(art)
         enclosure = ""
         if art.get("og_image"):

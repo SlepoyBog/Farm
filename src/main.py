@@ -51,6 +51,9 @@ OK_PUBLIC_KEY = os.getenv("OK_PUBLIC_KEY", "")
 OK_APP_SECRET = os.getenv("OK_APP_SECRET", "")
 OK_GROUP_ID = os.getenv("OK_GROUP_ID", "")
 SITE_URL = os.getenv("SITE_URL", "").rstrip("/")
+CONTENT_NICHE = os.getenv(
+    "CONTENT_NICHE", "искусственный интеллект"
+).strip()
 client = DeepSeekClient(api_key=DEEPSEEK_API_KEY) if DEEPSEEK_API_KEY else None
 
 
@@ -87,6 +90,7 @@ def slugify(text: str) -> str:
 
 TOPICS_POOL_PATH = Path("data") / "topics_pool.json"
 POST_HISTORY_PATH = Path("data") / "post_history.json"
+TOPIC_STRATEGY_VERSION = 2
 
 
 def _load_topic_pool() -> dict:
@@ -174,6 +178,7 @@ async def _refill_topic_pool(niche: str, pool: dict):
         topics = _deduplicate_topics(_parse_topic_list(response), recent_titles)
         if topics:
             pool["generated_at"] = datetime.now().isoformat()
+            pool["strategy_version"] = TOPIC_STRATEGY_VERSION
             pool.setdefault("topics", {})[niche] = topics
             _save_topic_pool(pool)
             logger.info(f"Added {len(topics)} topics to pool for '{niche}'")
@@ -211,7 +216,11 @@ async def generate_topics(niche: str) -> list[str]:
     niche_topics = pool.get("topics", {}).get(niche, [])
     generated_at = pool.get("generated_at")
 
-    stale = not generated_at or (datetime.now() - datetime.fromisoformat(generated_at)) > timedelta(days=7)
+    stale = (
+        pool.get("strategy_version") != TOPIC_STRATEGY_VERSION
+        or not generated_at
+        or (datetime.now() - datetime.fromisoformat(generated_at)) > timedelta(days=7)
+    )
 
     if not niche_topics or stale:
         logger.info(f"Topic pool for '{niche}' is empty or stale, refilling...")
@@ -588,12 +597,46 @@ async def enhance_for_tg(html_article: str, niche: str) -> str:
 
 
 
-async def enhance_for_vk(html_article: str, niche: str) -> str:
+def _choose_ab_variant(history_path: Path = POST_HISTORY_PATH) -> str:
+    """Balance a new test, then send 2/3 of posts through the winner."""
+    try:
+        history = json.loads(history_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError, TypeError):
+        history = []
+    counts = {"A": 0, "B": 0}
+    views = {"A": [], "B": []}
+    for record in history:
+        variant = record.get("ab_variant")
+        if variant in counts:
+            counts[variant] += 1
+            metric_views = (record.get("platforms", {}).get("vk") or {}).get("views")
+            if isinstance(metric_views, (int, float)):
+                views[variant].append(float(metric_views))
+
+    if len(views["A"]) >= 5 and len(views["B"]) >= 5:
+        averages = {
+            variant: sum(samples) / len(samples)
+            for variant, samples in views.items()
+        }
+        winner = max(averages, key=averages.get)
+        loser = "B" if winner == "A" else "A"
+        # Keep a control group so the system notices when preferences change.
+        return loser if sum(counts.values()) % 3 == 2 else winner
+
+    return "A" if counts["A"] <= counts["B"] else "B"
+
+
+async def enhance_for_vk(
+    html_article: str,
+    niche: str,
+    ab_variant: str = "A",
+) -> str:
     """Rewrite article for VK with trends and engagement using VK prompt."""
     system_prompt, user_template = load_prompt("vk_trend_editor")
     user_prompt = (
         user_template.replace("{{article}}", html_article)
         .replace("{{niche}}", niche)
+        .replace("{{ab_variant}}", ab_variant)
     )
     try:
         result = await client.call(
@@ -723,13 +766,21 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             from src.vk_publisher import _generate_hashtags as vk_hashtags
 
             logger.info("Enhancing article for VK...")
-            vk_article = await enhance_for_vk(article, niche)
+            ab_variant = _choose_ab_variant()
+            logger.info("VK A/B variant: %s", ab_variant)
+            vk_article = await enhance_for_vk(article, niche, ab_variant)
             if len(vk_article) < 50:
                 vk_article = article
             vk_hash_str = vk_hashtags(niche, tg_title)
             if vk_hash_str:
                 vk_article = vk_article.rstrip() + "\n\n" + vk_hash_str
             vk_post_text = vk_article
+            meta["vk_text"] = vk_post_text
+            meta["ab_variant"] = ab_variant
+            meta_path.write_text(
+                json.dumps(meta, ensure_ascii=False),
+                encoding="utf-8",
+            )
 
             # Step 6: Publish to VK (with VK-enhanced content)
             vk_ok = False
@@ -801,6 +852,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                 vk_post_id=vk_post_id_local,
                 vk_owner_id=vk_owner_id,
                 ok_post_id=ok_post_id,
+                ab_variant=ab_variant,
             )
 
             elapsed = time.time() - start_time
@@ -824,7 +876,7 @@ async def main():
     parser.add_argument("--full", action="store_true", help="Process all topics (default: test mode, 1 topic)")
     args = parser.parse_args()
 
-    niche = await detect_trending_niche(client)
+    niche = CONTENT_NICHE or await detect_trending_niche(client)
 
     logger.info(f"{'='*60}")
     logger.info(f"AI Content Farm - Starting")
