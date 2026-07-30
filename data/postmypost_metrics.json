@@ -2,8 +2,22 @@
   "source": "postmypost_api",
   "project_id": "353549",
   "account_id": "2205063",
-  "collected_at": "2026-07-30T08:33:39.757764+00:00",
+  "collected_at": "2026-07-30T11:45:13.711536+00:00",
   "posts": [
+    {
+      "post_id": 699,
+      "publication_id": "6a6b1011386db788b90cf780",
+      "text": "",
+      "published_at": "2026-07-30T18:39:57+05:00",
+      "url": "https://sun9-70.vkuserphoto.ru/s/v1/ig2/7bMhQd4F4ZxY-lnuoOZyeRpYm_IqJh_fdutAIdZoY3BL0ntRNAOZ9FGUse1ptFKu5D5FFeTc7m2KIwbuf-M_2Ehm.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x106,240x160,360x239,480x319,540x359,640x425,720x479,1080x718&from=bu&cs=1080x0",
+      "actions": 0,
+      "reactions": 0,
+      "comments": 0,
+      "views": 0,
+      "reach": 0,
+      "err": 0.0,
+      "erv": 0.0
+    },
     {
       "post_id": 698,
       "publication_id": "6a6a669b34e76430420ddafc",
@@ -13,8 +27,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 3,
-      "reach": 3,
+      "views": 6,
+      "reach": 6,
       "err": 0.0,
       "erv": 0.0
     },
@@ -27,8 +41,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 20,
-      "reach": 20,
+      "views": 26,
+      "reach": 26,
       "err": 0.0,
       "erv": 0.0
     },
@@ -41,8 +55,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 4,
-      "reach": 4,
+      "views": 7,
+      "reach": 7,
       "err": 0.0,
       "erv": 0.0
     },
@@ -55,8 +69,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 2,
-      "reach": 2,
+      "views": 3,
+      "reach": 3,
       "err": 0.0,
       "erv": 0.0
     },
