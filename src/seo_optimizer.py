@@ -74,8 +74,13 @@ async def optimize_article(
         )
 
 
-def save_metadata(slug: str, topic: str, seo: SEOData):
-    meta_path = Path("output") / f"{slug}.meta.json"
+def save_metadata(
+    slug: str,
+    topic: str,
+    seo: SEOData,
+    output_dir: Path = Path("output"),
+):
+    meta_path = output_dir / f"{slug}.meta.json"
     existing = {}
     if meta_path.exists():
         try:
@@ -83,16 +88,13 @@ def save_metadata(slug: str, topic: str, seo: SEOData):
         except Exception:
             pass
     data = {
+        **existing,
         "topic": topic,
         "slug": slug,
         "seo_title": seo.title,
         "seo_description": seo.description,
         "seo_keywords": seo.keywords,
     }
-    if existing.get("image_url"):
-        data["image_url"] = existing["image_url"]
-    if existing.get("niche"):
-        data["niche"] = existing["niche"]
     meta_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     logger.info(f"SEO metadata saved to: {meta_path}")
 
