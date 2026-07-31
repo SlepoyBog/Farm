@@ -2,8 +2,22 @@
   "source": "postmypost_api",
   "project_id": "353549",
   "account_id": "2205063",
-  "collected_at": "2026-07-31T08:55:33.386360+00:00",
+  "collected_at": "2026-07-31T16:30:11.589582+00:00",
   "posts": [
+    {
+      "post_id": 704,
+      "publication_id": "6a6c9b7558a0d3f4820635e3",
+      "text": "",
+      "published_at": "2026-07-31T19:00:32+05:00",
+      "url": "https://sun9-85.vkuserphoto.ru/s/v1/ig2/VthIQAw5FqchmhjLfc5thogT3mBrBSGeZvhUtz_Hz5eGYalDVE5ZRu6_nszxV1SJ6DZg2zMngMGslKuZilYZXdaV.jpg?quality=96&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608&from=bu&cs=1080x0",
+      "actions": 0,
+      "reactions": 0,
+      "comments": 0,
+      "views": 2,
+      "reach": 2,
+      "err": 0.0,
+      "erv": 0.0
+    },
     {
       "post_id": 703,
       "publication_id": "6a6b810bfe1448bc5804c362",
@@ -27,8 +41,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 14,
-      "reach": 14,
+      "views": 15,
+      "reach": 15,
       "err": 0.0,
       "erv": 0.0
     },
@@ -97,8 +111,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 32,
-      "reach": 32,
+      "views": 38,
+      "reach": 38,
       "err": 0.0,
       "erv": 0.0
     },
@@ -111,8 +125,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 10,
-      "reach": 10,
+      "views": 12,
+      "reach": 12,
       "err": 0.0,
       "erv": 0.0
     },
@@ -279,8 +293,8 @@
       "actions": 0,
       "reactions": 0,
       "comments": 0,
-      "views": 21,
-      "reach": 21,
+      "views": 22,
+      "reach": 22,
       "err": 0.0,
       "erv": 0.0
     },
