@@ -475,11 +475,14 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     logger.info(f"Publishing article to Telegram: {title}")
 
     content_no_h1 = re.sub(r'<h1[^>]*>.*?</h1>\s*', '', html_content, flags=re.DOTALL)
+    import html as html_module
+
     clean_title = re.sub(r'^-\s*', '', title).strip()
+    safe_title = html_module.escape(clean_title)
     body_text = html_to_telegram_text(content_no_h1)
     base_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
-    full_text = f"{clean_title}\n\n{body_text}"
+    full_text = f"<b>{safe_title}</b>\n\n{body_text}"
     full_text = enhance_post_text(full_text, niche=niche, title=clean_title)
     has_html = "<" in full_text and ">" in full_text
 

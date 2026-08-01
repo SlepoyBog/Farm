@@ -77,17 +77,26 @@ def inject_into_tg_prompt(prompt_template: str, niche: str, title: str = "") -> 
 
 
 def enhance_post_text(text: str, niche: str, title: str = "") -> str:
+    """Add one compact Telegram-native engagement footer.
+
+    The AI editor is already asked to end posts with a question.  Avoid adding a
+    second question when it complied; duplicate calls to action make an
+    automated channel look noisy and reduce readability.
+    """
     text = text.rstrip()
     if not text:
         return ""
 
+    tail = text[-300:]
+    if "?" in tail:
+        return f"{text}\n\n📌 Сохраните пост и перешлите тому, кому он пригодится."
+
     question = get_engagement_question(niche, title)
-    last_char = text[-1]
-    if last_char in (".", "!", "?", "…"):
-        return f"{text}\n\n💬 {question}"
-    if text.rstrip().endswith("\"") or text.rstrip().endswith(")"):
-        return f"{text}\n\n💬 {question}"
-    return f"{text}.\n\n💬 {question}"
+    separator = "" if text[-1] in (".", "!", "?", "…", "\"", ")") else "."
+    return (
+        f"{text}{separator}\n\n💬 {question}"
+        "\n📌 Сохраните пост и перешлите тому, кому он пригодится."
+    )
 
 
 if __name__ == "__main__":
