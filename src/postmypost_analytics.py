@@ -313,12 +313,30 @@ def main() -> None:
         logger.info("POSTMYPOST_API_TOKEN is not configured; skipping analytics.")
         return
 
-    result = collect_and_save(
-        token=token,
-        project_id=os.getenv("POSTMYPOST_PROJECT_ID", DEFAULT_PROJECT_ID),
-        account_id=os.getenv("POSTMYPOST_ACCOUNT_ID", DEFAULT_ACCOUNT_ID),
-        days=int(os.getenv("POSTMYPOST_ANALYTICS_DAYS", "30")),
-    )
+    try:
+        result = collect_and_save(
+            token=token,
+            project_id=os.getenv("POSTMYPOST_PROJECT_ID", DEFAULT_PROJECT_ID),
+            account_id=os.getenv("POSTMYPOST_ACCOUNT_ID", DEFAULT_ACCOUNT_ID),
+            days=int(os.getenv("POSTMYPOST_ANALYTICS_DAYS", "30")),
+        )
+    except requests.RequestException as exc:
+        response = getattr(exc, "response", None)
+        status = getattr(response, "status_code", "unknown")
+        body = (getattr(response, "text", "") or "").strip().replace("\n", " ")
+        logger.warning(
+            "Postmypost analytics unavailable; keeping previous metrics "
+            "(status=%s, response=%s)",
+            status,
+            body[:500] or "empty",
+        )
+        return
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
+        logger.warning(
+            "Postmypost analytics could not be processed; keeping previous metrics: %s",
+            exc,
+        )
+        return
     logger.info(
         "Postmypost analytics: posts=%s matched=%s changed=%s",
         result["posts"],

@@ -2,11 +2,31 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
+import requests
+
+import src.postmypost_analytics as analytics
 from src.postmypost_analytics import import_into_history, normalize_publication
 
 
 class PostmypostAnalyticsTests(unittest.TestCase):
+    def test_main_keeps_pipeline_alive_when_api_returns_400(self):
+        response = requests.Response()
+        response.status_code = 400
+        response._content = b'{"message":"invalid analytics request"}'
+        error = requests.HTTPError(response=response)
+
+        with (
+            mock.patch.dict("os.environ", {"POSTMYPOST_API_TOKEN": "test-token"}),
+            mock.patch.object(analytics, "collect_and_save", side_effect=error),
+            self.assertLogs(analytics.logger, level="WARNING") as captured,
+        ):
+            analytics.main()
+
+        self.assertIn("status=400", " ".join(captured.output))
+        self.assertIn("keeping previous metrics", " ".join(captured.output))
+
     def test_normalizes_nested_metrics_and_vk_url(self):
         result = normalize_publication(
             {

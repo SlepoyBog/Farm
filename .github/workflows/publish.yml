@@ -56,7 +56,17 @@ jobs:
           MAX_CONCURRENCY: ${{ vars.MAX_CONCURRENCY || '3' }}
           CONTENT_NICHE: "искусственный интеллект"
 
+      # Publishing is the critical path. Deploy the fresh RSS before optional
+      # analytics so an external reporting outage cannot stop VK delivery.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
       - name: Collect Postmypost analytics
+        continue-on-error: true
         run: python src/postmypost_analytics.py
         env:
           POSTMYPOST_API_TOKEN: ${{ secrets.POSTMYPOST_API_TOKEN }}
@@ -64,19 +74,14 @@ jobs:
           POSTMYPOST_ACCOUNT_ID: "2205063"
           POSTMYPOST_ANALYTICS_DAYS: "30"
 
-      - run: python src/feedback_loop.py
+      - name: Update feedback model
+        continue-on-error: true
+        run: python src/feedback_loop.py
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           VK_ACCESS_TOKEN: ${{ secrets.VK_ACCESS_TOKEN }}
           VK_ANALYTICS_TOKEN: ${{ secrets.VK_ANALYTICS_TOKEN }}
           VK_GROUP_ID: ${{ secrets.VK_GROUP_ID }}
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
 
       - name: Commit generated state and version bump
         run: |
