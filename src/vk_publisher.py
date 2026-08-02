@@ -269,7 +269,13 @@ def publish_to_vk(
         numeric_id = numeric_id[6:]
 
     attachments = []
-    if image_url:
+    publish_images = os.getenv("VK_PUBLISH_IMAGES", "true").lower() not in {
+        "0",
+        "false",
+        "no",
+        "off",
+    }
+    if image_url and publish_images:
         photo_attachment = _upload_wall_photo(access_token, group_id, image_url)
         if photo_attachment:
             attachments.append(photo_attachment)
@@ -279,6 +285,8 @@ def publish_to_vk(
             # a chance to keep a visual link preview without requiring a user token.
             attachments.append(image_url)
             logger.info("VK photo upload unavailable; using image URL attachment")
+    elif image_url:
+        logger.info("VK image publishing disabled; publishing the complete text only")
 
     url = "https://api.vk.com/method/wall.post"
     data = {
