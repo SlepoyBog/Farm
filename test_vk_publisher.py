@@ -16,7 +16,8 @@ def _vk_response(payload):
 class VkPublisherTests(unittest.TestCase):
     @patch.dict("os.environ", {"VK_PUBLISH_ENABLED": "false"})
     @patch("src.vk_publisher.requests.post")
-    def test_skips_direct_publish_when_rss_mode_is_enabled(self, post):
+    def test_direct_publish_stays_enabled_after_rss_service_expires(self, post):
+        post.return_value = _vk_response({"response": {"post_id": 41}})
         ok, post_id = publish_to_vk(
             "token",
             "club123",
@@ -25,13 +26,13 @@ class VkPublisherTests(unittest.TestCase):
             "технологии",
         )
 
-        self.assertFalse(ok)
-        self.assertIsNone(post_id)
-        post.assert_not_called()
+        self.assertTrue(ok)
+        self.assertEqual(post_id, 41)
+        post.assert_called_once()
 
     @patch("src.vk_publisher.requests.post")
     @patch("src.vk_publisher._upload_wall_photo", return_value=None)
-    def test_uses_image_url_when_group_token_cannot_upload_photo(self, _, post):
+    def test_skips_image_by_default_for_group_token(self, upload, post):
         post.return_value = _vk_response({"response": {"post_id": 42}})
 
         ok, post_id = publish_to_vk(
@@ -45,11 +46,10 @@ class VkPublisherTests(unittest.TestCase):
 
         self.assertTrue(ok)
         self.assertEqual(post_id, 42)
-        self.assertEqual(
-            post.call_args.kwargs["data"]["attachments"],
-            "https://images.example/cover.jpg",
-        )
+        upload.assert_not_called()
+        self.assertNotIn("attachments", post.call_args.kwargs["data"])
 
+    @patch.dict("os.environ", {"VK_PUBLISH_IMAGES": "true"})
     @patch("src.vk_publisher.requests.post")
     @patch("src.vk_publisher._upload_wall_photo", return_value=None)
     def test_retries_without_attachment_if_vk_rejects_external_url(self, _, post):
