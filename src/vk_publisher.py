@@ -250,10 +250,6 @@ def publish_to_vk(
     raw_text: str | None = None,
     image_url: str | None = None,
 ) -> tuple[bool, int | None]:
-    if os.getenv("VK_PUBLISH_ENABLED", "true").lower() in {"0", "false", "no", "off"}:
-        logger.info("Direct VK publishing disabled; RSS publisher is active.")
-        return False, None
-
     if not access_token or not group_id:
         logger.warning("VK not configured. Skipping publication.")
         return False, None
@@ -269,7 +265,7 @@ def publish_to_vk(
         numeric_id = numeric_id[6:]
 
     attachments = []
-    publish_images = os.getenv("VK_PUBLISH_IMAGES", "true").lower() not in {
+    publish_images = os.getenv("VK_PUBLISH_IMAGES", "false").lower() not in {
         "0",
         "false",
         "no",
