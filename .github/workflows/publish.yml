@@ -42,9 +42,10 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           VK_ACCESS_TOKEN: ${{ secrets.VK_ACCESS_TOKEN }}
           VK_GROUP_ID: ${{ secrets.VK_GROUP_ID }}
-          # VK posts with images are published from site/rss.xml by Postmypost.
-          # Keep the API token for compatibility, but prevent duplicate wall posts.
-          VK_PUBLISH_ENABLED: "false"
+          VK_PUBLISH_ENABLED: "true"
+          VK_PUBLISH_IMAGES: "false"
+          # Deploy the article first so VK can render its Open Graph image.
+          VK_DEFER_UNTIL_SITE_DEPLOY: "true"
           SITE_URL: ${{ secrets.SITE_URL || 'https://slepoybog.github.io/Farm' }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
@@ -64,6 +65,12 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Publish VK link card
+        run: python -m src.publish_pending_vk
+        env:
+          VK_ACCESS_TOKEN: ${{ secrets.VK_ACCESS_TOKEN }}
+          VK_GROUP_ID: ${{ secrets.VK_GROUP_ID }}
 
       - name: Collect Postmypost analytics
         continue-on-error: true
