@@ -790,16 +790,33 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             vk_post_id_local = None
             if vk_post_text:
                 try:
-                    from src.vk_publisher import publish_to_vk as publish_vk
-                    vk_ok, vk_post_id_local = publish_vk(
-                        access_token=VK_ACCESS_TOKEN,
-                        group_id=VK_GROUP_ID,
-                        title=tg_title,
-                        html_content=article,
-                        niche=niche,
-                        image_url=image_url,
-                        raw_text=vk_post_text,
-                    )
+                    article_url = f"{SITE_URL}/{slug}.html" if SITE_URL else ""
+                    defer_vk = os.getenv("VK_DEFER_UNTIL_SITE_DEPLOY", "false").lower() in {
+                        "1", "true", "yes", "on"
+                    }
+                    if defer_vk and article_url:
+                        from src.vk_pending import queue_vk_post
+
+                        queue_vk_post({
+                            "title": tg_title,
+                            "html_content": article,
+                            "niche": niche,
+                            "raw_text": vk_post_text,
+                            "article_url": article_url,
+                        })
+                        logger.info("VK post deferred until site deployment: %s", article_url)
+                    else:
+                        from src.vk_publisher import publish_to_vk as publish_vk
+                        vk_ok, vk_post_id_local = publish_vk(
+                            access_token=VK_ACCESS_TOKEN,
+                            group_id=VK_GROUP_ID,
+                            title=tg_title,
+                            html_content=article,
+                            niche=niche,
+                            image_url=image_url,
+                            raw_text=vk_post_text,
+                            article_url=article_url or None,
+                        )
                 except Exception as e:
                     logger.warning(f"VK publish failed for '{topic}': {e}")
 

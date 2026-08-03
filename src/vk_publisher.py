@@ -249,6 +249,7 @@ def publish_to_vk(
     from_group: int = 1,
     raw_text: str | None = None,
     image_url: str | None = None,
+    article_url: str | None = None,
 ) -> tuple[bool, int | None]:
     if not access_token or not group_id:
         logger.warning("VK not configured. Skipping publication.")
@@ -265,13 +266,20 @@ def publish_to_vk(
         numeric_id = numeric_id[6:]
 
     attachments = []
+    if article_url:
+        article_url = article_url.strip()
+        attachments.append(article_url)
+        if article_url not in post_text:
+            post_text = post_text.rstrip() + f"\n\nЧитать на сайте: {article_url}"
+        logger.info("VK link card enabled: %s", article_url)
+
     publish_images = os.getenv("VK_PUBLISH_IMAGES", "false").lower() not in {
         "0",
         "false",
         "no",
         "off",
     }
-    if image_url and publish_images:
+    if image_url and publish_images and not article_url:
         photo_attachment = _upload_wall_photo(access_token, group_id, image_url)
         if photo_attachment:
             attachments.append(photo_attachment)
@@ -281,7 +289,7 @@ def publish_to_vk(
             # a chance to keep a visual link preview without requiring a user token.
             attachments.append(image_url)
             logger.info("VK photo upload unavailable; using image URL attachment")
-    elif image_url:
+    elif image_url and not article_url:
         logger.info("VK image publishing disabled; publishing the complete text only")
 
     url = "https://api.vk.com/method/wall.post"

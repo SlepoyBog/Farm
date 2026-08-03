@@ -72,6 +72,24 @@ class VkPublisherTests(unittest.TestCase):
         self.assertEqual(post.call_count, 2)
         self.assertNotIn("attachments", post.call_args.kwargs["data"])
 
+    @patch("src.vk_publisher.requests.post")
+    def test_uses_article_page_as_visual_link_card(self, post):
+        post.return_value = _vk_response({"response": {"post_id": 44}})
+        article_url = "https://slepoybog.github.io/Farm/article.html"
+
+        ok, post_id = publish_to_vk(
+            "token", "123", "Заголовок", "<p>Текст</p>", "технологии",
+            raw_text="Полный текст",
+            image_url="https://images.example/cover.jpg",
+            article_url=article_url,
+        )
+
+        self.assertTrue(ok)
+        self.assertEqual(post_id, 44)
+        sent = post.call_args.kwargs["data"]
+        self.assertEqual(sent["attachments"], article_url)
+        self.assertIn(article_url, sent["message"])
+
 
 if __name__ == "__main__":
     unittest.main()
