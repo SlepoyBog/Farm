@@ -10316,5 +10316,22 @@
     },
     "score": null,
     "ab_variant": "B"
+  },
+  {
+    "publication_id": "aec0ab52-7c26-4a21-be9b-32f2ab561252",
+    "topic": "🤔 Сравнение: ChatGPT против Yandex GPT для русскоязычного поддержки клиентов",
+    "title": "🤖 ChatGPT против Yandex GPT: битва за русскую поддержку",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-08-13T17:33:09.756815",
+    "platforms": {
+      "telegram": {
+        "message_id": 896,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      }
+    },
+    "score": null,
+    "ab_variant": "A"
   }
 ]
