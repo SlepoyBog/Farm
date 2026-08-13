@@ -22,6 +22,7 @@ WEIGHT_REACTIONS = 0.3
 WEIGHT_COMMENTS = 0.3
 VK_API_VERSION = "5.199"
 VK_BATCH_SIZE = 100
+MIN_MEASURED_POSTS_FOR_LEARNING = 20
 
 
 def _load_history() -> list[dict]:
@@ -337,7 +338,14 @@ def get_recommendations() -> list[str]:
 
 
 def inject_recommendations(system_prompt: str) -> str:
-    recs = get_recommendations()
+    patterns = _load_patterns()
+    recs = patterns.get("recommendations", [])
+    try:
+        updated = datetime.fromisoformat(patterns.get("last_updated") or "")
+        if datetime.now() - updated > timedelta(days=30):
+            recs = []
+    except (TypeError, ValueError):
+        recs = []
     if not recs:
         return system_prompt
     base = system_prompt.strip() or "Ты — автор контент-фермы. Пиши интересные и полезные статьи."
@@ -442,9 +450,25 @@ async def run_feedback_loop(
     await collect_metrics(vk_access_token=vk_access_token, vk_group_id=vk_group_id)
 
     top_posts = get_top_posts(n=top_n, days_back=days_back)
-    if not top_posts:
-        logger.info("No scored posts available for analysis.")
+    measured = score_posts(days_back=days_back)
+    if len(measured) < MIN_MEASURED_POSTS_FOR_LEARNING:
+        logger.info(
+            "Learning paused: %d/%d measured posts available.",
+            len(measured), MIN_MEASURED_POSTS_FOR_LEARNING,
+        )
         return None
+
+    # Never let old unrelated niches teach the current content strategy.
+    niche_counts: dict[str, int] = {}
+    for record, _score in measured:
+        niche = str(record.get("niche") or "")
+        niche_counts[niche] = niche_counts.get(niche, 0) + 1
+    target_niche = max(niche_counts, key=niche_counts.get)
+    niche_posts = [(record, score) for record, score in measured if record.get("niche") == target_niche]
+    if len(niche_posts) < MIN_MEASURED_POSTS_FOR_LEARNING:
+        logger.info("Learning paused: no single niche has enough measured posts.")
+        return None
+    top_posts = niche_posts[:top_n]
 
     logger.info(f"Top-{len(top_posts)} posts selected for analysis:")
     for i, (rec, sc) in enumerate(top_posts, 1):

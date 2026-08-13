@@ -60,13 +60,23 @@ class TopicGenerationTests(unittest.TestCase):
     def test_ab_variant_favors_winner_after_enough_samples(self):
         records = []
         for variant, views in (("A", 40), ("B", 10)):
-            for _ in range(5):
+            for _ in range(20):
                 records.append(
                     {
                         "ab_variant": variant,
                         "platforms": {"vk": {"views": views}},
                     }
                 )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            history_path = Path(temp_dir) / "history.json"
+            history_path.write_text(json.dumps(records), encoding="utf-8")
+            self.assertEqual(_choose_ab_variant(history_path), "A")
+
+    def test_ab_does_not_pick_winner_from_small_sample(self):
+        records = []
+        for variant, views in (("A", 100), ("B", 1)):
+            for _ in range(5):
+                records.append({"ab_variant": variant, "platforms": {"vk": {"views": views}}})
         with tempfile.TemporaryDirectory() as temp_dir:
             history_path = Path(temp_dir) / "history.json"
             history_path.write_text(json.dumps(records), encoding="utf-8")

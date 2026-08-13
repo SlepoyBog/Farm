@@ -94,6 +94,7 @@ def slugify(text: str) -> str:
 TOPICS_POOL_PATH = Path("data") / "topics_pool.json"
 POST_HISTORY_PATH = Path("data") / "post_history.json"
 TOPIC_STRATEGY_VERSION = 2
+AB_MIN_MEASURED_PER_VARIANT = 20
 
 
 def _load_topic_pool() -> dict:
@@ -607,7 +608,10 @@ def _choose_ab_variant(history_path: Path = POST_HISTORY_PATH) -> str:
             if isinstance(metric_views, (int, float)):
                 views[variant].append(float(metric_views))
 
-    if len(views["A"]) >= 5 and len(views["B"]) >= 5:
+    if (
+        len(views["A"]) >= AB_MIN_MEASURED_PER_VARIANT
+        and len(views["B"]) >= AB_MIN_MEASURED_PER_VARIANT
+    ):
         averages = {
             variant: sum(samples) / len(samples)
             for variant, samples in views.items()
