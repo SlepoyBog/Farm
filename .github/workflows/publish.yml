@@ -84,6 +84,7 @@ jobs:
           echo "$NEXT" > VERSION
           git add VERSION site
           find data -maxdepth 1 -type f -name '*.json' -print0 | xargs -0 git add --
+          git add data/topics_queue.txt
           if ! git diff --cached --quiet; then
             git commit -m "v$NEXT: checkpoint generated state [skip ci]"
             git pull --rebase origin main

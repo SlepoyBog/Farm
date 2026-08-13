@@ -1,0 +1,91 @@
+name: Recover Prepared Publication
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: Run ID containing generated-state artifact
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  actions: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: farm-publish-main
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install -r requirements.txt
+
+      - name: Download prepared recovery state
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-state-${{ inputs.source_run_id }}
+          path: recovery/source
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.source_run_id }}
+
+      - name: Restore prepared state
+        run: |
+          cp -R recovery/source/data/. data/
+          cp -R recovery/source/site/. site/
+
+      - name: Persist prepared state before external publication
+        run: |
+          git config user.name "Farm Bot"
+          git config user.email "farm-bot@users.noreply.github.com"
+          git add site data
+          if ! git diff --cached --quiet; then
+            git commit -m "Recover prepared publication [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Publish recovered VK queue
+        run: python -m src.publish_pending_vk
+        env:
+          VK_ACCESS_TOKEN: ${{ secrets.VK_ACCESS_TOKEN }}
+          VK_GROUP_ID: ${{ secrets.VK_GROUP_ID }}
+
+      - name: Build health report
+        if: always()
+        run: python -m src.health_report
+
+      - name: Persist final recovered state
+        if: always()
+        run: |
+          git config user.name "Farm Bot"
+          git config user.email "farm-bot@users.noreply.github.com"
+          git add data
+          if ! git diff --cached --quiet; then
+            git commit -m "Finalize recovered publication [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
