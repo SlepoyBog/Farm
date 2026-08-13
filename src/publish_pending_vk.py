@@ -2,6 +2,7 @@
 
 import logging
 import os
+import re
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -22,7 +23,12 @@ def _page_is_ready(url: str, attempts: int = 8, delay: int = 5) -> bool:
         try:
             response = requests.get(url, timeout=20)
             html = response.text.lower()
-            if response.ok and 'property="og:image"' in html and 'property="og:title"' in html:
+            image_match = re.search(
+                r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
+                response.text,
+                flags=re.IGNORECASE,
+            )
+            if response.ok and image_match and image_match.group(1).strip() and 'property="og:title"' in html:
                 return True
             logger.info("VK card page not ready yet (%s, attempt %d)", response.status_code, attempt)
         except requests.RequestException as exc:
@@ -75,6 +81,21 @@ def _record_vk_post(item: dict, post_id: int, group_id: str) -> bool:
     return False
 
 
+def _record_telegram_post(item: dict, message_id: int) -> bool:
+    from src.state_store import atomic_write_json, read_json
+    history = read_json(HISTORY_PATH, [], critical=True)
+    if not isinstance(history, list):
+        return False
+    publication_id = str(item.get("publication_id") or "")
+    candidates = [r for r in history if publication_id and r.get("publication_id") == publication_id]
+    for record in reversed(candidates):
+        platform = record.setdefault("platforms", {}).setdefault("telegram", {})
+        platform.update({"message_id": message_id, "views": None, "reactions": None})
+        atomic_write_json(HISTORY_PATH, history)
+        return True
+    return False
+
+
 def main() -> None:
     token = os.getenv("VK_ACCESS_TOKEN", "")
     group_id = os.getenv("VK_GROUP_ID", "")
@@ -93,6 +114,28 @@ def main() -> None:
             item["updated_at"] = datetime.now(timezone.utc).isoformat()
             failed.append(item)
             continue
+
+        telegram_message_id = item.get("telegram_message_id")
+        if not telegram_message_id:
+            from src.main import publish_to_telegram
+            tg_ok, telegram_message_id = publish_to_telegram(
+                title=item.get("title", ""),
+                html_content=item.get("telegram_html_content") or item.get("html_content", ""),
+                image_url=item.get("telegram_image_url"),
+                article_url=article_url,
+                niche=item.get("niche", ""),
+            )
+            if not tg_ok or telegram_message_id is None:
+                item["attempts"] = int(item.get("attempts") or 0) + 1
+                item["last_error"] = "Telegram publication failed"
+                item["updated_at"] = datetime.now(timezone.utc).isoformat()
+                failed.append(item)
+                continue
+            item["telegram_message_id"] = telegram_message_id
+            _record_telegram_post(item, telegram_message_id)
+            # Persist immediately: a later VK error must not cause Telegram to
+            # publish the same item again on the next workflow retry.
+            save_pending(pending)
 
         ok, post_id = publish_to_vk(
             access_token=token,

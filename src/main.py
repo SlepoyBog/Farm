@@ -819,12 +819,20 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             meta_path = Path("output") / f"{slug}.meta.json"
             json.dump(meta, meta_path.open("w", encoding="utf-8"), ensure_ascii=False)
 
-            # Step 5: Publish to Telegram (with enhanced content)
+            # Step 5: Queue Telegram until the article and its Open Graph image
+            # are publicly available. Publishing before Pages deploys prevents
+            # Telegram from building the image preview.
             tg_title = _extract_title(article)
             article_url = f"{SITE_URL}/{slug}.html" if SITE_URL else None
-            tg_ok, tg_msg_id = publish_to_telegram(
-                tg_title, tg_article, image_url, article_url=article_url, niche=niche
-            )
+            defer_social = os.getenv("VK_DEFER_UNTIL_SITE_DEPLOY", "false").lower() in {
+                "1", "true", "yes", "on"
+            }
+            tg_ok = False
+            tg_msg_id = None
+            if not (defer_social and article_url):
+                tg_ok, tg_msg_id = publish_to_telegram(
+                    tg_title, tg_article, image_url, article_url=article_url, niche=niche
+                )
 
             # Step 3.5: Enhance for VK
             from src.vk_publisher import _generate_hashtags as vk_hashtags
@@ -852,10 +860,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             if vk_post_text:
                 try:
                     article_url = article_url or ""
-                    defer_vk = os.getenv("VK_DEFER_UNTIL_SITE_DEPLOY", "false").lower() in {
-                        "1", "true", "yes", "on"
-                    }
-                    if defer_vk and article_url:
+                    if defer_social and article_url:
                         from src.vk_pending import queue_vk_post
 
                         queue_vk_post({
@@ -866,8 +871,11 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                             "niche": niche,
                             "raw_text": vk_post_text,
                             "article_url": article_url,
+                            "telegram_html_content": tg_article,
+                            "telegram_image_url": image_url,
+                            "telegram_message_id": tg_msg_id,
                         })
-                        logger.info("VK post deferred until site deployment: %s", article_url)
+                        logger.info("Telegram and VK deferred until site deployment: %s", article_url)
                     else:
                         from src.vk_publisher import publish_to_vk as publish_vk
                         vk_ok, vk_post_id_local = publish_vk(
