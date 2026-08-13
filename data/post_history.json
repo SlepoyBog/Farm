@@ -10290,5 +10290,22 @@
     },
     "score": null,
     "ab_variant": "A"
+  },
+  {
+    "publication_id": "973f438b-8df0-4e94-959a-00de1c032764",
+    "topic": "📋 Как ИИ превращает список дел в готовый план дня за 5 минут",
+    "title": "📋 Как ИИ превращает список дел в готовый план дня за 5 минут",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-08-13T16:57:47.955956",
+    "platforms": {
+      "telegram": {
+        "message_id": 895,
+        "views": null,
+        "reactions": null,
+        "comments": null
+      }
+    },
+    "score": null,
+    "ab_variant": "B"
   }
 ]
