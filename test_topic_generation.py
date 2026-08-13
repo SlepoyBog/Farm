@@ -5,6 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from src.main import (
+    AI_FALLBACK_TOPICS,
     _choose_ab_variant,
     _deduplicate_topics,
     _parse_topic_list,
@@ -13,6 +14,10 @@ from src.main import (
 
 
 class TopicGenerationTests(unittest.TestCase):
+    def test_fallback_topics_are_ai_focused_and_unique(self):
+        self.assertGreaterEqual(len(AI_FALLBACK_TOPICS), 15)
+        self.assertEqual(len(AI_FALLBACK_TOPICS), len(set(AI_FALLBACK_TOPICS)))
+        self.assertTrue(all("ИИ" in topic or "нейросет" in topic.lower() or "искусственн" in topic.lower() for topic in AI_FALLBACK_TOPICS))
     def test_parser_removes_common_list_markers(self):
         result = _parse_topic_list("- 🧠 Первая тема\n2. 🚗 Вторая тема\n• 💰 Третья тема")
         self.assertEqual(

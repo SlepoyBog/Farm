@@ -95,6 +95,23 @@ TOPICS_POOL_PATH = Path("data") / "topics_pool.json"
 POST_HISTORY_PATH = Path("data") / "post_history.json"
 TOPIC_STRATEGY_VERSION = 2
 AB_MIN_MEASURED_PER_VARIANT = 20
+AI_FALLBACK_TOPICS = [
+    "Как проверить ответ нейросети и не принять выдумку за факт",
+    "Пять задач, которые можно безопасно делегировать ИИ уже сегодня",
+    "Как составить хороший запрос к нейросети: практический шаблон",
+    "Какие данные нельзя загружать в публичные нейросети",
+    "Как использовать ИИ для краткого пересказа длинного документа",
+    "Нейросеть для сравнения вариантов: пошаговый рабочий сценарий",
+    "Как проверить качество текста, созданного искусственным интеллектом",
+    "ИИ для планирования недели: простой сценарий без сложных сервисов",
+    "Как превратить заметки в понятную инструкцию с помощью нейросети",
+    "Где искусственный интеллект экономит время, а где мешает работе",
+    "Как подготовить таблицу для анализа данных с помощью ИИ",
+    "Нейросеть как помощник в обучении: правила безопасного использования",
+    "Как отличить полезный ИИ-инструмент от бесполезной оболочки",
+    "Что проверить перед публикацией текста, написанного нейросетью",
+    "Как создать несколько вариантов идеи и выбрать лучший с помощью ИИ",
+]
 
 
 def _load_topic_pool() -> dict:
@@ -231,8 +248,16 @@ async def generate_topics(niche: str) -> list[str]:
         niche_topics = await _refill_topic_pool(niche, pool)
 
     if not niche_topics:
-        logger.error(f"No topics available for niche: {niche}")
-        return []
+        recent_titles = _recent_topic_titles()
+        niche_topics = _deduplicate_topics(AI_FALLBACK_TOPICS, recent_titles)
+        if not niche_topics:
+            logger.error(f"No topics available for niche: {niche}")
+            return []
+        logger.warning("Using %d curated AI fallback topics", len(niche_topics))
+        pool.setdefault("topics", {})[niche] = niche_topics
+        pool["generated_at"] = datetime.now().isoformat()
+        pool["strategy_version"] = TOPIC_STRATEGY_VERSION
+        _save_topic_pool(pool)
 
     batch = niche_topics[:15]
     remaining = niche_topics[15:]
