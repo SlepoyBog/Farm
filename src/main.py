@@ -470,6 +470,12 @@ def _truncate_html(text: str, max_chars: int) -> str:
     return truncated
 
 
+def _telegram_photo_caption(full_text: str, article_url: str | None = None) -> str:
+    footer = f'\n\n<a href="{article_url}">Читать полностью</a>' if article_url else ""
+    limit = 1000 - len(footer)
+    return _truncate_html(full_text, max(200, limit)).rstrip() + footer
+
+
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None, article_url: str | None = None, niche: str = "") -> tuple[bool, int | None]:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
@@ -489,29 +495,34 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     full_text = enhance_post_text(full_text, niche=niche, title=clean_title)
     has_html = "<" in full_text and ">" in full_text
 
-    # Step 1: sendPhoto with image only (no caption — text follows as reply)
-    photo_msg_id = None
+    # Prefer a single Telegram post: photo + compact caption + article link.
     if image_url:
         from src.image_provider import download_watermarked
         img_result = download_watermarked(image_url)
         if img_result:
             img_data, ct, ext = img_result
             try:
+                caption = _telegram_photo_caption(full_text, article_url)
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
-                    data={"chat_id": TELEGRAM_CHAT_ID, "caption": ""},
+                    data={
+                        "chat_id": TELEGRAM_CHAT_ID,
+                        "caption": caption,
+                        "parse_mode": "HTML" if has_html else None,
+                    },
                     files={"photo": (f"img{ext}", img_data, ct or "image/jpeg")},
                     timeout=60,
                 )
                 if resp.ok:
-                    photo_msg_id = resp.json()["result"]["message_id"]
-                    logger.info(f"TG sendPhoto sent (id: {photo_msg_id})")
+                    msg_id = resp.json()["result"]["message_id"]
+                    logger.info(f"Telegram single photo post sent (id: {msg_id})")
+                    return True, msg_id
                 else:
-                    logger.warning(f"sendPhoto failed ({resp.status_code})")
+                    logger.warning("Telegram photo post failed (%s); falling back to one text post", resp.status_code)
             except Exception as e:
-                logger.warning(f"sendPhoto error: {e}")
+                logger.warning(f"Telegram photo post error: {e}")
 
-    # Step 2: sendMessage with full text (reply to photo if available)
+    # One text post when there is no image or image delivery failed.
     full_text = _truncate_html(full_text, 4000)
     try:
         payload = {
@@ -521,8 +532,6 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
         }
         if has_html:
             payload["parse_mode"] = "HTML"
-        if photo_msg_id:
-            payload["reply_to_message_id"] = photo_msg_id
         resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         if resp.status_code == 400:
             logger.warning("HTML parse_mode failed (400) — stripping tags and retrying as plain text")
@@ -533,31 +542,10 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
         if resp.ok:
             msg_id = resp.json()["result"]["message_id"]
-            logger.info(f"Telegram sendMessage sent (id: {msg_id}), reply to photo {photo_msg_id}")
+            logger.info(f"Telegram single text post sent (id: {msg_id})")
             return True, msg_id
     except Exception as e:
         logger.error(f"Telegram sendMessage failed: {e}")
-
-    # Fallback: sendPhoto with full caption if sendMessage failed entirely
-    if photo_msg_id is None and image_url:
-        try:
-            short_caption = _truncate_html(full_text, 1000)
-            img_resp = requests.get(image_url, timeout=15)
-            if img_resp.ok:
-                ct = img_resp.headers.get("content-type", "")
-                ext = ".png" if "png" in ct else ".webp" if "webp" in ct else ".jpg"
-                resp = requests.post(
-                    f"{base_url}/sendPhoto",
-                    data={"chat_id": TELEGRAM_CHAT_ID, "caption": short_caption, "parse_mode": "HTML" if has_html else None},
-                    files={"photo": (f"img{ext}", img_resp.content, ct or "image/jpeg")},
-                    timeout=60,
-                )
-                if resp.ok:
-                    msg_id = resp.json()["result"]["message_id"]
-                    logger.info(f"TG fallback sendPhoto sent (id: {msg_id})")
-                    return True, msg_id
-        except Exception as e:
-            logger.warning(f"TG fallback sendPhoto error: {e}")
 
     # Last resort: plain text message
     try:
@@ -767,7 +755,10 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
 
             # Step 5: Publish to Telegram (with enhanced content)
             tg_title = _extract_title(article)
-            tg_ok, tg_msg_id = publish_to_telegram(tg_title, tg_article, image_url, niche=niche)
+            article_url = f"{SITE_URL}/{slug}.html" if SITE_URL else None
+            tg_ok, tg_msg_id = publish_to_telegram(
+                tg_title, tg_article, image_url, article_url=article_url, niche=niche
+            )
 
             # Step 3.5: Enhance for VK
             from src.vk_publisher import _generate_hashtags as vk_hashtags
@@ -794,7 +785,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             vk_post_id_local = None
             if vk_post_text:
                 try:
-                    article_url = f"{SITE_URL}/{slug}.html" if SITE_URL else ""
+                    article_url = article_url or ""
                     defer_vk = os.getenv("VK_DEFER_UNTIL_SITE_DEPLOY", "false").lower() in {
                         "1", "true", "yes", "on"
                     }
