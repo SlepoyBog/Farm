@@ -12,10 +12,11 @@ class TelegramFormatTests(unittest.TestCase):
         self.assertEqual(result.count("?"), 1)
         self.assertIn("Сохраните пост", result)
 
-    def test_photo_caption_fits_single_telegram_post(self):
-        caption = main._telegram_photo_caption("Текст. " * 500, "https://example.com/full")
-        self.assertLessEqual(len(caption), 1000)
-        self.assertIn("Читать полностью", caption)
+    def test_post_text_is_never_truncated(self):
+        source = "Текст. " * 500
+        result = main._telegram_post_text(source, "https://example.com/full")
+        self.assertIn(source.strip(), result)
+        self.assertIn("Читать полностью", result)
 
     @patch.object(main, "TELEGRAM_BOT_TOKEN", "token")
     @patch.object(main, "TELEGRAM_CHAT_ID", "@channel")
@@ -56,7 +57,12 @@ class TelegramFormatTests(unittest.TestCase):
         self.assertEqual(message_id, 78)
         self.assertEqual(post.call_count, 1)
         self.assertTrue(post.call_args.args[0].endswith("/sendMessage"))
-        self.assertIn(long_text.strip(), post.call_args.kwargs["json"]["text"])
+        payload = post.call_args.kwargs["json"]
+        self.assertIn(long_text.strip(), payload["text"])
+        self.assertIn("https://example.com/article", payload["text"])
+        self.assertEqual(payload["link_preview_options"]["url"], "https://example.com/article")
+        self.assertTrue(payload["link_preview_options"]["prefer_large_media"])
+        self.assertTrue(payload["link_preview_options"]["show_above_text"])
         download.assert_not_called()
 
     @patch.object(main, "TELEGRAM_BOT_TOKEN", "token")
