@@ -7,6 +7,9 @@ import logging
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Callable
+from uuid import uuid4
+
+from src.state_store import atomic_write_json, read_json
 
 logger = logging.getLogger(__name__)
 
@@ -22,18 +25,11 @@ VK_BATCH_SIZE = 100
 
 
 def _load_history() -> list[dict]:
-    if POST_HISTORY_PATH.exists():
-        try:
-            return json.loads(POST_HISTORY_PATH.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, Exception):
-            return []
-    return []
+    return read_json(POST_HISTORY_PATH, [], critical=True)
 
 
 def _save_history(history: list[dict]):
-    POST_HISTORY_PATH.write_text(
-        json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+    atomic_write_json(POST_HISTORY_PATH, history)
 
 
 def _load_patterns() -> dict:
@@ -46,9 +42,7 @@ def _load_patterns() -> dict:
 
 
 def _save_patterns(patterns: dict):
-    LEARNED_PATTERNS_PATH.write_text(
-        json.dumps(patterns, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+    atomic_write_json(LEARNED_PATTERNS_PATH, patterns)
 
 
 def record_publication(
@@ -60,9 +54,11 @@ def record_publication(
     vk_owner_id: str | None = None,
     ok_post_id: str | None = None,
     ab_variant: str | None = None,
+    publication_id: str | None = None,
 ) -> dict:
     history = _load_history()
     record = {
+        "publication_id": publication_id or str(uuid4()),
         "topic": topic,
         "title": title,
         "niche": niche,

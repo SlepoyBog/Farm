@@ -250,12 +250,16 @@ def publish_to_vk(
     raw_text: str | None = None,
     image_url: str | None = None,
     article_url: str | None = None,
+    random_id: int | None = None,
 ) -> tuple[bool, int | None]:
     if not access_token or not group_id:
         logger.warning("VK not configured. Skipping publication.")
         return False, None
 
     logger.info(f"Publishing article to VK: {title}")
+    if not random_id:
+        logger.error("VK publication requires a stable non-zero random_id")
+        return False, None
 
     post_text = raw_text if raw_text else adapt_for_vk(title, html_content, niche)
 
@@ -299,6 +303,7 @@ def publish_to_vk(
         "owner_id": f"-{numeric_id}",
         "from_group": from_group,
         "message": post_text,
+        "random_id": int(random_id),
     }
     if attachments:
         data["attachments"] = ",".join(attachments)

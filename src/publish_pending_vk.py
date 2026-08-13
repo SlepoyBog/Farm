@@ -1,9 +1,9 @@
 """Publish queued VK posts after GitHub Pages has deployed their link cards."""
 
-import json
 import logging
 import os
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -32,17 +32,33 @@ def _page_is_ready(url: str, attempts: int = 8, delay: int = 5) -> bool:
     return False
 
 
-def _record_vk_post(title: str, post_id: int, group_id: str) -> None:
-    if not HISTORY_PATH.exists():
-        return
-    try:
-        history = json.loads(HISTORY_PATH.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return
+def _record_vk_post(item: dict, post_id: int, group_id: str) -> bool:
+    from src.state_store import atomic_write_json, read_json
+    history = read_json(HISTORY_PATH, [], critical=True)
+    if not isinstance(history, list):
+        return False
 
     numeric_id = str(group_id).removeprefix("club").removeprefix("public")
-    for record in reversed(history):
-        if record.get("title") == title and "vk" not in record.get("platforms", {}):
+    publication_id = str(item.get("publication_id") or "")
+    title = str(item.get("title") or "")
+    candidates = [r for r in history if publication_id and r.get("publication_id") == publication_id]
+    if not candidates:
+        legacy = [r for r in history if r.get("title") == title and "vk" not in r.get("platforms", {})]
+        candidates = legacy if len(legacy) == 1 else []
+    if not candidates and publication_id:
+        record = {
+            "publication_id": publication_id,
+            "topic": item.get("title", ""),
+            "title": title,
+            "niche": item.get("niche", ""),
+            "published_at": item.get("created_at") or datetime.now(timezone.utc).isoformat(),
+            "platforms": {},
+            "score": None,
+        }
+        history.append(record)
+        candidates = [record]
+    for record in reversed(candidates):
+        if "vk" not in record.get("platforms", {}):
             record.setdefault("platforms", {})["vk"] = {
                 "post_id": post_id,
                 "owner_id": f"-{numeric_id}",
@@ -52,10 +68,11 @@ def _record_vk_post(title: str, post_id: int, group_id: str) -> None:
                 "comments": None,
                 "reposts": None,
             }
-            HISTORY_PATH.write_text(
-                json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
-            )
-            return
+            atomic_write_json(HISTORY_PATH, history)
+            return True
+        if record.get("platforms", {}).get("vk", {}).get("post_id") == post_id:
+            return True
+    return False
 
 
 def main() -> None:
@@ -71,6 +88,9 @@ def main() -> None:
         article_url = item.get("article_url", "")
         if not article_url or not _page_is_ready(article_url):
             logger.error("VK link card page is unavailable: %s", article_url)
+            item["attempts"] = int(item.get("attempts") or 0) + 1
+            item["last_error"] = "VK link card page is unavailable"
+            item["updated_at"] = datetime.now(timezone.utc).isoformat()
             failed.append(item)
             continue
 
@@ -82,10 +102,17 @@ def main() -> None:
             niche=item.get("niche", ""),
             raw_text=item.get("raw_text", ""),
             article_url=article_url,
+            random_id=item.get("vk_random_id"),
         )
         if ok and post_id is not None:
-            _record_vk_post(item.get("title", ""), post_id, group_id)
+            if not _record_vk_post(item, post_id, group_id):
+                item["last_error"] = "VK post sent but history update failed"
+                item["updated_at"] = datetime.now(timezone.utc).isoformat()
+                failed.append(item)
         else:
+            item["attempts"] = int(item.get("attempts") or 0) + 1
+            item["last_error"] = "VK publication failed"
+            item["updated_at"] = datetime.now(timezone.utc).isoformat()
             failed.append(item)
 
     save_pending(failed)

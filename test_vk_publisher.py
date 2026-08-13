@@ -24,6 +24,7 @@ class VkPublisherTests(unittest.TestCase):
             "Заголовок",
             "<p>Текст</p>",
             "технологии",
+            random_id=1001,
         )
 
         self.assertTrue(ok)
@@ -42,6 +43,7 @@ class VkPublisherTests(unittest.TestCase):
             "<p>Текст</p>",
             "технологии",
             image_url="https://images.example/cover.jpg",
+            random_id=1002,
         )
 
         self.assertTrue(ok)
@@ -65,12 +67,14 @@ class VkPublisherTests(unittest.TestCase):
             "<p>Текст</p>",
             "технологии",
             image_url="https://images.example/cover.jpg",
+            random_id=123456,
         )
 
         self.assertTrue(ok)
         self.assertEqual(post_id, 43)
         self.assertEqual(post.call_count, 2)
         self.assertNotIn("attachments", post.call_args.kwargs["data"])
+        self.assertEqual(post.call_args.kwargs["data"]["random_id"], 123456)
 
     @patch("src.vk_publisher.requests.post")
     def test_uses_article_page_as_visual_link_card(self, post):
@@ -82,6 +86,7 @@ class VkPublisherTests(unittest.TestCase):
             raw_text="Полный текст",
             image_url="https://images.example/cover.jpg",
             article_url=article_url,
+            random_id=1003,
         )
 
         self.assertTrue(ok)

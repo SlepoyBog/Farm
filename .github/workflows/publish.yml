@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: farm-publish-main
   cancel-in-progress: false
 
 jobs:
@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -35,7 +37,10 @@ jobs:
       - name: Run unit tests
         run: python -m unittest discover -v
 
-      - run: python src/main.py
+      - id: generation
+        name: Generate content and durable VK queue
+        continue-on-error: true
+        run: python src/main.py
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -57,8 +62,25 @@ jobs:
           MAX_CONCURRENCY: ${{ vars.MAX_CONCURRENCY || '3' }}
           CONTENT_NICHE: "искусственный интеллект"
 
-      # Publishing is the critical path. Deploy the fresh RSS before optional
-      # analytics so an external reporting outage cannot stop VK delivery.
+      - name: Checkpoint generated site and queue
+        id: checkpoint
+        if: ${{ !cancelled() && steps.generation.outcome != 'skipped' }}
+        run: |
+          git config user.name "Farm Bot"
+          git config user.email "farm-bot@users.noreply.github.com"
+          VERSION=$(cat VERSION)
+          NEXT=$((VERSION + 1))
+          echo "$NEXT" > VERSION
+          git add VERSION site
+          find data -maxdepth 1 -type f -name '*.json' -print0 | xargs -0 git add --
+          if git diff --cached --quiet; then
+            echo "Nothing to checkpoint"
+          else
+            git commit -m "v$NEXT: checkpoint generated state [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
@@ -67,6 +89,8 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Publish VK link card
+        id: vk_publish
+        continue-on-error: true
         run: python -m src.publish_pending_vk
         env:
           VK_ACCESS_TOKEN: ${{ secrets.VK_ACCESS_TOKEN }}
@@ -90,18 +114,47 @@ jobs:
           VK_ANALYTICS_TOKEN: ${{ secrets.VK_ANALYTICS_TOKEN }}
           VK_GROUP_ID: ${{ secrets.VK_GROUP_ID }}
 
-      - name: Commit generated state and version bump
+      - name: Finalize publication and analytics state
+        id: finalize
+        if: always()
         run: |
           git config user.name "Farm Bot"
           git config user.email "farm-bot@users.noreply.github.com"
-          VERSION=$(cat VERSION)
-          NEXT=$((VERSION + 1))
-          echo "$NEXT" > VERSION
-          git add VERSION site
           find data -maxdepth 1 -type f -name '*.json' -print0 | xargs -0 git add --
           if git diff --cached --quiet; then
             echo "Nothing to commit"
           else
-            git commit -m "v$NEXT: auto-deploy via CI [skip ci]"
+            git commit -m "Finalize publication state [skip ci]"
+            git pull --rebase origin main
             git push origin HEAD:main
+          fi
+
+      - name: Enforce truthful workflow result
+        if: always()
+        env:
+          GENERATION_OUTCOME: ${{ steps.generation.outcome }}
+          CHECKPOINT_OUTCOME: ${{ steps.checkpoint.outcome }}
+          DEPLOY_OUTCOME: ${{ steps.deployment.outcome }}
+          VK_OUTCOME: ${{ steps.vk_publish.outcome }}
+          FINALIZE_OUTCOME: ${{ steps.finalize.outcome }}
+        run: |
+          if [ "$GENERATION_OUTCOME" != "success" ]; then
+            echo "Generation failed; generated state was preserved."
+            exit 1
+          fi
+          if [ "$CHECKPOINT_OUTCOME" != "success" ]; then
+            echo "State checkpoint failed; publication was not started safely."
+            exit 1
+          fi
+          if [ "$DEPLOY_OUTCOME" != "success" ]; then
+            echo "GitHub Pages deployment failed."
+            exit 1
+          fi
+          if [ "$VK_OUTCOME" != "success" ]; then
+            echo "VK publication failed; pending queue was preserved."
+            exit 1
+          fi
+          if [ "$FINALIZE_OUTCOME" != "success" ]; then
+            echo "Final state persistence failed."
+            exit 1
           fi

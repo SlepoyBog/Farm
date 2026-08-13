@@ -9,6 +9,7 @@ import sys
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
+from uuid import uuid4
 
 import requests
 from dotenv import load_dotenv
@@ -24,6 +25,8 @@ from src.image_provider import get_image_url
 from src.dzen_direct_publisher import publish_to_dzen_direct
 from src.content_validator import validate_and_fix
 from growth.engagement_hooks import enhance_post_text
+from src.state_store import atomic_write_json
+from src.vk_pending import stable_vk_random_id
 
 # Setup logging
 os.makedirs("logs", exist_ok=True)
@@ -709,6 +712,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
     """Process a single topic through the full pipeline."""
     async with semaphore:
         start_time = time.time()
+        publication_id = str(uuid4())
         logger.info(f"{'='*60}")
         logger.info(f"Processing topic: {topic}")
         logger.info(f"{'='*60}")
@@ -798,6 +802,8 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                         from src.vk_pending import queue_vk_post
 
                         queue_vk_post({
+                            "publication_id": publication_id,
+                            "slug": slug,
                             "title": tg_title,
                             "html_content": article,
                             "niche": niche,
@@ -816,6 +822,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                             image_url=image_url,
                             raw_text=vk_post_text,
                             article_url=article_url or None,
+                            random_id=stable_vk_random_id(publication_id),
                         )
                 except Exception as e:
                     logger.warning(f"VK publish failed for '{topic}': {e}")
@@ -873,6 +880,7 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                 vk_owner_id=vk_owner_id,
                 ok_post_id=ok_post_id,
                 ab_variant=ab_variant,
+                publication_id=publication_id,
             )
 
             elapsed = time.time() - start_time
@@ -906,8 +914,7 @@ async def main():
     # Step 1: Generate topics
     topics = await generate_topics(niche)
     if not topics:
-        logger.error("No topics generated. Exiting.")
-        return
+        raise RuntimeError("No topics generated")
 
     if not args.full:
         topics = topics[:1]
@@ -930,10 +937,22 @@ async def main():
     results = await asyncio.gather(*tasks)
 
     successful = len([r for r in results if r is not None])
+    failed = len(topics) - successful
     logger.info(f"Processed {successful}/{len(topics)} topics successfully.")
 
+    atomic_write_json(Path("data") / "run_result.json", {
+        "generated_at": datetime.now().isoformat(),
+        "total": len(topics),
+        "successful": successful,
+        "failed": failed,
+        "status": "success" if failed == 0 else "failed",
+    })
+
     logger.info(f"{'='*60}")
-    logger.info("All topics processed successfully!")
+    if failed:
+        logger.error("Content pipeline failed for %d/%d topic(s)", failed, len(topics))
+    else:
+        logger.info("All topics processed successfully!")
     logger.info(f"{'='*60}")
 
     await run_batch_seo(client)
@@ -947,6 +966,9 @@ async def main():
         run_cross_post(announcement, title=topics[0], site_url=SITE_URL)
 
     run_tracker()
+
+    if failed:
+        raise RuntimeError(f"Failed to process {failed}/{len(topics)} topic(s)")
 
 
 if __name__ == "__main__":
