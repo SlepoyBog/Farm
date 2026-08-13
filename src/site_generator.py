@@ -3,6 +3,8 @@ import html
 import logging
 import os
 import re
+import mimetypes
+from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
@@ -593,7 +595,13 @@ def _generate_rss(articles: list[dict]):
         full_content = _rss_full_content(art)
         enclosure = ""
         if art.get("og_image"):
-            enclosure = '<enclosure url="%s" type="image/jpeg" length="0"/>\n' % xml_escape(art["og_image"])
+            image_url = art["og_image"]
+            image_type = mimetypes.guess_type(urlparse(image_url).path)[0] or "image/jpeg"
+            escaped_image = xml_escape(image_url)
+            enclosure = (
+                '<enclosure url="%s" type="%s" length="0"/>\n'
+                '<media:content url="%s" type="%s" medium="image"/>\n'
+            ) % (escaped_image, image_type, escaped_image, image_type)
         item = (
             "<item>\n"
             "<title>%s</title>\n"
@@ -608,7 +616,7 @@ def _generate_rss(articles: list[dict]):
             xml_escape(art['title']),
             base, art['slug'],
             base, art['slug'],
-            art['mtime'].strftime('%a, %d %b %Y 00:00:00 +0000'),
+            art['mtime'].strftime('%a, %d %b %Y %H:%M:%S +0000'),
             description,
             enclosure,
             full_content,

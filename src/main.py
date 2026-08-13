@@ -843,21 +843,25 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
             except Exception as e:
                 logger.warning("OK publish failed: %s", e)
 
-            # Step 7: Dzen — прямой API (только текст, чтобы избежать дубля фото)
-            try:
-                dzen_ok, dzen_msg = publish_to_dzen_direct(
-                    title=tg_title,
-                    html_content=article,
-                    image_url=None,
-                    niche=niche,
-                    topic=topic,
-                )
-                if dzen_ok:
-                    logger.info(f"Dzen publish: {dzen_msg}")
-                else:
-                    logger.warning(f"Dzen: {dzen_msg}")
-            except Exception as e:
-                logger.warning(f"Dzen publish failed: {e}")
+            # Step 7: Dzen imports the official RSS feed. The undocumented
+            # cookie-based publisher is available only as an explicit fallback.
+            if os.getenv("DZEN_DIRECT_ENABLED", "false").lower() in {"1", "true", "yes", "on"}:
+                try:
+                    dzen_ok, dzen_msg = publish_to_dzen_direct(
+                        title=tg_title,
+                        html_content=article,
+                        image_url=None,
+                        niche=niche,
+                        topic=topic,
+                    )
+                    if dzen_ok:
+                        logger.info(f"Dzen direct publish: {dzen_msg}")
+                    else:
+                        logger.warning(f"Dzen direct fallback: {dzen_msg}")
+                except Exception as e:
+                    logger.warning(f"Dzen direct fallback failed: {e}")
+            else:
+                logger.info("Dzen delivery: official RSS feed")
 
             # Step 8: Record publication for feedback loop
             vk_numeric = VK_GROUP_ID

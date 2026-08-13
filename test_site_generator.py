@@ -35,6 +35,27 @@ class SiteGeneratorRssTests(unittest.TestCase):
             '<atom:link href="https://slepoybog.github.io/Farm/rss.xml"',
             rss,
         )
+        self.assertIn('<media:content url="https://example.com/image.jpg"', rss)
+        self.assertIn("Tue, 28 Jul 2026 00:00:00 +0000", rss)
+
+    def test_rss_detects_png_image_type(self):
+        article = {
+            "title": "PNG",
+            "slug": "png",
+            "content": "<p>Описание.</p>",
+            "mtime": datetime(2026, 7, 28, 12, 34, 56, tzinfo=timezone.utc),
+            "og_image": "https://example.com/cover.png?size=large",
+        }
+        old_dir = site_generator.SITE_DIR
+        try:
+            with tempfile.TemporaryDirectory() as temp_dir:
+                site_generator.SITE_DIR = Path(temp_dir)
+                site_generator._generate_rss([article])
+                rss = (Path(temp_dir) / "rss.xml").read_text(encoding="utf-8")
+        finally:
+            site_generator.SITE_DIR = old_dir
+        self.assertIn('type="image/png"', rss)
+        self.assertIn("12:34:56 +0000", rss)
 
     def test_rss_description_does_not_cut_mid_sentence(self):
         paragraph = "Это законченное предложение. " * 180
