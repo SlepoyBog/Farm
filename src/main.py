@@ -496,16 +496,30 @@ def _truncate_html(text: str, max_chars: int) -> str:
     return truncated
 
 
-def _telegram_photo_caption(full_text: str, article_url: str | None = None) -> str:
-    footer = f'\n\n<a href="{article_url}">Читать полностью</a>' if article_url else ""
-    limit = 1000 - len(footer)
-    return _truncate_html(full_text, max(200, limit)).rstrip() + footer
+def _telegram_post_text(full_text: str, article_url: str | None = None) -> str:
+    """Return the complete post with a visible article link; never truncate it."""
+    if not article_url:
+        return full_text.rstrip()
+    import html as html_module
+    safe_url = html_module.escape(article_url, quote=True)
+    return f'{full_text.rstrip()}\n\n<a href="{safe_url}">Читать полностью</a>'
 
 
 def _telegram_visible_length(text: str) -> int:
     """Approximate Telegram's limit, which applies after HTML parsing."""
     import html as html_module
     return len(html_module.unescape(re.sub(r"<[^>]+>", "", text)))
+
+
+def _telegram_preview_options(article_url: str | None) -> dict:
+    if not article_url:
+        return {"is_disabled": True}
+    return {
+        "is_disabled": False,
+        "url": article_url,
+        "prefer_large_media": True,
+        "show_above_text": True,
+    }
 
 
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None, article_url: str | None = None, niche: str = "") -> tuple[bool, int | None]:
@@ -527,8 +541,8 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     full_text = enhance_post_text(full_text, niche=niche, title=clean_title)
     has_html = "<" in full_text and ">" in full_text
 
-    caption = _telegram_photo_caption(full_text, article_url)
-    full_fits_caption = _telegram_visible_length(full_text) <= 900
+    message_text = _telegram_post_text(full_text, article_url)
+    full_fits_caption = _telegram_visible_length(message_text) <= 1000
 
     # Use a photo only when the complete post fits; never truncate content.
     if image_url and full_fits_caption:
@@ -541,7 +555,7 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
                     f"{base_url}/sendPhoto",
                     data={
                         "chat_id": TELEGRAM_CHAT_ID,
-                        "caption": caption,
+                        "caption": message_text,
                         "parse_mode": "HTML" if has_html else None,
                     },
                     files={"photo": (f"img{ext}", img_data, ct or "image/jpeg")},
@@ -557,14 +571,14 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
                 logger.warning(f"Telegram photo post error: {e}")
 
     # One complete text post when the photo caption limit is insufficient.
-    if _telegram_visible_length(full_text) > 4000:
+    if _telegram_visible_length(message_text) > 4000:
         logger.error("Telegram post exceeds the safe text limit; refusing to truncate it")
         return False, None
     try:
         payload = {
             "chat_id": TELEGRAM_CHAT_ID,
-            "text": full_text,
-            "link_preview_options": {"is_disabled": not bool(article_url)},
+            "text": message_text,
+            "link_preview_options": _telegram_preview_options(article_url),
         }
         if has_html:
             payload["parse_mode"] = "HTML"
@@ -573,6 +587,8 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             logger.warning("HTML parse_mode failed (400) — stripping tags and retrying as plain text")
             plain = re.sub(r'<[^>]+>', '', full_text)
             plain = re.sub(r'\n{3,}', '\n\n', plain).strip()
+            if article_url:
+                plain = f"{plain}\n\nЧитать полностью: {article_url}"
             payload.pop("parse_mode", None)
             payload["text"] = plain
             resp = requests.post(f"{base_url}/sendMessage", json=payload, timeout=30)
@@ -583,11 +599,22 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     except Exception as e:
         logger.error(f"Telegram sendMessage failed: {e}")
 
-    # Last resort: plain text message
+    # Last resort: retry the same complete post as plain text. Never truncate it.
     try:
+        plain = re.sub(r'<[^>]+>', '', full_text)
+        plain = re.sub(r'\n{3,}', '\n\n', plain).strip()
+        if article_url:
+            plain = f"{plain}\n\nЧитать полностью: {article_url}"
+        if len(plain) > 4096:
+            logger.error("Telegram plain-text fallback exceeds the limit; refusing to truncate it")
+            return False, None
         resp = requests.post(
             f"{base_url}/sendMessage",
-            json={"chat_id": TELEGRAM_CHAT_ID, "text": _truncate_html(full_text, 3000)},
+            json={
+                "chat_id": TELEGRAM_CHAT_ID,
+                "text": plain,
+                "link_preview_options": _telegram_preview_options(article_url),
+            },
             timeout=30,
         )
         if resp.ok:
