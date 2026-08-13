@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "agents": [
+    {
+      "id": "content_strategist",
+      "name": "Контент-стратег",
+      "stage": "topics",
+      "responsibility": "Выбирает практичные темы без повторов и общей новостной воды."
+    },
+    {
+      "id": "researcher",
+      "name": "Исследователь",
+      "stage": "draft",
+      "responsibility": "Выделяет утверждения, которые требуют источника или осторожной формулировки."
+    },
+    {
+      "id": "fact_checker",
+      "name": "Фактчекер",
+      "stage": "quality_gate",
+      "responsibility": "Не пропускает выдуманные цифры, кейсы, исследования и возможности сервисов."
+    },
+    {
+      "id": "safety_editor",
+      "name": "Редактор безопасности",
+      "stage": "quality_gate",
+      "responsibility": "Проверяет юридические, медицинские, финансовые советы, приватность и обещания результата."
+    },
+    {
+      "id": "chief_editor",
+      "name": "Главный редактор",
+      "stage": "quality_gate",
+      "responsibility": "Контролирует пользу, структуру, ясность, отсутствие повторов и соответствие плану."
+    },
+    {
+      "id": "telegram_editor",
+      "name": "Редактор Telegram",
+      "stage": "distribution",
+      "responsibility": "Готовит компактный пост для сохранений и пересылок."
+    },
+    {
+      "id": "vk_editor",
+      "name": "Редактор VK",
+      "stage": "distribution",
+      "responsibility": "Готовит полный читаемый пост с сильным первым экраном и CTA."
+    },
+    {
+      "id": "seo_editor",
+      "name": "SEO-редактор",
+      "stage": "distribution",
+      "responsibility": "Формирует метаданные, поисковый интент и внутренние связи."
+    },
+    {
+      "id": "visual_editor",
+      "name": "Визуальный редактор",
+      "stage": "distribution",
+      "responsibility": "Подбирает тематическую горизонтальную обложку без вводящих в заблуждение деталей."
+    },
+    {
+      "id": "growth_analyst",
+      "name": "Аналитик роста",
+      "stage": "feedback",
+      "responsibility": "Сравнивает просмотры и реакции и передаёт выводы контент-стратегу."
+    }
+  ]
+}
