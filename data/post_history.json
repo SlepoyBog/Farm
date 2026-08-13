@@ -10303,6 +10303,15 @@
         "views": null,
         "reactions": null,
         "comments": null
+      },
+      "vk": {
+        "post_id": 726,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
       }
     },
     "score": null,
