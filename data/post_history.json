@@ -10349,7 +10349,22 @@
     "title": "🖼️ Нейросеть генерит 10 обложек книги за 5 минут: пошагово",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-13T17:46:27.107105",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 897,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 728,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
