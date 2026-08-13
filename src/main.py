@@ -23,7 +23,6 @@ from src.site_generator import generate_site
 from src.image_provider import get_image_url
 from src.dzen_direct_publisher import publish_to_dzen_direct
 from src.content_validator import validate_and_fix
-from src.content_agents import active_agent_names, run_editorial_board
 from growth.engagement_hooks import enhance_post_text
 
 # Setup logging
@@ -732,30 +731,6 @@ async def process_topic(topic: str, niche: str, semaphore: asyncio.Semaphore):
                 article = await rewrite_article(article, feedback)
                 article, _ = validate_and_fix(article, max_chars=3000, context="article-rewrite")
 
-            # Step 2c: one editorial-board call combines chief editor,
-            # fact-checking and safety review without tripling API costs.
-            audit = await run_editorial_board(client, load_prompt, topic, outline, article)
-            logger.info(
-                "Editorial board: approved=%s score=%.1f issues=%d",
-                audit["approved"], audit["score"], len(audit["issues"]),
-            )
-            if not audit["approved"]:
-                audit_feedback = audit["feedback"] or "; ".join(audit["issues"])
-                if not audit_feedback:
-                    raise ValueError("Editorial board rejected the article without feedback")
-                article = await rewrite_article(article, audit_feedback)
-                article, _ = validate_and_fix(
-                    article, max_chars=3000, context="editorial-rewrite"
-                )
-                final_audit = await run_editorial_board(
-                    client, load_prompt, topic, outline, article
-                )
-                if not final_audit["approved"]:
-                    raise ValueError(
-                        "Article blocked by editorial board: "
-                        + "; ".join(final_audit["issues"] or [final_audit["feedback"]])
-                    )
-
             # Step 3: TG trend rewrite
             logger.info(f"Enhancing article for Telegram trends...")
             tg_article = await enhance_for_tg(article, niche)
@@ -923,7 +898,6 @@ async def main():
 
     niche = CONTENT_NICHE or await detect_trending_niche(client)
 
-    logger.info("Active content agents: %s", ", ".join(active_agent_names()))
     logger.info(f"{'='*60}")
     logger.info(f"AI Content Farm - Starting")
     logger.info(f"Trending niche: {niche}")
