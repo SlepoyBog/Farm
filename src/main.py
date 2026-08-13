@@ -502,6 +502,12 @@ def _telegram_photo_caption(full_text: str, article_url: str | None = None) -> s
     return _truncate_html(full_text, max(200, limit)).rstrip() + footer
 
 
+def _telegram_visible_length(text: str) -> int:
+    """Approximate Telegram's limit, which applies after HTML parsing."""
+    import html as html_module
+    return len(html_module.unescape(re.sub(r"<[^>]+>", "", text)))
+
+
 def publish_to_telegram(title: str, html_content: str, image_url: str | None = None, article_url: str | None = None, niche: str = "") -> tuple[bool, int | None]:
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         logger.warning("Telegram not configured. Skipping publication.")
@@ -521,14 +527,16 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
     full_text = enhance_post_text(full_text, niche=niche, title=clean_title)
     has_html = "<" in full_text and ">" in full_text
 
-    # Prefer a single Telegram post: photo + compact caption + article link.
-    if image_url:
+    caption = _telegram_photo_caption(full_text, article_url)
+    full_fits_caption = _telegram_visible_length(full_text) <= 900
+
+    # Use a photo only when the complete post fits; never truncate content.
+    if image_url and full_fits_caption:
         from src.image_provider import download_watermarked
         img_result = download_watermarked(image_url)
         if img_result:
             img_data, ct, ext = img_result
             try:
-                caption = _telegram_photo_caption(full_text, article_url)
                 resp = requests.post(
                     f"{base_url}/sendPhoto",
                     data={
@@ -548,13 +556,15 @@ def publish_to_telegram(title: str, html_content: str, image_url: str | None = N
             except Exception as e:
                 logger.warning(f"Telegram photo post error: {e}")
 
-    # One text post when there is no image or image delivery failed.
-    full_text = _truncate_html(full_text, 4000)
+    # One complete text post when the photo caption limit is insufficient.
+    if _telegram_visible_length(full_text) > 4000:
+        logger.error("Telegram post exceeds the safe text limit; refusing to truncate it")
+        return False, None
     try:
         payload = {
             "chat_id": TELEGRAM_CHAT_ID,
             "text": full_text,
-            "link_preview_options": {"is_disabled": True},
+            "link_preview_options": {"is_disabled": not bool(article_url)},
         }
         if has_html:
             payload["parse_mode"] = "HTML"
