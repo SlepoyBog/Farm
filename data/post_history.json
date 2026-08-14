@@ -10374,7 +10374,22 @@
     "title": "Без названия",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-14T07:38:01.835800",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 898,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 729,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
