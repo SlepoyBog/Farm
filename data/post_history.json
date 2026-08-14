@@ -10399,7 +10399,22 @@
     "title": "🧠 Как ИИ превращает интервью с экспертом в статью: промпт для расшифровки",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-14T15:42:27.340832",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 899,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 730,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
