@@ -10424,7 +10424,22 @@
     "title": "🗂️ Нейросеть раскладывает файлы по папкам: автоматизация без кода",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-15T06:43:11.314126",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 900,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 731,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
