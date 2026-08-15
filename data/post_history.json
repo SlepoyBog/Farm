@@ -10449,7 +10449,22 @@
     "title": "💬 Как ИИ переписывает грубое сообщение в вежливое: шаблон-тренажёр",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-15T15:11:03.122445",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 901,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 732,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
