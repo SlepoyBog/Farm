@@ -10499,7 +10499,22 @@
     "title": "🧮 Excel без формул: как ИИ подсчитает бюджет за минуту",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-16T15:12:22.858548",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 903,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 734,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
