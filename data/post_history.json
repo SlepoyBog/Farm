@@ -10542,5 +10542,15 @@
     },
     "score": null,
     "ab_variant": "A"
+  },
+  {
+    "publication_id": "ae34a34d-3bd0-4caf-ba7b-35d38bec2c68",
+    "topic": "🎁 ИИ предлагает названия для нового продукта: генератор идей",
+    "title": "Без названия",
+    "niche": "искусственный интеллект",
+    "published_at": "2026-08-17T15:16:55.475977",
+    "platforms": {},
+    "score": null,
+    "ab_variant": "B"
   }
 ]
