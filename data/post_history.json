@@ -10549,7 +10549,22 @@
     "title": "Без названия",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-17T15:16:55.475977",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 905,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 736,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   },
@@ -10559,7 +10574,22 @@
     "title": "🗺️ ИИ помогает составить маршрут отпуска на 3 дня: готовый план",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-18T06:50:37.768920",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 906,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 737,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
