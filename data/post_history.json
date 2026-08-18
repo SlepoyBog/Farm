@@ -10599,7 +10599,22 @@
     "title": "Как проверить ответ нейросети и не принять выдумку за факт 🤖",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-18T15:22:05.799385",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 907,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 738,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
