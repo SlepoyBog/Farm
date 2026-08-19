@@ -10649,7 +10649,22 @@
     "title": "🧹 Как ИИ наводит порядок в рабочем чате: разделяет задачи и вопросы",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-19T15:21:35.440776",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 909,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 740,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
