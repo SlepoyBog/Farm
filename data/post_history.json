@@ -10624,7 +10624,22 @@
     "title": "🧾 От чека до таблицы: как ИИ экономит часы на учёте расходов",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-19T06:50:52.589400",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 908,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 739,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
