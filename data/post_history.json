@@ -10674,7 +10674,22 @@
     "title": "🏷️ Нейросеть переквалифицирует старый прайс в новый формат: инструкция",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-20T06:52:28.045769",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 910,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 741,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
