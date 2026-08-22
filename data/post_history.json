@@ -10799,7 +10799,22 @@
     "title": "🎙️ Мини-кейс: как ИИ превратил голосовое сообщение в протокол встречи",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-22T15:11:57.431587",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 915,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 746,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
