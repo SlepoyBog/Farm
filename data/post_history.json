@@ -10774,7 +10774,22 @@
     "title": "🧠 Ошибки в промптах: 5 типичных фраз, которые портят результат и как их исправить",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-22T06:46:16.988651",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 914,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 745,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
