@@ -10824,7 +10824,22 @@
     "title": "Как составить хороший запрос к нейросети: практический шаблон 🤖",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-23T06:47:40.668649",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 916,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 747,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
