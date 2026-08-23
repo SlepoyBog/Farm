@@ -10849,7 +10849,22 @@
     "title": "📸 Как ИИ подписывает 100 фото товаров за час: готовый промпт",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-23T15:13:17.003981",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 917,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 748,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
