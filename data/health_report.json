@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-24T07:06:25.757828+00:00",
+  "generated_at": "2026-08-24T15:31:22.717326+00:00",
   "status": "warning",
   "last_run": {
-    "generated_at": "2026-08-24T07:05:34.469702",
+    "generated_at": "2026-08-24T15:30:25.839134",
     "total": 1,
     "successful": 1,
     "failed": 0,
@@ -12,7 +12,7 @@
     "pending_posts": 0,
     "measured_posts": 104,
     "latest_metrics_at": "2026-07-31T16:30:11.589582+00:00",
-    "metrics_age_hours": 566.6
+    "metrics_age_hours": 575.0
   },
   "telegram": {
     "delivery_tracking": "message_id_only",
@@ -27,7 +27,7 @@
     "reason": "Archived; direct platform metrics are the source of truth"
   },
   "warnings": [
-    "VK metrics are stale (566.6 hours)",
+    "VK metrics are stale (575.0 hours)",
     "Content learning is paused until enough AI metrics are collected"
   ]
 }
