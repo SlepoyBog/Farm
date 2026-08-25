@@ -10924,7 +10924,22 @@
     "title": "🔍 ИИ проверяет факты в тексте: как не опубликовать ложь",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-25T06:54:44.405990",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 920,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 751,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
