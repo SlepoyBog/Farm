@@ -10974,7 +10974,22 @@
     "title": "Как использовать ИИ для краткого пересказа длинного документа 🤖",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-26T06:55:32.476428",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 922,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 753,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
