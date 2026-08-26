@@ -10999,7 +10999,22 @@
     "title": "Нейросеть для сравнения вариантов: пошаговый рабочий сценарий",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-26T16:10:47.806596",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 923,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 754,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
