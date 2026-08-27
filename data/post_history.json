@@ -11024,7 +11024,22 @@
     "title": "Как проверить текст нейросети: гайд 2025 🤖",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-27T17:29:49.527606",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 924,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 755,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
