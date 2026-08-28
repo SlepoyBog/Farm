@@ -11099,7 +11099,22 @@
     "title": "📣 Как нейросеть пишет анонс мероприятия без клише: три подхода",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-28T23:46:40.825223",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 927,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 758,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
