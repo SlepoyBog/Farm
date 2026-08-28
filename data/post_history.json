@@ -11049,7 +11049,22 @@
     "title": "Без названия",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-28T00:10:40.494285",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 925,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 756,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
