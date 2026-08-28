@@ -11074,7 +11074,22 @@
     "title": "📉 ИИ пересчитывает бюджет при изменении цен: мгновенный сценарий",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-28T18:22:48.764024",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 926,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 757,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
