@@ -11174,7 +11174,22 @@
     "title": "ИИ для планирования недели: простой сценарий без сложных сервисов 🗓️",
     "niche": "искусственный интеллект",
     "published_at": "2026-08-30T11:35:04.520634",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 930,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 761,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
