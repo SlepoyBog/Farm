@@ -11274,7 +11274,22 @@
     "title": "Как превратить заметки в понятную инструкцию с помощью нейросети 📝",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-01T11:22:32.729324",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 934,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 765,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
