@@ -11299,7 +11299,22 @@
     "title": "📊 Как ИИ превращает хаотичные цифры в отчёт для руководителя за 15 минут",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-01T18:03:43.207674",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 935,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 766,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
