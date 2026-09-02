@@ -11349,7 +11349,22 @@
     "title": "🔔 ИИ напоминает о важных событиях и готовит к ним материалы автоматически",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-02T18:14:04.814509",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 937,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 768,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
