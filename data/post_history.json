@@ -11374,7 +11374,22 @@
     "title": "📊 ИИ делает дашборд из ваших заметок без специальных программ",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-03T10:55:45.370968",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 938,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 769,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
