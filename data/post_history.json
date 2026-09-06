@@ -11549,7 +11549,22 @@
     "title": "Таблицы, которые ИИ понимает с полуслова 🧠",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-06T17:25:30.517682",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 945,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 776,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
