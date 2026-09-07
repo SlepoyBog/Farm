@@ -11599,7 +11599,22 @@
     "title": "Нейросеть как помощник в обучении: правила безопасного использования",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-07T18:56:03.132923",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 947,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 778,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
