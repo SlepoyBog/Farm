@@ -11649,7 +11649,22 @@
     "title": "👥 ИИ на собеседовании: как поручить ему первичный отбор кандидатов",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-08T18:12:07.212440",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 949,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 780,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
