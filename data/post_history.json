@@ -11674,7 +11674,22 @@
     "title": "🧬 Как ИИ напоминает о показаниях приборов и подготавливает отчёт: промпт для дома",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-09T10:59:46.165046",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 950,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 781,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
