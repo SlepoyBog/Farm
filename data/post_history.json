@@ -11699,7 +11699,22 @@
     "title": "🏷️ Ошибки в метаданных: как ИИ чистит теги и категории в интернет-магазине",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-09T18:09:58.746291",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 951,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 782,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
