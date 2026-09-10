@@ -11724,7 +11724,22 @@
     "title": "Как отличить полезный ИИ-инструмент от бесполезной оболочки 🤖",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-10T10:56:38.232751",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 952,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 783,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
