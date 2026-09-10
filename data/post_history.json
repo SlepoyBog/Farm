@@ -11749,7 +11749,22 @@
     "title": "Что проверить перед публикацией текста, написанного нейросетью 🔍",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-10T17:57:45.881658",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 953,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 784,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "B"
   }
