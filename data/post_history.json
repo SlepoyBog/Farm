@@ -11774,7 +11774,22 @@
     "title": "Как создать несколько вариантов идеи и выбрать лучший с помощью ИИ 🚀",
     "niche": "искусственный интеллект",
     "published_at": "2026-09-11T10:54:46.827336",
-    "platforms": {},
+    "platforms": {
+      "telegram": {
+        "message_id": 954,
+        "views": null,
+        "reactions": null
+      },
+      "vk": {
+        "post_id": 785,
+        "owner_id": "-186888784",
+        "format": "link_card",
+        "views": null,
+        "likes": null,
+        "comments": null,
+        "reposts": null
+      }
+    },
     "score": null,
     "ab_variant": "A"
   }
