@@ -1,9 +1,6 @@
 name: AI Content Farm
 
 on:
-  schedule:
-    - cron: '0 6 * * *'   # 09:00 MSK
-    - cron: '0 15 * * *'  # 18:00 MSK
   workflow_dispatch:
 
 permissions:
