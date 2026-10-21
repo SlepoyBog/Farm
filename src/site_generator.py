@@ -43,10 +43,10 @@ html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
 .container{max-width:840px;margin:0 auto;padding:0 24px}
 header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.header-inner{max-width:840px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
-header h1{font-size:1.1em;font-weight:700;letter-spacing:-.3px}
+.header-inner{max-width:840px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:12px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+header h1{flex:1 1 260px;line-height:1.35;font-size:1.1em;font-weight:700;letter-spacing:-.3px}
 header h1 a{color:var(--text);text-decoration:none}
-.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links{display:flex;gap:4px;align-items:center;flex:1 1 100%;flex-wrap:wrap}
 .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.85em;padding:6px 12px;border-radius:8px;transition:all .15s}
 .nav-links a:hover{color:var(--text);background:#f3f4f6}
 .nav-toggle{display:none;background:none;border:none;font-size:1.4em;cursor:pointer;padding:4px 8px;border-radius:8px;color:var(--text)}
@@ -101,7 +101,7 @@ article pre{background:#1a1a2e;color:#e5e7eb;padding:16px 20px;border-radius:8px
 .no-results{text-align:center;padding:60px 20px;color:var(--text-secondary)}
 @media(max-width:680px){
 .header-inner{padding:0 16px}
-.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px}
 .nav-links.open{display:flex}
 .nav-toggle{display:block}
 .article-card{flex-direction:column}
@@ -129,8 +129,8 @@ HEAD = """<!DOCTYPE html>
     <meta name="twitter:title" content="{{og_title}}">
     <meta name="twitter:description" content="{{og_description}}">
     <meta name="twitter:image" content="{{og_image}}">
-    <link rel="alternate" type="application/rss+xml" title="{{site_name}}" href="/rss.xml">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <link rel="alternate" type="application/rss+xml" title="{{site_name}}" href="./rss.xml">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="./sitemap.xml">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white'>A</text></svg>">
     <style>{{css}}</style>
 </head>
@@ -138,7 +138,7 @@ HEAD = """<!DOCTYPE html>
     {{jsonld}}
     <header>
         <div class="header-inner">
-            <h1><a href="/">{{site_name}}</a></h1>
+            <h1><a href="./">{{site_name}}</a></h1>
             <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
             <div class="nav-links">{{nav_links}}</div>
         </div>
@@ -148,7 +148,7 @@ HEAD = """<!DOCTYPE html>
     </div>
     {{content}}
     <footer>
-        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/all.html">Все статьи</a></p>
+        <p>&copy; {{year}} {{site_name}} &mdash; <a href="./rss.xml">RSS</a> · <a href="./sitemap.xml">Sitemap</a> · <a href="./all.html">Все статьи</a></p>
     </footer>
     <script>
     function filterArticles(q){q=q.toLowerCase();const cards=document.querySelectorAll('.article-card');let visible=0;cards.forEach(c=>{const t=c.textContent.toLowerCase();const match=t.includes(q);c.style.display=match?'':'none';if(match)visible++});const nr=document.querySelector('.no-results');if(nr)nr.style.display=visible?'none':'block'}
@@ -178,7 +178,7 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
     <meta name="twitter:description" content="{{description}}">
     <meta name="twitter:image" content="{{og_image}}">
     <link rel="canonical" href="{{url}}">
-    <link rel="alternate" type="application/rss+xml" title="{{site_name}}" href="/rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="{{site_name}}" href="./rss.xml">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white'>A</text></svg>">
     <style>{{css}}</style>
     {{jsonld}}
@@ -187,7 +187,7 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
     <div class="reading-progress"></div>
     <header>
         <div class="header-inner">
-            <h1><a href="/">{{site_name}}</a></h1>
+            <h1><a href="./">{{site_name}}</a></h1>
             <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
             <div class="nav-links">{{nav_links}}</div>
         </div>
@@ -195,7 +195,7 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
     <main class="container">
         <article>
             <div class="breadcrumbs">
-                <a href="/">Главная</a>
+                <a href="./">Главная</a>
                 <span>/</span>
                 <a href="{{niche_url}}">{{niche_name}}</a>
                 <span>/</span>
@@ -214,7 +214,7 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
         </article>
     </main>
     <footer>
-        <p>&copy; {{year}} {{site_name}} &mdash; <a href="/rss.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/all.html">Все статьи</a></p>
+        <p>&copy; {{year}} {{site_name}} &mdash; <a href="./rss.xml">RSS</a> · <a href="./sitemap.xml">Sitemap</a> · <a href="./all.html">Все статьи</a></p>
     </footer>
 </body>
 </html>"""
@@ -315,7 +315,7 @@ def _find_related(articles: list[dict], current_idx: int, count: int = 3) -> lis
 
 
 def _build_card(img_html: str, slug: str, title: str, date: str, niche: str, snippet: str, reading_time: str) -> str:
-    niche_tag = '<a href="/niche-%s.html" class="niche-tag">%s</a>' % (niche, NICHE_NAMES.get(niche, niche)) if niche else ""
+    niche_tag = '<a href="./niche-%s.html" class="niche-tag">%s</a>' % (niche, NICHE_NAMES.get(niche, niche)) if niche else ""
     return (
         '<div class="article-card" data-niche="%s">'
         '%s'
@@ -398,7 +398,7 @@ def generate_site():
 
         niche_tag = ""
         if niche and niche in NICHE_NAMES:
-            niche_tag = '<a href="/niche-%s.html" class="niche-tag">%s</a>' % (niche, NICHE_NAMES[niche])
+            niche_tag = '<a href="./niche-%s.html" class="niche-tag">%s</a>' % (niche, NICHE_NAMES[niche])
 
         reading_time = _reading_time(content)
 
@@ -422,7 +422,7 @@ def generate_site():
         })
 
     nav_links = "".join(
-        '<a href="/niche-%s.html">%s</a>' % (key, name)
+        '<a href="./niche-%s.html">%s</a>' % (key, name)
         for key, name in NICHE_NAMES.items()
     )
 
@@ -434,7 +434,7 @@ def generate_site():
             related_html = '<div class="related"><h3>📖 Читайте также</h3>%s</div>' % links
 
         url = "%s/%s.html" % (SITE_URL, art["slug"]) if SITE_URL else "/%s.html" % art["slug"]
-        niche_url = "/niche-%s.html" % art["niche"] if art["niche"] else "/"
+        niche_url = "./niche-%s.html" % art["niche"] if art["niche"] else "./"
         niche_name = NICHE_NAMES.get(art["niche"], art["niche"]) if art["niche"] else ""
 
         jsonld = _make_jsonld(art["title"], art["description"], url, art["og_image"], art["iso_date"], SITE_NAME)
@@ -531,7 +531,7 @@ def generate_site():
         snippet = re.sub(r"\s+", " ", snippet).strip()[:150]
         index_cards.append(_build_card(img, art["slug"], art["title"], art["date"], art["niche"], snippet, art["reading_time"]))
 
-    index_all_link = '<div class="pagination"><a href="/all.html">Все статьи →</a></div>' if len(articles) > 20 else ""
+    index_all_link = '<div class="pagination"><a href="./all.html">Все статьи →</a></div>' if len(articles) > 20 else ""
     og_url_index = SITE_URL + "/" if SITE_URL else "/"
     jsonld_index = _make_jsonld(SITE_NAME, SITE_DESCRIPTION, og_url_index, "", datetime.now().strftime("%Y-%m-%d"), SITE_NAME)
 
@@ -706,9 +706,25 @@ def generate_cname(domain: str):
     logger.info("  Generated: CNAME (%s)" % domain)
 
 
+def repair_static_snapshot():
+    """Repair the saved demo without generating content or publishing socially."""
+    pages = list(SITE_DIR.glob("*.html"))
+    if not pages:
+        raise RuntimeError("No saved HTML pages to repair")
+    for path in pages:
+        page = path.read_text(encoding="utf-8")
+        page = re.sub(r'href="/(?!/)', 'href="./', page)
+        page = re.sub(r"<style>.*?</style>", lambda _: "<style>" + CSS + "</style>", page, flags=re.DOTALL)
+        path.write_text(page, encoding="utf-8")
+    logger.info("Repaired %d saved pages", len(pages))
+
+
 if __name__ == "__main__":
     import sys
     logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
     if len(sys.argv) > 2 and sys.argv[1] == "--cname":
         generate_cname(sys.argv[2])
-    generate_site()
+    if "--repair-snapshot" in sys.argv:
+        repair_static_snapshot()
+    else:
+        generate_site()
