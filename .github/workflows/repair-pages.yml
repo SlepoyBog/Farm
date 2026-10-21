@@ -23,8 +23,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install python-dotenv==1.0.0
-      - run: python -m unittest test_pages_navigation test_site_generator test_seo_metadata -v
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -v
       - name: Rebuild existing articles only
         run: python src/site_generator.py --repair-snapshot
       - name: Save repaired snapshot and maintenance record
