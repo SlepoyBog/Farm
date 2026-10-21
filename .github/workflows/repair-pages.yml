@@ -1,0 +1,48 @@
+name: Rebuild static Pages demo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: farm-publish-main
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install python-dotenv==1.0.0
+      - run: python -m unittest test_pages_navigation test_site_generator test_seo_metadata -v
+      - name: Rebuild existing articles only
+        run: python src/site_generator.py --repair-snapshot
+      - name: Save repaired snapshot and maintenance record
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          version = Path('VERSION')
+          version.write_text(str(int(version.read_text().strip()) + 1) + '\n')
+          report = Path('FARM_REPORT.md')
+          report.write_text(report.read_text(encoding='utf-8') + '\n\n## 2026-10-21: Pages repair\n\nFixed project-relative navigation and responsive header in the generator and saved HTML snapshot. Static-only deployment; no generation APIs or social publication.\n', encoding='utf-8')
+          PY
+          git config user.name "Farm Bot"
+          git config user.email "farm-bot@users.noreply.github.com"
+          git add site VERSION FARM_REPORT.md
+          git commit -m "Save repaired Pages snapshot [skip ci]"
+          git push origin HEAD:main
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
