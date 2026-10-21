@@ -18,7 +18,7 @@
     <meta name="twitter:description" content="Киберспорт стал мейнстримом: аудитория превысила 600 млн, инвестиции растут, а турниры собирают стадионы. Узнайте, как виртуальные сражения меняют спорт и медиа.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800">
     <link rel="canonical" href="https://ubiquitous-peony-80d9cb.netlify.app/киберспорт-стал-мейнстримом.html">
-    <link rel="alternate" type="application/rss+xml" title="AI Блог — технологии, тренды, инсайты" href="/rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="AI Блог — технологии, тренды, инсайты" href="./rss.xml">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white'>A</text></svg>">
     <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -27,10 +27,10 @@ html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
 .container{max-width:840px;margin:0 auto;padding:0 24px}
 header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.header-inner{max-width:840px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
-header h1{font-size:1.1em;font-weight:700;letter-spacing:-.3px}
+.header-inner{max-width:840px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:12px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+header h1{flex:1 1 260px;line-height:1.35;font-size:1.1em;font-weight:700;letter-spacing:-.3px}
 header h1 a{color:var(--text);text-decoration:none}
-.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links{display:flex;gap:4px;align-items:center;flex:1 1 100%;flex-wrap:wrap}
 .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.85em;padding:6px 12px;border-radius:8px;transition:all .15s}
 .nav-links a:hover{color:var(--text);background:#f3f4f6}
 .nav-toggle{display:none;background:none;border:none;font-size:1.4em;cursor:pointer;padding:4px 8px;border-radius:8px;color:var(--text)}
@@ -85,7 +85,7 @@ article pre{background:#1a1a2e;color:#e5e7eb;padding:16px 20px;border-radius:8px
 .no-results{text-align:center;padding:60px 20px;color:var(--text-secondary)}
 @media(max-width:680px){
 .header-inner{padding:0 16px}
-.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px}
 .nav-links.open{display:flex}
 .nav-toggle{display:block}
 .article-card{flex-direction:column}
@@ -100,17 +100,17 @@ article h1{font-size:1.5em}
     <div class="reading-progress"></div>
     <header>
         <div class="header-inner">
-            <h1><a href="/">AI Блог — технологии, тренды, инсайты</a></h1>
+            <h1><a href="./">AI Блог — технологии, тренды, инсайты</a></h1>
             <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
-            <div class="nav-links"><a href="/niche-искусственный интеллект.html">AI</a><a href="/niche-авто.html">Авто</a><a href="/niche-технологии.html">Технологии</a><a href="/niche-здоровье.html">Здоровье</a><a href="/niche-финансы.html">Финансы</a><a href="/niche-бизнес.html">Бизнес</a><a href="/niche-образование.html">Образование</a><a href="/niche-спорт.html">Спорт</a><a href="/niche-кино.html">Кино</a><a href="/niche-путешествия.html">Путешествия</a></div>
+            <div class="nav-links"><a href="./niche-искусственный интеллект.html">AI</a><a href="./niche-авто.html">Авто</a><a href="./niche-технологии.html">Технологии</a><a href="./niche-здоровье.html">Здоровье</a><a href="./niche-финансы.html">Финансы</a><a href="./niche-бизнес.html">Бизнес</a><a href="./niche-образование.html">Образование</a><a href="./niche-спорт.html">Спорт</a><a href="./niche-кино.html">Кино</a><a href="./niche-путешествия.html">Путешествия</a></div>
         </div>
     </header>
     <main class="container">
         <article>
             <div class="breadcrumbs">
-                <a href="/">Главная</a>
+                <a href="./">Главная</a>
                 <span>/</span>
-                <a href="/niche-технологии.html">Технологии</a>
+                <a href="./niche-технологии.html">Технологии</a>
                 <span>/</span>
                 <span>Киберспорт стал мейнстримом: от подвала до Олимпийских арен</span>
             </div>
@@ -119,7 +119,7 @@ article h1{font-size:1.5em}
                 <span>22 мая 2026</span>
                 <span>·</span>
                 <span>2 минуты чтения</span>
-                <a href="/niche-технологии.html" class="niche-tag">Технологии</a>
+                <a href="./niche-технологии.html" class="niche-tag">Технологии</a>
             </div>
             <div style="margin-bottom:24px"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Киберспорт стал мейнстримом: от подвала до Олимпийских арен" style="width:100%;max-width:720px;border-radius:8px" loading="lazy"></div>
             <h1>🎮 Киберспорт стал мейнстримом: от подвала до Олимпийских арен</h1><h2>Введение: Киберспорт как новый культурный феномен</h2><p>Ещё 10 лет назад киберспорт ассоциировался с пыльными компьютерными клубами и стереотипами о «задротах». Сегодня это индустрия с миллиардными оборотами, заполненные стадионы и контракты, сравнимыми с контрактами звёзд НБА. 🏆 Киберспорт — уже не ниша, а полноценная часть поп-культуры, где виртуальные сражения собирают больше зрителей, чем финалы Супербоула.</p><h2>Рост аудитории и инвестиций в киберспорт</h2><p>Цифры говорят сами за себя:</p><ul><li>🌍 Аудитория киберспорта в 2025 году превысила 600 млн человек. Это каждый 13-й житель планеты.</li><li>💰 Инвестиции в индустрию выросли до $1.8 млрд. Спонсорами выступают не только бренды энергетиков, но и Louis Vuitton, Mercedes-Benz и Mastercard.</li><li>🎯 Крупные турниры, такие как The International по Dota 2, собирают призовые фонды свыше $40 млн.</li></ul><p>Пример: финал 2024 League of Legends World Championship посмотрели 6.4 млн человек — это больше, чем финал НФЛ. И да, билеты на арену в Сан-Франциско разлетелись за 10 минут. 🔥</p><h2>Влияние киберспорта на традиционные медиа и спорт</h2><p>Киберспорт меняет правила игры:</p><ul><li>📺 <strong>ТВ и стриминг</strong>: ESPN и BBC запускают киберспортивные рубрики, а Twitch и YouTube стали главными «стадионами» нового поколения.</li><li>🏀 <strong>Спортклубы</strong>: «Реал Мадрид», «ПСЖ» и «Голден Стэйт Уорриорз» создали свои киберспортивные дивизионы. Даже НБА запустила лигу NBA 2K League.</li><li>🎓 <strong>Образование</strong>: В США и Китае открыты сотни вузов с киберспортивными стипендиями. Студенты получают гранты за достижения в CS:GO и Valorant.</li></ul><p>Главный прорыв — признание киберспорта Олимпийским комитетом. Уже в 2026 году на Азиатских играх в Нагое будут разыграны медали по League of Legends и Street Fighter. 🥇</p><h2>Заключение: Перспективы и вызовы мейнстримного киберспорта</h2><p>У киберспорта есть три ключевых вызова: <strong>регуляция допинга</strong> (да, стимуляторы для пальцев — реальность), <strong>прозрачность контрактов</strong> и <strong>токсичность сообщества</strong>. Но перспективы перевешивают: к 2030 году индустрия может обогнать по доходам традиционный футбол. 🚀</p><p>Главный вопрос не в том, станет ли киберспорт мейнстримом — он уже им стал. Вопрос в том, как мы используем этот тренд: для развития молодёжи или просто как зрелище? Выбор за нами. 😉</p>
@@ -129,7 +129,7 @@ article h1{font-size:1.5em}
         </article>
     </main>
     <footer>
-        <p>&copy; 2026 AI Блог — технологии, тренды, инсайты &mdash; <a href="/rss.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/all.html">Все статьи</a></p>
+        <p>&copy; 2026 AI Блог — технологии, тренды, инсайты &mdash; <a href="./rss.xml">RSS</a> · <a href="./sitemap.xml">Sitemap</a> · <a href="./all.html">Все статьи</a></p>
     </footer>
 </body>
 </html>

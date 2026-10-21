@@ -517,3 +517,8 @@ git push origin main
 **⏰ Проверка:** При старте каждой сессии проверять дату последнего импорта. Если прошло >7 дней — напомнить пользователю скачать свежий XLS из VK Статистика → Содержание.
 
 > ✅ Последний импорт: 01.07.2026 — исправлен и обновлён (v191).
+
+
+## 2026-10-21: Pages repair
+
+Fixed project-relative navigation and responsive header in the generator and saved HTML snapshot. Static-only deployment; no generation APIs or social publication.

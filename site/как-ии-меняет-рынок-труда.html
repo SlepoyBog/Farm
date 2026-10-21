@@ -18,7 +18,7 @@
     <meta name="twitter:description" content="Как ИИ меняет рынок труда Введение Искусственный интеллект (ИИ) перестал быть футуристической концепцией и стал реальностью, активно внедряемой в бизнес-процессы по всему миру.">
     <meta name="twitter:image" content="">
     <link rel="canonical" href="https://ubiquitous-peony-80d9cb.netlify.app/как-ии-меняет-рынок-труда.html">
-    <link rel="alternate" type="application/rss+xml" title="AI Блог — технологии, тренды, инсайты" href="/rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="AI Блог — технологии, тренды, инсайты" href="./rss.xml">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white'>A</text></svg>">
     <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -27,10 +27,10 @@ html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
 .container{max-width:840px;margin:0 auto;padding:0 24px}
 header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.header-inner{max-width:840px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
-header h1{font-size:1.1em;font-weight:700;letter-spacing:-.3px}
+.header-inner{max-width:840px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:12px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+header h1{flex:1 1 260px;line-height:1.35;font-size:1.1em;font-weight:700;letter-spacing:-.3px}
 header h1 a{color:var(--text);text-decoration:none}
-.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links{display:flex;gap:4px;align-items:center;flex:1 1 100%;flex-wrap:wrap}
 .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.85em;padding:6px 12px;border-radius:8px;transition:all .15s}
 .nav-links a:hover{color:var(--text);background:#f3f4f6}
 .nav-toggle{display:none;background:none;border:none;font-size:1.4em;cursor:pointer;padding:4px 8px;border-radius:8px;color:var(--text)}
@@ -85,7 +85,7 @@ article pre{background:#1a1a2e;color:#e5e7eb;padding:16px 20px;border-radius:8px
 .no-results{text-align:center;padding:60px 20px;color:var(--text-secondary)}
 @media(max-width:680px){
 .header-inner{padding:0 16px}
-.nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px}
 .nav-links.open{display:flex}
 .nav-toggle{display:block}
 .article-card{flex-direction:column}
@@ -100,17 +100,17 @@ article h1{font-size:1.5em}
     <div class="reading-progress"></div>
     <header>
         <div class="header-inner">
-            <h1><a href="/">AI Блог — технологии, тренды, инсайты</a></h1>
+            <h1><a href="./">AI Блог — технологии, тренды, инсайты</a></h1>
             <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
-            <div class="nav-links"><a href="/niche-искусственный интеллект.html">AI</a><a href="/niche-авто.html">Авто</a><a href="/niche-технологии.html">Технологии</a><a href="/niche-здоровье.html">Здоровье</a><a href="/niche-финансы.html">Финансы</a><a href="/niche-бизнес.html">Бизнес</a><a href="/niche-образование.html">Образование</a><a href="/niche-спорт.html">Спорт</a><a href="/niche-кино.html">Кино</a><a href="/niche-путешествия.html">Путешествия</a></div>
+            <div class="nav-links"><a href="./niche-искусственный интеллект.html">AI</a><a href="./niche-авто.html">Авто</a><a href="./niche-технологии.html">Технологии</a><a href="./niche-здоровье.html">Здоровье</a><a href="./niche-финансы.html">Финансы</a><a href="./niche-бизнес.html">Бизнес</a><a href="./niche-образование.html">Образование</a><a href="./niche-спорт.html">Спорт</a><a href="./niche-кино.html">Кино</a><a href="./niche-путешествия.html">Путешествия</a></div>
         </div>
     </header>
     <main class="container">
         <article>
             <div class="breadcrumbs">
-                <a href="/">Главная</a>
+                <a href="./">Главная</a>
                 <span>/</span>
-                <a href="/"></a>
+                <a href="./"></a>
                 <span>/</span>
                 <span>Как ИИ меняет рынок труда</span>
             </div>
@@ -246,7 +246,7 @@ article h1{font-size:1.5em}
         </article>
     </main>
     <footer>
-        <p>&copy; 2026 AI Блог — технологии, тренды, инсайты &mdash; <a href="/rss.xml">RSS</a> · <a href="/sitemap.xml">Sitemap</a> · <a href="/all.html">Все статьи</a></p>
+        <p>&copy; 2026 AI Блог — технологии, тренды, инсайты &mdash; <a href="./rss.xml">RSS</a> · <a href="./sitemap.xml">Sitemap</a> · <a href="./all.html">Все статьи</a></p>
     </footer>
 </body>
 </html>
